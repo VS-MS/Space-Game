@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public int hp;
-    public float maxSpeed = 10f;                    // The fastest the player can travel in the x axis.
-    public float boostForce = 400f;                  // Amount of force added when the player boost.
-    public float rotationSpeed = 1f;
+    public int armorPoints;							 //Уровень хп брони корабля
+	public int shieldPoint;							 //Уровень щита корабля
+
+    public float maxSpeed = 10f;                     // максимальная скорость, которую может развить корабль
+    public float boostForce = 400f;                  // ускорение корабля
+    public float rotationSpeed = 1f;				 //Скорость вращения корабля 
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,10 @@ public class Unit : MonoBehaviour
         
     }
 
+	public void ReciveDamage(int damage)			//простая функция для получения урона(если далее буду вводить shield, нужно переделать!)
+	{
+		armorPoints -= damage; 
+	}
     // Update is called once per frame
     void Update()
     {

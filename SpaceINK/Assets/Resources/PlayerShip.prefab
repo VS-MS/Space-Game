@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6760838903751396713}
   - component: {fileID: 6291984215524662933}
   m_Layer: 0
-  m_Name: MainShip
+  m_Name: PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
