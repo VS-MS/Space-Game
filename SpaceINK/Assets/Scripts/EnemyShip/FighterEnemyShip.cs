@@ -60,7 +60,7 @@ public class FighterEnemyShip : EnemyShip
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1.5f);
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше
-        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (distance/radarRadius)));
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude/radarRadius)));
     }
     void LateUpdate()
     {
@@ -93,7 +93,6 @@ public class FighterEnemyShip : EnemyShip
         {
             Debug.DrawLine(transform.position, playerShip.transform.position, Color.red);
             Debug.DrawLine(transform.position, CalculateAim(), Color.yellow);
-            Debug.DrawLine(playerShip.transform.position, playerShip.GetComponent<Rigidbody2D>().velocity, Color.magenta);
         }
 
     }

@@ -19,6 +19,7 @@ public class PlayerShip : Unit {
 	// Update is called once per frame
 	void Update () {
         m_velocite = m_Rigidbody2D.velocity;//vivod skorost
+        Debug.DrawLine(transform.position, transform.position + (Vector3)m_velocite);
     }
 
     private void Awake()

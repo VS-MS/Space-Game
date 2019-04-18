@@ -100,7 +100,7 @@ MonoBehaviour:
   armorPoints: 0
   shieldPoint: 0
   maxSpeed: 10
-  boostForce: 150
+  boostForce: 50
   rotationSpeed: 2
   radarRadius: 80
   targetingPosition: {x: 0, y: 0, z: 0}
