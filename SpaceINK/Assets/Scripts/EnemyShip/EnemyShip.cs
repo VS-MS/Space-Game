@@ -4,8 +4,31 @@ using UnityEngine;
 
 public class EnemyShip : Unit
 {
+    //Радиус обнаружения противника
+    public float radarRadius = 30;
+    //Точка, по которой будет стрелять турель в случае обнаружения цели, по умолчанию это сама цель
+    public Vector3 targetingPosition;
+    protected float bulletSpeed = 0.1f;
+
+    protected enum State
+    {
+        Idle,       //состояние покоя
+        Atack,      //цель найдена, атакуем
+        Patrol,     //патрулирование
+    }
+    //начальное и текущее состояние
+    protected State state = State.Idle;
+    protected GameObject playerShip;
+    //вектор выходящий из данного объекта в корабль игрока
+    protected Vector3 heading;
+
     // Start is called before the first frame update
     void Start()
+    {
+        
+    }
+
+    private void Awake()
     {
         
     }
@@ -15,4 +38,7 @@ public class EnemyShip : Unit
     {
         
     }
+
+    //Для удобства - в окне редактора покажем радиус поражения турели и некоторые дополнительные данные
+    
 }

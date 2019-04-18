@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6291984215524662933}
   m_Layer: 0
   m_Name: PlayerShip
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,8 +126,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0.5
+  m_Mass: 10
+  m_LinearDrag: 0.1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -177,10 +177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7020381b844b94fad3e8a6cbdda354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  armorPoints: 0
+  shieldPoint: 0
   maxSpeed: 10
   boostForce: 200
-  rotationSpeed: 1
+  rotationSpeed: 3
   m_velocite: {x: 0, y: 0}
 --- !u!114 &6291984215524662933
 MonoBehaviour:

@@ -26,7 +26,6 @@ public class PlayerShipControl : MonoBehaviour {
         //Debug.Log(CnInputManager.GetButtonDown("Jump"));
         if (CnInputManager.GetButton("Boost"))
         {
-            Debug.Log("Boost");
             m_Ship.Boost();
         }
 
