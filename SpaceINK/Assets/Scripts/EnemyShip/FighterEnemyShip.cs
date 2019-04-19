@@ -7,13 +7,10 @@ public class FighterEnemyShip : EnemyShip
 {
     Vector3 previousTargetPosition;
     private Vector3 targetSpeed;
-    //начальная позиция коробля, используется для возврата, если цель не найдена
-    private Vector3 startPoint;
 
     private void Awake()
     {
         playerShip = GameObject.FindGameObjectWithTag("Player");
-        startPoint = transform.position;
     }
     // Start is called before the first frame update
     void Start()
@@ -36,7 +33,6 @@ public class FighterEnemyShip : EnemyShip
         else
         {
             state = State.Idle;
-            FollowingPoint(startPoint);
         }
         DebugLine();
 
@@ -64,30 +60,7 @@ public class FighterEnemyShip : EnemyShip
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1.5f);
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше
-        if (distance >=2)
-        {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
-        }
-        
-    }
-
-    //передвежение в указанную точку
-    private void FollowingPoint(Vector3 point)
-    {
-        //вектор от коробля до точки следования
-        var headingAim = point - gameObject.transform.position;
-        //находим растояние
-        var distance = headingAim.magnitude;
-        //вектор направления
-        var direction = headingAim / distance;
-        //Вычисляем угол между данным объектом и точкой следования
-        float angle = Mathf.Atan2(headingAim.y, headingAim.x) * Mathf.Rad2Deg - 90;
-        //Ищем квантарион этого угла
-        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        //плавно прварачиваем объект
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1.5f);
-        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
-
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude/radarRadius)));
     }
     void LateUpdate()
     {
