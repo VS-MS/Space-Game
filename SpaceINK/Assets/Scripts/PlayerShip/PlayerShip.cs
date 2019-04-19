@@ -20,6 +20,7 @@ public class PlayerShip : Unit {
 	void Update () {
         m_velocite = m_Rigidbody2D.velocity;//vivod skorost
         Debug.DrawLine(transform.position, transform.position + (Vector3)m_velocite);
+        //Debug.Log(m_Rigidbody2D.velocity.magnitude);
     }
 
     private void Awake()
@@ -34,7 +35,11 @@ public class PlayerShip : Unit {
     }
     public void Boost()
     {
-        m_Rigidbody2D.AddForce(transform.up * boostForce);
+        if(m_Rigidbody2D.velocity.magnitude < maxSpeed)
+        {
+            m_Rigidbody2D.AddForce(transform.up * boostForce);
+        }
+        
         //m_Rigidbody2D.velocity = new Vector2(m_MaxSpeed, m_Rigidbody2D.velocity.y);
         //Debug.Log(boostForce);
     }

@@ -99,9 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armorPoints: 0
   shieldPoint: 0
-  maxSpeed: 10
-  boostForce: 50
-  rotationSpeed: 2
+  maxSpeed: 8
+  boostForce: 80
+  rotationSpeed: 3
   radarRadius: 80
   targetingPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8338244839459720246

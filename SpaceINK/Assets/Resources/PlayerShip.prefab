@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armorPoints: 0
   shieldPoint: 0
-  maxSpeed: 10
+  maxSpeed: 20
   boostForce: 200
   rotationSpeed: 3
   m_velocite: {x: 0, y: 0}
