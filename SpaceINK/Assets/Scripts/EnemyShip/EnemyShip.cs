@@ -8,7 +8,7 @@ public class EnemyShip : Unit
     public float radarRadius = 30;
     //Точка, по которой будет стрелять турель в случае обнаружения цели, по умолчанию это сама цель
     public Vector3 targetingPosition;
-    protected float bulletSpeed = 0.1f;
+    
 
     protected enum State
     {
