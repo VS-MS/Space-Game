@@ -97,13 +97,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b647ce39188af40a75151d42b42a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armorPoints: 0
+  armorPoints: 100
   shieldPoint: 0
-  maxSpeed: 10
+  maxSpeed: 9
   boostForce: 50
-  rotationSpeed: 2
+  rotationSpeed: 4
   radarRadius: 80
   targetingPosition: {x: 0, y: 0, z: 0}
+  simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
+    type: 3}
+  bulletSpeed: 40
+  fireDelta: 0.5
 --- !u!1 &8338244839459720246
 GameObject:
   m_ObjectHideFlags: 0

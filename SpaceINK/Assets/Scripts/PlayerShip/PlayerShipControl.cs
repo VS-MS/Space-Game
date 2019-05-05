@@ -38,12 +38,22 @@ public class PlayerShipControl : MonoBehaviour {
 
         if (CnInputManager.GetButton("Left"))
         {
-            m_Ship.Move(-1);
+            m_Ship.Move(1);
+        }
+
+        if (CnInputManager.GetButtonUp("Left"))
+        {
+            m_Ship.RotationTime = 0;
+        }
+
+        if(CnInputManager.GetButtonUp("Right"))
+        {
+            m_Ship.RotationTime = 0;
         }
 
         if (CnInputManager.GetButton("Right"))
         {
-            m_Ship.Move(1);
+            m_Ship.Move(-1);
         }
 
     }
