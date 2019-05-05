@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public int armorPoints;							 //Уровень хп брони корабля
-	public int shieldPoint;							 //Уровень щита корабля
+    public float armorPoints;							 //Уровень хп брони корабля
+	public float shieldPoint;							 //Уровень щита корабля
 
     public float maxSpeed = 10f;                     // максимальная скорость, которую может развить корабль
     public float boostForce = 400f;                  // ускорение корабля
@@ -17,13 +17,29 @@ public class Unit : MonoBehaviour
         
     }
 
-	public void ReciveDamage(int damage)			//простая функция для получения урона(если далее буду вводить shield, нужно переделать!)
+    //Получаем урон
+	public void ReceiveDamage(float damage)			//простая функция для получения урона(если далее буду вводить shield, нужно переделать!)
 	{
-		armorPoints -= damage; 
-	}
-    // Update is called once per frame
-    void Update()
-    {
-        
+		armorPoints -= damage;
+        if (armorPoints <= 0) Destroy(gameObject, 0.01f);
     }
+
+    //Уничтожаем объект с задержкой
+    public virtual void Die(float delay)
+    {
+        Destroy(gameObject, delay);
+    }
+
+    //Проигрыватель для звуков
+    public void PlayAudioAtPoint(AudioClip clip, float pitch, float soundvolume, float delayed)
+    {
+        GameObject go = new GameObject("Audio Shot");
+        AudioSource source = go.AddComponent<AudioSource>();
+        source.clip = clip;
+        source.volume = soundvolume;
+        source.pitch = pitch;
+        source.PlayDelayed(delayed);
+        GameObject.Destroy(go, clip.length);
+    }
+
 }

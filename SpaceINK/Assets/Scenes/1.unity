@@ -574,11 +574,6 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 66735713295600835, guid: dfe86760a25700b4999f66271c58ea93,
-        type: 3}
-      propertyPath: bulletSpeed
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfe86760a25700b4999f66271c58ea93, type: 3}
 --- !u!1 &761622017
@@ -597,7 +592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &761622018
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1000,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865994130098010, guid: abc3c68201dbe464b9be7570bd35592d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.231
       objectReference: {fileID: 0}
     - target: {fileID: 4865994130098010, guid: abc3c68201dbe464b9be7570bd35592d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1081,19 +1076,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760838903751396713, guid: abc3c68201dbe464b9be7570bd35592d,
         type: 3}
-      propertyPath: rotationSpeed
-      value: 8
+      propertyPath: fireDelta
+      value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 6760838903751396713, guid: abc3c68201dbe464b9be7570bd35592d,
+    - target: {fileID: 3625511514098380437, guid: abc3c68201dbe464b9be7570bd35592d,
         type: 3}
-      propertyPath: maxSpeed
-      value: 12
+      propertyPath: m_LocalPosition.x
+      value: 0.03
       objectReference: {fileID: 0}
-    - target: {fileID: 6760838903751396713, guid: abc3c68201dbe464b9be7570bd35592d,
+    - target: {fileID: 3625511514098380437, guid: abc3c68201dbe464b9be7570bd35592d,
         type: 3}
-      propertyPath: boostForce
-      value: 150
+      propertyPath: m_LocalPosition.y
+      value: -1.02
       objectReference: {fileID: 0}
+    - target: {fileID: 2345828702878699517, guid: abc3c68201dbe464b9be7570bd35592d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb7d92612b7e208418b4d1f7f53315dd, type: 2}
+    - target: {fileID: 2345828702878699517, guid: abc3c68201dbe464b9be7570bd35592d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb7d92612b7e208418b4d1f7f53315dd, type: 2}
+    - target: {fileID: 2345828702878699517, guid: abc3c68201dbe464b9be7570bd35592d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb7d92612b7e208418b4d1f7f53315dd, type: 2}
+    - target: {fileID: 2345828702878699517, guid: abc3c68201dbe464b9be7570bd35592d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb7d92612b7e208418b4d1f7f53315dd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc3c68201dbe464b9be7570bd35592d, type: 3}
 --- !u!1001 &1924912249
@@ -1306,6 +1321,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FighterEnemyShip
       objectReference: {fileID: 0}
+    - target: {fileID: 8338244838157503301, guid: dfe86760a25700b4999f66271c58ea93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8338244838157503302, guid: dfe86760a25700b4999f66271c58ea93,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1371,6 +1391,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 66735713295600835, guid: dfe86760a25700b4999f66271c58ea93,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 66735713295600835, guid: dfe86760a25700b4999f66271c58ea93,
+        type: 3}
+      propertyPath: fireDelta
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 8338244838157503296, guid: dfe86760a25700b4999f66271c58ea93,
         type: 3}
       propertyPath: m_Mass
@@ -1380,11 +1410,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Simulated
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 66735713295600835, guid: dfe86760a25700b4999f66271c58ea93,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfe86760a25700b4999f66271c58ea93, type: 3}

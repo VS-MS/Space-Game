@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleBullet: MonoBehaviour
+public class PlayerBullet : MonoBehaviour
 {
+
     private GameObject parent;
     public GameObject Parent { set { parent = value; } }
 
     private float speed = 150.0f;
-    public float Speed { set { if (value > 0) speed = value; else speed = 0; } } 
+    public float Speed { set { if (value > 0) speed = value; else speed = 0; } }
     private Vector3 direction;
     public Vector3 Direction { set { direction = value; } }
 
@@ -32,10 +33,16 @@ public class SimpleBullet: MonoBehaviour
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         Destroy(gameObject, 5.5f);
-        //Debug.Log(rotation);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 
     private void FixedUpdate()
@@ -45,7 +52,8 @@ public class SimpleBullet: MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        Debug.Log(collision.tag);
+        if (collision.tag == "EnemyShip")
         {
             if (collision.gameObject.GetComponent<Unit>().armorPoints > 0)
             {
@@ -58,4 +66,6 @@ public class SimpleBullet: MonoBehaviour
             }
         }
     }
+
+
 }

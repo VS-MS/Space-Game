@@ -15,7 +15,7 @@ public class FighterEnemyShip : EnemyShip
     private Vector3 startPoint;
 
     public float fireDelta = 0.70F;//скорость стрельбы
-    private float nextFire = 0.5F;
+    //private float nextFire = 0.5F;
     private float myTime = 0.5F;//время прошло от последнего выстрела
 
     private void Awake()
@@ -34,9 +34,9 @@ public class FighterEnemyShip : EnemyShip
     {
         myTime = myTime + Time.deltaTime;
         
-        if (myTime > nextFire)
+        if (myTime > fireDelta)
         {
-            nextFire = myTime + fireDelta;
+            //nextFire = myTime + fireDelta;
 
             Vector3 position = m_Rigidbody2D.transform.position;
             //position.y += 0.4F;
@@ -48,34 +48,49 @@ public class FighterEnemyShip : EnemyShip
             //Debug.Log(m_Rigidbody2D.velocity.magnitude);
 
             //newBullet.color = buletcolor;
-            newBullet.Damage = 10;
+            newBullet.Damage = 0.1f;
 
-            nextFire = nextFire - myTime;
+            //nextFire = nextFire - myTime;
             myTime = 0.0F;
         }
     }
-
+    private void FixedUpdate()
+    {
+        if (myTime <= fireDelta) //считаемвремя до след выстрела
+        {
+            myTime = myTime + Time.deltaTime;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
 
-        //heading - вектор выходящий из данного объекта в корабль игрока
-        heading = playerShip.transform.position - gameObject.transform.position;
-
-        if (heading.sqrMagnitude < radarRadius * radarRadius) //проверяем, попал корабль игрока в зону радара
+        if(playerShip)
         {
-            state = State.Atack;
-            Chase();
-            Shoot();
+            //heading - вектор выходящий из данного объекта в корабль игрока
+            heading = playerShip.transform.position - gameObject.transform.position;
+
+            if (heading.sqrMagnitude < radarRadius * radarRadius) //проверяем, попал корабль игрока в зону радара
+            {
+                state = State.Atack;
+                Chase();
+                Shoot();
+            }
+            else
+            {
+                state = State.Idle;
+                FollowingPoint(startPoint);
+            }
+            DebugLine();
+
+            previousTargetPosition = playerShip.transform.position;
         }
         else
         {
             state = State.Idle;
             FollowingPoint(startPoint);
         }
-        DebugLine();
-
-        previousTargetPosition = playerShip.transform.position;
+        
     }
 
     //Погоня за кораблем противника, и удержание его на расстоянии выстрела
@@ -101,9 +116,8 @@ public class FighterEnemyShip : EnemyShip
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше
         if (distance >=2 && m_Rigidbody2D.velocity.magnitude <= maxSpeed)
         {
-            Debug.Log(m_Rigidbody2D.velocity.magnitude);
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
+            //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }
         
     }
@@ -129,10 +143,6 @@ public class FighterEnemyShip : EnemyShip
         }
         
 
-    }
-    void LateUpdate()
-    {
-        
     }
 
 
