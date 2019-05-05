@@ -9,14 +9,12 @@ public class PlayerShip : Unit {
     [SerializeField]
     private float bulletSpeed = 80f;
     public float fireDelta = 0.70F;//скорость стрельбы
-    //private float nextFire = 0.0F;
     private float myTime = 0.5F;//время прошло от последнего выстрела
 
     [SerializeField]
     private Vector2 m_velocite;
     //[SerializeField]
     private Rigidbody2D m_Rigidbody2D;
-    //private bool m_FacingRight = true;
     private float rotationTime;
     public float RotationTime { set { if (value >= 0 & value <= 1) rotationTime = value; else rotationTime = 0.01f; } }
     void Start () {
@@ -27,7 +25,6 @@ public class PlayerShip : Unit {
 	void Update () {
         m_velocite = m_Rigidbody2D.velocity;//vivod skorost
         Debug.DrawLine(transform.position, transform.position + (Vector3)m_velocite);
-        //Debug.Log(m_Rigidbody2D.velocity.magnitude);
     }
 
     private void FixedUpdate()
@@ -45,7 +42,7 @@ public class PlayerShip : Unit {
 
     public void Move(float move)
     {
-        //m_Rigidbody2D.transform.Rotate(new Vector3(0, 0, - move * rotationSpeed));
+        //Переменная для поворота с ускорением
         if(rotationTime < 1f)
         {
             rotationTime += Time.deltaTime;
@@ -62,9 +59,6 @@ public class PlayerShip : Unit {
         {
             m_Rigidbody2D.AddForce(transform.up * boostForce);
         }
-        
-        //m_Rigidbody2D.velocity = new Vector2(m_MaxSpeed, m_Rigidbody2D.velocity.y);
-        //Debug.Log(boostForce);
     }
 
     public void Shoot()
