@@ -60,12 +60,8 @@ public class FighterEnemyShip : EnemyShip
         {
             myTime = myTime + Time.deltaTime;
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
 
-        if(playerShip)
+        if (playerShip)
         {
             //heading - вектор выходящий из данного объекта в корабль игрока
             heading = playerShip.transform.position - gameObject.transform.position;
@@ -90,6 +86,12 @@ public class FighterEnemyShip : EnemyShip
             state = State.Idle;
             FollowingPoint(startPoint);
         }
+    }
+    // Update is called once per frame
+    private void Update()
+    {
+
+        
         
     }
 
@@ -113,11 +115,11 @@ public class FighterEnemyShip : EnemyShip
         //плавно прварачиваем объект
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
         //Ускоряемсяв сторону коробля игрока
-        //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше
-        if (distance >=2 && m_Rigidbody2D.velocity.magnitude <= maxSpeed)
+        //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
+        if (/*distance >=2 &&*/ m_Rigidbody2D.velocity.magnitude <= maxSpeed)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
+            //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }
         
     }
@@ -158,7 +160,7 @@ public class FighterEnemyShip : EnemyShip
         for (int i = 0; i < 4; i++)
         {
             float dist = (transform.position - targetingPosition).magnitude;
-            float timeToTarget = dist / (bulletSpeed);
+            float timeToTarget = dist / bulletSpeed;
             targetingPosition = playerShip.transform.position + targetSpeed * timeToTarget;
         }
 

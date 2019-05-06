@@ -40,7 +40,7 @@ public class SimpleBullet: MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + (direction * 10), speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
