@@ -8,7 +8,7 @@ public class SimpleBullet: MonoBehaviour
     public GameObject Parent { set { parent = value; } }
 
     private float speed = 150.0f;
-    public float Speed { set { if (value > 0) speed = value; else speed = 0; } } 
+    public float Speed { set { if (value > 0) speed = value; else speed = 1; } } 
     private Vector3 direction;
     public Vector3 Direction { set { direction = value; } }
 
@@ -40,7 +40,8 @@ public class SimpleBullet: MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + (direction * 2), speed);
+        Debug.Log(speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

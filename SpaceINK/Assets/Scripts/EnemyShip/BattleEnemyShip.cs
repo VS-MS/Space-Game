@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FighterEnemyShip : Unit
+public class BattleEnemyShip : Unit
 {
-
     //Радиус обнаружения противника
     public float radarRadius = 30;
     //Точка, по которой будет стрелять турель в случае обнаружения цели, по умолчанию это сама цель
@@ -27,8 +26,11 @@ public class FighterEnemyShip : Unit
     private SimpleBullet simpleBullet;
     [SerializeField]
     private float bulletSpeed = 0.1f;
+    public GameObject[] turretArray;
+    [SerializeField]
+    private float turretRotationSpeed;
     private Rigidbody2D m_Rigidbody2D;
-    Vector3 previousTargetPosition;
+    private Vector3 previousTargetPosition;
     private Vector3 targetSpeed;
     //начальная позиция коробля, используется для возврата, если цель не найдена
     private Vector3 startPoint;
@@ -37,40 +39,20 @@ public class FighterEnemyShip : Unit
     //private float nextFire = 0.5F;
     private float myTime = 0.5F;//время прошло от последнего выстрела
 
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
         startPoint = transform.position;
     }
+
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
-    private void Shoot()
-    {    
-        if (myTime > fireDelta)
-        {
-            //nextFire = myTime + fireDelta;
-
-            Vector3 position = m_Rigidbody2D.transform.position;
-            //position.y += 0.4F;
-            SimpleBullet newBullet = Instantiate(simpleBullet, position, simpleBullet.transform.rotation) as SimpleBullet;
-            newBullet.Speed = bulletSpeed;
-            newBullet.Parent = gameObject;
-            //newBullet.Direction = newBullet.transform.right * (-direction.x < 0.0F ? 1.0F : -1.0F) + new Vector3(0f, Random.Range(-0.10f, 0.20f), 0f);  //Направление полета пули(магия логических выражений) выражение которое проверяем ? что сделать1 если true: что сделать 2 если false
-            newBullet.Direction = m_Rigidbody2D.transform.up;
-            //Debug.Log(m_Rigidbody2D.velocity.magnitude);
-
-            //newBullet.color = buletcolor;
-            newBullet.Damage = 0.1f;
-
-            //nextFire = nextFire - myTime;
-            myTime = 0.0F;
-        }
-    }
     private void FixedUpdate()
     {
         if (myTime <= fireDelta) //считаемвремя до след выстрела
@@ -87,7 +69,7 @@ public class FighterEnemyShip : Unit
             {
                 state = State.Atack;
                 Chase();
-                Shoot();
+                //Shoot();
             }
             else
             {
@@ -104,16 +86,33 @@ public class FighterEnemyShip : Unit
             FollowingPoint(startPoint);
         }
     }
-    // Update is called once per frame
-    private void Update()
-    {
 
-        
+    // Update is called once per frame
+    void Update()
+    {
         
     }
 
-    //Погоня за кораблем противника, и удержание его на расстоянии выстрела
-    //Корабль поварачиваем в сторону предпологаемого выстрела на опережение
+    private void FollowingPoint(Vector3 point)
+    {
+        //вектор от коробля до точки следования
+        var headingAim = point - gameObject.transform.position;
+        //находим растояние
+        var distance = headingAim.magnitude;
+        //вектор направления
+        var direction = headingAim / distance;
+        //Вычисляем угол между данным объектом и точкой следования
+        float angle = Mathf.Atan2(headingAim.y, headingAim.x) * Mathf.Rad2Deg - 90;
+        //Ищем квантарион этого угла
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        //плавно прварачиваем объект
+        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1.5f);
+        if (m_Rigidbody2D.velocity.magnitude <= maxSpeed)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
+        }
+    }
+
     private void Chase()
     {
         //Узнаем скорость цели
@@ -131,6 +130,14 @@ public class FighterEnemyShip : Unit
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
+        //Поворачиваем башни в сторону цели
+        for (int i = 0; i < turretArray.Length; i++)
+        {
+            turretArray[i].transform.rotation = Quaternion.Slerp(turretArray[i].transform.rotation, q, Time.deltaTime * turretRotationSpeed);
+            turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
+            turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
+        }   
+        Debug.Log(turretArray[0].transform.rotation);
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
         if (/*distance >=2 &&*/ m_Rigidbody2D.velocity.magnitude <= maxSpeed)
@@ -138,28 +145,7 @@ public class FighterEnemyShip : Unit
             //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }
-        
-    }
 
-    //передвежение в указанную точку
-    private void FollowingPoint(Vector3 point)
-    {
-        //вектор от коробля до точки следования
-        var headingAim = point - gameObject.transform.position;
-        //находим растояние
-        var distance = headingAim.magnitude;
-        //вектор направления
-        var direction = headingAim / distance;
-        //Вычисляем угол между данным объектом и точкой следования
-        float angle = Mathf.Atan2(headingAim.y, headingAim.x) * Mathf.Rad2Deg - 90;
-        //Ищем квантарион этого угла
-        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        //плавно прварачиваем объект
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1.5f);
-        if(m_Rigidbody2D.velocity.magnitude <= maxSpeed)
-        {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
-        }   
     }
 
     protected virtual Vector3 CalculateAim()
@@ -194,5 +180,4 @@ public class FighterEnemyShip : Unit
     {
         Gizmos.DrawWireSphere(transform.position, radarRadius);
     }
-
 }
