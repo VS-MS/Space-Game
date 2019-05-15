@@ -2,34 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FighterEnemyShip : Unit
+public class FighterEnemyShip : EnemyShip
 {
 
-    //Радиус обнаружения противника
-    public float radarRadius = 30;
-    //Точка, по которой будет стрелять турель в случае обнаружения цели, по умолчанию это сама цель
-    public Vector3 targetingPosition;
-
-
-    private enum State
-    {
-        Idle,       //состояние покоя
-        Atack,      //цель найдена, атакуем
-        Patrol,     //патрулирование
-    }
-    //начальное и текущее состояние
-    private State state = State.Idle;
-    public GameObject playerShip;
     //вектор выходящий из данного объекта в корабль игрока
     private Vector3 heading;
 
     [SerializeField]
     private SimpleBullet simpleBullet;
-    [SerializeField]
-    private float bulletSpeed = 0.1f;
-    private Rigidbody2D m_Rigidbody2D;
-    Vector3 previousTargetPosition;
-    private Vector3 targetSpeed;
     //начальная позиция коробля, используется для возврата, если цель не найдена
     private Vector3 startPoint;
 
@@ -53,8 +33,6 @@ public class FighterEnemyShip : Unit
     {    
         if (myTime > fireDelta)
         {
-            //nextFire = myTime + fireDelta;
-
             Vector3 position = m_Rigidbody2D.transform.position;
             //position.y += 0.4F;
             SimpleBullet newBullet = Instantiate(simpleBullet, position, simpleBullet.transform.rotation) as SimpleBullet;
@@ -95,8 +73,6 @@ public class FighterEnemyShip : Unit
                 FollowingPoint(startPoint);
             }
             DebugLine();
-
-            previousTargetPosition = playerShip.transform.position;
         }
         else
         {
@@ -107,7 +83,6 @@ public class FighterEnemyShip : Unit
     // Update is called once per frame
     private void Update()
     {
-
         
         
     }
