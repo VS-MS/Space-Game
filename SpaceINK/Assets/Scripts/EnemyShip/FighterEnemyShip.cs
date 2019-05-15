@@ -116,8 +116,7 @@ public class FighterEnemyShip : Unit
     //Корабль поварачиваем в сторону предпологаемого выстрела на опережение
     private void Chase()
     {
-        //Узнаем скорость цели
-        targetSpeed = playerShip.GetComponent<Rigidbody2D>().velocity;
+        
         var headingAim = CalculateAim() - gameObject.transform.position;
         //distance - растояние от данного объекта до корабль игрока
         var distance = headingAim.magnitude;
@@ -168,13 +167,17 @@ public class FighterEnemyShip : Unit
         //которая находится перед движущейся целью и по которой будет стрелять турель.
         //То есть турель должна стрелять на опережение
         targetingPosition = playerShip.transform.position;
-
+        //Узнаем скорость цели
+        targetSpeed = playerShip.GetComponent<Rigidbody2D>().velocity;
         //Высчитываем точку, перед мишенью, по которой нужно произвести выстрел, чтобы попасть по движущейся мишени
         //по идее, чем больше итераций, тем точнее будет положение точки для упреждающего выстрела
         for (int i = 0; i < 4; i++)
         {
             float dist = (transform.position - targetingPosition).magnitude;
-            float timeToTarget = dist / bulletSpeed;
+            //Почему скорость умножаем на 50 ? - не знаю =), видимо какой-то коэффицент, 
+            //его нашел сравнив значение велосити объекта и растоянием, 
+            //проходимым за один FixedUpdate этого объекта(это собственно и есть bulletSpeed)
+            float timeToTarget = dist / (bulletSpeed * 50);
             targetingPosition = playerShip.transform.position + targetSpeed * timeToTarget;
         }
 

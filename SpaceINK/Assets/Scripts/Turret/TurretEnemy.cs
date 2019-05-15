@@ -34,7 +34,6 @@ public class TurretEnemy : MonoBehaviour
         if (myTime > fireDelta)
         {
             //nextFire = myTime + fireDelta;
-            Debug.Log(simpleBullet);
             Vector3 position = this.transform.position;
             //position.y += 0.4F;
             SimpleBullet newBullet = Instantiate(simpleBullet, position, simpleBullet.transform.rotation) as SimpleBullet;

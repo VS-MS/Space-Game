@@ -35,13 +35,12 @@ public class SimpleBullet: MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, 5.5f);
-        //Debug.Log(rotation);
     }
 
     private void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + (direction * 2), speed);
-        Debug.Log(speed);
+        //Debug.Log(speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

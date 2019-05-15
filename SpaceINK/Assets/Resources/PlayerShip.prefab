@@ -186,11 +186,11 @@ MonoBehaviour:
   shieldPoint: 0
   maxSpeed: 12
   boostForce: 150
-  rotationSpeed: 4
+  rotationSpeed: 100
   playerBullet: {fileID: 7035233454327686688, guid: 0fde5d9d2d9811748a820dd40f5b925e,
     type: 3}
-  bulletSpeed: 80
-  fireDelta: 0.2
+  bulletSpeed: 1
+  fireDelta: 0.1
   m_velocite: {x: 0, y: 0}
 --- !u!114 &6291984215524662933
 MonoBehaviour:

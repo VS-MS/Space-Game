@@ -17,9 +17,9 @@ public class PlayerShip : Unit {
     private Rigidbody2D m_Rigidbody2D;
     private float rotationTime;
     public float RotationTime { set { if (value >= 0 & value <= 1) rotationTime = value; else rotationTime = 0.01f; } }
+
     void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -33,6 +33,7 @@ public class PlayerShip : Unit {
         {
             myTime = myTime + Time.deltaTime;
         }
+
     }
 
     private void Awake()
@@ -46,9 +47,8 @@ public class PlayerShip : Unit {
         if(rotationTime < 1f)
         {
             rotationTime += Time.deltaTime;
-            Debug.Log(rotationTime);
         }
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, this.transform.rotation * Quaternion.Euler(0f, 0f, rotationSpeed * move), rotationTime);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, this.transform.rotation * Quaternion.Euler(0f, 0f, rotationSpeed * move * Time.deltaTime), rotationTime);
     }
 
 

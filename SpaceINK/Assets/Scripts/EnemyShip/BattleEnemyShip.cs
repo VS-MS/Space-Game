@@ -115,8 +115,7 @@ public class BattleEnemyShip : Unit
 
     private void Chase()
     {
-        //Узнаем скорость цели
-        targetSpeed = playerShip.GetComponent<Rigidbody2D>().velocity;
+        
         var headingAim = CalculateAim() - gameObject.transform.position;
         //distance - растояние от данного объекта до корабль игрока
         var distance = headingAim.magnitude;
@@ -137,7 +136,6 @@ public class BattleEnemyShip : Unit
             turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
             turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
         }   
-        Debug.Log(turretArray[0].transform.rotation);
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
         if (/*distance >=2 &&*/ m_Rigidbody2D.velocity.magnitude <= maxSpeed)
@@ -154,13 +152,16 @@ public class BattleEnemyShip : Unit
         //которая находится перед движущейся целью и по которой будет стрелять турель.
         //То есть турель должна стрелять на опережение
         targetingPosition = playerShip.transform.position;
-
+        //Узнаем скорость цели
+        targetSpeed = playerShip.GetComponent<Rigidbody2D>().velocity;
+        //Debug.Log("PlayerShipVelosity = " + targetSpeed);
         //Высчитываем точку, перед мишенью, по которой нужно произвести выстрел, чтобы попасть по движущейся мишени
         //по идее, чем больше итераций, тем точнее будет положение точки для упреждающего выстрела
         for (int i = 0; i < 4; i++)
         {
             float dist = (transform.position - targetingPosition).magnitude;
-            float timeToTarget = dist / bulletSpeed;
+            //Debug.Log("dist = " + dist);
+            float timeToTarget = dist / (bulletSpeed * 50);
             targetingPosition = playerShip.transform.position + targetSpeed * timeToTarget;
         }
 

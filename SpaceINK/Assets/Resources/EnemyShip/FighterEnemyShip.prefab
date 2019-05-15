@@ -101,13 +101,14 @@ MonoBehaviour:
   shieldPoint: 0
   maxSpeed: 9
   boostForce: 50
-  rotationSpeed: 4
+  rotationSpeed: 5
   radarRadius: 80
   targetingPosition: {x: 0, y: 0, z: 0}
+  playerShip: {fileID: 0}
   simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
     type: 3}
-  bulletSpeed: 40
-  fireDelta: 0.5
+  bulletSpeed: 1
+  fireDelta: 0.8
 --- !u!1 &8338244839459720246
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +176,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 19
   m_Sprite: {fileID: 21300000, guid: 0d02438e7d965f94b84279b1ec078573, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
