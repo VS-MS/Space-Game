@@ -96,7 +96,6 @@ public class BattleEnemyShip : EnemyShip
 
         //Вычисляем угол между данным объектом и кораблем игрока в градах
         float angle = Mathf.Atan2(headingAim.y, headingAim.x) * Mathf.Rad2Deg - 90;
-
         //Ищем квантарион этого угла
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект

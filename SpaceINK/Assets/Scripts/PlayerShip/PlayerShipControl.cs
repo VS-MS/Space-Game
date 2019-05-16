@@ -16,14 +16,6 @@ public class PlayerShipControl : MonoBehaviour {
 
     private void Update()
     {
-        /*if (!m_Boost)
-        {
-            // Read the jump input in Update so button presses aren't missed.
-            m_Boost = CnInputManager.GetButtonDown("Boost");
-            //Debug.Log("Boost");
-        }*/
-        //Debug.Log(CnInputManager.GetButton("jump"));
-        //Debug.Log(CnInputManager.GetButtonDown("Jump"));
         if (CnInputManager.GetButton("Boost"))
         {
             m_Ship.Boost();
@@ -33,7 +25,6 @@ public class PlayerShipControl : MonoBehaviour {
         if (CnInputManager.GetButton("Fire"))
         {
             m_Ship.Shoot();
-            //m_Ship.Shoot();
         }
 
         if (CnInputManager.GetButton("Left"))
@@ -56,13 +47,18 @@ public class PlayerShipControl : MonoBehaviour {
             m_Ship.Move(-1);
         }
 
+        // Just use CnInputManager. instead of Input. and you're good to go
+        var inputVector = new Vector3(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical"));
+        m_Ship.Boost(inputVector.magnitude);
+        if (inputVector.sqrMagnitude > 0.001f)
+        {
+            m_Ship.Move(inputVector);
+        }   
+
     }
 
     private void FixedUpdate()
     {
 
-        //float h = CnInputManager.GetAxis("Horizontal");
-        // Pass all parameters to the character control script.
-        //m_Ship.Move(h);
     }
 }

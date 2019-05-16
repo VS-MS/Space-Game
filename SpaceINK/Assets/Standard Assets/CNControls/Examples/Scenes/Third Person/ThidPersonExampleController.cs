@@ -34,6 +34,7 @@ public class ThidPersonExampleController : MonoBehaviour
             movementVector.y = 0f;
             movementVector.Normalize();
             _transform.forward = movementVector;
+            Debug.Log(movementVector);
         }
 
         movementVector += Physics.gravity;

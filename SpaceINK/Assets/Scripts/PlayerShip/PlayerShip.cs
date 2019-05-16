@@ -51,6 +51,15 @@ public class PlayerShip : Unit {
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, this.transform.rotation * Quaternion.Euler(0f, 0f, rotationSpeed * move * Time.deltaTime), rotationTime);
     }
 
+    public void Move(Vector3 moveVector)
+    {
+        //ищем угол поворота джостика
+        float angle = Mathf.Atan2(moveVector.y, moveVector.x) * Mathf.Rad2Deg - 90;
+        //Ищем квантарион этого угла
+        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+        //плавно прварачиваем объект
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, q, rotationSpeed * Time.deltaTime);
+    }
 
 
     public void Boost()
@@ -58,6 +67,14 @@ public class PlayerShip : Unit {
         if(m_Rigidbody2D.velocity.magnitude < maxSpeed)
         {
             m_Rigidbody2D.AddForce(transform.up * boostForce);
+        }
+    }
+
+    public void Boost(float boostAxis)
+    {
+        if (m_Rigidbody2D.velocity.magnitude < maxSpeed)
+        {
+            m_Rigidbody2D.AddForce(transform.up * (boostForce * boostAxis));
         }
     }
 

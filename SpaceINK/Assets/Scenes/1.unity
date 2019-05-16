@@ -326,7 +326,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.3504691, g: 0.2987132, b: 0.625, a: 0}
+  m_BackGroundColor: {r: 0.1321066, g: 0.10933607, b: 0.254717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -531,6 +531,11 @@ PrefabInstance:
       propertyPath: bulletSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6760838903751396713, guid: abc3c68201dbe464b9be7570bd35592d,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3625511514098380437, guid: abc3c68201dbe464b9be7570bd35592d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -654,6 +659,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7361197528625259252, guid: 654dd8e17254d5f4ead620c3a38c4f03,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361197528625259252, guid: 654dd8e17254d5f4ead620c3a38c4f03,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361197528625259252, guid: 654dd8e17254d5f4ead620c3a38c4f03,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361197528625259252, guid: 654dd8e17254d5f4ead620c3a38c4f03,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 43
+      objectReference: {fileID: 0}
     - target: {fileID: 3661647386647768309, guid: 654dd8e17254d5f4ead620c3a38c4f03,
         type: 3}
       propertyPath: m_Name
@@ -762,6 +787,26 @@ PrefabInstance:
     - target: {fileID: 3661647386647768297, guid: 654dd8e17254d5f4ead620c3a38c4f03,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661647386647768311, guid: 654dd8e17254d5f4ead620c3a38c4f03,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661647386915137912, guid: 654dd8e17254d5f4ead620c3a38c4f03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346637042565810656, guid: 654dd8e17254d5f4ead620c3a38c4f03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497226278209584438, guid: 654dd8e17254d5f4ead620c3a38c4f03,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
