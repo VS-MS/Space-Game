@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerShip : Unit {
 
     [SerializeField]
+    //Экземпляр пули игрока
     private PlayerBullet playerBullet;
     [SerializeField]
     private float bulletSpeed = 80f;
@@ -13,16 +14,23 @@ public class PlayerShip : Unit {
 
     [SerializeField]
     private Vector2 m_velocite;
-    //[SerializeField]
     private Rigidbody2D m_Rigidbody2D;
     private float rotationTime;
     public float RotationTime { set { if (value >= 0 & value <= 1) rotationTime = value; else rotationTime = 0.01f; } }
 
+    private Transform gunTransform;
+
     void Start () {
     }
-	
-	// Update is called once per frame
-	void Update () {
+    private void Awake()
+    {
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        gunTransform = this.transform.Find("Gun_1");
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
         m_velocite = m_Rigidbody2D.velocity;//vivod skorost
         Debug.DrawLine(transform.position, transform.position + (Vector3)m_velocite);
     }
@@ -36,10 +44,7 @@ public class PlayerShip : Unit {
 
     }
 
-    private void Awake()
-    {
-        m_Rigidbody2D = GetComponent<Rigidbody2D>();
-    }
+    
 
     public void Move(float move)
     {
@@ -82,21 +87,15 @@ public class PlayerShip : Unit {
     {
         if (myTime > fireDelta)
         {
-            //nextFire = myTime + fireDelta;
 
-            Vector3 position = m_Rigidbody2D.transform.position;
-            //position.y += 0.4F;
-            PlayerBullet newBullet = Instantiate(playerBullet, position, playerBullet.transform.rotation) as PlayerBullet;
+            Debug.Log(m_Rigidbody2D.transform.position + ">>>" + m_Rigidbody2D.transform.position + m_Rigidbody2D.transform.up);
+            PlayerBullet newBullet = Instantiate(playerBullet, gunTransform.position, playerBullet.transform.rotation) as PlayerBullet;
             newBullet.Speed = bulletSpeed;
             newBullet.Parent = gameObject;
-            //newBullet.Direction = newBullet.transform.right * (-direction.x < 0.0F ? 1.0F : -1.0F) + new Vector3(0f, Random.Range(-0.10f, 0.20f), 0f);  //Направление полета пули(магия логических выражений) выражение которое проверяем ? что сделать1 если true: что сделать 2 если false
             newBullet.Direction = m_Rigidbody2D.transform.up;
-            //Debug.Log(m_Rigidbody2D.velocity.magnitude);
 
             //newBullet.color = buletcolor;
             newBullet.Damage = 10;
-
-            //nextFire = nextFire - myTime;
             myTime = 0.0F;
         }
     }

@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class BattleEnemyShip : EnemyShip
 {
-    
-    
-
-
-    
-    
     //вектор выходящий из данного объекта в корабль игрока
     private Vector3 heading;
 

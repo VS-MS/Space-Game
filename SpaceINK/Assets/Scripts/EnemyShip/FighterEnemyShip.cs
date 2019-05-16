@@ -17,11 +17,14 @@ public class FighterEnemyShip : EnemyShip
     //private float nextFire = 0.5F;
     private float myTime = 0.5F;//время прошло от последнего выстрела
 
+    private Transform gunTransform;
+
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
         startPoint = transform.position;
+        gunTransform = this.transform.Find("Gun_1");
     }
     // Start is called before the first frame update
     void Start()
@@ -33,19 +36,13 @@ public class FighterEnemyShip : EnemyShip
     {    
         if (myTime > fireDelta)
         {
-            Vector3 position = m_Rigidbody2D.transform.position;
-            //position.y += 0.4F;
-            SimpleBullet newBullet = Instantiate(simpleBullet, position, simpleBullet.transform.rotation) as SimpleBullet;
+            SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform.position, simpleBullet.transform.rotation) as SimpleBullet;
             newBullet.Speed = bulletSpeed;
             newBullet.Parent = gameObject;
-            //newBullet.Direction = newBullet.transform.right * (-direction.x < 0.0F ? 1.0F : -1.0F) + new Vector3(0f, Random.Range(-0.10f, 0.20f), 0f);  //Направление полета пули(магия логических выражений) выражение которое проверяем ? что сделать1 если true: что сделать 2 если false
             newBullet.Direction = m_Rigidbody2D.transform.up;
-            //Debug.Log(m_Rigidbody2D.velocity.magnitude);
 
             //newBullet.color = buletcolor;
             newBullet.Damage = 0.1f;
-
-            //nextFire = nextFire - myTime;
             myTime = 0.0F;
         }
     }
@@ -113,64 +110,6 @@ public class FighterEnemyShip : EnemyShip
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }
         
-    }
-
-    //передвежение в указанную точку
-    private void FollowingPoint(Vector3 point)
-    {
-        //вектор от коробля до точки следования
-        var headingAim = point - gameObject.transform.position;
-        //находим растояние
-        var distance = headingAim.magnitude;
-        //вектор направления
-        var direction = headingAim / distance;
-        //Вычисляем угол между данным объектом и точкой следования
-        float angle = Mathf.Atan2(headingAim.y, headingAim.x) * Mathf.Rad2Deg - 90;
-        //Ищем квантарион этого угла
-        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        //плавно прварачиваем объект
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 1.5f);
-        if(m_Rigidbody2D.velocity.magnitude <= maxSpeed)
-        {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
-        }   
-    }
-
-    protected virtual Vector3 CalculateAim()
-    {
-        //По умолчанию турель стреляет прямо по цели, но, если цель движется, то нужно высчитать точку,
-        //которая находится перед движущейся целью и по которой будет стрелять турель.
-        //То есть турель должна стрелять на опережение
-        targetingPosition = playerShip.transform.position;
-        //Узнаем скорость цели
-        targetSpeed = playerShip.GetComponent<Rigidbody2D>().velocity;
-        //Высчитываем точку, перед мишенью, по которой нужно произвести выстрел, чтобы попасть по движущейся мишени
-        //по идее, чем больше итераций, тем точнее будет положение точки для упреждающего выстрела
-        for (int i = 0; i < 4; i++)
-        {
-            float dist = (transform.position - targetingPosition).magnitude;
-            //Почему скорость умножаем на 50 ? - не знаю =), видимо какой-то коэффицент, 
-            //его нашел сравнив значение велосити объекта и растоянием, 
-            //проходимым за один FixedUpdate этого объекта(это собственно и есть bulletSpeed)
-            float timeToTarget = dist / (bulletSpeed * 50);
-            targetingPosition = playerShip.transform.position + targetSpeed * timeToTarget;
-        }
-
-        return targetingPosition;
-    }
-
-    void DebugLine()
-    {
-        if (state == State.Atack)
-        {
-            Debug.DrawLine(transform.position, playerShip.transform.position, Color.red);
-            Debug.DrawLine(transform.position, CalculateAim(), Color.yellow);
-        }
-
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, radarRadius);
     }
 
 }
