@@ -87,8 +87,6 @@ public class PlayerShip : Unit {
     {
         if (myTime > fireDelta)
         {
-
-            Debug.Log(m_Rigidbody2D.transform.position + ">>>" + m_Rigidbody2D.transform.position + m_Rigidbody2D.transform.up);
             PlayerBullet newBullet = Instantiate(playerBullet, gunTransform.position, playerBullet.transform.rotation) as PlayerBullet;
             newBullet.Speed = bulletSpeed;
             newBullet.Parent = gameObject;

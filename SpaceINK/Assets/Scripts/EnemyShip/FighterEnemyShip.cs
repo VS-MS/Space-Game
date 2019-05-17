@@ -104,8 +104,9 @@ public class FighterEnemyShip : EnemyShip
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
-        if (/*distance >=2 &&*/ m_Rigidbody2D.velocity.magnitude <= maxSpeed)
+        if (distance >= 12 && m_Rigidbody2D.velocity.magnitude <= maxSpeed)
         {
+            Debug.Log("BOOOOOST");
             //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }

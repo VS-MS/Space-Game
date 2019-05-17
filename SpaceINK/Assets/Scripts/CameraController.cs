@@ -4,8 +4,7 @@ using System.Collections;
 public class CameraController : MonoBehaviour {
     [SerializeField]
     private float speed= 2.0f;
-    [SerializeField]
-    private Transform target;
+    private GameObject target;
     [SerializeField]
     private float cameraPositionY;
 
@@ -19,15 +18,17 @@ public class CameraController : MonoBehaviour {
     private void Awake()
     {
         //if (!target) target = FindObjectOfType<Character>().transform;
+        target = GameObject.FindGameObjectWithTag("Player");
+        //
     }
 
     private void FixedUpdate()
     {
         if(target)
         {
-            Vector3 position = target.position + new Vector3(0, cameraPositionY, 0);
-            position.z = -15.0f;
-            transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
+            Vector3 position = target.transform.position + new Vector3(0, cameraPositionY, -15);
+            this.GetComponent<Camera>().orthographicSize = 20 + (target.GetComponent<Rigidbody2D>().velocity.magnitude / 2);
+            this.transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
         }  
     }
     private void Update()

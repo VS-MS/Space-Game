@@ -77,7 +77,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 6
   m_LinearDrag: 0.1
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -130,9 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armorPoints: 100
   shieldPoint: 0
-  maxSpeed: 9
+  maxSpeed: 12
   boostForce: 50
-  rotationSpeed: 5
+  rotationSpeed: 3
   radarRadius: 80
   bulletSpeed: 1
   simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
