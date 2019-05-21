@@ -134,6 +134,7 @@ MonoBehaviour:
   boostForce: 50
   rotationSpeed: 3
   radarRadius: 80
+  attackRadius: 40
   bulletSpeed: 1
   simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
     type: 3}

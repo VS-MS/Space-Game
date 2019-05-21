@@ -95,12 +95,21 @@ public class BattleEnemyShip : EnemyShip
         //плавно прварачиваем объект
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
         //Поворачиваем башни в сторону цели
+        int i = Random.Range(0, turretArray.Length);
+        turretArray[i].transform.rotation = Quaternion.Slerp(turretArray[i].transform.rotation, q, Time.deltaTime * turretRotationSpeed);
+        turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
+        turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
+
+        /*
         for (int i = 0; i < turretArray.Length; i++)
         {
             turretArray[i].transform.rotation = Quaternion.Slerp(turretArray[i].transform.rotation, q, Time.deltaTime * turretRotationSpeed);
             turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
             turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
-        }   
+        }  
+        */
+
+
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
         if (/*distance >=2 &&*/ m_Rigidbody2D.velocity.magnitude <= maxSpeed)

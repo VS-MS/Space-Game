@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769085686551508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.6631026, y: 3.620054, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4583001369193192}
@@ -133,7 +133,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 10
-  m_LinearDrag: 0.1
+  m_LinearDrag: 0.01
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -185,8 +185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armorPoints: 100
   shieldPoint: 0
-  maxSpeed: 12
-  boostForce: 150
+  maxSpeed: 15
+  boostForce: 80
   rotationSpeed: 1
   playerBullet: {fileID: 7035233454327686688, guid: 0fde5d9d2d9811748a820dd40f5b925e,
     type: 3}
@@ -303,7 +303,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 24
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
@@ -438,7 +438,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 24
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
@@ -573,7 +573,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 24
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
@@ -708,7 +708,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 24
   m_Time: 5
   m_Parameters:
     serializedVersion: 3
@@ -843,7 +843,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 24
   m_Time: 5
   m_Parameters:
     serializedVersion: 3

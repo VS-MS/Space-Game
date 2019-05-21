@@ -7,6 +7,8 @@ public class EnemyShip : Unit
 
     //Радиус обнаружения противника
     public float radarRadius = 30;
+    //Радиус начала стрельбы
+    public float attackRadius;
     //Точка, по которой будет стрелять турель в случае обнаружения цели, по умолчанию это сама цель
     protected Vector3 targetingPosition;
     protected GameObject playerShip;
