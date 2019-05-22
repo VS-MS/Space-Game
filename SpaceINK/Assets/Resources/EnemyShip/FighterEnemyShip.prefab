@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8338244838157503296}
   - component: {fileID: 8338244838157503303}
   - component: {fileID: 66735713295600835}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FighterEnemyShip
   m_TagString: EnemyShip
   m_Icon: {fileID: 0}
@@ -78,10 +78,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 6
-  m_LinearDrag: 0.1
+  m_LinearDrag: 0.08
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6d003e82f41fff949979f7c03c8ac320, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
