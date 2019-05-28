@@ -2,14 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FighterEnemyShip : EnemyShip
+public class SpaceCarrierEnemyShip : EnemyShip
 {
-
     //вектор выходящий из данного объекта в корабль игрока
     private Vector3 heading;
 
     [SerializeField]
-    private SimpleBullet simpleBullet;
+    //переменная для экземпляра класса корабля истребителя
+    private FighterEnemyShip simpleDroneFighter;
+
+    [SerializeField]
+    //количество кораблей истребителей, которые может одновременно выпустить авианосец
+    private int shipCount;
+
+
+    //массив, в котором будем хранить ссылки на экземпляры выпущенных кораблей
+    private FighterEnemyShip[] droneFighter;
+    
     //начальная позиция коробля, используется для возврата, если цель не найдена
     private Vector3 startPoint;
 
@@ -17,38 +26,30 @@ public class FighterEnemyShip : EnemyShip
     //private float nextFire = 0.5F;
     private float myTime = 0.5F;//время прошло от последнего выстрела
 
-    private Transform gunTransform;
-
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
         startPoint = transform.position;
-        gunTransform = this.transform.Find("Gun_1");
+        droneFighter = new FighterEnemyShip[shipCount];
     }
+
     // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    private void Shoot()
-    {    
-        if (myTime > fireDelta)
-        {
-            SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform.position, simpleBullet.transform.rotation) as SimpleBullet;
-            newBullet.Speed = bulletSpeed;
-            newBullet.Parent = gameObject;
-            newBullet.Direction = m_Rigidbody2D.transform.up;
+    // Update is called once per frame
+    void Update()
+    {
 
-            //newBullet.color = buletcolor;
-            newBullet.Damage = 0.1f;
-            myTime = 0.0F;
-        }
     }
+
     private void FixedUpdate()
     {
-        if (myTime <= fireDelta) //считаемвремя до след выстрела
+        //считаемвремя до след выстрела, счетчик работает, только если есть не выпущенный корабль
+        if (myTime <= fireDelta && droneFighter.Length >= shipCount) 
         {
             myTime = myTime + Time.deltaTime;
         }
@@ -60,20 +61,10 @@ public class FighterEnemyShip : EnemyShip
 
             if (heading.sqrMagnitude < radarRadius * radarRadius) //проверяем, попал корабль игрока в зону радара
             {
-                if (heading.sqrMagnitude < attackRadius * attackRadius)
-                {
-                    Chase();
-                    Shoot();
-                } else
-                {
-                    state = State.Atack;
-                    //Chase();
-                    FollowingPoint(playerShip.transform.position - (playerShip.transform.up * 20));
-                    Debug.DrawLine(transform.position, playerShip.transform.position - (playerShip.transform.up * 20), Color.black);
-                    //Shoot();
-                }
-
-            } 
+                state = State.Atack;
+                Chase();
+                LaunchDrone();
+            }
             else
             {
                 state = State.Idle;
@@ -87,18 +78,33 @@ public class FighterEnemyShip : EnemyShip
             FollowingPoint(startPoint);
         }
     }
-    // Update is called once per frame
-    private void Update()
+
+    //функция запуска дронов
+    private void LaunchDrone() 
     {
-        
-        
+        //проверяем время для запуска следующего дрона
+        if (myTime > fireDelta)
+        {
+            //перебераем массив с выпущенными дронами
+            for (int i = 0; i < shipCount; i++)
+            {
+                //если в массиве есть уничтоженный корабль, выпускаем новый и записываем ссылку на экземпляр в эту ячейку массива
+                if (droneFighter[i] == null)
+                {
+                    FighterEnemyShip newDroneFighter = Instantiate(simpleDroneFighter, this.transform.position, simpleDroneFighter.transform.rotation) as FighterEnemyShip;
+                    newDroneFighter.armorPoints = 30;
+                    newDroneFighter.GetComponent<Rigidbody2D>().velocity = this.transform.up * 10;
+                    droneFighter[i] = newDroneFighter;
+                    myTime = 0.0F;
+                    break;
+                }
+            }     
+        }
     }
 
-    //Погоня за кораблем противника, и удержание его на расстоянии выстрела
-    //Корабль поварачиваем в сторону предпологаемого выстрела на опережение
     private void Chase()
     {
-        
+
         var headingAim = CalculateAim() - gameObject.transform.position;
         //distance - растояние от данного объекта до корабль игрока
         var distance = headingAim.magnitude;
@@ -107,19 +113,16 @@ public class FighterEnemyShip : EnemyShip
 
         //Вычисляем угол между данным объектом и кораблем игрока в градах
         float angle = Mathf.Atan2(headingAim.y, headingAim.x) * Mathf.Rad2Deg - 90;
-
         //Ищем квантарион этого угла
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
-        if (m_Rigidbody2D.velocity.magnitude <= maxSpeed)
+        if (/*distance >=2 &&*/ m_Rigidbody2D.velocity.magnitude <= maxSpeed)
         {
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce / 2));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }
-        
-    }
 
+    }
 }

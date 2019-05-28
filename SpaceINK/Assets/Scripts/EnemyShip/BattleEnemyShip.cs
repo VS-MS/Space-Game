@@ -6,10 +6,8 @@ public class BattleEnemyShip : EnemyShip
 {
     //вектор выходящий из данного объекта в корабль игрока
     private Vector3 heading;
-
-    [SerializeField]
-    private SimpleBullet simpleBullet;
     
+    //Массив, где храним объекты турелей
     public GameObject[] turretArray;
     [SerializeField]
     private float turretRotationSpeed;
