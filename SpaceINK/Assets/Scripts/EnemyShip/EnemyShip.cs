@@ -14,6 +14,8 @@ public class EnemyShip : Unit
     protected GameObject playerShip;
     protected Vector3 targetSpeed;
     [SerializeField]
+    protected float bulletDamage = 3; 
+    [SerializeField]
     protected float bulletSpeed = 1;
 
     protected enum State

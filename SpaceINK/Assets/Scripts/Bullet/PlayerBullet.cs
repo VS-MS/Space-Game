@@ -52,7 +52,6 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
         if (collision.tag == "EnemyShip")
         {
             if (collision.gameObject.GetComponent<Unit>().armorPoints > 0)

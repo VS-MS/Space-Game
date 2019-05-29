@@ -13,7 +13,7 @@ public class SpaceCarrierEnemyShip : EnemyShip
 
     [SerializeField]
     //количество кораблей истребителей, которые может одновременно выпустить авианосец
-    private int shipCount;
+    private int shipCount = 3;
 
 
     //массив, в котором будем хранить ссылки на экземпляры выпущенных кораблей

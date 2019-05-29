@@ -47,7 +47,7 @@ public class TurretEnemy : MonoBehaviour
             newBullet.Parent = gameObject;
             newBullet.Direction = this.transform.up;
             //newBullet.color = buletcolor;
-            newBullet.Damage = 0.1f;
+            newBullet.Damage = 1.0f;
             myTime = 0.0F;
         }
     }

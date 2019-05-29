@@ -42,7 +42,7 @@ public class FighterEnemyShip : EnemyShip
             newBullet.Direction = m_Rigidbody2D.transform.up;
 
             //newBullet.color = buletcolor;
-            newBullet.Damage = 0.1f;
+            newBullet.Damage = bulletDamage;
             myTime = 0.0F;
         }
     }
