@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public float armorPoints;							 //Уровень хп брони корабля
-	public float shieldPoint;							 //Уровень щита корабля
+    protected enum State
+    {
+        Idle,       //состояние покоя
+        Atack,      //цель найдена, атакуем
+        Patrol,     //патрулирование
+    }
+
+    public float armorPoints = 100;							 //Уровень хп брони корабля
+	public float shieldPoints = 100;						 //Уровень щита корабля
+    protected float maxShieldPoints = 100;
+
+    //счетчик для востановления щита
+    public float shieldDelta = 8f;
+    protected float shieldTime = 8f;
 
     public float maxSpeed = 10f;                     // максимальная скорость, которую может развить корабль
     public float boostForce = 400f;                  // ускорение корабля
@@ -18,9 +30,19 @@ public class Unit : MonoBehaviour
     }
 
     //Получаем урон
-	public void ReceiveDamage(float damage)			//простая функция для получения урона(если далее буду вводить shield, нужно переделать!)
+    public void ReceiveDamage(float damage)			//простая функция для получения урона(если далее буду вводить shield, нужно переделать!)
 	{
-		armorPoints -= damage;
+        if (shieldPoints < damage)
+        {
+            damage -= shieldPoints;
+            shieldPoints = 0;
+            armorPoints -= damage;
+        }
+        else
+        {
+            shieldPoints -= damage;
+        }
+        //armorPoints -= damage;
         if (armorPoints <= 0) Destroy(gameObject, 0.01f);
     }
 

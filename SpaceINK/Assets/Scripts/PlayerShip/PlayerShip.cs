@@ -20,7 +20,9 @@ public class PlayerShip : Unit {
 
     private Transform gunTransform;
 
-    void Start () {
+    void Start ()
+    {
+        maxShieldPoints = shieldPoints;
     }
     private void Awake()
     {
@@ -40,6 +42,19 @@ public class PlayerShip : Unit {
         if (myTime <= fireDelta) //считаемвремя до след выстрела
         {
             myTime = myTime + Time.deltaTime;
+        }
+
+        if (shieldTime <= shieldDelta) //считаем до восстановления щита
+        {
+            shieldTime += Time.deltaTime; 
+        }
+        else//если таймер пройдет, проверяем, нужно ли восстановить щит
+        {
+            if(shieldPoints < maxShieldPoints)
+            {
+                shieldPoints += 1; //восстанавливаем щит на еденицу
+            }
+            shieldTime = 0;//обнуляем счетчик
         }
 
     }

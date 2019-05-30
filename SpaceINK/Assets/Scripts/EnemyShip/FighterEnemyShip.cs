@@ -53,6 +53,20 @@ public class FighterEnemyShip : EnemyShip
             myTime = myTime + Time.deltaTime;
         }
 
+        if (shieldTime <= shieldDelta) //считаем до восстановления щита
+        {
+            shieldTime += Time.deltaTime;
+        }
+        else//если таймер пройдет, проверяем, нужно ли восстановить щит
+        {
+            if (shieldPoints < maxShieldPoints)
+            {
+                shieldPoints += 1; //восстанавливаем щит на еденицу
+            }
+            shieldTime = 0;//обнуляем счетчик
+        }
+
+
         if (playerShip)
         {
             //heading - вектор выходящий из данного объекта в корабль игрока

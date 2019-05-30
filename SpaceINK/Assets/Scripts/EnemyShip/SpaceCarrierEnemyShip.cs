@@ -54,6 +54,20 @@ public class SpaceCarrierEnemyShip : EnemyShip
             myTime = myTime + Time.deltaTime;
         }
 
+        if (shieldTime <= shieldDelta) //считаем до восстановления щита
+        {
+            shieldTime += Time.deltaTime;
+        }
+        else//если таймер пройдет, проверяем, нужно ли восстановить щит
+        {
+            if (shieldPoints < maxShieldPoints)
+            {
+                shieldPoints += 1; //восстанавливаем щит на еденицу
+            }
+            shieldTime = 0;//обнуляем счетчик
+        }
+
+
         if (playerShip)
         {
             //heading - вектор выходящий из данного объекта в корабль игрока
@@ -93,6 +107,7 @@ public class SpaceCarrierEnemyShip : EnemyShip
                 {
                     FighterEnemyShip newDroneFighter = Instantiate(simpleDroneFighter, this.transform.position, simpleDroneFighter.transform.rotation) as FighterEnemyShip;
                     newDroneFighter.armorPoints = 30;
+                    newDroneFighter.shieldPoints = 15;
                     newDroneFighter.GetComponent<Rigidbody2D>().velocity = this.transform.up * 10;
                     droneFighter[i] = newDroneFighter;
                     myTime = 0.0F;

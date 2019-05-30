@@ -18,12 +18,7 @@ public class EnemyShip : Unit
     [SerializeField]
     protected float bulletSpeed = 1;
 
-    protected enum State
-    {
-        Idle,       //состояние покоя
-        Atack,      //цель найдена, атакуем
-        Patrol,     //патрулирование
-    }
+    
     //начальное и текущее состояние
     protected State state = State.Idle;
 

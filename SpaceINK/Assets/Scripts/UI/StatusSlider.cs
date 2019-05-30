@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class StatusSlider : MonoBehaviour
 {
     public Slider sliderArmor;
+    public Slider sliderShield;
     private PlayerShip playerShip;
     // Start is called before the first frame update
     void Start()
@@ -16,12 +17,20 @@ public class StatusSlider : MonoBehaviour
     private void Awake()
     {
         playerShip = FindObjectOfType<PlayerShip>();
+        //Устанавливаем максимально возможное значение для слайдера показателя уровня щита. 
+        //И сразу устанавливаем его значение на 100%
+        sliderShield.maxValue = playerShip.shieldPoints;
+        sliderShield.value = playerShip.shieldPoints;
+        //Устанавливаем максимально возможное значение для слайдера показателя состояния обшивки корабля. 
+        //И сразу устанавливаем его значение на 100%
         sliderArmor.maxValue = playerShip.armorPoints;
         sliderArmor.value = playerShip.armorPoints;
     }
     // Update is called once per frame
     void Update()
     {
+        //Обновляем слайдеры щита и обшивки в зависимости от состояния корабля.
+        sliderShield.value = playerShip.shieldPoints;
         sliderArmor.value = playerShip.armorPoints;
     }
 }
