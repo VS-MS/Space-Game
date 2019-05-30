@@ -18,19 +18,28 @@ public class FighterEnemyShip : EnemyShip
     private float myTime = 0.5F;//время прошло от последнего выстрела
 
     private Transform gunTransform;
+    private Transform armorBar;
+    private Transform shieldBar;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        maxArmorPoints = armorPoints;
+        maxShieldPoints = shieldPoints;
+    }
 
     private void Awake()
     {
+        armorBar = transform.Find("Canvas").Find("ArmorSlider").Find("ArmorBar");
+        shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");
+        Debug.Log(armorBar);
+        Debug.Log(shieldBar);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
         startPoint = transform.position;
         gunTransform = this.transform.Find("Gun_1");
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    
 
     private void Shoot()
     {    
@@ -40,7 +49,6 @@ public class FighterEnemyShip : EnemyShip
             newBullet.Speed = bulletSpeed;
             newBullet.Parent = gameObject;
             newBullet.Direction = m_Rigidbody2D.transform.up;
-
             //newBullet.color = buletcolor;
             newBullet.Damage = bulletDamage;
             myTime = 0.0F;
@@ -48,6 +56,9 @@ public class FighterEnemyShip : EnemyShip
     }
     private void FixedUpdate()
     {
+        armorBar.localScale = new Vector3(armorPoints / maxArmorPoints, 1.0f);
+        shieldBar.localScale = new Vector3(shieldPoints / maxShieldPoints, 1.0f);
+
         if (myTime <= fireDelta) //считаемвремя до след выстрела
         {
             myTime = myTime + Time.deltaTime;
@@ -107,7 +118,6 @@ public class FighterEnemyShip : EnemyShip
         
         
     }
-
     //Погоня за кораблем противника, и удержание его на расстоянии выстрела
     //Корабль поварачиваем в сторону предпологаемого выстрела на опережение
     private void Chase()

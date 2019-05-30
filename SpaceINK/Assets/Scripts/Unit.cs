@@ -12,6 +12,7 @@ public class Unit : MonoBehaviour
     }
 
     public float armorPoints = 100;							 //Уровень хп брони корабля
+    protected float maxArmorPoints = 100;
 	public float shieldPoints = 100;						 //Уровень щита корабля
     protected float maxShieldPoints = 100;
 
