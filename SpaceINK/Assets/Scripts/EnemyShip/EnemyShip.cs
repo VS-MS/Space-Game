@@ -17,8 +17,9 @@ public class EnemyShip : Unit
     protected float bulletDamage = 3; 
     [SerializeField]
     protected float bulletSpeed = 1;
+    [SerializeField]
+    private EnemyStatusSlider enemyStatusSlider;
 
-    
     //начальное и текущее состояние
     protected State state = State.Idle;
 
@@ -30,6 +31,16 @@ public class EnemyShip : Unit
         
     }
 
+    protected void StatusSliderInt(float _upDis, float _scaleX) 
+    {
+        //EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position) as EnemyStatusSlider;
+        EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position, this.transform.rotation) as EnemyStatusSlider;
+        newStatusSlider.maxArmor = armorPoints;
+        newStatusSlider.maxShield = shieldPoints;
+        newStatusSlider.enemyShip = this;
+        newStatusSlider.upDis = _upDis;
+        newStatusSlider.SetScaleX(_scaleX);
+    }
     // Update is called once per frame
     void Update()
     {

@@ -6,8 +6,10 @@ public class EnemyStatusSlider : MonoBehaviour
 {
     //Расположение статусбара по Y координате
     public float upDis = 1f;
-    public GameObject sliderArmor;
-    public GameObject sliderShield;
+    [SerializeField]
+    private GameObject sliderArmor;
+    [SerializeField]
+    private GameObject sliderShield;
     //Ссылка на экземпляр коробля противника, за которым будет следовать статус бар
     public EnemyShip enemyShip;
     //Максимальное значение брони и щита коробля
@@ -18,6 +20,10 @@ public class EnemyStatusSlider : MonoBehaviour
     private void Awake()
     {
 
+    }
+    public void SetScaleX(float _x)
+    {
+        this.transform.localScale = new Vector3(_x, 1, 1);
     }
     void Update()
     {
