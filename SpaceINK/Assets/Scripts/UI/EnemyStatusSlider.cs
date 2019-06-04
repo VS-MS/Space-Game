@@ -4,27 +4,34 @@ using UnityEngine;
 
 public class EnemyStatusSlider : MonoBehaviour
 {
-    [SerializeField]
-    [Tooltip("Оставить пустым, если нужно использовать основную камеру")]
-    private GameObject Target = null;
+    //Расположение статусбара по Y координате
+    public float upDis = 1f;
+    public GameObject sliderArmor;
+    public GameObject sliderShield;
+    //Ссылка на экземпляр коробля противника, за которым будет следовать статус бар
+    public EnemyShip enemyShip;
+    //Максимальное значение брони и щита коробля
+    public float maxArmor = 100;
+    public float maxShield = 100;
 
-    private Vector3 TargetPosition;
 
-    void Start()
+    private void Awake()
     {
-        if (Target == null)
+
+    }
+    void Update()
+    {
+        if (enemyShip == null)
         {
-            Target = Camera.main.gameObject;
+            Destroy(gameObject);
         }
+        else
+        {
+            sliderArmor.transform.localScale = new Vector3(enemyShip.armorPoints / maxArmor, 1, 1);
+            sliderShield.transform.localScale = new Vector3(enemyShip.shieldPoints / maxShield, 1, 1);
+            transform.position = enemyShip.transform.position + transform.up * upDis;
+        }
+        
     }
 
-    private void LateUpdate()
-    {
-        if (TargetPosition != Target.transform.position)
-        {
-            TargetPosition = Target.transform.position;
-            Debug.Log(TargetPosition);
-            transform.LookAt(TargetPosition);
-        }
-    }
 }

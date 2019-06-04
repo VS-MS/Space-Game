@@ -10,6 +10,8 @@ public class FighterEnemyShip : EnemyShip
 
     [SerializeField]
     private SimpleBullet simpleBullet;
+    [SerializeField]
+    private EnemyStatusSlider enemyStatusSlider;
     //начальная позиция коробля, используется для возврата, если цель не найдена
     private Vector3 startPoint;
 
@@ -30,6 +32,14 @@ public class FighterEnemyShip : EnemyShip
 
     private void Awake()
     {
+
+        //EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position) as EnemyStatusSlider;
+        EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position, this.transform.rotation) as EnemyStatusSlider;
+        newStatusSlider.maxArmor = armorPoints;
+        newStatusSlider.maxShield = shieldPoints;
+        newStatusSlider.enemyShip = this;
+        newStatusSlider.upDis = 2.0f;
+
         armorBar = transform.Find("Canvas").Find("ArmorSlider").Find("ArmorBar");
         shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");
         Debug.Log(armorBar);
