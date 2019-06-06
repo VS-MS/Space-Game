@@ -33,8 +33,7 @@ public class PlayerShip : Unit {
     // Update is called once per frame
     void Update ()
     {
-        m_velocite = m_Rigidbody2D.velocity;//vivod skorost
-        Debug.DrawLine(transform.position, transform.position + (Vector3)m_velocite);
+        
     }
 
     private void FixedUpdate()
@@ -84,19 +83,42 @@ public class PlayerShip : Unit {
 
     public void Boost()
     {
-        if(m_Rigidbody2D.velocity.magnitude < maxSpeed)
+        
+
+        if (m_Rigidbody2D.velocity.magnitude < maxSpeed)
         {
             m_Rigidbody2D.AddForce(transform.up * boostForce);
         }
     }
 
-    public void Boost(float boostAxis)
+    public void Boost(float boostAxis, Vector3 boostVector)
     {
-        if (m_Rigidbody2D.velocity.magnitude < maxSpeed)
+        /*if (m_Rigidbody2D.velocity.magnitude < maxSpeed)
+        {
+            //Debug.Log("Booooooost");
+            m_Rigidbody2D.AddForce(transform.up * (boostForce * boostAxis));
+        }*/
+
+        //умножаем вектор направления джойстика на максимальную скорость,
+        //чтобы узнать вектор желаемого ускорения и плюсуем его с вектор ускорения корабля
+        //если они полностью совпадут, то их длинна будет равна двумя maxspeed.
+        //С помощью этого условия, можно разворачивать корабль даже если максимальная скорость превышена.
+        if ( (boostVector * maxSpeed + (Vector3)m_Rigidbody2D.velocity).magnitude <= maxSpeed * 2)
         {
             m_Rigidbody2D.AddForce(transform.up * (boostForce * boostAxis));
         }
     }
+
+    //Супер ускорение.
+    public void SuperBoost()
+    {
+        if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * 2))
+        {
+            m_Rigidbody2D.AddForce(transform.up * boostForce * 4);
+        }
+    }
+
+    
 
     public void Shoot()
     {

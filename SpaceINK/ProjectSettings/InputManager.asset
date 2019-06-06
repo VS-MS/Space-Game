@@ -314,9 +314,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: up
+    positiveButton: left shift
     altNegativeButton: 
-    altPositiveButton: w
+    altPositiveButton: right shift
     gravity: 1000
     dead: 0.001
     sensitivity: 1000

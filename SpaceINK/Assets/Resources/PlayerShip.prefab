@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armorPoints: 100
   shieldPoints: 100
-  shieldDelta: 8
+  shieldDelta: 0.5
   maxSpeed: 15
   boostForce: 80
   rotationSpeed: 1
