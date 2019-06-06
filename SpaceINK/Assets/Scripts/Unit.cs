@@ -63,6 +63,7 @@ public class Unit : MonoBehaviour
         source.pitch = pitch;
         source.PlayDelayed(delayed);
         GameObject.Destroy(go, clip.length);
+        //Woooooof !!!
     }
 
 }
