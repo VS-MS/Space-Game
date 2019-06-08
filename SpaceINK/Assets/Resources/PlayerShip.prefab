@@ -194,6 +194,9 @@ MonoBehaviour:
     type: 3}
   bulletSpeed: 1
   fireDelta: 0.1
+  boostPoints: 100
+  boostMaxPoints: 100
+  boostDelta: 0.2
   m_velocite: {x: 0, y: 0}
 --- !u!114 &6291984215524662933
 MonoBehaviour:
@@ -253,7 +256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4780348547851490837
 Transform:
   m_ObjectHideFlags: 0
@@ -394,7 +397,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.6138611
+        value: 0.75136185
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -415,7 +418,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.08317512, g: 0, b: 0.48235294, a: 1}
+      key0: {r: 0.28627452, g: 0, b: 0.41960785, a: 1}
       key1: {r: 0.18867922, g: 0, b: 0.05259891, a: 0.54901963}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

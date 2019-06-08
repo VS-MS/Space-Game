@@ -12,6 +12,11 @@ public class PlayerShip : Unit {
     public float fireDelta = 0.70F;//скорость стрельбы
     private float myTime = 0.5F;//время прошло от последнего выстрела
 
+    public float boostPoints = 100;
+    public float boostMaxPoints;
+    public float boostDelta = 1;
+    private float boostTime = 0;
+
     [SerializeField]
     private Vector2 m_velocite;
     private Rigidbody2D m_Rigidbody2D;
@@ -23,6 +28,7 @@ public class PlayerShip : Unit {
     void Start ()
     {
         maxShieldPoints = shieldPoints;
+        boostMaxPoints = boostPoints;
     }
     private void Awake()
     {
@@ -56,6 +62,18 @@ public class PlayerShip : Unit {
             shieldTime = 0;//обнуляем счетчик
         }
 
+        if(boostTime <= boostDelta)
+        {
+            boostTime += Time.deltaTime;
+        }
+        else
+        {
+            if (boostPoints < boostMaxPoints)
+            {
+                boostPoints += 1;
+            }
+            boostTime = 0;
+        }          
     }
 
     
@@ -112,10 +130,16 @@ public class PlayerShip : Unit {
     //Супер ускорение.
     public void SuperBoost()
     {
-        if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * 2))
+        
+        if(boostPoints > 0)
         {
-            m_Rigidbody2D.AddForce(transform.up * boostForce * 4);
+            boostPoints--;
+            if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * 2))
+            {
+                m_Rigidbody2D.AddForce(transform.up * boostForce * 4);
+            }
         }
+        
     }
 
     

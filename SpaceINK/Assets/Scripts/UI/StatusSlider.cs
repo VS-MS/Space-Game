@@ -7,6 +7,7 @@ public class StatusSlider : MonoBehaviour
 {
     public Slider sliderArmor;
     public Slider sliderShield;
+    public Image boostRing;
     private PlayerShip playerShip;
     // Start is called before the first frame update
     void Start()
@@ -32,5 +33,6 @@ public class StatusSlider : MonoBehaviour
         //Обновляем слайдеры щита и обшивки в зависимости от состояния корабля.
         sliderShield.value = playerShip.shieldPoints;
         sliderArmor.value = playerShip.armorPoints;
+        boostRing.fillAmount = playerShip.boostPoints / playerShip.boostMaxPoints;
     }
 }
