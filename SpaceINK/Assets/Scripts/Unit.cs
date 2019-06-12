@@ -44,7 +44,10 @@ public class Unit : MonoBehaviour
             shieldPoints -= damage;
         }
         //armorPoints -= damage;
-        if (armorPoints <= 0) Destroy(gameObject, 0.01f);
+        if (armorPoints <= 0)
+        {
+            Destroy(gameObject, 0.01f);
+        }
     }
 
     //Уничтожаем объект с задержкой
