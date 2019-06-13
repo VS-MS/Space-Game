@@ -20,6 +20,9 @@ public class EnemyShip : Unit
     [SerializeField]
     private EnemyStatusSlider enemyStatusSlider;
 
+    //начальная позиция коробля, используется для возврата, если цель не найдена
+    public Transform startPoint;
+
     //начальное и текущее состояние
     protected State state = State.Idle;
 

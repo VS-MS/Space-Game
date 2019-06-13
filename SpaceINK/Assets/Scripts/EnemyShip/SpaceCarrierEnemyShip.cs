@@ -19,8 +19,6 @@ public class SpaceCarrierEnemyShip : EnemyShip
     //массив, в котором будем хранить ссылки на экземпляры выпущенных кораблей
     private FighterEnemyShip[] droneFighter;
     
-    //начальная позиция коробля, используется для возврата, если цель не найдена
-    private Vector3 startPoint;
 
     public float fireDelta = 0.70F;//скорость стрельбы
     //private float nextFire = 0.5F;
@@ -31,7 +29,10 @@ public class SpaceCarrierEnemyShip : EnemyShip
         StatusSliderInt(5.0f, 3.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
-        startPoint = transform.position;
+        if (startPoint == null)
+        {
+            startPoint = gameObject.transform;
+        }
         droneFighter = new FighterEnemyShip[shipCount];
     }
 
@@ -83,14 +84,14 @@ public class SpaceCarrierEnemyShip : EnemyShip
             else
             {
                 state = State.Idle;
-                FollowingPoint(startPoint);
+                FollowingPoint(startPoint.transform.position);
             }
             DebugLine();
         }
         else
         {
             state = State.Idle;
-            FollowingPoint(startPoint);
+            FollowingPoint(startPoint.transform.position);
         }
     }
 

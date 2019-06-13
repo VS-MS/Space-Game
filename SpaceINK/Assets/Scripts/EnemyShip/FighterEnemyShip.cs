@@ -11,8 +11,7 @@ public class FighterEnemyShip : EnemyShip
     [SerializeField]
     private SimpleBullet simpleBullet;
     
-    //начальная позиция коробля, используется для возврата, если цель не найдена
-    private Vector3 startPoint;
+    
 
     public float fireDelta = 0.70F;//скорость стрельбы
     //private float nextFire = 0.5F;
@@ -38,7 +37,10 @@ public class FighterEnemyShip : EnemyShip
         Debug.Log(shieldBar);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
-        startPoint = transform.position;
+        if (startPoint == null)
+        {
+            startPoint = gameObject.transform;
+        }
         gunTransform = this.transform.Find("Gun_1");
     }
     
@@ -104,14 +106,14 @@ public class FighterEnemyShip : EnemyShip
             else
             {
                 state = State.Idle;
-                FollowingPoint(startPoint);
+                FollowingPoint(startPoint.transform.position);
             }
             DebugLine();
         }
         else
         {
             state = State.Idle;
-            FollowingPoint(startPoint);
+            FollowingPoint(startPoint.transform.position);
         }
     }
     // Update is called once per frame
