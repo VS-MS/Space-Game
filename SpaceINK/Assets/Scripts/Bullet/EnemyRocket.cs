@@ -20,6 +20,8 @@ public class EnemyRocket : Unit
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
+        rotationSpeed *= Random.Range(0.5f, 1.5f);
+        maxSpeed *= Random.Range(0.5f, 1.5f);
     }
 
     // Update is called once per frame
@@ -52,7 +54,7 @@ public class EnemyRocket : Unit
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
-        if (m_Rigidbody2D.velocity.magnitude <= maxSpeed)
+        if (m_Rigidbody2D.velocity.magnitude <= (maxSpeed * Random.Range(0.5f, 1.5f)))
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }
@@ -71,7 +73,6 @@ public class EnemyRocket : Unit
             if (collision.gameObject.GetComponent<Unit>().armorPoints > 0)
             {
                 collision.gameObject.GetComponent<Unit>().ReceiveDamage(rocketDamage);
-                Debug.Log("destroy");
                 Destroy(gameObject); 
             }
             else

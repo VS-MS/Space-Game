@@ -24,6 +24,7 @@ public class PlayerShip : Unit {
     public float RotationTime { set { if (value >= 0 & value <= 1) rotationTime = value; else rotationTime = 0.01f; } }
 
     private Transform gunTransform;
+    public GameObject boostWing;
 
     void Start ()
     {
@@ -34,6 +35,7 @@ public class PlayerShip : Unit {
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         gunTransform = this.transform.Find("Gun_1");
+        boostWing = this.transform.Find("BoostWing").gameObject;
     }
 
     // Update is called once per frame
@@ -136,7 +138,9 @@ public class PlayerShip : Unit {
             boostPoints--;
             if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * 2))
             {
-                m_Rigidbody2D.AddForce(transform.up * boostForce * 4);
+                m_Rigidbody2D.AddForce(transform.up * boostForce * 3);
+                boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = true;
+                boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = true;
             }
         }
         

@@ -21,6 +21,11 @@ public class PlayerShipControl : MonoBehaviour {
             m_Ship.SuperBoost();
         }
 
+        if (CnInputManager.GetButtonUp("Boost"))
+        {
+            m_Ship.boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = false;
+            m_Ship.boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = false;
+        }
 
         if (CnInputManager.GetButton("Fire"))
         {
