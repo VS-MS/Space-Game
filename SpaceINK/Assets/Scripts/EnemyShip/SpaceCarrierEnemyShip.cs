@@ -50,49 +50,66 @@ public class SpaceCarrierEnemyShip : EnemyShip
 
     private void FixedUpdate()
     {
-        //считаемвремя до след выстрела, счетчик работает, только если есть не выпущенный корабль
-        if (myTime <= fireDelta && droneFighter.Length >= shipCount) 
+        if (shipState == State.Die)
         {
-            myTime = myTime + Time.deltaTime;
-        }
-
-        if (shieldTime <= shieldDelta) //считаем до восстановления щита
-        {
-            shieldTime += Time.deltaTime;
-        }
-        else//если таймер пройдет, проверяем, нужно ли восстановить щит
-        {
-            if (shieldPoints < maxShieldPoints)
+            //отключаем все коллайдеры на объекте
+            foreach (Collider2D collider in this.GetComponents<Collider2D>())
             {
-                shieldPoints += 1; //восстанавливаем щит на еденицу
+                collider.enabled = false;
             }
-            shieldTime = 0;//обнуляем счетчик
+            //отключаем спрайты
+            this.transform.Find("SpriteRender").gameObject.SetActive(false);
+
+
         }
-
-
-        if (playerShip)
+        else
         {
-            //heading - вектор выходящий из данного объекта в корабль игрока
-            heading = playerShip.transform.position - gameObject.transform.position;
-
-            if (heading.sqrMagnitude < radarRadius * radarRadius) //проверяем, попал корабль игрока в зону радара
+            //считаемвремя до след выстрела, счетчик работает, только если есть не выпущенный корабль
+            if (myTime <= fireDelta && droneFighter.Length >= shipCount)
             {
-                state = State.Atack;
-                Chase();
-                LaunchDrone();
+                myTime = myTime + Time.deltaTime;
+            }
+
+            if (shieldTime <= shieldDelta) //считаем до восстановления щита
+            {
+                shieldTime += Time.deltaTime;
+            }
+            else//если таймер пройдет, проверяем, нужно ли восстановить щит
+            {
+                if (shieldPoints < maxShieldPoints)
+                {
+                    shieldPoints += 1; //восстанавливаем щит на еденицу
+                }
+                shieldTime = 0;//обнуляем счетчик
+            }
+
+
+            if (playerShip)
+            {
+                //heading - вектор выходящий из данного объекта в корабль игрока
+                heading = playerShip.transform.position - gameObject.transform.position;
+
+                if (heading.sqrMagnitude < radarRadius * radarRadius) //проверяем, попал корабль игрока в зону радара
+                {
+                    state = State.Attack;
+                    Chase();
+                    LaunchDrone();
+                }
+                else
+                {
+                    state = State.Idle;
+                    FollowingPoint(startPoint.transform.position);
+                }
+                DebugLine();
             }
             else
             {
                 state = State.Idle;
                 FollowingPoint(startPoint.transform.position);
             }
-            DebugLine();
         }
-        else
-        {
-            state = State.Idle;
-            FollowingPoint(startPoint.transform.position);
-        }
+
+        
     }
 
     //функция запуска дронов

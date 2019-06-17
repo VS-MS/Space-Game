@@ -7,9 +7,11 @@ public class Unit : MonoBehaviour
     protected enum State
     {
         Idle,       //состояние покоя
-        Atack,      //цель найдена, атакуем
+        Attack,      //цель найдена, атакуем 
         Patrol,     //патрулирование
+        Die,        //состояние для отключения всех скриптов и включения эффекта взрыва
     }
+    protected State shipState = State.Idle; //переменная, в которой храним состояние корабля
 
     public float armorPoints = 100;							 //Уровень хп брони корабля
     protected float maxArmorPoints = 100;
@@ -46,7 +48,8 @@ public class Unit : MonoBehaviour
         //armorPoints -= damage;
         if (armorPoints <= 0)
         {
-            Destroy(gameObject, 0.01f);
+            shipState = State.Die;
+            Destroy(gameObject, 10.01f);
         }
     }
 

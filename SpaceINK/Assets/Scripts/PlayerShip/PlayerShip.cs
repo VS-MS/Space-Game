@@ -143,6 +143,11 @@ public class PlayerShip : Unit {
                 boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = true;
             }
         }
+        else
+        {
+            boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = false;
+            boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = false;
+        }
         
     }
 

@@ -782,6 +782,7 @@ MonoBehaviour:
   bulletSpeed: 1
   enemyStatusSlider: {fileID: 5205629985578053904, guid: 6b930efe3a31d584a842160f7bccc528,
     type: 3}
+  startPoint: {fileID: 0}
   simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
     type: 3}
   fireDelta: 0.8
@@ -796,7 +797,7 @@ GameObject:
   - component: {fileID: 8338244839459720247}
   - component: {fileID: 8338244839459720240}
   m_Layer: 0
-  m_Name: EnemyShip
+  m_Name: SpriteRender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

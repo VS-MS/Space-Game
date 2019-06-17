@@ -44,10 +44,11 @@ public class EnemyShip : Unit
         newStatusSlider.upDis = _upDis;
         newStatusSlider.SetScaleX(_scaleX);
     }
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     protected virtual Vector3 CalculateAim()
@@ -94,7 +95,7 @@ public class EnemyShip : Unit
 
     public void DebugLine()
     {
-        if (state == State.Atack)
+        if (state == State.Attack)
         {
             Debug.DrawLine(transform.position, playerShip.transform.position, Color.red);
             Debug.DrawLine(transform.position, CalculateAim(), Color.yellow);

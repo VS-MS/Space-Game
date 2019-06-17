@@ -36,53 +36,69 @@ public class BattleEnemyShip : EnemyShip
 
     private void FixedUpdate()
     {
-        if (myTime <= fireDelta) //считаемвремя до след выстрела
+        if(shipState == State.Die)
         {
-            myTime = myTime + Time.deltaTime;
-        }
-
-        if (shieldTime <= shieldDelta) //считаем до восстановления щита
-        {
-            shieldTime += Time.deltaTime;
-        }
-        else//если таймер пройдет, проверяем, нужно ли восстановить щит
-        {
-            if (shieldPoints < maxShieldPoints)
+            //отключаем все коллайдеры на объекте
+            foreach (Collider2D collider in this.GetComponents<Collider2D>())
             {
-                shieldPoints += 1; //восстанавливаем щит на еденицу
+                collider.enabled = false;
             }
-            shieldTime = 0;//обнуляем счетчик
+            //отключаем спрайты
+            this.transform.Find("SpriteRender").gameObject.SetActive(false); 
+            
+
         }
-
-        if (playerShip)
+        else
         {
-            //heading - вектор выходящий из данного объекта в корабль игрока
-            heading = playerShip.transform.position - gameObject.transform.position;
-
-            if (heading.sqrMagnitude < radarRadius * radarRadius) //проверяем, попал корабль игрока в зону радара
+            if (myTime <= fireDelta) //считаемвремя до след выстрела
             {
-                state = State.Atack;
-                Chase();
-                //Shoot();
+                myTime = myTime + Time.deltaTime;
+            }
+
+            if (shieldTime <= shieldDelta) //считаем до восстановления щита
+            {
+                shieldTime += Time.deltaTime;
+            }
+            else//если таймер пройдет, проверяем, нужно ли восстановить щит
+            {
+                if (shieldPoints < maxShieldPoints)
+                {
+                    shieldPoints += 1; //восстанавливаем щит на еденицу
+                }
+                shieldTime = 0;//обнуляем счетчик
+            }
+
+            if (playerShip)
+            {
+                //heading - вектор выходящий из данного объекта в корабль игрока
+                heading = playerShip.transform.position - gameObject.transform.position;
+
+                if (heading.sqrMagnitude < radarRadius * radarRadius) //проверяем, попал корабль игрока в зону радара
+                {
+                    state = State.Attack;
+                    Chase();
+                    //Shoot();
+                }
+                else
+                {
+                    state = State.Idle;
+                    FollowingPoint(startPoint.transform.position);
+                }
+                DebugLine();
             }
             else
             {
                 state = State.Idle;
                 FollowingPoint(startPoint.transform.position);
             }
-            DebugLine();
         }
-        else
-        {
-            state = State.Idle;
-            FollowingPoint(startPoint.transform.position);
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void Shoot()
@@ -130,10 +146,5 @@ public class BattleEnemyShip : EnemyShip
             //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }
-
-    }
-
-    
-
-    
+    }  
 }

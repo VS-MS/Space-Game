@@ -199,6 +199,7 @@ MonoBehaviour:
   boostMaxPoints: 100
   boostDelta: 0.2
   m_velocite: {x: 0, y: 0}
+  boostWing: {fileID: 0}
 --- !u!114 &6291984215524662933
 MonoBehaviour:
   m_ObjectHideFlags: 0

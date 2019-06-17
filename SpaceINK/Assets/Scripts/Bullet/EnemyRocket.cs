@@ -32,11 +32,29 @@ public class EnemyRocket : Unit
 
     private void FixedUpdate()
     {
-        if (playerShip)
+
+        if (shipState == State.Die)
         {
-            FollowingPoint(playerShip.transform.position);
-            DebugLine();
+            //отключаем все коллайдеры на объекте
+            foreach (Collider2D collider in this.GetComponents<Collider2D>())
+            {
+                collider.enabled = false;
+            }
+            //отключаем спрайты
+            foreach (SpriteRenderer sprite in this.GetComponents<SpriteRenderer>())
+            {
+                sprite.enabled = false;
+            }
         }
+        else
+        {
+            if (playerShip)
+            {
+                FollowingPoint(playerShip.transform.position);
+                DebugLine();
+            }
+        }
+            
 
     }
 
