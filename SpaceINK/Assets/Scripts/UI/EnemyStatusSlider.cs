@@ -27,7 +27,7 @@ public class EnemyStatusSlider : MonoBehaviour
     }
     void Update()
     {
-        if (enemyShip == null)
+        if (enemyShip == null || enemyShip.shipState == Unit.State.Die)
         {
             Destroy(gameObject);
         }

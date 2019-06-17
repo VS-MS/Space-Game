@@ -6,8 +6,8 @@ using CnControls;
 public class PlayerShipControl : MonoBehaviour {
 
     private PlayerShip m_Ship;
-    private bool m_Boost;
-    private bool m_Fire;
+    //private bool m_Boost;
+    //private bool m_Fire;
 
     private void Awake()
     {
@@ -19,15 +19,17 @@ public class PlayerShipControl : MonoBehaviour {
         if (CnInputManager.GetButton("Boost"))
         {
             m_Ship.SuperBoost();
+            m_Ship.shipState = Unit.State.Boost;
         }
 
         if (CnInputManager.GetButtonUp("Boost"))
         {
             m_Ship.boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = false;
             m_Ship.boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = false;
+            m_Ship.shipState = Unit.State.Idle;
         }
 
-        if (CnInputManager.GetButton("Fire"))
+        if (CnInputManager.GetButton("Fire") && m_Ship.shipState != Unit.State.Boost)
         {
             m_Ship.Shoot();
         }

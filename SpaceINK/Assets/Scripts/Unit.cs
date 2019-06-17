@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    protected enum State
+    public enum State
     {
         Idle,       //состояние покоя
         Attack,      //цель найдена, атакуем 
         Patrol,     //патрулирование
         Die,        //состояние для отключения всех скриптов и включения эффекта взрыва
+        Boost,      //состояние ускорение, для включения анимации и отключения орудий
     }
-    protected State shipState = State.Idle; //переменная, в которой храним состояние корабля
+    public State shipState = State.Idle; //переменная, в которой храним состояние корабля
 
     public float armorPoints = 100;							 //Уровень хп брони корабля
     protected float maxArmorPoints = 100;
