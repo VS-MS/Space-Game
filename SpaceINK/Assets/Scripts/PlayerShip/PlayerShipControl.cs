@@ -16,10 +16,25 @@ public class PlayerShipControl : MonoBehaviour {
 
     private void Update()
     {
-        if (CnInputManager.GetButton("Boost"))
+        //Очень странная логика, нужно переписать!!!
+        //если нажата кнопка и стояние коробля покой(условно, это состояние обозночает, что другие кнопки не нажаты), то 
+        //условие можно выполнять, но пока зажата кнопка состояние коробля измениться на текущую кнопку.
+        //чтобы повторно попасть в это условие есть его продожение: ИЛИ состояние ранов этой кнопке.
+        if (CnInputManager.GetButton("SuperShoot") && m_Ship.shipState == Unit.State.Idle || m_Ship.shipState == Unit.State.SuperShoot)
+        {
+            m_Ship.SuperShoot();
+            m_Ship.shipState = Unit.State.SuperShoot;
+        }
+
+        if(CnInputManager.GetButtonUp("SuperShoot"))
+        {
+            m_Ship.shipState = Unit.State.Idle;
+        }
+
+        if (CnInputManager.GetButton("Boost") && m_Ship.shipState == Unit.State.Idle || m_Ship.shipState == Unit.State.SuperBoost)
         {
             m_Ship.SuperBoost();
-            m_Ship.shipState = Unit.State.Boost;
+            m_Ship.shipState = Unit.State.SuperBoost;
         }
 
         if (CnInputManager.GetButtonUp("Boost"))
@@ -29,7 +44,7 @@ public class PlayerShipControl : MonoBehaviour {
             m_Ship.shipState = Unit.State.Idle;
         }
 
-        if (CnInputManager.GetButton("Fire") && m_Ship.shipState != Unit.State.Boost)
+        if (CnInputManager.GetButton("Fire") && m_Ship.shipState == Unit.State.Idle)
         {
             m_Ship.Shoot();
         }

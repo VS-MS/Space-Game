@@ -17,6 +17,11 @@ public class PlayerShip : Unit {
     public float boostDelta = 1;
     private float boostTime = 0;
 
+    public float superShootPoints = 100;
+    public float superShootMaxPoints;
+    public float superShootDelta = 1;
+    private float superShootTime = 0; 
+
     [SerializeField]
     private Vector2 m_velocite;
     private Rigidbody2D m_Rigidbody2D;
@@ -30,6 +35,7 @@ public class PlayerShip : Unit {
     {
         maxShieldPoints = shieldPoints;
         boostMaxPoints = boostPoints;
+        superShootMaxPoints = superShootPoints;
     }
     private void Awake()
     {
@@ -64,6 +70,7 @@ public class PlayerShip : Unit {
             shieldTime = 0;//обнуляем счетчик
         }
 
+        //счетчик для super boost
         if(boostTime <= boostDelta)
         {
             boostTime += Time.deltaTime;
@@ -75,7 +82,21 @@ public class PlayerShip : Unit {
                 boostPoints += 1;
             }
             boostTime = 0;
-        }          
+        }
+        
+        //счетчик для super shoot
+        if(superShootTime <= superShootDelta)
+        {
+            superShootTime += Time.deltaTime;
+        }
+        else
+        {
+            if(superShootPoints < superShootMaxPoints)
+            {
+                superShootPoints += 1;
+            }
+            superShootTime = 0;
+        }
     }
 
     
@@ -131,8 +152,7 @@ public class PlayerShip : Unit {
 
     //Супер ускорение.
     public void SuperBoost()
-    {
-        
+    {   
         if(boostPoints > 0)
         {
             boostPoints--;
@@ -148,9 +168,15 @@ public class PlayerShip : Unit {
             boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = false;
             boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = false;
         }
-        
     }
 
+    public void SuperShoot()
+    {
+        if(superShootPoints > 0)
+        {
+            superShootPoints--;
+        }
+    }
     
 
     public void Shoot()

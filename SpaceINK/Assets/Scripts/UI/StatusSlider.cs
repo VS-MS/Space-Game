@@ -8,6 +8,7 @@ public class StatusSlider : MonoBehaviour
     public Slider sliderArmor;
     public Slider sliderShield;
     public Image boostRing;
+    public Image superShootRing;
     private PlayerShip playerShip;
     // Start is called before the first frame update
     void Start()
@@ -34,5 +35,6 @@ public class StatusSlider : MonoBehaviour
         sliderShield.value = playerShip.shieldPoints;
         sliderArmor.value = playerShip.armorPoints;
         boostRing.fillAmount = playerShip.boostPoints / playerShip.boostMaxPoints / 3;
+        superShootRing.fillAmount = playerShip.superShootPoints / playerShip.superShootMaxPoints / 3;
     }
 }
