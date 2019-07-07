@@ -2,23 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MachineGunEnemy : UnitGunEnemy
+public class RocketLauncherEnemy : UnitGunEnemy 
 {
 
+    public EnemyRocket simpleRocket;
     
-    public SimpleBullet simpleBullet;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void Awake()
     {
         gunTransform = this.transform.Find("Gun_1");
     }
+
     private void FixedUpdate()
     {
         if (myTime <= fireDelta) //считаемвремя до след выстрела
@@ -27,17 +20,16 @@ public class MachineGunEnemy : UnitGunEnemy
         }
     }
 
-
     public void ShootTurret()
     {
         if (myTime > fireDelta)
         {
 
-            SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform.position, simpleBullet.transform.rotation) as SimpleBullet;
-            newBullet.Speed = bulletSpeed;
-            newBullet.Parent = gameObject;
-            newBullet.Direction = this.transform.up;
-            newBullet.Damage = bulletDamage;
+            EnemyRocket newRocket = Instantiate(simpleRocket, gunTransform.position, this.transform.rotation) as EnemyRocket;
+            newRocket.rocketSpeed = bulletSpeed;
+            Debug.Log(this.transform.rotation);
+            //newRocket.Parent = gameObject;
+            newRocket.rocketDamage = 3.0f;
             myTime = 0.0F;
         }
     }

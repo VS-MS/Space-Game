@@ -21,6 +21,12 @@ public class FighterEnemyShip : EnemyShip
     private Transform armorBar;
     private Transform shieldBar;
 
+    [SerializeField]
+    private MachineGunEnemy gunMachine;
+
+    [SerializeField]
+    private RocketLauncherEnemy rocketLauncher;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +50,13 @@ public class FighterEnemyShip : EnemyShip
     
 
     private void Shoot()
-    {    
+    {
+        gunMachine.bulletSpeed = bulletSpeed;
+        gunMachine.bulletDamage = bulletDamage;
+        gunMachine.ShootTurret();
+
+        rocketLauncher.ShootTurret();
+        /*
         if (myTime > fireDelta)
         {
             SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform.position, simpleBullet.transform.rotation) as SimpleBullet;
@@ -55,6 +67,7 @@ public class FighterEnemyShip : EnemyShip
             newBullet.Damage = bulletDamage;
             myTime = 0.0F;
         }
+        */
     }
     private void FixedUpdate()
     {

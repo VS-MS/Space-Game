@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 60024734858188695}
   m_Layer: 0
   m_Name: SpaceEnemyCarrier
-  m_TagString: Untagged
+  m_TagString: EnemyShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6da265fc2fc034ea78b2f7cccfa1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipState: 0
   armorPoints: 500
   shieldPoints: 200
   shieldDelta: 1
@@ -194,7 +195,7 @@ MonoBehaviour:
   bulletSpeed: 1
   enemyStatusSlider: {fileID: 5205629985578053904, guid: 6b930efe3a31d584a842160f7bccc528,
     type: 3}
-  startPoint: {fileID: 0}
+  startPoint: {x: 0, y: 0, z: 0}
   simpleDroneFighter: {fileID: 66735713295600835, guid: dfe86760a25700b4999f66271c58ea93,
     type: 3}
   shipCount: 5

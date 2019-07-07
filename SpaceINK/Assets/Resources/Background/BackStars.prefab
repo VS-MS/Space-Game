@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7632018041999635668}
   - component: {fileID: 7632018041999635658}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: BackStars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

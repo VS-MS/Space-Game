@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretEnemy : MonoBehaviour
+public class TurretEnemy : UnitGunEnemy
 {
-    public float bulletSpeed = 0.1f;
-    public float fireDelta = 0.70F;//скорость стрельбы
-    //private float nextFire = 0.5F;
-    private float myTime = 0.5F;//время прошло от последнего выстрела
+    
     public SimpleBullet simpleBullet;
-
-    private Transform gunTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +18,6 @@ public class TurretEnemy : MonoBehaviour
         gunTransform = this.transform.Find("Gun_1");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void FixedUpdate()
     {
@@ -46,7 +36,7 @@ public class TurretEnemy : MonoBehaviour
             newBullet.Speed = bulletSpeed;
             newBullet.Parent = gameObject;
             newBullet.Direction = this.transform.up;
-            newBullet.Damage = 1.0f;
+            newBullet.Damage = bulletDamage;
             myTime = 0.0F;
         }
     }

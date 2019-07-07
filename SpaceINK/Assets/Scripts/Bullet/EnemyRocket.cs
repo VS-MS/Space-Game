@@ -6,12 +6,14 @@ public class EnemyRocket : Unit
 {
     //вектор выходящий из данного объекта в корабль игрока
     private Vector3 heading;
+    public float rocketSpeed = 1;
+    public float rocketRotation = 1; 
+    public float rocketDamage = 3;
 
     private Vector3 targetingPosition;
     private GameObject playerShip;
     private Vector3 targetSpeed;
-    [SerializeField]
-    private float rocketDamage = 3; 
+    
     private Rigidbody2D m_Rigidbody2D;
 
 
@@ -20,8 +22,8 @@ public class EnemyRocket : Unit
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
-        rotationSpeed *= Random.Range(0.5f, 1.5f);
-        maxSpeed *= Random.Range(0.5f, 1.5f);
+        rotationSpeed *= Random.Range(rocketRotation * 0.5f, rocketRotation * 1.5f);
+        maxSpeed *= Random.Range(rocketSpeed * 0.5f, rocketSpeed * 1.5f);
     }
 
     // Update is called once per frame
@@ -72,7 +74,8 @@ public class EnemyRocket : Unit
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
-        if (m_Rigidbody2D.velocity.magnitude <= (maxSpeed * Random.Range(0.5f, 1.5f)))
+        //if (m_Rigidbody2D.velocity.magnitude <= (maxSpeed * Random.Range(0.5f, 1.5f)))
+        if (m_Rigidbody2D.velocity.magnitude <= maxSpeed)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }
