@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour {
     {
         if(target)
         {
-            Vector3 position = target.transform.position + new Vector3(0, cameraPositionY, -15);
+            Vector3 position = target.transform.position + target.transform.up*10 + new Vector3(0, cameraPositionY, -15);
             this.GetComponent<Camera>().orthographicSize = 20 + (target.GetComponent<Rigidbody2D>().velocity.magnitude / 2);
             this.transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
         }  

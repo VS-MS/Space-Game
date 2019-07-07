@@ -24,9 +24,6 @@ public class FighterEnemyShip : EnemyShip
     [SerializeField]
     private MachineGunEnemy gunMachine;
 
-    [SerializeField]
-    private RocketLauncherEnemy rocketLauncher;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -54,8 +51,6 @@ public class FighterEnemyShip : EnemyShip
         gunMachine.bulletSpeed = bulletSpeed;
         gunMachine.bulletDamage = bulletDamage;
         gunMachine.ShootTurret();
-
-        rocketLauncher.ShootTurret();
         /*
         if (myTime > fireDelta)
         {

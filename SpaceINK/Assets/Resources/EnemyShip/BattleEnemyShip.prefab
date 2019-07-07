@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510e10eedae26ae46af47147f8181ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipState: 0
   armorPoints: 200
   shieldPoints: 100
   shieldDelta: 0.9
@@ -195,7 +196,7 @@ MonoBehaviour:
   bulletSpeed: 1
   enemyStatusSlider: {fileID: 5205629985578053904, guid: 6b930efe3a31d584a842160f7bccc528,
     type: 3}
-  startPoint: {fileID: 0}
+  startPoint: {x: 0, y: 0, z: 0}
   turretArray:
   - {fileID: 4977241813397207232}
   - {fileID: 71358735190482516}
@@ -229,7 +230,7 @@ Transform:
   m_GameObject: {fileID: 8077597584485278656}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 6, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 1744330595965327145}
   m_RootOrder: 1
