@@ -22,9 +22,9 @@ public class BattleEnemyShip : EnemyShip
         StatusSliderInt(6.0f, 2.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
-        if (startPoint == null)
+        if (startPoint == new Vector3(0, 0, 0))
         {
-            startPoint = gameObject.transform;
+            startPoint = gameObject.transform.position;
         }
     }
 
@@ -82,14 +82,14 @@ public class BattleEnemyShip : EnemyShip
                 else
                 {
                     state = State.Idle;
-                    FollowingPoint(startPoint.transform.position);
+                    FollowingPoint(startPoint);
                 }
                 DebugLine();
             }
             else
             {
                 state = State.Idle;
-                FollowingPoint(startPoint.transform.position);
+                FollowingPoint(startPoint);
             }
         }
         

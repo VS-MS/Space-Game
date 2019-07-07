@@ -163,11 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeb64258239543b4db1c80658a0d4f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementRange: 50
+  MovementRange: 150
   HorizontalAxisName: Horizontal
   VerticalAxisName: Vertical
-  HideOnRelease: 1
-  MoveBase: 1
+  HideOnRelease: 0
+  MoveBase: 0
   SnapsToFinger: 1
   JoystickMoveAxis: 3
   JoystickBase: {fileID: 11480696}

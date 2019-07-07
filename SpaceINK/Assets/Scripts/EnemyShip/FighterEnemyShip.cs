@@ -10,8 +10,8 @@ public class FighterEnemyShip : EnemyShip
 
     [SerializeField]
     private SimpleBullet simpleBullet;
-    
-    
+
+    public Transform parentPosition;
 
     public float fireDelta = 0.70F;//скорость стрельбы
     //private float nextFire = 0.5F;
@@ -35,9 +35,9 @@ public class FighterEnemyShip : EnemyShip
         shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
-        if (startPoint == null)
+        if (startPoint == new Vector3(0,0,0))
         {
-            startPoint = gameObject.transform;
+            startPoint = gameObject.transform.position;
         }
         gunTransform = this.transform.Find("Gun_1");
     }
@@ -120,14 +120,27 @@ public class FighterEnemyShip : EnemyShip
                 else
                 {
                     state = State.Idle;
-                    FollowingPoint(startPoint.transform.position);
+                    if(parentPosition)
+                    {
+                        FollowingPoint(parentPosition.position);
+                    }else
+                    {
+                        FollowingPoint(startPoint);
+                    }        
                 }
                 DebugLine();
             }
             else
             {
                 state = State.Idle;
-                FollowingPoint(startPoint.transform.position);
+                if (parentPosition)
+                {
+                    FollowingPoint(parentPosition.position);
+                }
+                else
+                {
+                    FollowingPoint(startPoint);
+                }
             }
         }
 
@@ -136,8 +149,7 @@ public class FighterEnemyShip : EnemyShip
     // Update is called once per frame
     private void Update()
     {
-        
-        
+
     }
     //Погоня за кораблем противника, и удержание его на расстоянии выстрела
     //Корабль поварачиваем в сторону предпологаемого выстрела на опережение

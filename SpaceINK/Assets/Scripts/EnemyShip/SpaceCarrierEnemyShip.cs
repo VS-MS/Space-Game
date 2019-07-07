@@ -29,9 +29,9 @@ public class SpaceCarrierEnemyShip : EnemyShip
         StatusSliderInt(5.0f, 3.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
-        if (startPoint == null)
+        if (startPoint == new Vector3(0, 0, 0))
         {
-            startPoint = gameObject.transform;
+            startPoint = gameObject.transform.position;
         }
         droneFighter = new FighterEnemyShip[shipCount];
     }
@@ -98,14 +98,14 @@ public class SpaceCarrierEnemyShip : EnemyShip
                 else
                 {
                     state = State.Idle;
-                    FollowingPoint(startPoint.transform.position);
+                    FollowingPoint(startPoint);
                 }
                 DebugLine();
             }
             else
             {
                 state = State.Idle;
-                FollowingPoint(startPoint.transform.position);
+                FollowingPoint(startPoint);
             }
         }
 
@@ -127,6 +127,8 @@ public class SpaceCarrierEnemyShip : EnemyShip
                     FighterEnemyShip newDroneFighter = Instantiate(simpleDroneFighter, this.transform.position, simpleDroneFighter.transform.rotation) as FighterEnemyShip;
                     newDroneFighter.armorPoints = 30;
                     newDroneFighter.shieldPoints = 15;
+                    newDroneFighter.startPoint = gameObject.transform.position;
+                    newDroneFighter.parentPosition = gameObject.transform;
                     newDroneFighter.GetComponent<Rigidbody2D>().velocity = this.transform.up * 10;
                     droneFighter[i] = newDroneFighter;
                     myTime = 0.0F;

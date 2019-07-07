@@ -22,7 +22,7 @@ public class EnemyShip : Unit
     private EnemyStatusSlider enemyStatusSlider;
 
     //начальная позиция коробля, используется для возврата, если цель не найдена
-    public Transform startPoint;
+    public Vector3 startPoint;
 
     //начальное и текущее состояние
     protected State state = State.Idle;
