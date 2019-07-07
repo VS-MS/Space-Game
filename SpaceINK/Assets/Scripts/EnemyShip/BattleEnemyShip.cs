@@ -126,8 +126,9 @@ public class BattleEnemyShip : EnemyShip
         //Поворачиваем башни в сторону цели
         int i = Random.Range(0, turretArray.Length);
         turretArray[i].transform.rotation = Quaternion.Slerp(turretArray[i].transform.rotation, q, Time.deltaTime * turretRotationSpeed);
-        turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
         turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
+        turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
+        
 
         /*
         for (int i = 0; i < turretArray.Length; i++)
