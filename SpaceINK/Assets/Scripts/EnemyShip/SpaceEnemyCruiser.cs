@@ -2,33 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleEnemyShip : EnemyShip
+public class SpaceEnemyCruiser : EnemyShip
 {
     //вектор выходящий из данного объекта в корабль игрока
     private Vector3 heading;
-    
-    //Массив, где храним объекты турелей
-    public GameObject[] turretArray;
-    [SerializeField]
-    private float turretRotationSpeed;
-    
+
+    //Массив, где храним объекты ракетниц
+    public RocketLauncherEnemy[] rocketArrayLeft;
+    public RocketLauncherEnemy[] rocketArrayRight;
 
     public float fireDelta = 0.70F;//скорость стрельбы
     //private float nextFire = 0.5F;
     private float myTime = 0.5F;//время прошло от последнего выстрела
-
-    private void Awake()
-    {
-        StatusSliderInt(6.0f, 2.0f);
-        //armorBar = transform.Find("Canvas").Find("ArmorSlider").Find("ArmorBar");
-        //shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");
-        m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        playerShip = GameObject.FindGameObjectWithTag("Player");
-        if (startPoint == new Vector3(0, 0, 0))
-        {
-            startPoint = gameObject.transform.position;
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +22,20 @@ public class BattleEnemyShip : EnemyShip
         maxShieldPoints = shieldPoints;
     }
 
+    private void Awake()
+    {
+        StatusSliderInt(6.0f, 2.0f);
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        playerShip = GameObject.FindGameObjectWithTag("Player");
+        if (startPoint == new Vector3(0, 0, 0))
+        {
+            startPoint = gameObject.transform.position;
+        }
+    }
+
     private void FixedUpdate()
     {
-        if(shipState == State.Die)
+        if (shipState == State.Die)
         {
             //отключаем все коллайдеры на объекте
             foreach (Collider2D collider in this.GetComponents<Collider2D>())
@@ -47,8 +43,8 @@ public class BattleEnemyShip : EnemyShip
                 collider.enabled = false;
             }
             //отключаем спрайты
-            this.transform.Find("SpriteRender").gameObject.SetActive(false); 
-            
+            this.transform.Find("SpriteRender").gameObject.SetActive(false);
+
 
         }
         else
@@ -80,7 +76,7 @@ public class BattleEnemyShip : EnemyShip
                 {
                     state = State.Attack;
                     Chase();
-                    //Shoot();
+                    Shoot();
                 }
                 else
                 {
@@ -95,25 +91,12 @@ public class BattleEnemyShip : EnemyShip
                 FollowingPoint(startPoint);
             }
         }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
-
-    private void Shoot()
-    {
-
-    }
-        
-    
 
     private void Chase()
     {
-        
+
         var headingAim = CalculateAim() - gameObject.transform.position;
         //distance - растояние от данного объекта до корабль игрока
         var distance = headingAim.magnitude;
@@ -126,23 +109,7 @@ public class BattleEnemyShip : EnemyShip
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
-        //Поворачиваем башни в сторону цели
-        int i = Random.Range(0, turretArray.Length);
-        turretArray[i].transform.rotation = Quaternion.Slerp(turretArray[i].transform.rotation, q, Time.deltaTime * turretRotationSpeed);
-        turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
-        turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
         
-
-        /*
-        for (int i = 0; i < turretArray.Length; i++)
-        {
-            turretArray[i].transform.rotation = Quaternion.Slerp(turretArray[i].transform.rotation, q, Time.deltaTime * turretRotationSpeed);
-            turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
-            turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
-        }  
-        */
-
-
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
         if (/*distance >=2 &&*/ m_Rigidbody2D.velocity.magnitude <= maxSpeed)
@@ -150,5 +117,13 @@ public class BattleEnemyShip : EnemyShip
             //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }
-    }  
+    }
+
+    private void Shoot()
+    {
+         for(int i = 0; i < rocketArrayLeft.Length; i++)
+        {
+            rocketArrayLeft[i].ShootTurret();
+        }
+    }
 }

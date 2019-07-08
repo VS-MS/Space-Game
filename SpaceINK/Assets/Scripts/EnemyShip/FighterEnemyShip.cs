@@ -18,8 +18,8 @@ public class FighterEnemyShip : EnemyShip
     private float myTime = 0.5F;//время прошло от последнего выстрела
 
     private Transform gunTransform;
-    private Transform armorBar;
-    private Transform shieldBar;
+    //private Transform armorBar;
+    //private Transform shieldBar;
 
     [SerializeField]
     private MachineGunEnemy gunMachine;
@@ -34,8 +34,8 @@ public class FighterEnemyShip : EnemyShip
     private void Awake()
     {
         StatusSliderInt(2.0f, 1.0f);
-        armorBar = transform.Find("Canvas").Find("ArmorSlider").Find("ArmorBar");
-        shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");
+        //armorBar = transform.Find("Canvas").Find("ArmorSlider").Find("ArmorBar");
+        //shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
         if (startPoint == new Vector3(0,0,0))
@@ -81,8 +81,8 @@ public class FighterEnemyShip : EnemyShip
         }
         else
         {
-            armorBar.localScale = new Vector3(armorPoints / maxArmorPoints, 1.0f);
-            shieldBar.localScale = new Vector3(shieldPoints / maxShieldPoints, 1.0f);
+            //armorBar.localScale = new Vector3(armorPoints / maxArmorPoints, 1.0f);
+            //shieldBar.localScale = new Vector3(shieldPoints / maxShieldPoints, 1.0f);
 
             if (myTime <= fireDelta) //считаемвремя до след выстрела
             {

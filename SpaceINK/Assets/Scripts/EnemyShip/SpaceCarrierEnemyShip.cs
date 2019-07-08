@@ -39,7 +39,8 @@ public class SpaceCarrierEnemyShip : EnemyShip
     // Start is called before the first frame update
     void Start()
     {
-
+        maxArmorPoints = armorPoints;
+        maxShieldPoints = shieldPoints;
     }
 
     // Update is called once per frame
