@@ -88,7 +88,8 @@ public class EnemyShip : Unit
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
-        if (m_Rigidbody2D.velocity.magnitude <= maxSpeed)
+        //if (m_Rigidbody2D.velocity.magnitude <= maxSpeed)
+        if((m_Rigidbody2D.transform.up * maxSpeed + (Vector3)m_Rigidbody2D.velocity).magnitude <= maxSpeed * 2)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }

@@ -7,6 +7,10 @@ public class CameraController : MonoBehaviour {
     private GameObject target;
     [SerializeField]
     private float cameraPositionY;
+    [SerializeField]
+    private float cameraPositionZ;
+
+    private float myTime = 0;
 
 
     private const float FPS_UPDATE_INTERVAL = 0.5f;
@@ -26,9 +30,24 @@ public class CameraController : MonoBehaviour {
     {
         if(target)
         {
-            Vector3 position = target.transform.position + target.transform.up*10 + new Vector3(0, cameraPositionY, -15);
-            this.GetComponent<Camera>().orthographicSize = 20 + (target.GetComponent<Rigidbody2D>().velocity.magnitude / 2);
-            this.transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
+            Vector3 position = target.transform.position + target.transform.up * 10 + new Vector3(0, cameraPositionY, -15);
+
+            if (target.GetComponent<PlayerShip>().shipState == Unit.State.Die)
+            {
+                if(myTime <= cameraPositionZ / 1.5f)
+                {
+                    myTime += Time.deltaTime * 4;
+                    this.GetComponent<Camera>().orthographicSize = cameraPositionZ - myTime;
+                }   
+                
+                this.transform.position = Vector3.Lerp(transform.position, target.transform.position, speed * Time.deltaTime * 2);
+            }
+            else
+            {
+                cameraPositionZ = 20 + (target.GetComponent<Rigidbody2D>().velocity.magnitude / 2);
+                this.GetComponent<Camera>().orthographicSize = cameraPositionZ;
+                this.transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
+            } 
         }  
     }
     private void Update()

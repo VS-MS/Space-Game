@@ -25,11 +25,15 @@ public class BackGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerPosition = playerShip.transform.position;
-        playerPosition.z = orderZ;
-        //this.transform.position = Vector3.Lerp(transform.position, playerShip.transform.position, 2 * Time.deltaTime);
-        this.transform.position = playerPosition;
-        this.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", playerShip.transform.position / scrollSpeed);
+        if(playerShip)
+        {
+            Vector3 playerPosition = playerShip.transform.position;
+            playerPosition.z = orderZ;
+            //this.transform.position = Vector3.Lerp(transform.position, playerShip.transform.position, 2 * Time.deltaTime);
+            this.transform.position = playerPosition;
+            this.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", playerShip.transform.position / scrollSpeed);
+        }
+        
 
     }
 

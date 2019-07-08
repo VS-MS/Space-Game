@@ -34,7 +34,6 @@ public class EnemyRocket : Unit
 
     private void FixedUpdate()
     {
-
         if (shipState == State.Die)
         {
             //отключаем все коллайдеры на объекте
@@ -57,8 +56,6 @@ public class EnemyRocket : Unit
                 DebugLine();
             }
         }
-            
-
     }
 
     private void Chase()

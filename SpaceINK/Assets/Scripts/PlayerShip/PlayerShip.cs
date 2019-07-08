@@ -47,7 +47,14 @@ public class PlayerShip : Unit {
     // Update is called once per frame
     void Update ()
     {
-        
+        if(shipState == State.Die)
+        {
+            this.GetComponent<PlayerShipControl>().enabled = false;
+        }
+        else
+        {
+
+        }
     }
 
     private void FixedUpdate()
