@@ -142,7 +142,8 @@ public class EnemyRocket : Unit
             if (collision.gameObject.GetComponent<Unit>().armorPoints > 0)
             {
                 collision.gameObject.GetComponent<Unit>().ReceiveDamage(rocketDamage);
-                Destroy(gameObject); 
+                shipState = State.Die;
+                Destroy(gameObject, 10.01f);
             }
             else
             {

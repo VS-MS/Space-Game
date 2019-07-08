@@ -201,6 +201,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   cameraPositionY: 0
+  cameraPositionZ: 20
+  controlPanel: {fileID: 0}
+  menuPanel: {fileID: 0}
+  dieTime: 3
 --- !u!114 &7223890149768669995
 MonoBehaviour:
   m_ObjectHideFlags: 0

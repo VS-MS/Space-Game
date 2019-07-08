@@ -10,6 +10,10 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     private float cameraPositionZ;
 
+    private GameObject controlPanel;
+    private GameObject menuPanel; 
+
+    public float dieTime = 8;
     private float myTime = 0;
 
 
@@ -22,6 +26,9 @@ public class CameraController : MonoBehaviour {
     private void Awake()
     {
         //if (!target) target = FindObjectOfType<Character>().transform;
+        controlPanel = GameObject.Find("Canvas").gameObject.transform.Find("PanelControll").gameObject;
+        menuPanel = GameObject.Find("Canvas").gameObject.transform.Find("PanelMenu").gameObject;
+        Debug.Log(controlPanel + " = " + menuPanel);
         target = GameObject.FindGameObjectWithTag("Player");
         //
     }
@@ -34,13 +41,18 @@ public class CameraController : MonoBehaviour {
 
             if (target.GetComponent<PlayerShip>().shipState == Unit.State.Die)
             {
-                if(myTime <= cameraPositionZ / 1.5f)
+                if(myTime <= dieTime)
                 {
-                    myTime += Time.deltaTime * 4;
-                    this.GetComponent<Camera>().orthographicSize = cameraPositionZ - myTime;
-                }   
-                
-                this.transform.position = Vector3.Lerp(transform.position, target.transform.position, speed * Time.deltaTime * 2);
+                    myTime += Time.deltaTime;
+                    this.GetComponent<Camera>().orthographicSize = cameraPositionZ - (myTime * 4);
+                }
+                else
+                {
+                    controlPanel.SetActive(false);
+                    menuPanel.SetActive(true);
+                    Time.timeScale = 0;
+                }
+                this.transform.position = Vector3.Lerp(transform.position, target.transform.position + new Vector3(0, cameraPositionY, -15), speed * Time.deltaTime * 2);
             }
             else
             {
