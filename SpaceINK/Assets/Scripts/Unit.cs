@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    
+
     public State shipState = State.Idle; //переменная, в которой храним состояние корабля
     public enum State
     {
@@ -16,10 +16,11 @@ public class Unit : MonoBehaviour
         Shoot,
         SuperShoot,
     }
-
-    public float armorPoints = 100;							 //Уровень хп брони корабля
+    //Уровень хп брони корабля
+    public float armorPoints = 100;				 
     protected float maxArmorPoints = 100;
-	public float shieldPoints = 100;						 //Уровень щита корабля
+    //Уровень щита корабля
+    public float shieldPoints = 100;						 
     protected float maxShieldPoints = 100;
 
     //счетчик для востановления щита

@@ -28,7 +28,6 @@ public class CameraController : MonoBehaviour {
         //if (!target) target = FindObjectOfType<Character>().transform;
         controlPanel = GameObject.Find("Canvas").gameObject.transform.Find("PanelControll").gameObject;
         menuPanel = GameObject.Find("Canvas").gameObject.transform.Find("PanelMenu").gameObject;
-        Debug.Log(controlPanel + " = " + menuPanel);
         target = GameObject.FindGameObjectWithTag("Player");
         //
     }
@@ -41,14 +40,15 @@ public class CameraController : MonoBehaviour {
 
             if (target.GetComponent<PlayerShip>().shipState == Unit.State.Die)
             {
-                if(myTime <= dieTime)
+                controlPanel.SetActive(false);
+                if (myTime <= dieTime)
                 {
                     myTime += Time.deltaTime;
                     this.GetComponent<Camera>().orthographicSize = cameraPositionZ - (myTime * 4);
                 }
                 else
                 {
-                    controlPanel.SetActive(false);
+                    
                     menuPanel.SetActive(true);
                     Time.timeScale = 0;
                 }

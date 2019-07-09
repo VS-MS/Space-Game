@@ -39,8 +39,8 @@ public class SpaceCarrierEnemyShip : EnemyShip
     // Start is called before the first frame update
     void Start()
     {
-        maxArmorPoints = armorPoints;
-        maxShieldPoints = shieldPoints;
+        //maxArmorPoints = armorPoints;
+        //maxShieldPoints = shieldPoints;
     }
 
     // Update is called once per frame
@@ -126,10 +126,13 @@ public class SpaceCarrierEnemyShip : EnemyShip
                 if (droneFighter[i] == null)
                 {
                     FighterEnemyShip newDroneFighter = Instantiate(simpleDroneFighter, this.transform.position, simpleDroneFighter.transform.rotation) as FighterEnemyShip;
-                    newDroneFighter.armorPoints = 30;
-                    newDroneFighter.shieldPoints = 15;
+                    newDroneFighter.armorPoints = (int)armorPoints/15;
+                    newDroneFighter.shieldPoints = (int)shieldPoints/15;
+                    newDroneFighter.bulletDamage = bulletDamage;
                     newDroneFighter.startPoint = gameObject.transform.position;
                     newDroneFighter.parentPosition = gameObject.transform;
+                    newDroneFighter.statusSlider.maxArmor = (int)armorPoints / 15;
+                    newDroneFighter.statusSlider.maxShield = (int)shieldPoints / 15;
                     newDroneFighter.GetComponent<Rigidbody2D>().velocity = this.transform.up * 10;
                     droneFighter[i] = newDroneFighter;
                     myTime = 0.0F;

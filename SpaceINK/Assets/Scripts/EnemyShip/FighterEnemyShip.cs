@@ -27,8 +27,11 @@ public class FighterEnemyShip : EnemyShip
     // Start is called before the first frame update
     void Start()
     {
+        
         maxArmorPoints = armorPoints;
         maxShieldPoints = shieldPoints;
+        //Debug.Log("ArmorpointsFE = " + armorPoints);
+        //Debug.Log("MaxArmorFE = " + maxArmorPoints);
     }
 
     private void Awake()

@@ -33,7 +33,7 @@ public class PlayerShip : Unit {
 
     void Start ()
     {
-        maxShieldPoints = shieldPoints;
+        //maxShieldPoints = shieldPoints;
         boostMaxPoints = boostPoints;
         superShootMaxPoints = superShootPoints;
     }

@@ -14,12 +14,12 @@ public class EnemyShip : Unit
     protected Vector3 targetingPosition;
     protected GameObject playerShip;
     protected Vector3 targetSpeed;
-    [SerializeField]
-    protected float bulletDamage = 3; 
+    public float bulletDamage = 3; 
     [SerializeField]
     protected float bulletSpeed = 1;
     [SerializeField]
     private EnemyStatusSlider enemyStatusSlider;
+    public EnemyStatusSlider statusSlider;
 
     //начальная позиция коробля, используется для возврата, если цель не найдена
     public Vector3 startPoint;
@@ -34,9 +34,10 @@ public class EnemyShip : Unit
     {
         
     }
-
-    protected void StatusSliderInt(float _upDis, float _scaleX) 
+    public void StatusSliderInt(float _upDis, float _scaleX) 
     {
+        maxArmorPoints = armorPoints;
+        maxShieldPoints = shieldPoints;
         //EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position) as EnemyStatusSlider;
         EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position, this.transform.rotation) as EnemyStatusSlider;
         newStatusSlider.maxArmor = armorPoints;
@@ -44,6 +45,9 @@ public class EnemyShip : Unit
         newStatusSlider.enemyShip = this;
         newStatusSlider.upDis = _upDis;
         newStatusSlider.SetScaleX(_scaleX);
+        statusSlider = newStatusSlider;
+        //Debug.Log(armorPoints);
+        //Debug.Log(maxArmorPoints);
     }
 
     // Update is called once per frame
