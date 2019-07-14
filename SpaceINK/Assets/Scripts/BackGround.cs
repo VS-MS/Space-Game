@@ -11,7 +11,10 @@ public class BackGround : MonoBehaviour
     private float orderZ;
     [SerializeField]
     //скорость, с которой будет вращаться бекграунд. Чем больше число, тем медленнее будет он двигаться.
-    private float scrollSpeed; 
+    private float scrollSpeed;
+    //Переменная для присвоения позиции слоя, так и не разобрался где ее можно ввести в инспекторе.
+    [SerializeField]
+    private int orderInLayer = 0;
 
     void Start()
     {
@@ -21,6 +24,7 @@ public class BackGround : MonoBehaviour
     private void Awake()
     {
         playerShip = GameObject.FindGameObjectWithTag("Player");
+        gameObject.GetComponent<MeshRenderer>().sortingOrder = orderInLayer;
     }
     // Update is called once per frame
     void Update()
