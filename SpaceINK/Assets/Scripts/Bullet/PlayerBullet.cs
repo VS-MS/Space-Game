@@ -65,10 +65,11 @@ public class PlayerBullet : MonoBehaviour
                 collision.gameObject.GetComponent<Unit>().ReceiveDamage(damage);
                 Destroy(gameObject);
             }
-            else
-            {
-
-            }
+            
+        }
+        if (collision.tag == "Asteroid")
+        {
+            Destroy(gameObject);
         }
     }
 

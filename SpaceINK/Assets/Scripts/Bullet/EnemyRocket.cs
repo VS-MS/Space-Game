@@ -145,12 +145,14 @@ public class EnemyRocket : Unit
                 shipState = State.Die;
                 Destroy(gameObject, 10.01f);
             }
-            else
-            {
-
-            }
+            
         }
-        
+        if (collision.tag == "Asteroid")
+        {
+            shipState = State.Die;
+            Destroy(gameObject, 10.01f);
+        }
+
     }
 
 }
