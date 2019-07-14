@@ -127,6 +127,7 @@ public class PlayerShip : Unit {
             rotationTime += Time.deltaTime;
         }
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, this.transform.rotation * Quaternion.Euler(0f, 0f, rotationSpeed * move * Time.deltaTime), rotationTime);
+        //m_Rigidbody2D.AddTorque(transform.up * rotationSpeed * move);
     }
 
     public void Move(Vector3 moveVector)
@@ -137,6 +138,8 @@ public class PlayerShip : Unit {
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, q, rotationSpeed * Time.deltaTime);
+        //m_Rigidbody2D.AddTorque(transform.up * rotationSpeed * (float) moveVector.z);
+        //m_Rigidbody2D.AddTorque(angle);
     }
 
 
