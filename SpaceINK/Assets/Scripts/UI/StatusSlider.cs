@@ -34,7 +34,7 @@ public class StatusSlider : MonoBehaviour
         //Обновляем слайдеры щита и обшивки в зависимости от состояния корабля.
         sliderShield.value = playerShip.shieldPoints;
         sliderArmor.value = playerShip.armorPoints;
-        boostRing.fillAmount = playerShip.boostPoints / playerShip.boostMaxPoints / 3;
-        superShootRing.fillAmount = playerShip.superShootPoints / playerShip.superShootMaxPoints / 3;
+        boostRing.fillAmount = playerShip.boostPoints / playerShip.boostMaxPoints / 2.5f;
+        superShootRing.fillAmount = playerShip.superShootPoints / playerShip.superShootMaxPoints / 2.5f;
     }
 }

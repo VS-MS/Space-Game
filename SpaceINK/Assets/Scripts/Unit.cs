@@ -16,6 +16,7 @@ public class Unit : MonoBehaviour
         Shoot,
         SuperShoot,
     }
+    [Header("Health Settings")]
     //Уровень хп брони корабля
     public float armorPoints = 100;				 
     protected float maxArmorPoints = 100;
@@ -27,6 +28,7 @@ public class Unit : MonoBehaviour
     public float shieldDelta = 8f;
     protected float shieldTime = 8f;
 
+    [Header("Speed Settings")]
     public float maxSpeed = 10f;                     // максимальная скорость, которую может развить корабль
     public float boostForce = 400f;                  // ускорение корабля
     public float rotationSpeed = 1f;				 //Скорость вращения корабля 

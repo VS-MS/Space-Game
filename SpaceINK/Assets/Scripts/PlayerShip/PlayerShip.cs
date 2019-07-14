@@ -4,31 +4,39 @@ using UnityEngine;
 
 public class PlayerShip : Unit {
 
+    [Header("Main Weapon Settings")]
     [SerializeField]
     //Экземпляр пули игрока
     private PlayerBullet playerBullet;
+    [SerializeField]
+    private float bulletDamage = 10;
     [SerializeField]
     private float bulletSpeed = 80f;
     public float fireDelta = 0.70F;//скорость стрельбы
     private float myTime = 0.5F;//время прошло от последнего выстрела
 
+    
+    [HideInInspector]
     public float boostPoints = 100;
+    [Header("Super Boost Settings")]
     public float boostMaxPoints;
     public float boostDelta = 1;
     private float boostTime = 0;
 
+    [HideInInspector]
     public float superShootPoints = 100;
+    [Header("Super Shoot Settings")]
     public float superShootMaxPoints;
     public float superShootDelta = 1;
-    private float superShootTime = 0; 
+    private float superShootTime = 0;
 
-    [SerializeField]
     private Vector2 m_velocite;
     private Rigidbody2D m_Rigidbody2D;
     private float rotationTime;
     public float RotationTime { set { if (value >= 0 & value <= 1) rotationTime = value; else rotationTime = 0.01f; } }
 
     private Transform gunTransform;
+    [HideInInspector]
     public GameObject boostWing;
 
     void Start ()
@@ -55,10 +63,8 @@ public class PlayerShip : Unit {
         {
 
         }
-    }
 
-    private void FixedUpdate()
-    {
+
         if (myTime <= fireDelta) //считаемвремя до след выстрела
         {
             myTime = myTime + Time.deltaTime;
@@ -66,11 +72,11 @@ public class PlayerShip : Unit {
 
         if (shieldTime <= shieldDelta) //считаем до восстановления щита
         {
-            shieldTime += Time.deltaTime; 
+            shieldTime += Time.deltaTime;
         }
         else//если таймер пройдет, проверяем, нужно ли восстановить щит
         {
-            if(shieldPoints < maxShieldPoints)
+            if (shieldPoints < maxShieldPoints)
             {
                 shieldPoints += 1; //восстанавливаем щит на еденицу
             }
@@ -78,7 +84,7 @@ public class PlayerShip : Unit {
         }
 
         //счетчик для super boost
-        if(boostTime <= boostDelta)
+        if (boostTime <= boostDelta)
         {
             boostTime += Time.deltaTime;
         }
@@ -90,20 +96,25 @@ public class PlayerShip : Unit {
             }
             boostTime = 0;
         }
-        
+
         //счетчик для super shoot
-        if(superShootTime <= superShootDelta)
+        if (superShootTime <= superShootDelta)
         {
             superShootTime += Time.deltaTime;
         }
         else
         {
-            if(superShootPoints < superShootMaxPoints)
+            if (superShootPoints < superShootMaxPoints)
             {
                 superShootPoints += 1;
             }
             superShootTime = 0;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     
@@ -160,6 +171,7 @@ public class PlayerShip : Unit {
     //Супер ускорение.
     public void SuperBoost()
     {   
+        
         if(boostPoints > 0)
         {
             boostPoints--;
@@ -172,6 +184,7 @@ public class PlayerShip : Unit {
         }
         else
         {
+
             boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = false;
             boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = false;
         }
@@ -179,10 +192,23 @@ public class PlayerShip : Unit {
 
     public void SuperShoot()
     {
-        if(superShootPoints > 0)
+        if (superShootPoints > 0)
         {
             superShootPoints--;
+            if (myTime > fireDelta)
+            {
+                PlayerBullet newBullet = Instantiate(playerBullet, gunTransform.position, playerBullet.transform.rotation) as PlayerBullet;
+                newBullet.Speed = bulletSpeed * 2;
+                newBullet.Parent = gameObject;
+                newBullet.Direction = m_Rigidbody2D.transform.up;
+                newBullet.trailWidth = 0.5f;
+
+                //newBullet.color = buletcolor;
+                newBullet.Damage = bulletDamage * 2;
+                myTime = 0.0F;
+            }
         }
+        
     }
     
 
@@ -196,7 +222,7 @@ public class PlayerShip : Unit {
             newBullet.Direction = m_Rigidbody2D.transform.up;
 
             //newBullet.color = buletcolor;
-            newBullet.Damage = 10;
+            newBullet.Damage = bulletDamage;
             myTime = 0.0F;
         }
     }

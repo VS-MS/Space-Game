@@ -21,6 +21,7 @@ public class PlayerBullet : MonoBehaviour
     private int maxKillCount = 1;
     public int MaxKillCount { set { maxKillCount = value; } }
 
+
     private int killCount = 0;
 
     public Color color
@@ -28,9 +29,13 @@ public class PlayerBullet : MonoBehaviour
         set { sprite.color = value; }
     }
 
+    private TrailRenderer trail;
+    public float trailWidth = 0.25f;
     private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
+        trail = GetComponentInChildren<TrailRenderer>();
+        
     }
 
     // Start is called before the first frame update
@@ -48,6 +53,7 @@ public class PlayerBullet : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + (direction * 2), speed);
+        trail.startWidth = trailWidth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

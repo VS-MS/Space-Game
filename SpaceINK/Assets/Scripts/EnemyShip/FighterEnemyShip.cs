@@ -69,43 +69,8 @@ public class FighterEnemyShip : EnemyShip
     }
     private void FixedUpdate()
     {
-
-        if (shipState == State.Die)
+        if (shipState != State.Die)
         {
-            //отключаем все коллайдеры на объекте
-            foreach (Collider2D collider in this.GetComponents<Collider2D>())
-            {
-                collider.enabled = false;
-            }
-            //отключаем спрайты
-            this.transform.Find("SpriteRender").gameObject.SetActive(false);
-
-
-        }
-        else
-        {
-            //armorBar.localScale = new Vector3(armorPoints / maxArmorPoints, 1.0f);
-            //shieldBar.localScale = new Vector3(shieldPoints / maxShieldPoints, 1.0f);
-
-            if (myTime <= fireDelta) //считаемвремя до след выстрела
-            {
-                myTime = myTime + Time.deltaTime;
-            }
-
-            if (shieldTime <= shieldDelta) //считаем до восстановления щита
-            {
-                shieldTime += Time.deltaTime;
-            }
-            else//если таймер пройдет, проверяем, нужно ли восстановить щит
-            {
-                if (shieldPoints < maxShieldPoints)
-                {
-                    shieldPoints += 1; //восстанавливаем щит на еденицу
-                }
-                shieldTime = 0;//обнуляем счетчик
-            }
-
-
             if (playerShip)
             {
                 //heading - вектор выходящий из данного объекта в корабль игрока
@@ -131,13 +96,14 @@ public class FighterEnemyShip : EnemyShip
                 else
                 {
                     state = State.Idle;
-                    if(parentPosition)
+                    if (parentPosition)
                     {
                         FollowingPoint(parentPosition.position);
-                    }else
+                    }
+                    else
                     {
                         FollowingPoint(startPoint);
-                    }        
+                    }
                 }
                 DebugLine();
             }
@@ -154,13 +120,40 @@ public class FighterEnemyShip : EnemyShip
                 }
             }
         }
-
-        
     }
     // Update is called once per frame
     private void Update()
     {
+        if (shipState == State.Die)
+        {
+            //отключаем все коллайдеры на объекте
+            foreach (Collider2D collider in this.GetComponents<Collider2D>())
+            {
+                collider.enabled = false;
+            }
+            //отключаем спрайты
+            this.transform.Find("SpriteRender").gameObject.SetActive(false);
+        }
+        else
+        {
+            if (myTime <= fireDelta) //считаемвремя до след выстрела
+            {
+                myTime = myTime + Time.deltaTime;
+            }
 
+            if (shieldTime <= shieldDelta) //считаем до восстановления щита
+            {
+                shieldTime += Time.deltaTime;
+            }
+            else//если таймер пройдет, проверяем, нужно ли восстановить щит
+            {
+                if (shieldPoints < maxShieldPoints)
+                {
+                    shieldPoints += 1; //восстанавливаем щит на еденицу
+                }
+                shieldTime = 0;//обнуляем счетчик
+            }
+        }
     }
     //Погоня за кораблем противника, и удержание его на расстоянии выстрела
     //Корабль поварачиваем в сторону предпологаемого выстрела на опережение
