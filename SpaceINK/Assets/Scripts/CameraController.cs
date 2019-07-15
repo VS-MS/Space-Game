@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour {
     private float fpsTimeLeft = FPS_UPDATE_INTERVAL;
     private float fps = 0;
 
-    private float time = 0;
+    public float time = 0;
 
     private void Awake()
     {
