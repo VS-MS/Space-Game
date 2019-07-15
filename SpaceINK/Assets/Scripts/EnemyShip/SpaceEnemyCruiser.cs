@@ -83,7 +83,7 @@ public class SpaceEnemyCruiser : EnemyShip
                     state = State.Idle;
                     FollowingPoint(startPoint);
                 }
-                DebugLine();
+                //DebugLine();
             }
             else
             {

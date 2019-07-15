@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 267752715141949723}
   - component: {fileID: 7428758847556124215}
   m_Layer: 4
-  m_Name: Stars 1
+  m_Name: Stars1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,5 +106,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderZ: -9
-  scrollSpeed: 50
+  scrollSpeed: 150
   orderInLayer: 100

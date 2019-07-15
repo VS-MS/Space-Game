@@ -105,7 +105,7 @@ public class FighterEnemyShip : EnemyShip
                         FollowingPoint(startPoint);
                     }
                 }
-                DebugLine();
+                //DebugLine();
             }
             else
             {

@@ -87,7 +87,7 @@ public class BattleEnemyShip : EnemyShip
                     state = State.Idle;
                     FollowingPoint(startPoint);
                 }
-                DebugLine();
+                //DebugLine();
             }
             else
             {

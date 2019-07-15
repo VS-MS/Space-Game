@@ -23,6 +23,8 @@ public class CameraController : MonoBehaviour {
     private float fpsTimeLeft = FPS_UPDATE_INTERVAL;
     private float fps = 0;
 
+    private float time = 0;
+
     private void Awake()
     {
         //if (!target) target = FindObjectOfType<Character>().transform;
@@ -76,6 +78,7 @@ public class CameraController : MonoBehaviour {
             fpsAccum = 0;
             fpsFrames = 0;
         }
+        time += Time.deltaTime;
     }
 
 
@@ -83,6 +86,10 @@ public class CameraController : MonoBehaviour {
     {
         GUILayout.BeginArea(new Rect(5, 5, 500, 500));
         GUILayout.Label("FPS: " + fps.ToString("f1"));
+        GUILayout.EndArea();
+
+        GUILayout.BeginArea(new Rect(5, 20, 500, 500));
+        GUILayout.Label("Time: " + time.ToString("f1"));
         GUILayout.EndArea();
     }
 }

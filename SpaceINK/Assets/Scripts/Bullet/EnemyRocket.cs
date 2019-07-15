@@ -53,7 +53,7 @@ public class EnemyRocket : Unit
             {
                 //FollowingPoint(playerShip.transform.position);
                 Chase();
-                DebugLine();
+                //DebugLine();
             }
         }
     }

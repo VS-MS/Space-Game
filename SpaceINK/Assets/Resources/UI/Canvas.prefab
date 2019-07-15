@@ -2760,6 +2760,7 @@ GameObject:
   - component: {fileID: 5349107288082902133}
   - component: {fileID: 8892631445797794375}
   - component: {fileID: 1075484329716227848}
+  - component: {fileID: 6809854236578590254}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2867,6 +2868,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 6809854236578590254}
+        m_MethodName: SetPause
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1075484329716227848}
         m_MethodName: LoadByName
         m_Mode: 5
@@ -2890,6 +2902,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6809854236578590254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8031625149588983797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee2a6416e008a245875c40ace9d4ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8153435727491745905

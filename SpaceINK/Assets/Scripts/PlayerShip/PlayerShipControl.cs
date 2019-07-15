@@ -26,7 +26,7 @@ public class PlayerShipControl : MonoBehaviour {
             m_Ship.shipState = Unit.State.SuperShoot;
         }
 
-        if(CnInputManager.GetButtonUp("SuperShoot"))
+        if (CnInputManager.GetButtonUp("SuperShoot"))
         {
             m_Ship.shipState = Unit.State.Idle;
         }
@@ -59,7 +59,7 @@ public class PlayerShipControl : MonoBehaviour {
             m_Ship.RotationTime = 0;
         }
 
-        if(CnInputManager.GetButtonUp("Right"))
+        if (CnInputManager.GetButtonUp("Right"))
         {
             m_Ship.RotationTime = 0;
         }
@@ -77,12 +77,11 @@ public class PlayerShipControl : MonoBehaviour {
         if (inputVector.sqrMagnitude > 0.001f)
         {
             m_Ship.Move(inputVector);
-        }   
-
+        }
     }
 
     private void FixedUpdate()
     {
-
+        
     }
 }
