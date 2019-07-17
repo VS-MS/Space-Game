@@ -26,6 +26,7 @@ public class SpaceCarrierEnemyShip : EnemyShip
 
     private void Awake()
     {
+        dataSave = FindObjectOfType<DataSave>();
         StatusSliderInt(5.0f, 3.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
@@ -34,13 +35,14 @@ public class SpaceCarrierEnemyShip : EnemyShip
             startPoint = gameObject.transform.position;
         }
         droneFighter = new FighterEnemyShip[shipCount];
+        moneyCount = SetMoneyCount();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //maxArmorPoints = armorPoints;
-        //maxShieldPoints = shieldPoints;
+        maxArmorPoints = armorPoints;
+        maxShieldPoints = shieldPoints;
     }
 
     // Update is called once per frame
@@ -126,13 +128,13 @@ public class SpaceCarrierEnemyShip : EnemyShip
                 if (droneFighter[i] == null)
                 {
                     FighterEnemyShip newDroneFighter = Instantiate(simpleDroneFighter, this.transform.position, simpleDroneFighter.transform.rotation) as FighterEnemyShip;
-                    newDroneFighter.armorPoints = (int)armorPoints/15;
-                    newDroneFighter.shieldPoints = (int)shieldPoints/15;
+                    newDroneFighter.armorPoints = (int)maxArmorPoints/15;
+                    newDroneFighter.shieldPoints = (int)maxShieldPoints/15;
                     newDroneFighter.bulletDamage = bulletDamage;
                     newDroneFighter.startPoint = gameObject.transform.position;
                     newDroneFighter.parentPosition = gameObject.transform;
-                    newDroneFighter.statusSlider.maxArmor = (int)armorPoints / 15;
-                    newDroneFighter.statusSlider.maxShield = (int)shieldPoints / 15;
+                    newDroneFighter.statusSlider.maxArmor = (int)maxArmorPoints / 15;
+                    newDroneFighter.statusSlider.maxShield = (int)maxShieldPoints / 15;
                     newDroneFighter.GetComponent<Rigidbody2D>().velocity = this.transform.up * 10;
                     droneFighter[i] = newDroneFighter;
                     myTime = 0.0F;

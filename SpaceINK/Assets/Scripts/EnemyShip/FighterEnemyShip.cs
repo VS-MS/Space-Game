@@ -28,14 +28,16 @@ public class FighterEnemyShip : EnemyShip
     void Start()
     {
         
-        maxArmorPoints = armorPoints;
-        maxShieldPoints = shieldPoints;
+        //maxArmorPoints = armorPoints;
+        //maxShieldPoints = shieldPoints;
         //Debug.Log("ArmorpointsFE = " + armorPoints);
         //Debug.Log("MaxArmorFE = " + maxArmorPoints);
     }
 
     private void Awake()
     {
+        dataSave = FindObjectOfType<DataSave>();
+        Debug.Log(dataSave);
         StatusSliderInt(2.0f, 1.0f);
         //armorBar = transform.Find("Canvas").Find("ArmorSlider").Find("ArmorBar");
         //shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");
@@ -46,6 +48,7 @@ public class FighterEnemyShip : EnemyShip
             startPoint = gameObject.transform.position;
         }
         gunTransform = this.transform.Find("Gun_1");
+        moneyCount = SetMoneyCount();
     }
     
 

@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7020381b844b94fad3e8a6cbdda354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyCount: 0
   shipState: 0
   armorPoints: 100
   shieldPoints: 100
@@ -196,6 +197,7 @@ MonoBehaviour:
   rotationSpeed: 1
   playerBullet: {fileID: 7035233454327686688, guid: 0fde5d9d2d9811748a820dd40f5b925e,
     type: 3}
+  bulletDamage: 100
   bulletSpeed: 1
   fireDelta: 0.1
   boostPoints: 100
@@ -204,7 +206,6 @@ MonoBehaviour:
   superShootPoints: 100
   superShootMaxPoints: 100
   superShootDelta: 0.2
-  m_velocite: {x: 0, y: 0}
   boostWing: {fileID: 0}
 --- !u!114 &6291984215524662933
 MonoBehaviour:

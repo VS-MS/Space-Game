@@ -19,6 +19,7 @@ public class BattleEnemyShip : EnemyShip
 
     private void Awake()
     {
+        dataSave = FindObjectOfType<DataSave>();
         StatusSliderInt(6.0f, 2.0f);
         //armorBar = transform.Find("Canvas").Find("ArmorSlider").Find("ArmorBar");
         //shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");
@@ -28,13 +29,13 @@ public class BattleEnemyShip : EnemyShip
         {
             startPoint = gameObject.transform.position;
         }
+        moneyCount = SetMoneyCount();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        maxArmorPoints = armorPoints;
-        maxShieldPoints = shieldPoints;
+
     }
 
     private void FixedUpdate()

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyShip : Unit
 {
-    
-
     //Радиус обнаружения противника
     public float radarRadius = 30;
     //Радиус начала стрельбы
@@ -34,10 +32,18 @@ public class EnemyShip : Unit
     {
         
     }
+
+    protected int SetMoneyCount()
+    {
+        int money_;
+        money_ = (int)((maxShieldPoints + maxShieldPoints) * bulletDamage);
+        return money_;
+    }
     public void StatusSliderInt(float _upDis, float _scaleX) 
     {
         maxArmorPoints = armorPoints;
         maxShieldPoints = shieldPoints;
+        Debug.Log("MaxShield EnemyShip" + maxShieldPoints);
         //EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position) as EnemyStatusSlider;
         EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position, this.transform.rotation) as EnemyStatusSlider;
         newStatusSlider.maxArmor = armorPoints;
@@ -48,12 +54,6 @@ public class EnemyShip : Unit
         statusSlider = newStatusSlider;
         //Debug.Log(armorPoints);
         //Debug.Log(maxArmorPoints);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     protected virtual Vector3 CalculateAim()

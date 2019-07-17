@@ -19,7 +19,7 @@ public class EnemyStatusSlider : MonoBehaviour
 
     private void Awake()
     {
-
+        Debug.Log("MaxShield statusslider =" + maxShield);
     }
     public void SetScaleX(float _x)
     {

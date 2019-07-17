@@ -18,12 +18,12 @@ public class SpaceEnemyCruiser : EnemyShip
     // Start is called before the first frame update
     void Start()
     {
-        maxArmorPoints = armorPoints;
-        maxShieldPoints = shieldPoints;
+
     }
 
     private void Awake()
     {
+        dataSave = FindObjectOfType<DataSave>();
         StatusSliderInt(6.0f, 2.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
@@ -31,6 +31,7 @@ public class SpaceEnemyCruiser : EnemyShip
         {
             startPoint = gameObject.transform.position;
         }
+        moneyCount = SetMoneyCount();
     }
 
     private void FixedUpdate()

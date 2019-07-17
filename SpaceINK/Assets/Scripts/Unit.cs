@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-
+    //количество очков, которые получит игрок за уничтожение коробля
+    [SerializeField]
+    protected int moneyCount;
+    //ссылка на обект типа DataSave для сохранения прогресса
+    protected DataSave dataSave;
     public State shipState = State.Idle; //переменная, в которой храним состояние корабля
     public enum State
     {
@@ -40,7 +44,7 @@ public class Unit : MonoBehaviour
     }
 
     //Получаем урон
-    public void ReceiveDamage(float damage)			//простая функция для получения урона(если далее буду вводить shield, нужно переделать!)
+    public void ReceiveDamage(float damage)			//простая функция для получения урона
 	{
         if (shieldPoints < damage)
         {
@@ -57,6 +61,14 @@ public class Unit : MonoBehaviour
         {
             shipState = State.Die;
             Destroy(gameObject, 10.01f);
+            if(this.tag == "EnemyShip")
+            {
+                if (moneyCount > 0)
+                {
+                    dataSave.money += moneyCount;
+                    moneyCount = 0;
+                }
+            }
         }
     }
 
