@@ -19,7 +19,6 @@ public class BattleEnemyShip : EnemyShip
 
     private void Awake()
     {
-        dataSave = FindObjectOfType<DataSave>();
         StatusSliderInt(6.0f, 2.0f);
         //armorBar = transform.Find("Canvas").Find("ArmorSlider").Find("ArmorBar");
         //shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");

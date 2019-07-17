@@ -43,7 +43,6 @@ public class EnemyShip : Unit
     {
         maxArmorPoints = armorPoints;
         maxShieldPoints = shieldPoints;
-        Debug.Log("MaxShield EnemyShip" + maxShieldPoints);
         //EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position) as EnemyStatusSlider;
         EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position, this.transform.rotation) as EnemyStatusSlider;
         newStatusSlider.maxArmor = armorPoints;

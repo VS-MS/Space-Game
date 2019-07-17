@@ -6,7 +6,6 @@ public class Pause : MonoBehaviour
 {
     public void SetPause(bool timing)
     {
-        Debug.Log(timing);
         if(timing)
         {
             Time.timeScale = 0;

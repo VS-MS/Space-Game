@@ -10,7 +10,7 @@ public class Save
  */
 {
     public float time = 0;
-    public float money = 0;
+    public int money = 0;
     public int levelComplite = 0;
 
 }

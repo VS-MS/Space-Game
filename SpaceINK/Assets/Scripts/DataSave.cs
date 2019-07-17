@@ -7,7 +7,7 @@ using UnityEngine;
 public class DataSave : MonoBehaviour
 {
     public int money;
-    public float time_;
+    //public float time_;
     private int counter;
     static bool created = false;
     void Awake()
@@ -29,7 +29,10 @@ public class DataSave : MonoBehaviour
     {
         //создаем экземпляр класса Save т заполняем все его поля
         Save save = new Save();
-        save.time = time_;
+        //save.time = time_;
+        save.money = money;
+        Debug.Log(money);
+        Debug.Log(save.money);
         //возврощаем экземпляр класса
         return save;
     }
@@ -59,8 +62,8 @@ public class DataSave : MonoBehaviour
             Save save = (Save)bf.Deserialize(file);
             file.Close();
 
-            time_ = save.time;
-
+            //time_ = save.time;
+            money = save.money;
             Debug.Log("Game Loaded");
         }
         else

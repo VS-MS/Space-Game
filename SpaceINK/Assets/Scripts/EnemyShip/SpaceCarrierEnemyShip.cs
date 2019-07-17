@@ -26,7 +26,6 @@ public class SpaceCarrierEnemyShip : EnemyShip
 
     private void Awake()
     {
-        dataSave = FindObjectOfType<DataSave>();
         StatusSliderInt(5.0f, 3.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");

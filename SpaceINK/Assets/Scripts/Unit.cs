@@ -65,6 +65,8 @@ public class Unit : MonoBehaviour
             {
                 if (moneyCount > 0)
                 {
+                    //ищем на сцене объект, в котором храним прогресс игрока и добовляем денег за уничтоженный корабль.
+                    dataSave = FindObjectOfType<DataSave>();
                     dataSave.money += moneyCount;
                     moneyCount = 0;
                 }
