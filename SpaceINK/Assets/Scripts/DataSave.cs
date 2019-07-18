@@ -12,6 +12,7 @@ public class DataSave : MonoBehaviour
     static bool created = false;
     void Awake()
     {
+        LoadGame();
         //Проверяем, есть ли экземпляр объекта на сцене, если есть, удаляем этот экземпляр
         if (!created)
         {
@@ -31,8 +32,8 @@ public class DataSave : MonoBehaviour
         Save save = new Save();
         //save.time = time_;
         save.money = money;
-        Debug.Log(money);
-        Debug.Log(save.money);
+        //Debug.Log(money);
+        //Debug.Log(save.money);
         //возврощаем экземпляр класса
         return save;
     }
