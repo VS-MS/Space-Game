@@ -50,6 +50,9 @@ public class PlayerShip : Unit {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         gunTransform = this.transform.Find("Gun_1");
         boostWing = this.transform.Find("BoostWing").gameObject;
+
+        dataSave = FindObjectOfType<DataSave>();
+        Debug.Log(dataSave.money);
     }
 
     // Update is called once per frame
