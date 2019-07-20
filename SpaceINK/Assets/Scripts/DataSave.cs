@@ -7,12 +7,41 @@ using UnityEngine;
 public class DataSave : MonoBehaviour
 {
     public int money;
-    //public float time_;
-    private int counter;
+    public int levelComplite;
+
+    [Header("Canon")]
+    public float canonDamage;
+    public float canonFireRate;
+    public float canonSpeed;
+    public int canonCount;
+
+    [Header("Super Shot")]
+    public float ssDamage;
+    public float ssFireRate;
+    public float ssMaxTime;
+    public float ssTimeReload;
+
+    [Header("Armor/Shield")]
+    public float shipArmor;
+    //public float shipArmorDelta;
+    public float shipShield;
+    public float shipShieldDelta;
+
+    [Header("Engine")]
+    public float shipMaxSpeed;
+    public float shipAcceleration;
+    public float shipRotation;
+
+    [Header("Super Boost")]
+    public float sbMaxSpeed;
+    public float sbAcceleration;
+    public float sbMaxTime;
+    public float sbTimeReload;
+
     static bool created = false;
     void Awake()
     {
-        LoadGame();
+        LoadGame();//Так делать не стоит, но пока нет законченного меню, придется оставить.
         //Проверяем, есть ли экземпляр объекта на сцене, если есть, удаляем этот экземпляр
         if (!created)
         {
@@ -29,11 +58,40 @@ public class DataSave : MonoBehaviour
     private Save CreateSaveGameObject()
     {
         //создаем экземпляр класса Save т заполняем все его поля
-        Save save = new Save();
-        //save.time = time_;
-        save.money = money;
-        //Debug.Log(money);
-        //Debug.Log(save.money);
+        Save save = new Save
+        {
+            money = money,
+            levelComplite = levelComplite,
+
+
+            canonDamage = canonDamage,
+            canonFireRate = canonFireRate,
+            canonSpeed = canonSpeed,
+            canonCount = canonCount,
+
+
+            ssDamage = ssDamage,
+            ssFireRate = ssFireRate,
+            ssMaxTime = ssMaxTime,
+            ssTimeReload = ssTimeReload,
+
+
+            shipArmor = shipArmor,
+
+            shipShield = shipShield,
+            shipShieldDelta = shipShieldDelta,
+
+
+            shipMaxSpeed = shipMaxSpeed,
+            shipAcceleration = shipAcceleration,
+            shipRotation = shipRotation,
+
+
+            sbMaxSpeed = sbMaxSpeed,
+            sbAcceleration = sbAcceleration,
+            sbMaxTime = sbMaxTime,
+            sbTimeReload = sbTimeReload
+        };
         //возврощаем экземпляр класса
         return save;
     }
@@ -63,8 +121,38 @@ public class DataSave : MonoBehaviour
             Save save = (Save)bf.Deserialize(file);
             file.Close();
 
-            //time_ = save.time;
             money = save.money;
+            levelComplite = save.levelComplite;
+
+
+            canonDamage = save.canonDamage;
+            canonFireRate = save.canonFireRate;
+            canonSpeed = save.canonSpeed;
+            canonCount = save.canonCount;
+
+
+            ssDamage = save.ssDamage;
+            ssFireRate = save.ssFireRate;
+            ssMaxTime = save.ssMaxTime;
+            ssTimeReload = save.ssTimeReload;
+
+
+            shipArmor = save.shipArmor;
+
+            shipShield = save.shipShield;
+            shipShieldDelta = save.shipShieldDelta;
+
+
+            shipMaxSpeed = save.shipMaxSpeed;
+            shipAcceleration = save.shipAcceleration;
+            shipRotation = save.shipRotation;
+
+
+            sbMaxSpeed = save.sbMaxSpeed;
+            sbAcceleration = save.sbAcceleration;
+            sbMaxTime = save.sbMaxTime;
+            sbTimeReload = save.sbTimeReload;
+            
             Debug.Log("Game Loaded");
         }
         else

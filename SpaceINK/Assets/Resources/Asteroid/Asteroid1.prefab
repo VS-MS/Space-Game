@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torque: 0.2
+  hp: 200
 --- !u!1 &6758341338976191426
 GameObject:
   m_ObjectHideFlags: 0

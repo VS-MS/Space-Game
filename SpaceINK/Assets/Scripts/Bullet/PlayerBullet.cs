@@ -52,7 +52,7 @@ public class PlayerBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + (direction * 2), speed);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed);
         trail.startWidth = trailWidth;
     }
 
@@ -69,6 +69,7 @@ public class PlayerBullet : MonoBehaviour
         }
         if (collision.tag == "Asteroid")
         {
+            collision.gameObject.GetComponent<Asteroid>().ReceiveDamage(damage);
             Destroy(gameObject);
         }
     }

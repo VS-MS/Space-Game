@@ -181,3 +181,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torque: 5
+  hp: 400

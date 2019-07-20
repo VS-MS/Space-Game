@@ -197,9 +197,9 @@ MonoBehaviour:
   rotationSpeed: 1
   playerBullet: {fileID: 7035233454327686688, guid: 0fde5d9d2d9811748a820dd40f5b925e,
     type: 3}
-  bulletDamage: 100
-  bulletSpeed: 1
-  fireDelta: 0.1
+  bulletDamage: 20
+  bulletSpeed: 0.5
+  fireDelta: 0.5
   boostPoints: 100
   boostMaxPoints: 100
   boostDelta: 0.2

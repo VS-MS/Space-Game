@@ -43,3 +43,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f826ecaa28d42a4ba22d5042e1c3216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 0
+  levelComplite: 0
+  canonDamage: 20
+  canonFireRate: 0
+  canonSpeed: 1
+  canonCount: 1
+  ssDamage: 1.5
+  ssFireRate: 1.5
+  ssMaxTime: 100
+  ssTimeReload: 0.5
+  shipArmor: 100
+  shipShield: 100
+  shipShieldDelta: 0.5
+  shipMaxSpeed: 15
+  shipAcceleration: 80
+  shipRotation: 1
+  sbMaxSpeed: 1.5
+  sbAcceleration: 1.5
+  sbMaxTime: 100
+  sbTimeReload: 0.5

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     public float torque;
+    public float hp;
     private Rigidbody2D rb;
 
     void Awake()
@@ -14,8 +15,16 @@ public class Asteroid : MonoBehaviour
         rb.AddTorque(torque * Random.Range(-10.0f, 10.0f));
     }
 
-    void FixedUpdate()
+    public void ReceiveDamage(float damage) 
     {
-        //float turn = Input.GetAxis("Horizontal");
+        if(hp > damage)
+        {
+            hp -= damage;
+        }
+        if(hp <= damage)
+        {
+            Destroy(gameObject, 0.0f);
+        }
     }
+
 }
