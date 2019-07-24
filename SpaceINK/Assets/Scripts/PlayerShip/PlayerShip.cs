@@ -9,26 +9,29 @@ public class PlayerShip : Unit {
     //Экземпляр пули игрока
     private PlayerBullet playerBullet;
     [SerializeField]
-    private float bulletDamage = 10;
+    private float bulletDamage;
     [SerializeField]
-    private float bulletSpeed = 80f;
-    public float fireDelta = 0.70F;//скорость стрельбы
-    private float myTime = 0.5F;//время прошло от последнего выстрела
+    private float bulletSpeed;
+    public float fireDelta;//скорость стрельбы
+    private float myTime;//время прошло от последнего выстрела
+
 
     
-    [HideInInspector]
-    public float boostPoints = 100;
     [Header("Super Boost Settings")]
     public float boostMaxPoints;
-    public float boostDelta = 1;
-    private float boostTime = 0;
+    public float boostDelta;
+    private float boostTime;
+    public float boostPoints = 100;
+    private float sbSpeedRatio = 1.5f;
+    private float sbAccelerationRatio = 1.5f; 
 
-    [HideInInspector]
-    public float superShootPoints = 100;
+
     [Header("Super Shoot Settings")]
+    public float superShootPoints;
     public float superShootMaxPoints;
-    public float superShootDelta = 1;
-    private float superShootTime = 0;
+    public float superShootDelta;
+    private float superShootTime;
+    public float ssDamageRatio; 
 
     private Vector2 m_velocite;
     private Rigidbody2D m_Rigidbody2D;
@@ -42,19 +45,50 @@ public class PlayerShip : Unit {
     void Start ()
     {
         //maxShieldPoints = shieldPoints;
-        boostMaxPoints = boostPoints;
-        superShootMaxPoints = superShootPoints;
+        //boostMaxPoints = boostPoints;
+        //superShootMaxPoints = superShootPoints;
+        //boostMaxPoints = dataSave.sbMaxTime;
+        //boostDelta = dataSave.sbTimeReload;
+        RefreshPlayerStat();
     }
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         gunTransform = this.transform.Find("Gun_1");
         boostWing = this.transform.Find("BoostWing").gameObject;
-
-        dataSave = FindObjectOfType<DataSave>();
-        Debug.Log(dataSave.money);
+        
     }
 
+    private void RefreshPlayerStat()
+    {
+        dataSave = FindObjectOfType<DataSave>();
+
+        /*
+         * Cannon
+         */
+        bulletDamage = dataSave.cannonDamage;
+        bulletSpeed = dataSave.cannonBulletSpeed;
+        Debug.Log(dataSave.cannonBulletSpeed);
+        fireDelta = dataSave.cannonFireRate;
+
+        //cannonCont =
+
+        /*
+         * SuperBoost
+         */
+        sbSpeedRatio = dataSave.sbMaxSpeed;
+        sbAccelerationRatio = dataSave.sbAcceleration;
+        boostPoints = dataSave.sbMaxTime; /*---*/ boostMaxPoints = dataSave.sbMaxTime;
+        boostDelta = dataSave.sbTimeReload;
+
+        /*
+         * SuperShot
+         */
+        superShootMaxPoints = dataSave.ssMaxTime; /*---*/ superShootPoints = dataSave.ssMaxTime;
+        ssDamageRatio = dataSave.ssDamage;
+        superShootDelta = dataSave.ssTimeReload;
+
+    }
     // Update is called once per frame
     void Update ()
     {
@@ -181,9 +215,9 @@ public class PlayerShip : Unit {
         if(boostPoints > 0)
         {
             boostPoints--;
-            if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * 2))
+            if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * sbSpeedRatio))
             {
-                m_Rigidbody2D.AddForce(transform.up * boostForce * 3);
+                m_Rigidbody2D.AddForce(transform.up * boostForce * sbAccelerationRatio);
                 boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = true;
                 boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = true;
             }
@@ -204,13 +238,13 @@ public class PlayerShip : Unit {
             if (myTime > fireDelta)
             {
                 PlayerBullet newBullet = Instantiate(playerBullet, gunTransform.position, playerBullet.transform.rotation) as PlayerBullet;
-                newBullet.Speed = bulletSpeed * 2;
+                newBullet.Speed = bulletSpeed;
                 newBullet.Parent = gameObject;
                 newBullet.Direction = m_Rigidbody2D.transform.up;
                 newBullet.trailWidth = 0.5f;
 
                 //newBullet.color = buletcolor;
-                newBullet.Damage = bulletDamage * 2;
+                newBullet.Damage = bulletDamage * ssDamageRatio;
                 myTime = 0.0F;
             }
         }

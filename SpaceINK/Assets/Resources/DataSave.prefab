@@ -43,12 +43,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f826ecaa28d42a4ba22d5042e1c3216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basePlayerStat: {fileID: 11400000, guid: 128f693a60d4af641a63a9da30b98bac, type: 2}
   money: 0
-  levelComplite: 0
-  canonDamage: 20
-  canonFireRate: 0
-  canonSpeed: 1
-  canonCount: 1
+  levelComplite: 1
+  CannonLvl: 1
+  SuperShotLvl: 1
+  ArmorShieldLvl: 1
+  EngineLvl: 1
+  SuperBoostLvl: 1
+  cannonDamage: 20
+  cannonFireRate: 0.3
+  cannonBulletSpeed: 0.5
+  cannonCount: 1
   ssDamage: 1.5
   ssFireRate: 1.5
   ssMaxTime: 100

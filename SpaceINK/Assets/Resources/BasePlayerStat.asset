@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7648f75a581d9449b64faf477a0ec5c, type: 3}
+  m_Name: BasePlayerStat
+  m_EditorClassIdentifier: 
+  cannonDamage: 20
+  cannonFireRate: 0.3
+  cannonBulletSpeed: 100
+  cannonCount: 1
+  ssDamage: 1.5
+  ssMaxTime: 100
+  ssTimeReload: 0.5
+  shipArmor: 100
+  shipShield: 100
+  shipShieldDelta: 0.5
+  shipMaxSpeed: 15
+  shipAcceleration: 80
+  shipRotation: 1
+  sbMaxSpeed: 1.5
+  sbAcceleration: 1.5
+  sbMaxTime: 1000
+  sbTimeReload: 0.5

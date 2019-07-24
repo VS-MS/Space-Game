@@ -47,13 +47,16 @@ public class PlayerBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float step = speed * Time.deltaTime;
+        //transform.position = Vector3.MoveTowards(transform.position, pos, step);
+
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + (direction), step);
+        trail.startWidth = trailWidth;
     }
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed);
-        trail.startWidth = trailWidth;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -4,20 +4,28 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;
 
-public class DataSave : MonoBehaviour
+public class DataSave : MonoBehaviour 
 {
+    [SerializeField]
+    private BasePlayerStat basePlayerStat;
+
     public int money;
     public int levelComplite;
 
-    [Header("Canon")]
-    public float canonDamage;
-    public float canonFireRate;
-    public float canonSpeed;
-    public int canonCount;
+    public int CannonLvl; 
+    public int SuperShotLvl;
+    public int ArmorShieldLvl;
+    public int EngineLvl;
+    public int SuperBoostLvl;
+
+    [Header("Cannon")]
+    public float cannonDamage;
+    public float cannonFireRate;
+    public float cannonBulletSpeed;
+    public int cannonCount; 
 
     [Header("Super Shot")]
     public float ssDamage;
-    public float ssFireRate;
     public float ssMaxTime;
     public float ssTimeReload;
 
@@ -38,10 +46,13 @@ public class DataSave : MonoBehaviour
     public float sbMaxTime;
     public float sbTimeReload;
 
+    //public Save PlayerStat;
+
     static bool created = false;
     void Awake()
-    {
+    {   
         LoadGame();//Так делать не стоит, но пока нет законченного меню, придется оставить.
+
         //Проверяем, есть ли экземпляр объекта на сцене, если есть, удаляем этот экземпляр
         if (!created)
         {
@@ -55,43 +66,51 @@ public class DataSave : MonoBehaviour
         }
     }
 
+    public void RefreshStat()
+    {
+        //Cannon
+        cannonDamage = CannonLvl * basePlayerStat.cannonDamage;
+        cannonFireRate = CannonLvl * basePlayerStat.cannonFireRate;
+        cannonBulletSpeed = CannonLvl * basePlayerStat.cannonBulletSpeed;
+        cannonCount = CannonLvl * basePlayerStat.cannonCount;
+
+        //Super Shot
+        ssDamage = SuperShotLvl * basePlayerStat.ssDamage;
+        ssMaxTime = SuperShotLvl * basePlayerStat.ssMaxTime;
+        ssTimeReload = SuperShotLvl * basePlayerStat.ssTimeReload;
+
+        //Armor Shield
+        shipArmor = ArmorShieldLvl * basePlayerStat.shipArmor;
+        shipShield = ArmorShieldLvl * basePlayerStat.shipShield;
+        shipShieldDelta = ArmorShieldLvl * basePlayerStat.shipShieldDelta;
+
+        //Engine
+        shipMaxSpeed = ArmorShieldLvl * basePlayerStat.shipMaxSpeed;
+        shipAcceleration = ArmorShieldLvl * basePlayerStat.shipAcceleration;
+        shipRotation = ArmorShieldLvl * basePlayerStat.shipRotation;
+
+        //Super boost
+        sbMaxSpeed = ArmorShieldLvl * basePlayerStat.sbMaxSpeed;
+        sbAcceleration = ArmorShieldLvl * basePlayerStat.sbAcceleration;
+        sbMaxTime = ArmorShieldLvl * basePlayerStat.sbMaxTime;
+        sbTimeReload = ArmorShieldLvl * basePlayerStat.sbTimeReload;
+
+
+    }
     private Save CreateSaveGameObject()
     {
         //создаем экземпляр класса Save т заполняем все его поля
-        Save save = new Save
-        {
-            money = money,
-            levelComplite = levelComplite,
+        Save save = new Save();
 
+        save.money = money;
+        save.levelComplite = levelComplite;
 
-            canonDamage = canonDamage,
-            canonFireRate = canonFireRate,
-            canonSpeed = canonSpeed,
-            canonCount = canonCount,
-
-
-            ssDamage = ssDamage,
-            ssFireRate = ssFireRate,
-            ssMaxTime = ssMaxTime,
-            ssTimeReload = ssTimeReload,
-
-
-            shipArmor = shipArmor,
-
-            shipShield = shipShield,
-            shipShieldDelta = shipShieldDelta,
-
-
-            shipMaxSpeed = shipMaxSpeed,
-            shipAcceleration = shipAcceleration,
-            shipRotation = shipRotation,
-
-
-            sbMaxSpeed = sbMaxSpeed,
-            sbAcceleration = sbAcceleration,
-            sbMaxTime = sbMaxTime,
-            sbTimeReload = sbTimeReload
-        };
+        save.CannonLvl = CannonLvl;
+        save.SuperShotLvl = SuperShotLvl;
+        save.ArmorShieldLvl = ArmorShieldLvl;
+        save.EngineLvl = EngineLvl;
+        save.SuperBoostLvl = SuperBoostLvl;
+        //save = PlayerStat;
         //возврощаем экземпляр класса
         return save;
     }
@@ -108,6 +127,8 @@ public class DataSave : MonoBehaviour
         bf.Serialize(file, save);
         //закрываем класс
         file.Close();
+        RefreshStat();
+        
 
         Debug.Log("Game Saved");
     }
@@ -121,10 +142,19 @@ public class DataSave : MonoBehaviour
             Save save = (Save)bf.Deserialize(file);
             file.Close();
 
+            //PlayerStat = save;
+
+            
             money = save.money;
             levelComplite = save.levelComplite;
 
+            CannonLvl = save.CannonLvl;
+            SuperShotLvl = save.SuperShotLvl;
+            ArmorShieldLvl = save.ArmorShieldLvl;
+            EngineLvl = save.EngineLvl;
+            SuperBoostLvl = save.SuperBoostLvl;
 
+            /*
             canonDamage = save.canonDamage;
             canonFireRate = save.canonFireRate;
             canonSpeed = save.canonSpeed;
@@ -152,7 +182,9 @@ public class DataSave : MonoBehaviour
             sbAcceleration = save.sbAcceleration;
             sbMaxTime = save.sbMaxTime;
             sbTimeReload = save.sbTimeReload;
-            
+            */
+            RefreshStat();
+
             Debug.Log("Game Loaded");
         }
         else

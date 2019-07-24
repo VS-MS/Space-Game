@@ -199,7 +199,7 @@ MonoBehaviour:
     type: 3}
   bulletDamage: 20
   bulletSpeed: 0.5
-  fireDelta: 0.5
+  fireDelta: 0.3
   boostPoints: 100
   boostMaxPoints: 100
   boostDelta: 0.2

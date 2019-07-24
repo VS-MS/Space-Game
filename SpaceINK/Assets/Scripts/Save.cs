@@ -12,6 +12,13 @@ public class Save
     public int money;
     public int levelComplite;
 
+    public int CannonLvl; 
+    public int SuperShotLvl;
+    public int ArmorShieldLvl;
+    public int EngineLvl;
+    public int SuperBoostLvl;
+
+    /*
     public float canonDamage;
     public float canonFireRate;
     public float canonSpeed;
@@ -35,5 +42,6 @@ public class Save
     public float sbAcceleration;
     public float sbMaxTime;
     public float sbTimeReload;
+    */
 }
  

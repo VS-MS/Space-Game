@@ -6,9 +6,9 @@ public class BackGround : MonoBehaviour
 {
 
     private GameObject playerShip;
-    //[SerializeField]
+    [SerializeField]
     //переменная для определения глубины слоя бекграунда
-    //private float orderZ;
+    private float orderZ;
     [SerializeField]
     //скорость, с которой будет вращаться бекграунд. Чем больше число, тем медленнее будет он двигаться.
     private float scrollSpeed;
@@ -32,7 +32,7 @@ public class BackGround : MonoBehaviour
         if(playerShip)
         {
             Vector3 playerPosition = playerShip.transform.position;
-            //playerPosition.z = orderZ;
+            playerPosition.z = orderZ;
             //this.transform.position = Vector3.Lerp(transform.position, playerShip.transform.position, 2 * Time.deltaTime);
             this.transform.position = playerPosition;
             this.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", playerShip.transform.position / scrollSpeed);
