@@ -200,12 +200,17 @@ MonoBehaviour:
   bulletDamage: 20
   bulletSpeed: 0.5
   fireDelta: 0.3
-  boostPoints: 100
   boostMaxPoints: 100
   boostDelta: 0.2
+  boostPoints: 100
   superShootPoints: 100
   superShootMaxPoints: 100
   superShootDelta: 0.2
+  ssDamageRatio: 0
+  gunTransform:
+  - {fileID: 1987037069451694311}
+  - {fileID: 8301005797598158562}
+  - {fileID: 166853366880875330}
   boostWing: {fileID: 0}
 --- !u!114 &6291984215524662933
 MonoBehaviour:
@@ -229,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1987037069451694311}
   m_Layer: 0
-  m_Name: Gun_1
+  m_Name: Gun_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1013,7 +1018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 166853366880875330}
   m_Layer: 0
-  m_Name: Gun_3
+  m_Name: Gun_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,7 +1183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8301005797598158562}
   m_Layer: 0
-  m_Name: Gun_2
+  m_Name: Gun_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

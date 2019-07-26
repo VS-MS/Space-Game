@@ -38,7 +38,8 @@ public class PlayerShip : Unit {
     private float rotationTime;
     public float RotationTime { set { if (value >= 0 & value <= 1) rotationTime = value; else rotationTime = 0.01f; } }
 
-    private Transform gunTransform;
+    [SerializeField]
+    private Transform[] gunTransform;
     [HideInInspector]
     public GameObject boostWing;
 
@@ -54,7 +55,6 @@ public class PlayerShip : Unit {
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        gunTransform = this.transform.Find("Gun_1");
         boostWing = this.transform.Find("BoostWing").gameObject;
         
     }
@@ -230,6 +230,31 @@ public class PlayerShip : Unit {
         }
     }
 
+    private void LaunchBullet(Transform bulletPosition)
+    {
+        PlayerBullet newBullet = Instantiate(playerBullet, bulletPosition.position, playerBullet.transform.rotation) as PlayerBullet;
+        newBullet.Speed = bulletSpeed;
+        newBullet.Parent = gameObject;
+        newBullet.Direction = m_Rigidbody2D.transform.up;
+        //newBullet.trailWidth = 0.5f;
+
+        //newBullet.color = buletcolor;
+        newBullet.Damage = bulletDamage;
+    }
+
+    private void LaunchSuperBullet(Transform bulletPosition)
+    {
+        PlayerBullet newBullet = Instantiate(playerBullet, bulletPosition.position, playerBullet.transform.rotation) as PlayerBullet;
+        newBullet.Speed = bulletSpeed;
+        newBullet.Parent = gameObject;
+        newBullet.Direction = m_Rigidbody2D.transform.up;
+        newBullet.trailWidth = 0.5f;
+
+        //newBullet.color = buletcolor;
+        newBullet.Damage = bulletDamage * ssDamageRatio;
+    }
+
+
     public void SuperShoot()
     {
         if (superShootPoints > 0)
@@ -237,14 +262,10 @@ public class PlayerShip : Unit {
             superShootPoints--;
             if (myTime > fireDelta)
             {
-                PlayerBullet newBullet = Instantiate(playerBullet, gunTransform.position, playerBullet.transform.rotation) as PlayerBullet;
-                newBullet.Speed = bulletSpeed;
-                newBullet.Parent = gameObject;
-                newBullet.Direction = m_Rigidbody2D.transform.up;
-                newBullet.trailWidth = 0.5f;
-
-                //newBullet.color = buletcolor;
-                newBullet.Damage = bulletDamage * ssDamageRatio;
+                for(int i = 0; i < gunTransform.Length; i++)
+                {
+                    LaunchSuperBullet(gunTransform[i]);
+                }
                 myTime = 0.0F;
             }
         }
@@ -256,13 +277,10 @@ public class PlayerShip : Unit {
     {
         if (myTime > fireDelta)
         {
-            PlayerBullet newBullet = Instantiate(playerBullet, gunTransform.position, playerBullet.transform.rotation) as PlayerBullet;
-            newBullet.Speed = bulletSpeed;
-            newBullet.Parent = gameObject;
-            newBullet.Direction = m_Rigidbody2D.transform.up;
-
-            //newBullet.color = buletcolor;
-            newBullet.Damage = bulletDamage;
+            for (int i = 0; i < gunTransform.Length; i++)
+            {
+                LaunchBullet(gunTransform[i]);
+            }
             myTime = 0.0F;
         }
     }
