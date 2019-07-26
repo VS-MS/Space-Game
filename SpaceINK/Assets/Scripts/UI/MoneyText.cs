@@ -14,12 +14,17 @@ public class MoneyText : MonoBehaviour
     {
         textMoney = gameObject.GetComponent<TextMeshProUGUI>();
         dataSave = FindObjectOfType<DataSave>();
+
+        //Один раз обновляем текст до загрузки, 
+        //иначе сначало будет видна надпись "Score", 
+        //прежде чем сработает апдейт и она обновиться.
+        string money_ = dataSave.money.ToString();
+        textMoney.text = money_;
     }
     // Update is called once per frame
     void Update()
     {   
-        string money_ = dataSave.money.ToString();
-        
+        string money_ = dataSave.money.ToString();    
         textMoney.text = money_;
     }
 
