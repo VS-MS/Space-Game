@@ -13,6 +13,7 @@ public class PlayerShip : Unit {
     [SerializeField]
     private float bulletSpeed;
     public float fireDelta;//скорость стрельбы
+    public int cannonCount;
     private float myTime;//время прошло от последнего выстрела
 
 
@@ -68,10 +69,28 @@ public class PlayerShip : Unit {
          */
         bulletDamage = dataSave.cannonDamage;
         bulletSpeed = dataSave.cannonBulletSpeed;
-        Debug.Log(dataSave.cannonBulletSpeed);
         fireDelta = dataSave.cannonFireRate;
+        cannonCount = dataSave.cannonCount;
+        /*
+         * SuperShot
+         */
+        superShootMaxPoints = dataSave.ssMaxTime; /*---*/ superShootPoints = dataSave.ssMaxTime;
+        ssDamageRatio = dataSave.ssDamage;
+        superShootDelta = dataSave.ssTimeReload;
 
-        //cannonCont =
+        /*
+         * Armor Shield
+         */
+        armorPoints = dataSave.shipArmor; /*---*/ maxArmorPoints = dataSave.shipArmor;
+        shieldPoints = dataSave.shipShield; /*---*/ maxShieldPoints = dataSave.shipShield;
+        shieldDelta = dataSave.shipShieldDelta;
+
+        /*
+         * Engine
+         */
+        maxSpeed = dataSave.shipMaxSpeed;
+        boostForce = dataSave.shipAcceleration;
+        rotationSpeed = dataSave.shipRotation;
 
         /*
          * SuperBoost
@@ -81,12 +100,7 @@ public class PlayerShip : Unit {
         boostPoints = dataSave.sbMaxTime; /*---*/ boostMaxPoints = dataSave.sbMaxTime;
         boostDelta = dataSave.sbTimeReload;
 
-        /*
-         * SuperShot
-         */
-        superShootMaxPoints = dataSave.ssMaxTime; /*---*/ superShootPoints = dataSave.ssMaxTime;
-        ssDamageRatio = dataSave.ssDamage;
-        superShootDelta = dataSave.ssTimeReload;
+        
 
     }
     // Update is called once per frame
@@ -262,10 +276,18 @@ public class PlayerShip : Unit {
             superShootPoints--;
             if (myTime > fireDelta)
             {
-                for(int i = 0; i < gunTransform.Length; i++)
+                if (cannonCount == 1)
                 {
-                    LaunchSuperBullet(gunTransform[i]);
+                    LaunchSuperBullet(gunTransform[0]);
                 }
+                else
+                {
+                    for (int i = 0; i < gunTransform.Length; i++)
+                    {
+                        LaunchSuperBullet(gunTransform[i]);
+                    }
+                }
+                
                 myTime = 0.0F;
             }
         }
@@ -277,10 +299,18 @@ public class PlayerShip : Unit {
     {
         if (myTime > fireDelta)
         {
-            for (int i = 0; i < gunTransform.Length; i++)
+            if (cannonCount == 1)
             {
-                LaunchBullet(gunTransform[i]);
+                LaunchBullet(gunTransform[0]);
             }
+            else
+            {
+                for (int i = 0; i < gunTransform.Length; i++)
+                {
+                    LaunchBullet(gunTransform[i]);
+                }
+            }
+                
             myTime = 0.0F;
         }
     }

@@ -85,15 +85,15 @@ public class DataSave : MonoBehaviour
         shipShieldDelta = ArmorShieldLvl * basePlayerStat.shipShieldDelta;
 
         //Engine
-        shipMaxSpeed = ArmorShieldLvl * basePlayerStat.shipMaxSpeed;
-        shipAcceleration = ArmorShieldLvl * basePlayerStat.shipAcceleration;
-        shipRotation = ArmorShieldLvl * basePlayerStat.shipRotation;
+        shipMaxSpeed = EngineLvl * basePlayerStat.shipMaxSpeed;
+        shipAcceleration = EngineLvl * basePlayerStat.shipAcceleration;
+        shipRotation = EngineLvl * basePlayerStat.shipRotation;
 
         //Super boost
-        sbMaxSpeed = ArmorShieldLvl * basePlayerStat.sbMaxSpeed;
-        sbAcceleration = ArmorShieldLvl * basePlayerStat.sbAcceleration;
-        sbMaxTime = ArmorShieldLvl * basePlayerStat.sbMaxTime;
-        sbTimeReload = ArmorShieldLvl * basePlayerStat.sbTimeReload;
+        sbMaxSpeed = SuperBoostLvl * basePlayerStat.sbMaxSpeed;
+        sbAcceleration = SuperBoostLvl * basePlayerStat.sbAcceleration;
+        sbMaxTime = SuperBoostLvl * basePlayerStat.sbMaxTime;
+        sbTimeReload = SuperBoostLvl * basePlayerStat.sbTimeReload;
 
 
     }

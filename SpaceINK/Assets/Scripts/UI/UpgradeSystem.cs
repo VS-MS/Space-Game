@@ -7,11 +7,39 @@ public class UpgradeSystem : MonoBehaviour
 {
     private DataSave dataSave;
 
+    [Header("Button Text")]
     public TextMeshProUGUI cannonLvl;
     public TextMeshProUGUI superShootLvl;
     public TextMeshProUGUI armorShieldLvl;
     public TextMeshProUGUI engineLvl;
     public TextMeshProUGUI superBoostLvl;
+
+    [Header("Cannon Stat Text")]
+    public TextMeshProUGUI cannonDamageText;
+    public TextMeshProUGUI cannonRateText;
+    public TextMeshProUGUI cannonSpeedText;
+    public TextMeshProUGUI cannonCountText;
+
+    [Header("Super Shoot Text")]
+    public TextMeshProUGUI ssDamageText;
+    public TextMeshProUGUI ssMaxTimeText; 
+    public TextMeshProUGUI ssReloadText;
+
+    [Header("Armor Shield Text")]
+    public TextMeshProUGUI armorText;
+    public TextMeshProUGUI shieldText;
+    public TextMeshProUGUI shieldDeltaText;
+
+    [Header("Engnie Text")]
+    public TextMeshProUGUI engineMaxSpeedText;
+    public TextMeshProUGUI engineAccelerationText;
+    public TextMeshProUGUI engineRotationText;
+
+    [Header("SUper Boost Text")]
+    public TextMeshProUGUI sbMaxSpeedText;
+    public TextMeshProUGUI sbAccelerationText;
+    public TextMeshProUGUI sbMaxTime;
+    public TextMeshProUGUI sbReloadText; 
 
     public void Awake()
     {
@@ -110,10 +138,37 @@ public class UpgradeSystem : MonoBehaviour
 
     public void RefreshStat()
     {
+        //Цена апгрейда на кнопка
         cannonLvl.text = CoastUpgrade(dataSave.CannonLvl).ToString();
         superShootLvl.text = CoastUpgrade(dataSave.SuperShotLvl).ToString();
         armorShieldLvl.text = CoastUpgrade(dataSave.ArmorShieldLvl).ToString();
         engineLvl.text = CoastUpgrade(dataSave.EngineLvl).ToString();
         superBoostLvl.text = CoastUpgrade(dataSave.SuperBoostLvl).ToString();
+
+        //статы коробля
+        //Главня пушка
+        cannonDamageText.text = dataSave.cannonDamage.ToString();
+        cannonRateText.text = dataSave.cannonFireRate.ToString();
+        cannonSpeedText.text = dataSave.cannonBulletSpeed.ToString();
+        cannonCountText.text = dataSave.cannonCount.ToString();
+        //SuperShoot
+        ssDamageText.text = dataSave.ssDamage.ToString();
+        ssMaxTimeText.text = dataSave.ssMaxTime.ToString();
+        ssReloadText.text = dataSave.ssTimeReload.ToString();
+        //Armor Shield
+        armorText.text = dataSave.shipArmor.ToString();
+        shieldText.text = dataSave.shipShield.ToString();
+        shieldDeltaText.text = dataSave.shipShieldDelta.ToString();
+        //Engine
+        engineMaxSpeedText.text = dataSave.shipMaxSpeed.ToString();
+        engineAccelerationText.text = dataSave.shipAcceleration.ToString();
+        engineRotationText.text = dataSave.shipRotation.ToString();
+        //Super Boost
+        sbMaxSpeedText.text = dataSave.sbMaxSpeed.ToString();
+        sbAccelerationText.text = dataSave.sbAcceleration.ToString();
+        sbMaxTime.text = dataSave.sbMaxTime.ToString();
+        sbReloadText.text = dataSave.sbTimeReload.ToString();
+
+
     }
 }
