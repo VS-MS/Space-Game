@@ -46,28 +46,30 @@ public class PlayerShip : Unit {
 
     void Start ()
     {
-        //maxShieldPoints = shieldPoints;
-        //boostMaxPoints = boostPoints;
-        //superShootMaxPoints = superShootPoints;
-        //boostMaxPoints = dataSave.sbMaxTime;
-        //boostDelta = dataSave.sbTimeReload;
-        RefreshPlayerStat();
+
     }
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         boostWing = this.transform.Find("BoostWing").gameObject;
-        
+        StartCoroutine(CheckData());
+    }
+    //корутина для пропуска одного кадра, иначе найдем ссылку на объект, который будет уничтожен в следующем кадре.
+    IEnumerator CheckData() 
+    {
+        yield return new WaitForEndOfFrame();
+        dataSave = FindObjectOfType<DataSave>();
+        RefreshPlayerStat();
     }
 
     private void RefreshPlayerStat()
     {
-        dataSave = FindObjectOfType<DataSave>();
-
+        
         /*
          * Cannon
          */
         bulletDamage = dataSave.cannonDamage;
+        Debug.Log(dataSave.cannonDamage);
         bulletSpeed = dataSave.cannonBulletSpeed;
         fireDelta = dataSave.cannonFireRate;
         cannonCount = dataSave.cannonCount;

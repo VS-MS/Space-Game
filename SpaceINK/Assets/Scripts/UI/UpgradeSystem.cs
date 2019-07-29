@@ -51,6 +51,11 @@ public class UpgradeSystem : MonoBehaviour
         RefreshStat();
     }
 
+    public void Update()
+    {
+        dataSave = FindObjectOfType<DataSave>();
+        //Debug.Log(dataSave.GetInstanceID() + "Upgrade.cs");
+    }
     public void CannonUp()
     {
         if (CoastUpgrade(dataSave.CannonLvl) <= dataSave.money)
