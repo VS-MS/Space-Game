@@ -69,7 +69,6 @@ public class PlayerShip : Unit {
          * Cannon
          */
         bulletDamage = dataSave.cannonDamage;
-        Debug.Log(dataSave.cannonDamage);
         bulletSpeed = dataSave.cannonBulletSpeed;
         fireDelta = dataSave.cannonFireRate;
         cannonCount = dataSave.cannonCount;

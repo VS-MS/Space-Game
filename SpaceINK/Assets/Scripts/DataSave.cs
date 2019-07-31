@@ -63,7 +63,6 @@ public class DataSave : MonoBehaviour
         }
         else
         {
-            Debug.Log("Destroy");
             Destroy(this.gameObject);
         }
         LoadGame();//Так делать не стоит, но пока нет законченного меню, придется оставить.
@@ -71,7 +70,7 @@ public class DataSave : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(this.GetInstanceID() + " this is real dataSave");
+
     }
     //функция для расчета изменения параметров от минимальных(firstStat) 
     //до максимальных(lastStat) значений в зависимости от уровня(дlvl).
