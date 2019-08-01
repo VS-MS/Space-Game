@@ -95,30 +95,53 @@ public class DataSave : MonoBehaviour
     {
         //Cannon
         cannonDamage = CalculatStat(basePlayerStat.cannonDamage, maxPlayerStat.cannonDamage, CannonLvl);
-        cannonFireRate = CannonLvl * basePlayerStat.cannonFireRate;
-        cannonBulletSpeed = CannonLvl * basePlayerStat.cannonBulletSpeed;
-        cannonCount = CannonLvl * basePlayerStat.cannonCount;
+        cannonFireRate = CalculatStat(basePlayerStat.cannonFireRate, maxPlayerStat.cannonFireRate, CannonLvl); //CannonLvl * basePlayerStat.cannonFireRate;
+        cannonBulletSpeed = CalculatStat(basePlayerStat.cannonBulletSpeed, maxPlayerStat.cannonBulletSpeed, CannonLvl); //CannonLvl * basePlayerStat.cannonBulletSpeed;
+        //тут нужна своя функция, переделаю, если понадобиться пластичность у этого параметра.
+        if(CannonLvl <= 5 )
+        {
+            cannonCount = 1;
+            //1
+        }
+        else
+            if (CannonLvl > 5 && CannonLvl <= 10)
+        {
+            cannonCount = 2;
+            //2
+        }
+        else
+            if (CannonLvl > 10 && CannonLvl <= 15)
+        {
+            cannonCount = 3;
+            //3
+        }
+        else
+            if(CannonLvl > 15 && CannonLvl <= 20)
+        {
+            cannonCount = 5;
+            //5
+        }
 
         //Super Shot
-        ssDamage = SuperShotLvl * basePlayerStat.ssDamage;
-        ssMaxTime = SuperShotLvl * basePlayerStat.ssMaxTime;
-        ssTimeReload = SuperShotLvl * basePlayerStat.ssTimeReload;
+        ssDamage = CalculatStat(basePlayerStat.ssDamage, maxPlayerStat.ssDamage, SuperShotLvl); //SuperShotLvl * basePlayerStat.ssDamage;
+        ssMaxTime = CalculatStat(basePlayerStat.ssMaxTime, maxPlayerStat.ssMaxTime, SuperShotLvl); //SuperShotLvl * basePlayerStat.ssMaxTime;
+        ssTimeReload = CalculatStat(basePlayerStat.ssTimeReload, maxPlayerStat.ssTimeReload, SuperShotLvl); //SuperShotLvl * basePlayerStat.ssTimeReload;
 
         //Armor Shield
-        shipArmor = ArmorShieldLvl * basePlayerStat.shipArmor;
-        shipShield = ArmorShieldLvl * basePlayerStat.shipShield;
-        shipShieldDelta = ArmorShieldLvl * basePlayerStat.shipShieldDelta;
+        shipArmor = CalculatStat(basePlayerStat.shipArmor, maxPlayerStat.shipArmor, ArmorShieldLvl); //ArmorShieldLvl * basePlayerStat.shipArmor;
+        shipShield = CalculatStat(basePlayerStat.shipShield, maxPlayerStat.shipShield, ArmorShieldLvl); //ArmorShieldLvl * basePlayerStat.shipShield;
+        shipShieldDelta = CalculatStat(basePlayerStat.shipShieldDelta, maxPlayerStat.shipShieldDelta, ArmorShieldLvl); //ArmorShieldLvl * basePlayerStat.shipShieldDelta;
 
         //Engine
         shipMaxSpeed = CalculatStat(basePlayerStat.shipMaxSpeed, maxPlayerStat.shipMaxSpeed, EngineLvl); //EngineLvl * basePlayerStat.shipMaxSpeed;
-        shipAcceleration = EngineLvl * basePlayerStat.shipAcceleration;
-        shipRotation = EngineLvl * basePlayerStat.shipRotation;
+        shipAcceleration = CalculatStat(basePlayerStat.shipAcceleration, maxPlayerStat.shipAcceleration, EngineLvl); //EngineLvl * basePlayerStat.shipAcceleration;
+        shipRotation = CalculatStat(basePlayerStat.shipRotation, maxPlayerStat.shipRotation, EngineLvl); //EngineLvl * basePlayerStat.shipRotation;
 
         //Super boost
-        sbMaxSpeed = SuperBoostLvl * basePlayerStat.sbMaxSpeed;
-        sbAcceleration = SuperBoostLvl * basePlayerStat.sbAcceleration;
-        sbMaxTime = SuperBoostLvl * basePlayerStat.sbMaxTime;
-        sbTimeReload = SuperBoostLvl * basePlayerStat.sbTimeReload;
+        sbMaxSpeed = CalculatStat(basePlayerStat.sbMaxSpeed, maxPlayerStat.sbMaxSpeed, SuperBoostLvl); //SuperBoostLvl * basePlayerStat.sbMaxSpeed;
+        sbAcceleration = CalculatStat(basePlayerStat.sbAcceleration, maxPlayerStat.sbAcceleration, SuperBoostLvl); //SuperBoostLvl * basePlayerStat.sbAcceleration;
+        sbMaxTime = CalculatStat(basePlayerStat.sbMaxTime, maxPlayerStat.sbMaxTime, SuperBoostLvl); //SuperBoostLvl * basePlayerStat.sbMaxTime;
+        sbTimeReload = CalculatStat(basePlayerStat.sbTimeReload, maxPlayerStat.sbTimeReload, SuperBoostLvl); //SuperBoostLvl * basePlayerStat.sbTimeReload;
     }
     private Save CreateSaveGameObject()
     {

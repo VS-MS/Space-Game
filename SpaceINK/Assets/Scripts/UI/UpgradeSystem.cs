@@ -8,11 +8,11 @@ public class UpgradeSystem : MonoBehaviour
     private DataSave dataSave;
 
     [Header("Button Text")]
-    public TextMeshProUGUI cannonLvl;
-    public TextMeshProUGUI superShootLvl;
-    public TextMeshProUGUI armorShieldLvl;
-    public TextMeshProUGUI engineLvl;
-    public TextMeshProUGUI superBoostLvl;
+    public TextMeshProUGUI cannonLvlUpCost;
+    public TextMeshProUGUI superShootLvlUpCost;
+    public TextMeshProUGUI armorShieldLvlUpCost;
+    public TextMeshProUGUI engineLvlUpCost;
+    public TextMeshProUGUI superBoostLvlUpCost;
 
     [Header("Cannon Stat Text")]
     public TextMeshProUGUI cannonDamageText;
@@ -56,6 +56,7 @@ public class UpgradeSystem : MonoBehaviour
         dataSave = FindObjectOfType<DataSave>();
         //Debug.Log(dataSave.GetInstanceID() + "Upgrade.cs");
     }
+    //Скрипт для апгрейда cannon... и т.д для каждой кнопки
     public void CannonUp()
     {
         if (CoastUpgrade(dataSave.CannonLvl) <= dataSave.money)
@@ -131,6 +132,7 @@ public class UpgradeSystem : MonoBehaviour
         }
     }
 
+    //метод для высчитывания стоимости
     public int CoastUpgrade (int level)
     {
         int coast = 500;
@@ -144,11 +146,11 @@ public class UpgradeSystem : MonoBehaviour
     public void RefreshStat()
     {
         //Цена апгрейда на кнопка
-        cannonLvl.text = CoastUpgrade(dataSave.CannonLvl).ToString();
-        superShootLvl.text = CoastUpgrade(dataSave.SuperShotLvl).ToString();
-        armorShieldLvl.text = CoastUpgrade(dataSave.ArmorShieldLvl).ToString();
-        engineLvl.text = CoastUpgrade(dataSave.EngineLvl).ToString();
-        superBoostLvl.text = CoastUpgrade(dataSave.SuperBoostLvl).ToString();
+        cannonLvlUpCost.text = CoastUpgrade(dataSave.CannonLvl).ToString();
+        superShootLvlUpCost.text = CoastUpgrade(dataSave.SuperShotLvl).ToString();
+        armorShieldLvlUpCost.text = CoastUpgrade(dataSave.ArmorShieldLvl).ToString();
+        engineLvlUpCost.text = CoastUpgrade(dataSave.EngineLvl).ToString();
+        superBoostLvlUpCost.text = CoastUpgrade(dataSave.SuperBoostLvl).ToString();
 
         //статы коробля
         //Главня пушка

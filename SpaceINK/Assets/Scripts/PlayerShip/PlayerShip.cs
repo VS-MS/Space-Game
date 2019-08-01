@@ -277,18 +277,34 @@ public class PlayerShip : Unit {
             superShootPoints--;
             if (myTime > fireDelta)
             {
-                if (cannonCount == 1)
+                switch(cannonCount)
                 {
-                    LaunchSuperBullet(gunTransform[0]);
+                    case 1:
+                        LaunchSuperBullet(gunTransform[0]);
+                        break;
+                    case 2:
+                        LaunchSuperBullet(gunTransform[1]);
+                        LaunchSuperBullet(gunTransform[2]);
+                        break;
+                    case 3:
+                        for (int i = 0; i < 3; i++)
+                        {
+                            LaunchSuperBullet(gunTransform[i]);
+                        }
+                        break;
+                    case 4:
+                        for (int i = 1; i < 4; i++)
+                        {
+                            LaunchSuperBullet(gunTransform[i]);
+                        }
+                        break;
+                    case 5:
+                        for (int i = 0; i < gunTransform.Length; i++)
+                        {
+                            LaunchSuperBullet(gunTransform[i]);
+                        }
+                        break;
                 }
-                else
-                {
-                    for (int i = 0; i < gunTransform.Length; i++)
-                    {
-                        LaunchSuperBullet(gunTransform[i]);
-                    }
-                }
-                
                 myTime = 0.0F;
             }
         }
@@ -300,18 +316,35 @@ public class PlayerShip : Unit {
     {
         if (myTime > fireDelta)
         {
-            if (cannonCount == 1)
+            switch (cannonCount)
             {
-                LaunchBullet(gunTransform[0]);
+                case 1:
+                    LaunchBullet(gunTransform[0]);
+                    break;
+                case 2:
+                    LaunchBullet(gunTransform[1]);
+                    LaunchBullet(gunTransform[2]);
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        LaunchBullet(gunTransform[i]);
+                    }
+                    break;
+                case 4:
+                    for (int i = 1; i < 4; i++)
+                    {
+                        LaunchBullet(gunTransform[i]);
+                    }
+                    break;
+                case 5:
+                    for (int i = 0; i < gunTransform.Length; i++)
+                    {
+                        LaunchBullet(gunTransform[i]);
+                    }
+                    break;
             }
-            else
-            {
-                for (int i = 0; i < gunTransform.Length; i++)
-                {
-                    LaunchBullet(gunTransform[i]);
-                }
-            }
-                
+
             myTime = 0.0F;
         }
     }
