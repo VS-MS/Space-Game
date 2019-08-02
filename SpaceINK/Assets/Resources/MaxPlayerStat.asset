@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7648f75a581d9449b64faf477a0ec5c, type: 3}
-  m_Name: BasePlayerStat
+  m_Name: MaxPlayerStat
   m_EditorClassIdentifier: 
-  cannonDamage: 10
-  cannonFireRate: 0.5
-  cannonBulletSpeed: 50
-  cannonCount: 1
-  ssDamage: 1.2
-  ssMaxTime: 100
-  ssTimeReload: 0.5
-  shipArmor: 100
-  shipShield: 100
-  shipShieldDelta: 0.5
-  shipMaxSpeed: 8
-  shipAcceleration: 30
-  shipRotation: 0.7
-  sbMaxSpeed: 1.2
-  sbAcceleration: 1.2
-  sbMaxTime: 100
-  sbTimeReload: 0.05
+  cannonDamage: 100
+  cannonFireRate: 0.1
+  cannonBulletSpeed: 100
+  cannonCount: 5
+  ssDamage: 3
+  ssMaxTime: 300
+  ssTimeReload: 0.1
+  shipArmor: 300
+  shipShield: 300
+  shipShieldDelta: 0.1
+  shipMaxSpeed: 15
+  shipAcceleration: 100
+  shipRotation: 2
+  sbMaxSpeed: 3
+  sbAcceleration: 3
+  sbMaxTime: 300
+  sbTimeReload: 0.1

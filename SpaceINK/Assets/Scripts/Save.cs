@@ -9,7 +9,7 @@ public class Save
  * Класс Save используется для сериализации и сохранения на устройстве
  */
 {
-    public int money;
+    public long money;
     public int levelComplite;
 
     public int CannonLvl; 

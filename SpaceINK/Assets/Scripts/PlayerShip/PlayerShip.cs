@@ -13,6 +13,7 @@ public class PlayerShip : Unit {
     [SerializeField]
     private float bulletSpeed;
     public float fireDelta;//скорость стрельбы
+    public int cannonCount;
     private float myTime;//время прошло от последнего выстрела
 
 
@@ -45,33 +46,52 @@ public class PlayerShip : Unit {
 
     void Start ()
     {
-        //maxShieldPoints = shieldPoints;
-        //boostMaxPoints = boostPoints;
-        //superShootMaxPoints = superShootPoints;
-        //boostMaxPoints = dataSave.sbMaxTime;
-        //boostDelta = dataSave.sbTimeReload;
-        RefreshPlayerStat();
+
     }
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         boostWing = this.transform.Find("BoostWing").gameObject;
-        
+        StartCoroutine(CheckData());
+    }
+    //корутина для пропуска одного кадра, иначе найдем ссылку на объект, который будет уничтожен в следующем кадре.
+    IEnumerator CheckData() 
+    {
+        yield return new WaitForEndOfFrame();
+        dataSave = FindObjectOfType<DataSave>();
+        RefreshPlayerStat();
     }
 
     private void RefreshPlayerStat()
     {
-        dataSave = FindObjectOfType<DataSave>();
-
+        
         /*
          * Cannon
          */
         bulletDamage = dataSave.cannonDamage;
         bulletSpeed = dataSave.cannonBulletSpeed;
-        Debug.Log(dataSave.cannonBulletSpeed);
         fireDelta = dataSave.cannonFireRate;
+        cannonCount = dataSave.cannonCount;
+        /*
+         * SuperShot
+         */
+        superShootMaxPoints = dataSave.ssMaxTime; /*---*/ superShootPoints = dataSave.ssMaxTime;
+        ssDamageRatio = dataSave.ssDamage;
+        superShootDelta = dataSave.ssTimeReload;
 
-        //cannonCont =
+        /*
+         * Armor Shield
+         */
+        armorPoints = dataSave.shipArmor; /*---*/ maxArmorPoints = dataSave.shipArmor;
+        shieldPoints = dataSave.shipShield; /*---*/ maxShieldPoints = dataSave.shipShield;
+        shieldDelta = dataSave.shipShieldDelta;
+
+        /*
+         * Engine
+         */
+        maxSpeed = dataSave.shipMaxSpeed;
+        boostForce = dataSave.shipAcceleration;
+        rotationSpeed = dataSave.shipRotation;
 
         /*
          * SuperBoost
@@ -81,12 +101,7 @@ public class PlayerShip : Unit {
         boostPoints = dataSave.sbMaxTime; /*---*/ boostMaxPoints = dataSave.sbMaxTime;
         boostDelta = dataSave.sbTimeReload;
 
-        /*
-         * SuperShot
-         */
-        superShootMaxPoints = dataSave.ssMaxTime; /*---*/ superShootPoints = dataSave.ssMaxTime;
-        ssDamageRatio = dataSave.ssDamage;
-        superShootDelta = dataSave.ssTimeReload;
+        
 
     }
     // Update is called once per frame
@@ -248,7 +263,7 @@ public class PlayerShip : Unit {
         newBullet.Speed = bulletSpeed;
         newBullet.Parent = gameObject;
         newBullet.Direction = m_Rigidbody2D.transform.up;
-        newBullet.trailWidth = 0.5f;
+        newBullet.trailWidth = 0.3f;
 
         //newBullet.color = buletcolor;
         newBullet.Damage = bulletDamage * ssDamageRatio;
@@ -262,9 +277,34 @@ public class PlayerShip : Unit {
             superShootPoints--;
             if (myTime > fireDelta)
             {
-                for(int i = 0; i < gunTransform.Length; i++)
+                //В зависимости от уровня пушки, будем стрелять 1, 2, 3, или 5 пушка за выстрел
+                switch (cannonCount)
                 {
-                    LaunchSuperBullet(gunTransform[i]);
+                    case 1:
+                        LaunchSuperBullet(gunTransform[0]);
+                        break;
+                    case 2:
+                        LaunchSuperBullet(gunTransform[1]);
+                        LaunchSuperBullet(gunTransform[2]);
+                        break;
+                    case 3:
+                        for (int i = 0; i < 3; i++)
+                        {
+                            LaunchSuperBullet(gunTransform[i]);
+                        }
+                        break;
+                    case 4:
+                        for (int i = 1; i < 4; i++)
+                        {
+                            LaunchSuperBullet(gunTransform[i]);
+                        }
+                        break;
+                    case 5:
+                        for (int i = 0; i < gunTransform.Length; i++)
+                        {
+                            LaunchSuperBullet(gunTransform[i]);
+                        }
+                        break;
                 }
                 myTime = 0.0F;
             }
@@ -277,10 +317,36 @@ public class PlayerShip : Unit {
     {
         if (myTime > fireDelta)
         {
-            for (int i = 0; i < gunTransform.Length; i++)
+            //В зависимости от уровня пушки, будем стрелять 1, 2, 3, или 5 пушка за выстрел
+            switch (cannonCount)
             {
-                LaunchBullet(gunTransform[i]);
+                case 1:
+                    LaunchBullet(gunTransform[0]);
+                    break;
+                case 2:
+                    LaunchBullet(gunTransform[1]);
+                    LaunchBullet(gunTransform[2]);
+                    break;
+                case 3:
+                    for (int i = 0; i < 3; i++)
+                    {
+                        LaunchBullet(gunTransform[i]);
+                    }
+                    break;
+                case 4:
+                    for (int i = 1; i < 4; i++)
+                    {
+                        LaunchBullet(gunTransform[i]);
+                    }
+                    break;
+                case 5:
+                    for (int i = 0; i < gunTransform.Length; i++)
+                    {
+                        LaunchBullet(gunTransform[i]);
+                    }
+                    break;
             }
+
             myTime = 0.0F;
         }
     }

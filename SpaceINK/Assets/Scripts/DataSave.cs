@@ -8,8 +8,10 @@ public class DataSave : MonoBehaviour
 {
     [SerializeField]
     private BasePlayerStat basePlayerStat;
+    [SerializeField]
+    private BasePlayerStat maxPlayerStat;
 
-    public int money;
+    public long money; 
     public int levelComplite;
 
     public int CannonLvl; 
@@ -49,10 +51,11 @@ public class DataSave : MonoBehaviour
     //public Save PlayerStat;
 
     static bool created = false;
-    void Awake()
-    {   
-        LoadGame();//Так делать не стоит, но пока нет законченного меню, придется оставить.
 
+    
+
+    void Awake()
+    {
         //Проверяем, есть ли экземпляр объекта на сцене, если есть, удаляем этот экземпляр
         if (!created)
         {
@@ -64,38 +67,85 @@ public class DataSave : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        LoadGame();//Так делать не стоит, но пока нет законченного меню, придется оставить.
+    }
+
+    public void Update()
+    {
+
+    }
+    //функция для расчета изменения параметров от минимальных(firstStat) 
+    //до максимальных(lastStat) значений в зависимости от уровня(дlvl).
+    //Шаг считается по квадратичной функции X^2
+    public float CalculatStat(float firstStat, float lastStat, int lvl) 
+    {
+        float step;
+        float lvlStat;
+        step = Mathf.Abs(Mathf.Sqrt(firstStat) - Mathf.Sqrt(lastStat)) / 19.0f;
+        if(firstStat < lastStat)
+        {
+            lvlStat = Mathf.Pow(Mathf.Sqrt(firstStat) + (step * (lvl - 1)), 2);
+        }
+        else
+        {
+            lvlStat = Mathf.Pow(Mathf.Sqrt(firstStat) - (step * (lvl - 1)),2);
+        }
+        return lvlStat;
     }
 
     public void RefreshStat()
     {
         //Cannon
-        cannonDamage = CannonLvl * basePlayerStat.cannonDamage;
-        cannonFireRate = CannonLvl * basePlayerStat.cannonFireRate;
-        cannonBulletSpeed = CannonLvl * basePlayerStat.cannonBulletSpeed;
-        cannonCount = CannonLvl * basePlayerStat.cannonCount;
+        cannonDamage = CalculatStat(basePlayerStat.cannonDamage, maxPlayerStat.cannonDamage, CannonLvl);
+        cannonFireRate = CalculatStat(basePlayerStat.cannonFireRate, maxPlayerStat.cannonFireRate, CannonLvl); //CannonLvl * basePlayerStat.cannonFireRate;
+        cannonBulletSpeed = CalculatStat(basePlayerStat.cannonBulletSpeed, maxPlayerStat.cannonBulletSpeed, CannonLvl); //CannonLvl * basePlayerStat.cannonBulletSpeed;
+        //тут нужна своя функция, переделаю, если понадобиться пластичность у этого параметра.
+        if(CannonLvl <= 5 )
+        {
+            cannonCount = 1;
+            //1
+        }
+        else
+            if (CannonLvl > 5 && CannonLvl <= 10)
+            {
+                cannonCount = 2;
+                //2
+            }
+            else
+                if (CannonLvl > 10 && CannonLvl <= 15)
+                {
+                    cannonCount = 3;
+                    //3
+                }
+                else
+                    if(CannonLvl > 15 && CannonLvl <= 20)
+                    {
+                        cannonCount = 5;
+                        //5
+                    }
+
+        
 
         //Super Shot
-        ssDamage = SuperShotLvl * basePlayerStat.ssDamage;
-        ssMaxTime = SuperShotLvl * basePlayerStat.ssMaxTime;
-        ssTimeReload = SuperShotLvl * basePlayerStat.ssTimeReload;
+        ssDamage = CalculatStat(basePlayerStat.ssDamage, maxPlayerStat.ssDamage, SuperShotLvl); 
+        ssMaxTime = CalculatStat(basePlayerStat.ssMaxTime, maxPlayerStat.ssMaxTime, SuperShotLvl); 
+        ssTimeReload = CalculatStat(basePlayerStat.ssTimeReload, maxPlayerStat.ssTimeReload, SuperShotLvl); 
 
         //Armor Shield
-        shipArmor = ArmorShieldLvl * basePlayerStat.shipArmor;
-        shipShield = ArmorShieldLvl * basePlayerStat.shipShield;
-        shipShieldDelta = ArmorShieldLvl * basePlayerStat.shipShieldDelta;
+        shipArmor = CalculatStat(basePlayerStat.shipArmor, maxPlayerStat.shipArmor, ArmorShieldLvl); 
+        shipShield = CalculatStat(basePlayerStat.shipShield, maxPlayerStat.shipShield, ArmorShieldLvl); 
+        shipShieldDelta = CalculatStat(basePlayerStat.shipShieldDelta, maxPlayerStat.shipShieldDelta, ArmorShieldLvl); 
 
         //Engine
-        shipMaxSpeed = ArmorShieldLvl * basePlayerStat.shipMaxSpeed;
-        shipAcceleration = ArmorShieldLvl * basePlayerStat.shipAcceleration;
-        shipRotation = ArmorShieldLvl * basePlayerStat.shipRotation;
+        shipMaxSpeed = CalculatStat(basePlayerStat.shipMaxSpeed, maxPlayerStat.shipMaxSpeed, EngineLvl);
+        shipAcceleration = CalculatStat(basePlayerStat.shipAcceleration, maxPlayerStat.shipAcceleration, EngineLvl); 
+        shipRotation = CalculatStat(basePlayerStat.shipRotation, maxPlayerStat.shipRotation, EngineLvl);
 
         //Super boost
-        sbMaxSpeed = ArmorShieldLvl * basePlayerStat.sbMaxSpeed;
-        sbAcceleration = ArmorShieldLvl * basePlayerStat.sbAcceleration;
-        sbMaxTime = ArmorShieldLvl * basePlayerStat.sbMaxTime;
-        sbTimeReload = ArmorShieldLvl * basePlayerStat.sbTimeReload;
-
-
+        sbMaxSpeed = CalculatStat(basePlayerStat.sbMaxSpeed, maxPlayerStat.sbMaxSpeed, SuperBoostLvl);
+        sbAcceleration = CalculatStat(basePlayerStat.sbAcceleration, maxPlayerStat.sbAcceleration, SuperBoostLvl); 
+        sbMaxTime = CalculatStat(basePlayerStat.sbMaxTime, maxPlayerStat.sbMaxTime, SuperBoostLvl); 
+        sbTimeReload = CalculatStat(basePlayerStat.sbTimeReload, maxPlayerStat.sbTimeReload, SuperBoostLvl);
     }
     private Save CreateSaveGameObject()
     {
@@ -130,7 +180,7 @@ public class DataSave : MonoBehaviour
         RefreshStat();
         
 
-        Debug.Log("Game Saved");
+        //Debug.Log("Game Saved");
     }
 
     public void LoadGame()
@@ -185,7 +235,7 @@ public class DataSave : MonoBehaviour
             */
             RefreshStat();
 
-            Debug.Log("Game Loaded");
+            //Debug.Log("Game Loaded");
         }
         else
         {
