@@ -9,7 +9,7 @@ public class MoneyText : MonoBehaviour
     //ссылка на обект типа DataSave для сохранения прогресса
     private DataSave dataSave;
     private TextMeshProUGUI textMoney;
-
+    private Desc_ numberToString = new Desc_();
     private void Awake()
     {
         textMoney = gameObject.GetComponent<TextMeshProUGUI>();
@@ -36,7 +36,7 @@ public class MoneyText : MonoBehaviour
     {
         if(dataSave)
         {
-            string money_ = dataSave.money.ToString();
+            string money_ = numberToString.ShortNumber(dataSave.money); //dataSave.money.ToString();
             textMoney.text = money_;
         }
         //Debug.Log(dataSave.money);

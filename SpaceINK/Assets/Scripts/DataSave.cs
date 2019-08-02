@@ -11,7 +11,7 @@ public class DataSave : MonoBehaviour
     [SerializeField]
     private BasePlayerStat maxPlayerStat;
 
-    public int money; 
+    public long money; 
     public int levelComplite;
 
     public int CannonLvl; 

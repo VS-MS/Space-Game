@@ -30,8 +30,6 @@ public class Desc_
         foreach (var d in allDesc)
             if (value > d.value)
             {
-                Debug.Log(d.value);
-                Debug.Log(value);
                 return $"{value / (float)d.value:F2} {d.shortName}";
             }    
         return $"{value}";
