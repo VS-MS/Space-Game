@@ -263,7 +263,7 @@ public class PlayerShip : Unit {
         newBullet.Speed = bulletSpeed;
         newBullet.Parent = gameObject;
         newBullet.Direction = m_Rigidbody2D.transform.up;
-        newBullet.trailWidth = 0.5f;
+        newBullet.trailWidth = 0.3f;
 
         //newBullet.color = buletcolor;
         newBullet.Damage = bulletDamage * ssDamageRatio;
@@ -277,7 +277,8 @@ public class PlayerShip : Unit {
             superShootPoints--;
             if (myTime > fireDelta)
             {
-                switch(cannonCount)
+                //В зависимости от уровня пушки, будем стрелять 1, 2, 3, или 5 пушка за выстрел
+                switch (cannonCount)
                 {
                     case 1:
                         LaunchSuperBullet(gunTransform[0]);
@@ -316,6 +317,7 @@ public class PlayerShip : Unit {
     {
         if (myTime > fireDelta)
         {
+            //В зависимости от уровня пушки, будем стрелять 1, 2, 3, или 5 пушка за выстрел
             switch (cannonCount)
             {
                 case 1:

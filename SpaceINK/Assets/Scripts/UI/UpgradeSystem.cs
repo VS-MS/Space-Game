@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -39,8 +40,9 @@ public class UpgradeSystem : MonoBehaviour
     public TextMeshProUGUI sbMaxSpeedText;
     public TextMeshProUGUI sbAccelerationText;
     public TextMeshProUGUI sbMaxTime;
-    public TextMeshProUGUI sbReloadText; 
+    public TextMeshProUGUI sbReloadText;
 
+    private Desc_ numberToString = new Desc_();
     public void Awake()
     {
         
@@ -59,17 +61,25 @@ public class UpgradeSystem : MonoBehaviour
     //Скрипт для апгрейда cannon... и т.д для каждой кнопки
     public void CannonUp()
     {
-        if (CoastUpgrade(dataSave.CannonLvl) <= dataSave.money)
+        if(dataSave.CannonLvl < 20)
         {
-            dataSave.money -= CoastUpgrade(dataSave.CannonLvl);
-            dataSave.CannonLvl++;
-            dataSave.SaveGame();
-            RefreshStat();
+            if (CoastUpgrade(dataSave.CannonLvl) <= dataSave.money)
+            {
+                dataSave.money -= CoastUpgrade(dataSave.CannonLvl);
+                dataSave.CannonLvl++;
+                dataSave.SaveGame();
+                RefreshStat();
+            }
+            else
+            {
+                Debug.Log("Dude, you are need more money for this");
+            }
         }
         else
         {
-            Debug.Log("Dude, you are need more money for this");
+            Debug.Log("Max level reached");
         }
+        
     }
 
     public void SuperShootUp()
@@ -135,7 +145,7 @@ public class UpgradeSystem : MonoBehaviour
     //метод для высчитывания стоимости
     public int CoastUpgrade (int level)
     {
-        int coast = 500;
+        int coast = 50;
         for (int i = 0; i < level; i++)
         {
             coast = 2 * coast;
@@ -145,36 +155,60 @@ public class UpgradeSystem : MonoBehaviour
 
     public void RefreshStat()
     {
-        //Цена апгрейда на кнопка
-        cannonLvlUpCost.text = CoastUpgrade(dataSave.CannonLvl).ToString();
-        superShootLvlUpCost.text = CoastUpgrade(dataSave.SuperShotLvl).ToString();
-        armorShieldLvlUpCost.text = CoastUpgrade(dataSave.ArmorShieldLvl).ToString();
-        engineLvlUpCost.text = CoastUpgrade(dataSave.EngineLvl).ToString();
-        superBoostLvlUpCost.text = CoastUpgrade(dataSave.SuperBoostLvl).ToString();
+        //Цена апгрейда на кнопках
+        //Cannon
+        if (dataSave.CannonLvl == 20)
+            cannonLvlUpCost.text = "Max";
+        else
+            cannonLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(dataSave.CannonLvl));  //CoastUpgrade(dataSave.CannonLvl).ToString();
+
+        //Super Shoot
+        if (dataSave.SuperShotLvl == 20)
+            superShootLvlUpCost.text = "Max";
+        else
+            superShootLvlUpCost.text = CoastUpgrade(dataSave.SuperShotLvl).ToString();
+
+        //Armor Shield
+        if (dataSave.ArmorShieldLvl == 20)
+            armorShieldLvlUpCost.text = "Max";
+        else
+            armorShieldLvlUpCost.text = CoastUpgrade(dataSave.ArmorShieldLvl).ToString();
+
+        //Engine
+        if (dataSave.EngineLvl == 20)
+            engineLvlUpCost.text = "Max";
+        else
+            engineLvlUpCost.text = CoastUpgrade(dataSave.EngineLvl).ToString();
+
+        //SuperBoost
+        if (dataSave.SuperBoostLvl == 20)
+            superBoostLvlUpCost.text = "Max";
+        else
+            superBoostLvlUpCost.text = CoastUpgrade(dataSave.SuperBoostLvl).ToString();
 
         //статы коробля
         //Главня пушка
-        cannonDamageText.text = dataSave.cannonDamage.ToString();
-        cannonRateText.text = dataSave.cannonFireRate.ToString();
-        cannonSpeedText.text = dataSave.cannonBulletSpeed.ToString();
+        cannonDamageText.text = dataSave.cannonDamage.ToString("0.00");
+        cannonRateText.text = dataSave.cannonFireRate.ToString("0.00");
+        cannonSpeedText.text = dataSave.cannonBulletSpeed.ToString("0.00");
         cannonCountText.text = dataSave.cannonCount.ToString();
         //SuperShoot
-        ssDamageText.text = dataSave.ssDamage.ToString();
-        ssMaxTimeText.text = dataSave.ssMaxTime.ToString();
-        ssReloadText.text = dataSave.ssTimeReload.ToString();
+        ssDamageText.text = dataSave.ssDamage.ToString("0%");
+        ssMaxTimeText.text = dataSave.ssMaxTime.ToString("0");
+        ssReloadText.text = dataSave.ssTimeReload.ToString("0.00");
         //Armor Shield
-        armorText.text = dataSave.shipArmor.ToString();
-        shieldText.text = dataSave.shipShield.ToString();
-        shieldDeltaText.text = dataSave.shipShieldDelta.ToString();
+        armorText.text = dataSave.shipArmor.ToString("0");
+        shieldText.text = dataSave.shipShield.ToString("0");
+        shieldDeltaText.text = dataSave.shipShieldDelta.ToString("0.00");
         //Engine
-        engineMaxSpeedText.text = dataSave.shipMaxSpeed.ToString();
-        engineAccelerationText.text = dataSave.shipAcceleration.ToString();
-        engineRotationText.text = dataSave.shipRotation.ToString();
+        engineMaxSpeedText.text = dataSave.shipMaxSpeed.ToString("0.00");
+        engineAccelerationText.text = dataSave.shipAcceleration.ToString("0.00");
+        engineRotationText.text = dataSave.shipRotation.ToString("0.00");
         //Super Boost
-        sbMaxSpeedText.text = dataSave.sbMaxSpeed.ToString();
-        sbAccelerationText.text = dataSave.sbAcceleration.ToString();
-        sbMaxTime.text = dataSave.sbMaxTime.ToString();
-        sbReloadText.text = dataSave.sbTimeReload.ToString();
+        sbMaxSpeedText.text = dataSave.sbMaxSpeed.ToString("0%");
+        sbAccelerationText.text = dataSave.sbAcceleration.ToString("0%");
+        sbMaxTime.text = dataSave.sbMaxTime.ToString("0");
+        sbReloadText.text = dataSave.sbTimeReload.ToString("0.00");
 
 
     }
