@@ -185,6 +185,8 @@ public class DataSave : MonoBehaviour
 
     public void LoadGame()
     {
+        //Проверяем, существует файл с сохранением в директории или.
+        //PS Вроде метод File.Exists может вернуть false, даже если файл существует, но на него не хватает прав.
         if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -239,7 +241,8 @@ public class DataSave : MonoBehaviour
         }
         else
         {
-            Debug.Log("No game saved!");
+            SaveGame();
+            Debug.Log("Create new save game");
         }
     }
 
