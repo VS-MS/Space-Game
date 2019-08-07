@@ -13,6 +13,11 @@ public class PlayerBullet : MonoBehaviour
     private Vector3 direction;
     public Vector3 Direction { set { direction = value; } }
 
+    /*
+    private Transform rotationBullet;
+    public Transform RotationBullet { set { rotationBullet = value; } }
+    */
+
     [SerializeField]
     private float damage = 1.0f;
     public float Damage { set { damage = value; } }
@@ -42,6 +47,7 @@ public class PlayerBullet : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 5.5f);
+        transform.rotation = parent.transform.rotation;
     }
 
     // Update is called once per frame
@@ -51,7 +57,7 @@ public class PlayerBullet : MonoBehaviour
         //transform.position = Vector3.MoveTowards(transform.position, pos, step);
 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + (direction), step);
-        trail.startWidth = trailWidth;
+        //trail.startWidth = trailWidth;
     }
 
     private void FixedUpdate()

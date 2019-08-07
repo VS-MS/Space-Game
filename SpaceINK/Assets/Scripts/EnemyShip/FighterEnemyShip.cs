@@ -24,6 +24,12 @@ public class FighterEnemyShip : EnemyShip
     [SerializeField]
     private MachineGunEnemy gunMachine;
 
+    [SerializeField]
+    private ParticleSystem particleBoom;
+
+    //флаг(костыль) для смерти
+    private bool flagDie = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +42,7 @@ public class FighterEnemyShip : EnemyShip
 
     private void Awake()
     {
+        particleBoom.Stop(true);
         StatusSliderInt(2.0f, 1.0f);
         //armorBar = transform.Find("Canvas").Find("ArmorSlider").Find("ArmorBar");
         //shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");
@@ -125,8 +132,14 @@ public class FighterEnemyShip : EnemyShip
     // Update is called once per frame
     private void Update()
     {
-        if (shipState == State.Die)
+        if (shipState == State.Die && !flagDie)
         {
+            //включаем частицы взрыва
+            if (!particleBoom.isPaused)
+            {
+                particleBoom.Play(true);
+            }
+
             //отключаем все коллайдеры на объекте
             foreach (Collider2D collider in this.GetComponents<Collider2D>())
             {
@@ -134,6 +147,9 @@ public class FighterEnemyShip : EnemyShip
             }
             //отключаем спрайты
             this.transform.Find("SpriteRender").gameObject.SetActive(false);
+            //
+            flagDie = true;
+
         }
         else
         {

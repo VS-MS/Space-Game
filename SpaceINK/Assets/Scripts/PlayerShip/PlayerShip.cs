@@ -6,8 +6,12 @@ public class PlayerShip : Unit {
 
     [Header("Main Weapon Settings")]
     [SerializeField]
-    //Экземпляр пули игрока
-    private PlayerBullet playerBullet;
+    //Экземпляр обычной пули игрока
+    private PlayerBullet playerBulletSimple;
+    [SerializeField]
+    //Экземпляр супер пули игрока
+    private PlayerBullet playerBulletSuper; 
+
     [SerializeField]
     private float bulletDamage;
     [SerializeField]
@@ -247,7 +251,7 @@ public class PlayerShip : Unit {
 
     private void LaunchBullet(Transform bulletPosition)
     {
-        PlayerBullet newBullet = Instantiate(playerBullet, bulletPosition.position, playerBullet.transform.rotation) as PlayerBullet;
+        PlayerBullet newBullet = Instantiate(playerBulletSimple, bulletPosition.position, playerBulletSimple.transform.rotation) as PlayerBullet;
         newBullet.Speed = bulletSpeed;
         newBullet.Parent = gameObject;
         newBullet.Direction = m_Rigidbody2D.transform.up;
@@ -259,11 +263,11 @@ public class PlayerShip : Unit {
 
     private void LaunchSuperBullet(Transform bulletPosition)
     {
-        PlayerBullet newBullet = Instantiate(playerBullet, bulletPosition.position, playerBullet.transform.rotation) as PlayerBullet;
+        PlayerBullet newBullet = Instantiate(playerBulletSuper, bulletPosition.position, playerBulletSuper.transform.rotation) as PlayerBullet;
         newBullet.Speed = bulletSpeed;
         newBullet.Parent = gameObject;
         newBullet.Direction = m_Rigidbody2D.transform.up;
-        newBullet.trailWidth = 0.3f;
+        //newBullet.trailWidth = 0.3f;
 
         //newBullet.color = buletcolor;
         newBullet.Damage = bulletDamage * ssDamageRatio;
@@ -274,9 +278,10 @@ public class PlayerShip : Unit {
     {
         if (superShootPoints > 0)
         {
-            superShootPoints--;
-            if (myTime > fireDelta)
+            //superShootPoints--;
+            if (myTime > fireDelta / 2 && superShootPoints >= 5)
             {
+                superShootPoints -= 5;
                 //В зависимости от уровня пушки, будем стрелять 1, 2, 3, или 5 пушка за выстрел
                 switch (cannonCount)
                 {
