@@ -130,7 +130,6 @@ public class FighterEnemyShip : EnemyShip
     {
         if (shipState == State.Die && !flagDie)
         {
-            Debug.Log(flagDie);
             Instantiate(particleBoom[Random.Range(0,particleBoom.Length)], transform.position, transform.rotation);
             //Instantiate(particleBoom, transform.position, transform.rotation);
 
