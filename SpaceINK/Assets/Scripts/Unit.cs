@@ -20,6 +20,11 @@ public class Unit : MonoBehaviour
         Shoot,
         SuperShoot,
     }
+    //тут храним экземпляр VFX взрыва()
+    public GameObject[] particleBoom;
+    //флаг(костыль) для смерти
+    protected bool flagDie = false;
+
     [Header("Health Settings")]
     //Уровень хп брони корабля
     public float armorPoints = 100;				 

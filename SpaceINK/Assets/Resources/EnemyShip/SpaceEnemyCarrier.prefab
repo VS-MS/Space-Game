@@ -56,6 +56,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -127,7 +128,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 60
-  m_LinearDrag: 0.08
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 6d003e82f41fff949979f7c03c8ac320, type: 2}
@@ -182,9 +183,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6da265fc2fc034ea78b2f7cccfa1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyCount: 0
   shipState: 0
-  armorPoints: 500
-  shieldPoints: 200
+  particleBoom:
+  - {fileID: 3281188953320443816, guid: f16d7797d0c19cb498fc3b8edb6aef68, type: 3}
+  armorPoints: 1000
+  shieldPoints: 500
   shieldDelta: 1
   maxSpeed: 2
   boostForce: 80
@@ -257,6 +261,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

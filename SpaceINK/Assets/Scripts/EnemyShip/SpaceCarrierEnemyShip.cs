@@ -52,8 +52,10 @@ public class SpaceCarrierEnemyShip : EnemyShip
 
     private void FixedUpdate()
     {
-        if (shipState == State.Die)
+        if (shipState == State.Die && !flagDie)
         {
+            Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
+
             //отключаем все коллайдеры на объекте
             foreach (Collider2D collider in this.GetComponents<Collider2D>())
             {
@@ -62,7 +64,7 @@ public class SpaceCarrierEnemyShip : EnemyShip
             //отключаем спрайты
             this.transform.Find("SpriteRender").gameObject.SetActive(false);
 
-
+            flagDie = true;
         }
         else
         {

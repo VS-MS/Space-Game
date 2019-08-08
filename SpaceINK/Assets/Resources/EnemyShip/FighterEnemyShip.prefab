@@ -778,6 +778,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyCount: 0
   shipState: 0
+  particleBoom:
+  - {fileID: 3281188953320443816, guid: f16d7797d0c19cb498fc3b8edb6aef68, type: 3}
   armorPoints: 30
   shieldPoints: 15
   shieldDelta: 1
@@ -797,7 +799,6 @@ MonoBehaviour:
   parentPosition: {fileID: 0}
   fireDelta: 0.8
   gunMachine: {fileID: 3841993863001042977}
-  particleBoom: {fileID: 4303483510460911966}
 --- !u!1 &8338244839459720246
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,11 +887,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8338244838157503302}
     m_Modifications:
-    - target: {fileID: 3281188953320443816, guid: f16d7797d0c19cb498fc3b8edb6aef68,
-        type: 3}
-      propertyPath: m_Name
-      value: Boom
-      objectReference: {fileID: 0}
     - target: {fileID: 8610426544691821065, guid: f16d7797d0c19cb498fc3b8edb6aef68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -946,17 +942,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3281188953320443816, guid: f16d7797d0c19cb498fc3b8edb6aef68,
+        type: 3}
+      propertyPath: m_Name
+      value: Boom
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281188953320443816, guid: f16d7797d0c19cb498fc3b8edb6aef68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f16d7797d0c19cb498fc3b8edb6aef68, type: 3}
 --- !u!4 &2425065693894195099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8610426544691821065, guid: f16d7797d0c19cb498fc3b8edb6aef68,
-    type: 3}
-  m_PrefabInstance: {fileID: 6258298366631841170}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &4303483510460911966 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7881574532102331596, guid: f16d7797d0c19cb498fc3b8edb6aef68,
     type: 3}
   m_PrefabInstance: {fileID: 6258298366631841170}
   m_PrefabAsset: {fileID: 0}
@@ -967,11 +967,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8338244839459720247}
     m_Modifications:
-    - target: {fileID: 6187850277609616422, guid: 2347035bd4be11941b7ff24ac9e2b2a0,
-        type: 3}
-      propertyPath: m_Name
-      value: MachineGun
-      objectReference: {fileID: 0}
     - target: {fileID: 6187850277609616423, guid: 2347035bd4be11941b7ff24ac9e2b2a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1026,6 +1021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187850277609616422, guid: 2347035bd4be11941b7ff24ac9e2b2a0,
+        type: 3}
+      propertyPath: m_Name
+      value: MachineGun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2347035bd4be11941b7ff24ac9e2b2a0, type: 3}
