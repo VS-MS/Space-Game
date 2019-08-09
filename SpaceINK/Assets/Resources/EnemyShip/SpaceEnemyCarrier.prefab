@@ -186,7 +186,7 @@ MonoBehaviour:
   moneyCount: 0
   shipState: 0
   particleBoom:
-  - {fileID: 3281188953320443816, guid: f16d7797d0c19cb498fc3b8edb6aef68, type: 3}
+  - {fileID: 7154738411913405926, guid: 223997cf07e1c624d86094717242c81c, type: 3}
   armorPoints: 1000
   shieldPoints: 500
   shieldDelta: 1

@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class UpgradeSystem : MonoBehaviour
 {
-    private DataSave dataSave;
 
     [Header("Button Text")]
     public TextMeshProUGUI cannonLvlUpCost;
@@ -49,25 +48,18 @@ public class UpgradeSystem : MonoBehaviour
     }
     public void Start()
     {
-        dataSave = FindObjectOfType<DataSave>();
         RefreshStat();
-    }
-
-    public void Update()
-    {
-        dataSave = FindObjectOfType<DataSave>();
-        //Debug.Log(dataSave.GetInstanceID() + "Upgrade.cs");
     }
     //Скрипт для апгрейда cannon... и т.д для каждой кнопки
     public void CannonUp()
     {
-        if(dataSave.CannonLvl < 20)
+        if(DataSave.instance.CannonLvl < 20)
         {
-            if (CoastUpgrade(dataSave.CannonLvl) <= dataSave.money)
+            if (CoastUpgrade(DataSave.instance.CannonLvl) <= DataSave.instance.money)
             {
-                dataSave.money -= CoastUpgrade(dataSave.CannonLvl);
-                dataSave.CannonLvl++;
-                dataSave.SaveGame();
+                DataSave.instance.money -= CoastUpgrade(DataSave.instance.CannonLvl);
+                DataSave.instance.CannonLvl++;
+                DataSave.instance.SaveGame();
                 RefreshStat();
             }
             else
@@ -84,11 +76,11 @@ public class UpgradeSystem : MonoBehaviour
 
     public void SuperShootUp()
     {
-        if (CoastUpgrade(dataSave.SuperShotLvl) <= dataSave.money)
+        if (CoastUpgrade(DataSave.instance.SuperShotLvl) <= DataSave.instance.money)
         {
-            dataSave.money -= CoastUpgrade(dataSave.SuperShotLvl);
-            dataSave.SuperShotLvl++;
-            dataSave.SaveGame();
+            DataSave.instance.money -= CoastUpgrade(DataSave.instance.SuperShotLvl);
+            DataSave.instance.SuperShotLvl++;
+            DataSave.instance.SaveGame();
             RefreshStat();
         }
         else
@@ -99,11 +91,11 @@ public class UpgradeSystem : MonoBehaviour
 
     public void ArmorShieldUp()
     {
-        if (CoastUpgrade(dataSave.ArmorShieldLvl) <= dataSave.money)
+        if (CoastUpgrade(DataSave.instance.ArmorShieldLvl) <= DataSave.instance.money)
         {
-            dataSave.money -= CoastUpgrade(dataSave.ArmorShieldLvl);
-            dataSave.ArmorShieldLvl++;
-            dataSave.SaveGame();
+            DataSave.instance.money -= CoastUpgrade(DataSave.instance.ArmorShieldLvl);
+            DataSave.instance.ArmorShieldLvl++;
+            DataSave.instance.SaveGame();
             RefreshStat();
         }
         else
@@ -114,11 +106,11 @@ public class UpgradeSystem : MonoBehaviour
 
     public void EngineUp()
     {
-        if (CoastUpgrade(dataSave.EngineLvl) <= dataSave.money)
+        if (CoastUpgrade(DataSave.instance.EngineLvl) <= DataSave.instance.money)
         {
-            dataSave.money -= CoastUpgrade(dataSave.EngineLvl);
-            dataSave.EngineLvl++;
-            dataSave.SaveGame();
+            DataSave.instance.money -= CoastUpgrade(DataSave.instance.EngineLvl);
+            DataSave.instance.EngineLvl++;
+            DataSave.instance.SaveGame();
             RefreshStat();
         }
         else
@@ -129,11 +121,11 @@ public class UpgradeSystem : MonoBehaviour
 
     public void SuperBoostUp()
     {
-        if (CoastUpgrade(dataSave.SuperBoostLvl) <= dataSave.money)
+        if (CoastUpgrade(DataSave.instance.SuperBoostLvl) <= DataSave.instance.money)
         {
-            dataSave.money -= CoastUpgrade(dataSave.SuperBoostLvl);
-            dataSave.SuperBoostLvl++;
-            dataSave.SaveGame();
+            DataSave.instance.money -= CoastUpgrade(DataSave.instance.SuperBoostLvl);
+            DataSave.instance.SuperBoostLvl++;
+            DataSave.instance.SaveGame();
             RefreshStat();
         }
         else
@@ -157,58 +149,58 @@ public class UpgradeSystem : MonoBehaviour
     {
         //Цена апгрейда на кнопках
         //Cannon
-        if (dataSave.CannonLvl == 20)
+        if (DataSave.instance.CannonLvl == 20)
             cannonLvlUpCost.text = "Max";
         else
-            cannonLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(dataSave.CannonLvl));  //CoastUpgrade(dataSave.CannonLvl).ToString();
+            cannonLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.CannonLvl));  //CoastUpgrade(dataSave.CannonLvl).ToString();
 
         //Super Shoot
-        if (dataSave.SuperShotLvl == 20)
+        if (DataSave.instance.SuperShotLvl == 20)
             superShootLvlUpCost.text = "Max";
         else
-            superShootLvlUpCost.text = CoastUpgrade(dataSave.SuperShotLvl).ToString();
+            superShootLvlUpCost.text = CoastUpgrade(DataSave.instance.SuperShotLvl).ToString();
 
         //Armor Shield
-        if (dataSave.ArmorShieldLvl == 20)
+        if (DataSave.instance.ArmorShieldLvl == 20)
             armorShieldLvlUpCost.text = "Max";
         else
-            armorShieldLvlUpCost.text = CoastUpgrade(dataSave.ArmorShieldLvl).ToString();
+            armorShieldLvlUpCost.text = CoastUpgrade(DataSave.instance.ArmorShieldLvl).ToString();
 
         //Engine
-        if (dataSave.EngineLvl == 20)
+        if (DataSave.instance.EngineLvl == 20)
             engineLvlUpCost.text = "Max";
         else
-            engineLvlUpCost.text = CoastUpgrade(dataSave.EngineLvl).ToString();
+            engineLvlUpCost.text = CoastUpgrade(DataSave.instance.EngineLvl).ToString();
 
         //SuperBoost
-        if (dataSave.SuperBoostLvl == 20)
+        if (DataSave.instance.SuperBoostLvl == 20)
             superBoostLvlUpCost.text = "Max";
         else
-            superBoostLvlUpCost.text = CoastUpgrade(dataSave.SuperBoostLvl).ToString();
+            superBoostLvlUpCost.text = CoastUpgrade(DataSave.instance.SuperBoostLvl).ToString();
 
         //статы коробля
         //Главня пушка
-        cannonDamageText.text = dataSave.cannonDamage.ToString("0.00");
-        cannonRateText.text = dataSave.cannonFireRate.ToString("0.00");
-        cannonSpeedText.text = dataSave.cannonBulletSpeed.ToString("0.00");
-        cannonCountText.text = dataSave.cannonCount.ToString();
+        cannonDamageText.text = DataSave.instance.cannonDamage.ToString("0.00");
+        cannonRateText.text = DataSave.instance.cannonFireRate.ToString("0.00");
+        cannonSpeedText.text = DataSave.instance.cannonBulletSpeed.ToString("0.00");
+        cannonCountText.text = DataSave.instance.cannonCount.ToString();
         //SuperShoot
-        ssDamageText.text = dataSave.ssDamage.ToString("0%");
-        ssMaxTimeText.text = dataSave.ssMaxTime.ToString("0");
-        ssReloadText.text = dataSave.ssTimeReload.ToString("0.00");
+        ssDamageText.text = DataSave.instance.ssDamage.ToString("0%");
+        ssMaxTimeText.text = DataSave.instance.ssMaxTime.ToString("0");
+        ssReloadText.text = DataSave.instance.ssTimeReload.ToString("0.00");
         //Armor Shield
-        armorText.text = dataSave.shipArmor.ToString("0");
-        shieldText.text = dataSave.shipShield.ToString("0");
-        shieldDeltaText.text = dataSave.shipShieldDelta.ToString("0.00");
+        armorText.text = DataSave.instance.shipArmor.ToString("0");
+        shieldText.text = DataSave.instance.shipShield.ToString("0");
+        shieldDeltaText.text = DataSave.instance.shipShieldDelta.ToString("0.00");
         //Engine
-        engineMaxSpeedText.text = dataSave.shipMaxSpeed.ToString("0.00");
-        engineAccelerationText.text = dataSave.shipAcceleration.ToString("0.00");
-        engineRotationText.text = dataSave.shipRotation.ToString("0.00");
+        engineMaxSpeedText.text = DataSave.instance.shipMaxSpeed.ToString("0.00");
+        engineAccelerationText.text = DataSave.instance.shipAcceleration.ToString("0.00");
+        engineRotationText.text = DataSave.instance.shipRotation.ToString("0.00");
         //Super Boost
-        sbMaxSpeedText.text = dataSave.sbMaxSpeed.ToString("0%");
-        sbAccelerationText.text = dataSave.sbAcceleration.ToString("0%");
-        sbMaxTime.text = dataSave.sbMaxTime.ToString("0");
-        sbReloadText.text = dataSave.sbTimeReload.ToString("0.00");
+        sbMaxSpeedText.text = DataSave.instance.sbMaxSpeed.ToString("0%");
+        sbAccelerationText.text = DataSave.instance.sbAcceleration.ToString("0%");
+        sbMaxTime.text = DataSave.instance.sbMaxTime.ToString("0");
+        sbReloadText.text = DataSave.instance.sbTimeReload.ToString("0.00");
 
 
     }

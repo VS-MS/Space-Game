@@ -27,12 +27,6 @@ public class EnemyShip : Unit
 
     protected Rigidbody2D m_Rigidbody2D;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     protected int SetMoneyCount()
     {
         int money_;

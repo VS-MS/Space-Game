@@ -7,8 +7,6 @@ public class Unit : MonoBehaviour
     //количество очков, которые получит игрок за уничтожение коробля
     [SerializeField]
     protected int moneyCount;
-    //ссылка на обект типа DataSave для сохранения прогресса
-    protected DataSave dataSave;
     public State shipState = State.Idle; //переменная, в которой храним состояние корабля
     public enum State
     {
@@ -42,12 +40,6 @@ public class Unit : MonoBehaviour
     public float boostForce = 400f;                  // ускорение корабля
     public float rotationSpeed = 1f;				 //Скорость вращения корабля 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     //Получаем урон
     public void ReceiveDamage(float damage)			//простая функция для получения урона
 	{
@@ -71,11 +63,7 @@ public class Unit : MonoBehaviour
                 if (moneyCount > 0)
                 {
                     //ищем на сцене объект, в котором храним прогресс игрока и добовляем денег за уничтоженный корабль.
-                    //Если скорость игры увиличиться и будет много уничтожений кораблей в ед. времени
-                    //нужно будет отказаться от этого способа в пользу сохранения через определенный интервал времени
-                    //или только при смерти или завершения уровня
-                    dataSave = FindObjectOfType<DataSave>();
-                    dataSave.money += moneyCount;
+                    DataSave.instance.money += moneyCount;
                     moneyCount = 0;
                 }
             }

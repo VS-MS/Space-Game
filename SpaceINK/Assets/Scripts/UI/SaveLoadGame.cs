@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SaveLoadGame : MonoBehaviour
 {
-    //ссылка на обект типа DataSave для сохранения прогресса
-    private DataSave dataSave;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +12,11 @@ public class SaveLoadGame : MonoBehaviour
 
     public void SaveGame()
     {
-        dataSave = FindObjectOfType<DataSave>();
-        dataSave.SaveGame();
+        DataSave.instance.SaveGame();
     }
 
     public void LoadGame()
     {
-        dataSave = FindObjectOfType<DataSave>();
-        dataSave.LoadGame();
+        DataSave.instance.LoadGame();
     }
 }

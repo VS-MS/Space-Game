@@ -52,11 +52,23 @@ public class DataSave : MonoBehaviour
 
     static bool created = false;
 
-    
+    public static DataSave instance { get; private set; }
 
     void Awake()
     {
+        Debug.Log(this.GetInstanceID());
         //Проверяем, есть ли экземпляр объекта на сцене, если есть, удаляем этот экземпляр
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
+        /*
         if (!created)
         {
             //DontDestroyOnLoad не удоляет объект при загрузки другой сцены.
@@ -67,6 +79,7 @@ public class DataSave : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        */
         LoadGame();//Так делать не стоит, но пока нет законченного меню, придется оставить.
     }
 

@@ -67,6 +67,7 @@ public class SpaceCarrierEnemyShip : EnemyShip
             flagDie = true;
         }
         else
+        if(shipState != State.Die)
         {
             //считаемвремя до след выстрела, счетчик работает, только если есть не выпущенный корабль
             if (myTime <= fireDelta && droneFighter.Length >= shipCount)

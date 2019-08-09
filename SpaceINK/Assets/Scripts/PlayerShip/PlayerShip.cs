@@ -56,14 +56,6 @@ public class PlayerShip : Unit {
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         boostWing = this.transform.Find("BoostWing").gameObject;
-        StartCoroutine(CheckData());
-    }
-    //корутина для пропуска одного кадра, иначе найдем ссылку на объект, который будет уничтожен в следующем кадре.
-    IEnumerator CheckData() 
-    {
-        yield return new WaitForEndOfFrame();
-        dataSave = FindObjectOfType<DataSave>();
-        RefreshPlayerStat();
     }
 
     private void RefreshPlayerStat()
@@ -72,38 +64,38 @@ public class PlayerShip : Unit {
         /*
          * Cannon
          */
-        bulletDamage = dataSave.cannonDamage;
-        bulletSpeed = dataSave.cannonBulletSpeed;
-        fireDelta = dataSave.cannonFireRate;
-        cannonCount = dataSave.cannonCount;
+        bulletDamage = DataSave.instance.cannonDamage;
+        bulletSpeed = DataSave.instance.cannonBulletSpeed;
+        fireDelta = DataSave.instance.cannonFireRate;
+        cannonCount = DataSave.instance.cannonCount;
         /*
          * SuperShot
          */
-        superShootMaxPoints = dataSave.ssMaxTime; /*---*/ superShootPoints = dataSave.ssMaxTime;
-        ssDamageRatio = dataSave.ssDamage;
-        superShootDelta = dataSave.ssTimeReload;
+        superShootMaxPoints = DataSave.instance.ssMaxTime; /*---*/ superShootPoints = DataSave.instance.ssMaxTime;
+        ssDamageRatio = DataSave.instance.ssDamage;
+        superShootDelta = DataSave.instance.ssTimeReload;
 
         /*
          * Armor Shield
          */
-        armorPoints = dataSave.shipArmor; /*---*/ maxArmorPoints = dataSave.shipArmor;
-        shieldPoints = dataSave.shipShield; /*---*/ maxShieldPoints = dataSave.shipShield;
-        shieldDelta = dataSave.shipShieldDelta;
+        armorPoints = DataSave.instance.shipArmor; /*---*/ maxArmorPoints = DataSave.instance.shipArmor;
+        shieldPoints = DataSave.instance.shipShield; /*---*/ maxShieldPoints = DataSave.instance.shipShield;
+        shieldDelta = DataSave.instance.shipShieldDelta;
 
         /*
          * Engine
          */
-        maxSpeed = dataSave.shipMaxSpeed;
-        boostForce = dataSave.shipAcceleration;
-        rotationSpeed = dataSave.shipRotation;
+        maxSpeed = DataSave.instance.shipMaxSpeed;
+        boostForce = DataSave.instance.shipAcceleration;
+        rotationSpeed = DataSave.instance.shipRotation;
 
         /*
          * SuperBoost
          */
-        sbSpeedRatio = dataSave.sbMaxSpeed;
-        sbAccelerationRatio = dataSave.sbAcceleration;
-        boostPoints = dataSave.sbMaxTime; /*---*/ boostMaxPoints = dataSave.sbMaxTime;
-        boostDelta = dataSave.sbTimeReload;
+        sbSpeedRatio = DataSave.instance.sbMaxSpeed;
+        sbAccelerationRatio = DataSave.instance.sbAcceleration;
+        boostPoints = DataSave.instance.sbMaxTime; /*---*/ boostMaxPoints = DataSave.instance.sbMaxTime;
+        boostDelta = DataSave.instance.sbTimeReload;
 
         
 
