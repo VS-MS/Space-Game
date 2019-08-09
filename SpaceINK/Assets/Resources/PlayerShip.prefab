@@ -192,9 +192,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyCount: 0
   shipState: 0
+  particleBoom: []
   armorPoints: 100
   shieldPoints: 100
   shieldDelta: 0.5
+  shielVFX: {fileID: 0}
   maxSpeed: 15
   boostForce: 80
   rotationSpeed: 1

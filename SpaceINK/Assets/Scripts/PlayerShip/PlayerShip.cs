@@ -50,7 +50,7 @@ public class PlayerShip : Unit {
 
     void Start ()
     {
-
+        RefreshPlayerStat();
     }
     private void Awake()
     {

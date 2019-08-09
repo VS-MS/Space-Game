@@ -56,7 +56,6 @@ public class DataSave : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log(this.GetInstanceID());
         //Проверяем, есть ли экземпляр объекта на сцене, если есть, удаляем этот экземпляр
         if(instance == null)
         {

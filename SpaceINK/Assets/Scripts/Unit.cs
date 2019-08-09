@@ -33,6 +33,7 @@ public class Unit : MonoBehaviour
 
     //счетчик для востановления щита
     public float shieldDelta = 8f;
+    public GameObject shielVFX;
     protected float shieldTime = 8f;
 
     [Header("Speed Settings")]
