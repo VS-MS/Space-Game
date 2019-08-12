@@ -34,8 +34,9 @@ public class EnemyRocket : Unit
 
     private void FixedUpdate()
     {
-        if (shipState == State.Die)
+        if (shipState == State.Die && !flagDie)
         {
+            Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
             //отключаем все коллайдеры на объекте
             foreach (Collider2D collider in this.GetComponents<Collider2D>())
             {
@@ -46,8 +47,10 @@ public class EnemyRocket : Unit
             {
                 sprite.enabled = false;
             }
+
+            flagDie = true;
         }
-        else
+        if (shipState != State.Die)
         {
             if (playerShip)
             {

@@ -57,6 +57,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -156,6 +157,7 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -304,6 +306,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -376,10 +379,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f55d92b53b48ec4abe6ada540a93ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyCount: 0
   shipState: 0
+  particleBoom:
+  - {fileID: 3528573728244511224, guid: c19200cae72f5c745afea30a8c11f3ed, type: 3}
   armorPoints: 1
   shieldPoints: 0
   shieldDelta: 8
+  shielVFX: {fileID: 0}
   maxSpeed: 18
   boostForce: 80
   rotationSpeed: 2
