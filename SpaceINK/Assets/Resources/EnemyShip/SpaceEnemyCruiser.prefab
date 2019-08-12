@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2060956686300582849}
   - component: {fileID: 2060956686300582855}
   - component: {fileID: 2060956686300582848}
+  - component: {fileID: 4176417399664474548}
   m_Layer: 8
   m_Name: SpaceEnemyCruiser
   m_TagString: EnemyShip
@@ -103,10 +104,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30aa6fa04b2492f4abe635c9ceb58b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyCount: 0
   shipState: 0
+  particleBoom: []
   armorPoints: 1000
   shieldPoints: 500
   shieldDelta: 1
+  shielVFX: {fileID: 0}
   maxSpeed: 2
   boostForce: 100
   rotationSpeed: 0.04
@@ -116,6 +120,7 @@ MonoBehaviour:
   bulletSpeed: 1
   enemyStatusSlider: {fileID: 5205629985578053904, guid: 6b930efe3a31d584a842160f7bccc528,
     type: 3}
+  statusSlider: {fileID: 0}
   startPoint: {x: 0, y: 0, z: 0}
   rocketArrayLeft:
   - {fileID: 2952282024059434641}
@@ -172,6 +177,21 @@ PolygonCollider2D:
       - {x: -1.5949874, y: -10.145}
       - {x: 1.5562474, y: -10.18374}
       - {x: 2.4618592, y: -7.2837334}
+--- !u!114 &4176417399664474548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060956686300582853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94e678bfe2a319468c6c699fe31ca1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserParticle: {fileID: 8371824318658752745, guid: 01db4ef35853fcb4fa00734997da5935,
+    type: 3}
+  laserTag: PlayerBullet
 --- !u!1 &2060956686356656058
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +250,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -619,6 +640,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009cd4a93fbab724fa470650572dbcdc, type: 3}
+--- !u!4 &963504397668786626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1280978370703137657, guid: 009cd4a93fbab724fa470650572dbcdc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2060956685424081595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2952282022415948362 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3774405663765356785, guid: 009cd4a93fbab724fa470650572dbcdc,
@@ -631,12 +658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f83d2eb3d2f8f4a8d6b935d82445ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &963504397668786626 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1280978370703137657, guid: 009cd4a93fbab724fa470650572dbcdc,
-    type: 3}
-  m_PrefabInstance: {fileID: 2060956685424081595}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2060956685905300595
 PrefabInstance:
   m_ObjectHideFlags: 0

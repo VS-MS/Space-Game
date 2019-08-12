@@ -60,6 +60,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -95,6 +96,7 @@ GameObject:
   - component: {fileID: 1744330595965327147}
   - component: {fileID: 1744330595965327144}
   - component: {fileID: 6244272781056762461}
+  - component: {fileID: 1012878641083548762}
   m_Layer: 8
   m_Name: BattleEnemyShip
   m_TagString: EnemyShip
@@ -183,10 +185,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510e10eedae26ae46af47147f8181ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyCount: 0
   shipState: 0
+  particleBoom: []
   armorPoints: 200
   shieldPoints: 100
   shieldDelta: 0.9
+  shielVFX: {fileID: 0}
   maxSpeed: 4
   boostForce: 100
   rotationSpeed: 0.2
@@ -196,6 +201,7 @@ MonoBehaviour:
   bulletSpeed: 1
   enemyStatusSlider: {fileID: 5205629985578053904, guid: 6b930efe3a31d584a842160f7bccc528,
     type: 3}
+  statusSlider: {fileID: 0}
   startPoint: {x: 0, y: 0, z: 0}
   turretArray:
   - {fileID: 4977241813397207232}
@@ -204,6 +210,21 @@ MonoBehaviour:
   - {fileID: 6975465660693469355}
   turretRotationSpeed: 5
   fireDelta: 0.7
+--- !u!114 &1012878641083548762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744330595965327126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94e678bfe2a319468c6c699fe31ca1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserParticle: {fileID: 8371824318658752745, guid: 01db4ef35853fcb4fa00734997da5935,
+    type: 3}
+  laserTag: PlayerBullet
 --- !u!1 &8077597584485278656
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +281,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

@@ -5,10 +5,10 @@ using UnityEngine;
 public class LaserBlink : MonoBehaviour
 {
     public GameObject laserParticle;
-
+    public string laserTag; 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "EnemyBullet")
+        if(collision.tag == laserTag)
         {
             GameObject splash = Instantiate(laserParticle, collision.transform.position, transform.rotation);
             splash.transform.parent = this.transform;
