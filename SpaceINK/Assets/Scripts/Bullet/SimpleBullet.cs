@@ -36,11 +36,12 @@ public class SimpleBullet: MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, 5.5f);
+        transform.rotation = parent.transform.rotation;
     }
 
-    private void FixedUpdate()
+    private void Update() 
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + (direction * 2), speed);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed);
         //Debug.Log(speed);
     }
 
@@ -62,10 +63,15 @@ public class SimpleBullet: MonoBehaviour
         }
         if (collision.tag == "Asteroid")
         {
+            
             GameObject splash = Instantiate(laserParticle, transform.position, transform.rotation);
             Destroy(splash, 2.0f);
 
             Destroy(gameObject);
+            
         }
     }
+
+    
+
 }
