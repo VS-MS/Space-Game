@@ -130,9 +130,6 @@ public class FighterEnemyShip : EnemyShip
     {
         if (shipState == State.Die && !flagDie)
         {
-            Instantiate(particleBoom[Random.Range(0,particleBoom.Length)], transform.position, transform.rotation);
-            //Instantiate(particleBoom, transform.position, transform.rotation);
-
             //отключаем все коллайдеры на объекте
             foreach (Collider2D collider in this.GetComponents<Collider2D>())
             {

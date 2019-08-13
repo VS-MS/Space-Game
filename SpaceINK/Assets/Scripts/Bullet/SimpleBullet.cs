@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SimpleBullet: MonoBehaviour
 {
+    public GameObject laserParticle;
     private GameObject parent;
     public GameObject Parent { set { parent = value; } }
 
@@ -50,12 +51,20 @@ public class SimpleBullet: MonoBehaviour
             if (collision.gameObject.GetComponent<Unit>().armorPoints > 0)
             {
                 collision.gameObject.GetComponent<Unit>().ReceiveDamage(damage);
+
+                GameObject splash = Instantiate(laserParticle, transform.position, transform.rotation);
+                splash.transform.parent = collision.transform;
+                Destroy(splash, 2.0f);
+
                 Destroy(gameObject);
             }
             
         }
         if (collision.tag == "Asteroid")
         {
+            GameObject splash = Instantiate(laserParticle, transform.position, transform.rotation);
+            Destroy(splash, 2.0f);
+
             Destroy(gameObject);
         }
     }

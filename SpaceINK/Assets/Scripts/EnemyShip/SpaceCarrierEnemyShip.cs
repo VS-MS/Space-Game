@@ -55,7 +55,7 @@ public class SpaceCarrierEnemyShip : EnemyShip
         if (shipState == State.Die && !flagDie)
         {
             //создаем систему частиц для взрыва
-            Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
+            //Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
 
             //отключаем все коллайдеры на объекте
             foreach (Collider2D collider in this.GetComponents<Collider2D>())

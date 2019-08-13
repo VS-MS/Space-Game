@@ -36,8 +36,6 @@ public class EnemyRocket : Unit
     {
         if (shipState == State.Die && !flagDie)
         {
-            Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
-            //отключаем все коллайдеры на объекте
             foreach (Collider2D collider in this.GetComponents<Collider2D>())
             {
                 collider.enabled = false;
@@ -146,6 +144,8 @@ public class EnemyRocket : Unit
             {
                 collision.gameObject.GetComponent<Unit>().ReceiveDamage(rocketDamage);
                 shipState = State.Die;
+                Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
+                //отключаем все коллайдеры на объекте
                 Destroy(gameObject, 10.01f);
             }
             
@@ -153,6 +153,8 @@ public class EnemyRocket : Unit
         if (collision.tag == "Asteroid")
         {
             shipState = State.Die;
+            Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
+            //отключаем все коллайдеры на объекте
             Destroy(gameObject, 10.01f);
         }
 

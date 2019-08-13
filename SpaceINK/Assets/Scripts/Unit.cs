@@ -33,7 +33,6 @@ public class Unit : MonoBehaviour
 
     //счетчик для востановления щита
     public float shieldDelta = 8f;
-    public GameObject shielVFX;
     protected float shieldTime = 8f;
 
     [Header("Speed Settings")]
@@ -55,9 +54,16 @@ public class Unit : MonoBehaviour
             shieldPoints -= damage;
         }
         //armorPoints -= damage;
-        if (armorPoints <= 0)
+        if (armorPoints <= 0 && shipState != State.Die)
         {
             shipState = State.Die;
+            //создаем систему частиц для взрыва
+            if(particleBoom.Length > 0)
+            {
+                Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
+            }
+            
+
             Destroy(gameObject, 10.01f);
             if(this.tag == "EnemyShip")
             {

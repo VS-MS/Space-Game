@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 1927954200469288320}
   - component: {fileID: 1021769304001216956}
   - component: {fileID: 60024734858188695}
-  - component: {fileID: 4423663501512630325}
   m_Layer: 8
   m_Name: SpaceEnemyCarrier
   m_TagString: EnemyShip
@@ -191,7 +190,6 @@ MonoBehaviour:
   armorPoints: 1000
   shieldPoints: 500
   shieldDelta: 1
-  shielVFX: {fileID: 0}
   maxSpeed: 2
   boostForce: 80
   rotationSpeed: 0.1
@@ -207,21 +205,6 @@ MonoBehaviour:
     type: 3}
   shipCount: 5
   fireDelta: 5
---- !u!114 &4423663501512630325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5127757393166713379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94e678bfe2a319468c6c699fe31ca1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laserParticle: {fileID: 8371824318658752745, guid: 01db4ef35853fcb4fa00734997da5935,
-    type: 3}
-  laserTag: PlayerBullet
 --- !u!1 &7438664130796174366
 GameObject:
   m_ObjectHideFlags: 0

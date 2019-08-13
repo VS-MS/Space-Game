@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-
+    public GameObject laserParticle;
     private GameObject parent;
     public GameObject Parent { set { parent = value; } }
 
@@ -72,6 +72,11 @@ public class PlayerBullet : MonoBehaviour
             if (collision.gameObject.GetComponent<Unit>().armorPoints > 0)
             {
                 collision.gameObject.GetComponent<Unit>().ReceiveDamage(damage);
+
+                GameObject splash = Instantiate(laserParticle, transform.position, transform.rotation);
+                splash.transform.parent = collision.transform;
+                Destroy(splash, 2.0f);
+
                 Destroy(gameObject);
             }
             
@@ -79,6 +84,12 @@ public class PlayerBullet : MonoBehaviour
         if (collision.tag == "Asteroid")
         {
             collision.gameObject.GetComponent<Asteroid>().ReceiveDamage(damage);
+
+            Debug.Log("Asteroid boom");
+
+            GameObject splash = Instantiate(laserParticle, transform.position, transform.rotation);
+            Destroy(splash, 2.0f);
+
             Destroy(gameObject);
         }
     }

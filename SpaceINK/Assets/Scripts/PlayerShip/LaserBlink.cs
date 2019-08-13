@@ -14,6 +14,7 @@ public class LaserBlink : MonoBehaviour
             splash.transform.parent = this.transform;
             Destroy(splash, 2.0f);
         }
+        
     }
 
 }
