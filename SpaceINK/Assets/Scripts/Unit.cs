@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+
     //количество очков, которые получит игрок за уничтожение коробля
     [SerializeField]
     protected int moneyCount;
+    public int moneySet
+    {
+        set
+        {
+            if (value < 0)
+                moneyCount = 0;
+            else moneyCount = value;
+        }
+    }
+
     public State shipState = State.Idle; //переменная, в которой храним состояние корабля
     public enum State
     {
