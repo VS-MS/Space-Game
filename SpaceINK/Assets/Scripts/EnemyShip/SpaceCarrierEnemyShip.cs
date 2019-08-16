@@ -90,7 +90,7 @@ public class SpaceCarrierEnemyShip : EnemyShip
             }
 
 
-            if (playerShip)
+            if (playerShip && playerShip.activeSelf)
             {
                 //heading - вектор выходящий из данного объекта в корабль игрока
                 heading = playerShip.transform.position - gameObject.transform.position;
