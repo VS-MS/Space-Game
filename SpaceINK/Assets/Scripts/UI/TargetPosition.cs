@@ -5,11 +5,12 @@ using UnityEngine;
 public class TargetPosition : MonoBehaviour
 {
     public GameObject target; // объект за которым надо следить
-    public GameObject arrow; // стрелка
+    public GameObject arrow; // экземпляр стрелки
+    private GameObject targetSprite; //ссылка для хранения объекта стрелки
 
     private void Awake()
     {
-
+        targetSprite = Instantiate(arrow, transform.position, transform.rotation);
     }
 
     void Update()
@@ -21,11 +22,11 @@ public class TargetPosition : MonoBehaviour
                 Vector3 targetOnScreen = Camera.main.WorldToViewportPoint(target.transform.position);
                 targetOnScreen.x = Mathf.Clamp01(targetOnScreen.x);
                 targetOnScreen.y = Mathf.Clamp01(targetOnScreen.y);
-                arrow.transform.position = Camera.main.ViewportToWorldPoint(targetOnScreen);
+                targetSprite.transform.position = Camera.main.ViewportToWorldPoint(targetOnScreen);
             }
             else
             {
-                Destroy(arrow, .5f);
+                Destroy(targetSprite, .5f);
             }
         }
     }

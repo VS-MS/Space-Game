@@ -5,14 +5,14 @@ using UnityEngine;
 public class MyGameManager : MonoBehaviour
 {
 
+    public GameObject target;
+
+
     private GameObject playerShip;
     private GameObject controlCanvas;
 
-    //Счетчик времени для обновления списка противников на карте
-    private float deltaTime = 10;
-    private float timeTmp;
-
-    private GameObject[] enemyArray;
+    //private GameObject[] enemyArray;
+    private List<GameObject> enemyArray;
 
     private void Start()
     {
@@ -26,13 +26,14 @@ public class MyGameManager : MonoBehaviour
 
     private void EnemyArray()
     {
-        enemyArray = GameObject.FindGameObjectsWithTag("EnemyShip");
-        foreach(GameObject enemy in enemyArray)
+        //enemyArray = GameObject.FindGameObjectsWithTag("EnemyShip");
+        enemyArray = new List<GameObject>(GameObject.FindGameObjectsWithTag("EnemyShip"));
+        foreach (GameObject enemy in enemyArray)
         {
             Debug.Log(enemy);
         }
 
-        Debug.Log("///////////////////////////////");
+        
     }
 
     IEnumerator StartGame()
@@ -44,13 +45,11 @@ public class MyGameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {/*
-        timeTmp += Time.deltaTime;
-        if(timeTmp >= deltaTime)
+    {
+        enemyArray.RemoveAll(item => item == null);
+        if(enemyArray.Count == 0)
         {
-            timeTmp = 0;
-            EnemyArray();
+            //запускаем врата для выхоа из уровня
         }
-        */
     }
 }
