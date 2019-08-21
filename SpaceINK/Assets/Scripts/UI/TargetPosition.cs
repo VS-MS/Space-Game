@@ -26,7 +26,9 @@ public class TargetPosition : MonoBehaviour
             if (target.GetComponent<Unit>().shipState != Unit.State.Die)
             {
                 Vector3 targetOnScreen = Camera.main.WorldToViewportPoint(target.transform.position);
+                Debug.Log(targetOnScreen.x);
                 targetOnScreen.x = Mathf.Clamp01(targetOnScreen.x);
+                Debug.Log(targetOnScreen.x);
                 targetOnScreen.y = Mathf.Clamp01(targetOnScreen.y);
                 targetArrow.transform.position = Camera.main.ViewportToWorldPoint(targetOnScreen);
                 ColorDistance();

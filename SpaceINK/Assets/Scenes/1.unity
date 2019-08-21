@@ -204,7 +204,7 @@ PrefabInstance:
     - target: {fileID: 5127757393166713379, guid: 262911e116052c04f96d11aacc8745c6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5127757393166713379, guid: 262911e116052c04f96d11aacc8745c6,
         type: 3}
@@ -2187,6 +2187,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8338244838157503301, guid: dfe86760a25700b4999f66271c58ea93,
+        type: 3}
+      propertyPath: m_Name
+      value: FighterEnemyShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338244838157503301, guid: dfe86760a25700b4999f66271c58ea93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 66735713295600835, guid: dfe86760a25700b4999f66271c58ea93,
         type: 3}
       propertyPath: startPoint.x
@@ -2196,16 +2206,6 @@ PrefabInstance:
         type: 3}
       propertyPath: startPoint.y
       value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338244838157503301, guid: dfe86760a25700b4999f66271c58ea93,
-        type: 3}
-      propertyPath: m_Name
-      value: FighterEnemyShip
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338244838157503301, guid: dfe86760a25700b4999f66271c58ea93,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8338244838157503302, guid: dfe86760a25700b4999f66271c58ea93,
         type: 3}
@@ -3682,12 +3682,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7434046118629921387, guid: 1f14d2892d26e2946b132014890c3215,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 4291510942378340240, guid: 074a67f5e15110c4eb394cc86cf3ebf5,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f14d2892d26e2946b132014890c3215, type: 3}
 --- !u!1001 &7632018043406374661
