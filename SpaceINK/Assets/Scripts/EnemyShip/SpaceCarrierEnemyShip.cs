@@ -140,6 +140,7 @@ public class SpaceCarrierEnemyShip : EnemyShip
                     newDroneFighter.statusSlider.maxShield = (int)maxShieldPoints / 15;
                     newDroneFighter.GetComponent<Rigidbody2D>().velocity = this.transform.up * 10;
                     newDroneFighter.moneySet = 0;
+                    //newDroneFighter.tag = "EnemyDrone";
                     droneFighter[i] = newDroneFighter;
                     myTime = 0.0F;
                     break;

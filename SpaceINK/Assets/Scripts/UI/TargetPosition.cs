@@ -6,28 +6,74 @@ public class TargetPosition : MonoBehaviour
 {
     public GameObject target; // объект за которым надо следить
     public GameObject arrow; // экземпляр стрелки
-    private GameObject targetSprite; //ссылка для хранения объекта стрелки
+    private GameObject targetArrow; //ссылка для хранения объекта стрелки
+    private Color colorArrow;
 
     private void Awake()
     {
-        targetSprite = Instantiate(arrow, transform.position, transform.rotation);
+        targetArrow = Instantiate(arrow, transform.position, transform.rotation);
+        colorArrow = targetArrow.GetComponent<SpriteRenderer>().color;
     }
 
-    void Update()
+    private void Start()
     {
-        if(target)
+
+    }
+    private void FollowTarget()
+    {
+        if (target)
         {
             if (target.GetComponent<Unit>().shipState != Unit.State.Die)
             {
                 Vector3 targetOnScreen = Camera.main.WorldToViewportPoint(target.transform.position);
                 targetOnScreen.x = Mathf.Clamp01(targetOnScreen.x);
                 targetOnScreen.y = Mathf.Clamp01(targetOnScreen.y);
-                targetSprite.transform.position = Camera.main.ViewportToWorldPoint(targetOnScreen);
+                targetArrow.transform.position = Camera.main.ViewportToWorldPoint(targetOnScreen);
+                ColorDistance();
+                SizeDistance();
             }
             else
             {
-                Destroy(targetSprite, .5f);
+                Destroy(targetArrow, .5f);
             }
         }
+    }
+
+    //изменение размера в зависимости от расстояния 
+    private void SizeDistance()
+    {
+        var heading = targetArrow.transform.position - target.transform.position;
+        var distance = heading.magnitude;
+        if(distance < 200)
+        {
+            Vector3 vectorScale = new Vector3( (-distance + 400)/ 400, (-distance + 400) / 400);
+            targetArrow.transform.localScale = vectorScale;
+        }
+        else
+            targetArrow.transform.localScale = new Vector3 (0.5f, 0.5f, 1);
+    }
+
+    //скрываем цель, если она находиться на экране и включаем, если она за объектом
+    private void ColorDistance()
+    {
+        var heading = targetArrow.transform.position - target.transform.position;
+        var distance = heading.magnitude;
+        if (distance < 2)
+        {
+            colorArrow.a = distance/2;
+            targetArrow.GetComponent<SpriteRenderer>().color = colorArrow;
+        }
+        else
+        {
+            colorArrow.a = 1;
+            targetArrow.GetComponent<SpriteRenderer>().color = colorArrow;
+        }
+
+    }
+
+    void Update()
+    {
+        FollowTarget();
+        //ColorDistance();
     }
 }
