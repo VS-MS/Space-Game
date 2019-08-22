@@ -2297,6 +2297,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1676013687143590, guid: abc3c68201dbe464b9be7570bd35592d, type: 3}
+      propertyPath: m_Name
+      value: PlayerShipSprite
+      objectReference: {fileID: 0}
     - target: {fileID: 4865994130098010, guid: abc3c68201dbe464b9be7570bd35592d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2400,26 +2404,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[4]
       value: 
       objectReference: {fileID: 2100000, guid: fb7d92612b7e208418b4d1f7f53315dd, type: 2}
-    - target: {fileID: 5021972025931211364, guid: abc3c68201dbe464b9be7570bd35592d,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.21385956
-      objectReference: {fileID: 0}
-    - target: {fileID: 5021972025931211364, guid: abc3c68201dbe464b9be7570bd35592d,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0.0050239563
-      objectReference: {fileID: 0}
-    - target: {fileID: 7019994333779956303, guid: abc3c68201dbe464b9be7570bd35592d,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.21385956
-      objectReference: {fileID: 0}
-    - target: {fileID: 7019994333779956303, guid: abc3c68201dbe464b9be7570bd35592d,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8322403314353480791, guid: abc3c68201dbe464b9be7570bd35592d,
         type: 3}
       propertyPath: orthographic
@@ -2458,6 +2442,11 @@ PrefabInstance:
     - target: {fileID: 5212139741360140777, guid: abc3c68201dbe464b9be7570bd35592d,
         type: 3}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212946866051820484, guid: abc3c68201dbe464b9be7570bd35592d,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

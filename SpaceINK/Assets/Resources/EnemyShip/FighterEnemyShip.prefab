@@ -171,7 +171,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
-  m_Father: {fileID: 8338244838157503302}
+  m_Father: {fileID: 8338244839459720247}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3854463245839869535
@@ -708,7 +708,6 @@ Transform:
   - {fileID: 8338244839459720247}
   - {fileID: 1105067185838830721}
   - {fileID: 3353795039101993383}
-  - {fileID: 8930772958010210380}
   - {fileID: 5544657443647555087}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -830,6 +829,7 @@ Transform:
   - {fileID: 3841993863001042978}
   - {fileID: 5470030558434004489}
   - {fileID: 7499278191299537581}
+  - {fileID: 8930772958010210380}
   m_Father: {fileID: 8338244838157503302}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -982,7 +982,7 @@ PrefabInstance:
     - target: {fileID: 8392274824701872629, guid: 0c00531f81fba694182423cc03dfd522,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8392274824701872629, guid: 0c00531f81fba694182423cc03dfd522,
         type: 3}
@@ -1266,22 +1266,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4192622218063510098, guid: 54f4b3b11b5ec454da91b529b7652de2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7300714810562285577, guid: 54f4b3b11b5ec454da91b529b7652de2,
         type: 3}
       propertyPath: moveWithCustomTransform
       value: 
       objectReference: {fileID: 8338244838157503302}
-    - target: {fileID: 2538881593946296836, guid: 54f4b3b11b5ec454da91b529b7652de2,
+    - target: {fileID: 4192622218063510098, guid: 54f4b3b11b5ec454da91b529b7652de2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756137537134535754, guid: 54f4b3b11b5ec454da91b529b7652de2,
         type: 3}
       propertyPath: moveWithTransform
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7756137537134535754, guid: 54f4b3b11b5ec454da91b529b7652de2,
+    - target: {fileID: 2538881593946296836, guid: 54f4b3b11b5ec454da91b529b7652de2,
         type: 3}
       propertyPath: moveWithTransform
       value: 0

@@ -76,62 +76,94 @@ public class UpgradeSystem : MonoBehaviour
 
     public void SuperShootUp()
     {
-        if (CoastUpgrade(DataSave.instance.SuperShotLvl) <= DataSave.instance.money)
+        if(DataSave.instance.SuperShotLvl < 20)
         {
-            DataSave.instance.money -= CoastUpgrade(DataSave.instance.SuperShotLvl);
-            DataSave.instance.SuperShotLvl++;
-            DataSave.instance.SaveGame();
-            RefreshStat();
+            if (CoastUpgrade(DataSave.instance.SuperShotLvl) <= DataSave.instance.money)
+            {
+                DataSave.instance.money -= CoastUpgrade(DataSave.instance.SuperShotLvl);
+                DataSave.instance.SuperShotLvl++;
+                DataSave.instance.SaveGame();
+                RefreshStat();
+            }
+            else
+            {
+                Debug.Log("Dude, you are need more money for this");
+            }
         }
         else
         {
-            Debug.Log("Dude, you are need more money for this");
+            Debug.Log("Max level reached");
         }
+
     }
 
     public void ArmorShieldUp()
     {
-        if (CoastUpgrade(DataSave.instance.ArmorShieldLvl) <= DataSave.instance.money)
+        if(DataSave.instance.ArmorShieldLvl < 20)
         {
-            DataSave.instance.money -= CoastUpgrade(DataSave.instance.ArmorShieldLvl);
-            DataSave.instance.ArmorShieldLvl++;
-            DataSave.instance.SaveGame();
-            RefreshStat();
+            if (CoastUpgrade(DataSave.instance.ArmorShieldLvl) <= DataSave.instance.money)
+            {
+                DataSave.instance.money -= CoastUpgrade(DataSave.instance.ArmorShieldLvl);
+                DataSave.instance.ArmorShieldLvl++;
+                DataSave.instance.SaveGame();
+                RefreshStat();
+            }
+            else
+            {
+                Debug.Log("Dude, you are need more money for this");
+            }
         }
         else
         {
-            Debug.Log("Dude, you are need more money for this");
+            Debug.Log("Max level reached");
         }
+
     }
 
     public void EngineUp()
     {
-        if (CoastUpgrade(DataSave.instance.EngineLvl) <= DataSave.instance.money)
+        if(DataSave.instance.EngineLvl < 20)
         {
-            DataSave.instance.money -= CoastUpgrade(DataSave.instance.EngineLvl);
-            DataSave.instance.EngineLvl++;
-            DataSave.instance.SaveGame();
-            RefreshStat();
+            if (CoastUpgrade(DataSave.instance.EngineLvl) <= DataSave.instance.money)
+            {
+                DataSave.instance.money -= CoastUpgrade(DataSave.instance.EngineLvl);
+                DataSave.instance.EngineLvl++;
+                DataSave.instance.SaveGame();
+                RefreshStat();
+            }
+            else
+            {
+                Debug.Log("Dude, you are need more money for this");
+            }
         }
         else
         {
-            Debug.Log("Dude, you are need more money for this");
+            Debug.Log("Max level reached");
         }
+
     }
 
     public void SuperBoostUp()
     {
-        if (CoastUpgrade(DataSave.instance.SuperBoostLvl) <= DataSave.instance.money)
+        if(DataSave.instance.SuperBoostLvl < 20)
         {
-            DataSave.instance.money -= CoastUpgrade(DataSave.instance.SuperBoostLvl);
-            DataSave.instance.SuperBoostLvl++;
-            DataSave.instance.SaveGame();
-            RefreshStat();
+            if (CoastUpgrade(DataSave.instance.SuperBoostLvl) <= DataSave.instance.money)
+            {
+                DataSave.instance.money -= CoastUpgrade(DataSave.instance.SuperBoostLvl);
+                DataSave.instance.SuperBoostLvl++;
+                DataSave.instance.SaveGame();
+                RefreshStat();
+            }
+            else
+            {
+                Debug.Log("Dude, you are need more money for this");
+            }
         }
         else
         {
-            Debug.Log("Dude, you are need more money for this");
+            Debug.Log("Max level reached");
         }
+        
     }
 
     //метод для высчитывания стоимости

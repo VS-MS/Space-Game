@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4583001369193192}
   - component: {fileID: 212946866051820484}
   m_Layer: 0
-  m_Name: MineShip
+  m_Name: PlayerShipSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 25
-  m_Sprite: {fileID: 21300000, guid: 8c9d8f143f25dae4da744389e156ff62, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61b57e8857a206f41af25f5ea426d0fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -804,7 +804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250783252639002622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.82, y: -0.58, z: 0}
+  m_LocalPosition: {x: -0.82, y: -1.731, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 719802162775520848}
@@ -858,13 +858,13 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.6138611
-        inSlope: 0
-        outSlope: 0
+        value: 0.42253196
+        inSlope: -1.1748703
+        outSlope: -1.1748703
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.26373628
       - serializedVersion: 3
         time: 1
         value: 0
@@ -992,7 +992,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2548138118360312622
@@ -1020,7 +1020,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2548138118360312622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.78, z: 0}
+  m_LocalPosition: {x: 0, y: -1.37, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865994130098010}
@@ -1074,7 +1074,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.75136185
+        value: 0.6105156
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1095,7 +1095,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.28627452, g: 0, b: 0.41960785, a: 1}
+      key0: {r: 0.08317512, g: 0, b: 0.48235294, a: 1}
       key1: {r: 0.18867922, g: 0, b: 0.05259891, a: 0.54901963}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -1155,7 +1155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3540392282828969051}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3, y: -0.65, z: 0}
+  m_LocalPosition: {x: 1.243, y: 0.793, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865994130098010}
@@ -1186,7 +1186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3767264696000825756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.889, y: -0.655, z: 0}
+  m_LocalPosition: {x: -1, y: -1.6, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865994130098010}
@@ -1322,7 +1322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5299574130816825291}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47, y: -0.655, z: 0}
+  m_LocalPosition: {x: -0.5, y: -2, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865994130098010}
@@ -1397,7 +1397,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.08317512, g: 0, b: 0.48235294, a: 1}
+      key0: {r: 0.28627452, g: 0, b: 0.41960785, a: 1}
       key1: {r: 0.18867922, g: 0, b: 0.05259891, a: 0.54901963}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -1458,7 +1458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5601547489197779118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.839, y: -0.655, z: 0}
+  m_LocalPosition: {x: 1, y: -1.6, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865994130098010}
@@ -1593,7 +1593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5841944730512976574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.31, y: -0.65, z: 0}
+  m_LocalPosition: {x: -1.215, y: 0.793, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865994130098010}
@@ -1623,7 +1623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5954297498010129399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.65, y: 0.55, z: 0}
+  m_LocalPosition: {x: 0.546, y: 1.262, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865994130098010}
@@ -1654,7 +1654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7257723876118417370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.82, y: -0.58, z: 0}
+  m_LocalPosition: {x: 0.82, y: -1.731, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 719802162775520848}
@@ -1708,13 +1708,13 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.6138611
-        inSlope: 0
-        outSlope: 0
+        value: 0.42253196
+        inSlope: -1.1748703
+        outSlope: -1.1748703
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.26373628
       - serializedVersion: 3
         time: 1
         value: 0
@@ -1789,7 +1789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7998520647850393133}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.65, y: 0.55, z: 0}
+  m_LocalPosition: {x: -0.536, y: 1.272, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865994130098010}
@@ -1820,7 +1820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8118089272466443444}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52, y: -0.655, z: 0}
+  m_LocalPosition: {x: 0.5, y: -2, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865994130098010}
@@ -1895,7 +1895,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.08317512, g: 0, b: 0.48235294, a: 1}
+      key0: {r: 0.28627452, g: 0, b: 0.41960785, a: 1}
       key1: {r: 0.18867922, g: 0, b: 0.05259891, a: 0.54901963}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

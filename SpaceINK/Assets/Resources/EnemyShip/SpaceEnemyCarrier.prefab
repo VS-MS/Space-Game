@@ -31,6 +31,7 @@ Transform:
   - {fileID: 2386066672948033850}
   - {fileID: 3421937988860664018}
   - {fileID: 3111091029887588116}
+  - {fileID: 3858486995270732348}
   m_Father: {fileID: 2929884887073027795}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -115,7 +116,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4266385159127544201}
-  - {fileID: 3858486995270732348}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 3858486995270732348}
   - component: {fileID: 2240734649667126523}
   m_Layer: 9
-  m_Name: New Sprite
+  m_Name: MiniMapSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,8 +251,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_Children: []
-  m_Father: {fileID: 2929884887073027795}
-  m_RootOrder: 1
+  m_Father: {fileID: 4266385159127544201}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2240734649667126523
 SpriteRenderer:
