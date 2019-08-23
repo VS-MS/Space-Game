@@ -75,7 +75,7 @@ public class Unit : MonoBehaviour
             }
             
 
-            Destroy(gameObject, 10.01f);
+            Destroy(gameObject, 1.01f);
             if(this.tag == "EnemyShip")
             {
                 if (moneyCount > 0)
