@@ -76,7 +76,6 @@ public class MyGameManager : MonoBehaviour
         GameObject endGate_ =  Instantiate(endGate, startPositionPlayer, new Quaternion(0, 0, 0, 0));
         GameObject target_ = Instantiate(target);
         target_.GetComponent<TargetPosition>().target = endGate_;
-        Debug.Log(target_);
         
     }
 }

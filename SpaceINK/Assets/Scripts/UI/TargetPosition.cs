@@ -21,10 +21,25 @@ public class TargetPosition : MonoBehaviour
     }
     private void FollowTarget()
     {
-        Debug.Log(target);
-        if (target.tag == "EnemyShip")
+        if (target)
         {
-            if (target.GetComponent<Unit>().shipState != Unit.State.Die)
+            if (target.tag == "EnemyShip")
+            {
+                if (target.GetComponent<Unit>().shipState != Unit.State.Die)
+                {
+                    Vector3 targetOnScreen = Camera.main.WorldToViewportPoint(target.transform.position);
+                    targetOnScreen.x = Mathf.Clamp01(targetOnScreen.x);
+                    targetOnScreen.y = Mathf.Clamp01(targetOnScreen.y);
+                    targetArrow.transform.position = Camera.main.ViewportToWorldPoint(targetOnScreen);
+                    ColorDistance();
+                    SizeDistance();
+                }
+                else
+                {
+                    Destroy(targetArrow, .5f);
+                }
+            }
+            else
             {
                 Vector3 targetOnScreen = Camera.main.WorldToViewportPoint(target.transform.position);
                 targetOnScreen.x = Mathf.Clamp01(targetOnScreen.x);
@@ -33,25 +48,13 @@ public class TargetPosition : MonoBehaviour
                 ColorDistance();
                 SizeDistance();
             }
-            else
-            {
-                Destroy(targetArrow, .5f);
-            }
-        }
-        else
-        if(target)
-        {
-            Vector3 targetOnScreen = Camera.main.WorldToViewportPoint(target.transform.position);
-            targetOnScreen.x = Mathf.Clamp01(targetOnScreen.x);
-            targetOnScreen.y = Mathf.Clamp01(targetOnScreen.y);
-            targetArrow.transform.position = Camera.main.ViewportToWorldPoint(targetOnScreen);
-            ColorDistance();
-            SizeDistance();
+                
         }
         else
         {
             Destroy(targetArrow, .5f);
         }
+        
     }
 
     //изменение размера в зависимости от расстояния 

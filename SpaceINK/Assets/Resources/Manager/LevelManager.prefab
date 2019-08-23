@@ -46,5 +46,4 @@ MonoBehaviour:
   target: {fileID: 4291510942378340240, guid: 074a67f5e15110c4eb394cc86cf3ebf5, type: 3}
   startParticle: {fileID: 7576109696508266654, guid: 38a65e9e5e2cff74baf98c7598b5a558,
     type: 3}
-  endParticle: {fileID: 3359321961925909686, guid: cfc029d108f259c4aa68d6b4dc848d00,
-    type: 3}
+  endGate: {fileID: 1077578782288064713, guid: 18305bc037b73a540839439932730d7f, type: 3}
