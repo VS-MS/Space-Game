@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour {
     private void Awake()
     {
         //if (!target) target = FindObjectOfType<Character>().transform;
-        controlPanel = GameObject.Find("Canvas").gameObject.transform.Find("PanelControll").gameObject;
+        controlPanel = GameObject.Find("Canvas").gameObject.transform.Find("PanelControl").gameObject;
         menuPanel = GameObject.Find("Canvas").gameObject.transform.Find("PanelMenu").gameObject;
         target = GameObject.FindGameObjectWithTag("Player");
         //
