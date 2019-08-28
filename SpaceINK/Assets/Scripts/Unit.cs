@@ -75,9 +75,10 @@ public class Unit : MonoBehaviour
             }
             
 
-            Destroy(gameObject, 1.01f);
+            
             if(this.tag == "EnemyShip")
             {
+                Destroy(gameObject, 1.01f);
                 if (moneyCount > 0)
                 {
                     //ищем на сцене объект, в котором храним прогресс игрока и добовляем денег за уничтоженный корабль.
