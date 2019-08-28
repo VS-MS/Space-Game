@@ -67,18 +67,6 @@ public class DataSave : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        /*
-        if (!created)
-        {
-            //DontDestroyOnLoad не удоляет объект при загрузки другой сцены.
-            DontDestroyOnLoad(this.gameObject);
-            created = true;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-        */
         LoadGame();//Так делать не стоит, но пока нет законченного меню, придется оставить.
     }
 
@@ -112,31 +100,36 @@ public class DataSave : MonoBehaviour
         cannonFireRate = CalculatStat(basePlayerStat.cannonFireRate, maxPlayerStat.cannonFireRate, CannonLvl); //CannonLvl * basePlayerStat.cannonFireRate;
         cannonBulletSpeed = CalculatStat(basePlayerStat.cannonBulletSpeed, maxPlayerStat.cannonBulletSpeed, CannonLvl); //CannonLvl * basePlayerStat.cannonBulletSpeed;
         //тут нужна своя функция, переделаю, если понадобиться пластичность у этого параметра.
-        if(CannonLvl <= 5 )
+        
+        if (CannonLvl < 5)
         {
             cannonCount = 1;
             //1
         }
         else
-            if (CannonLvl > 5 && CannonLvl <= 10)
+            if (CannonLvl >= 5 && CannonLvl < 10)
             {
                 cannonCount = 2;
-                //2
+            //2
             }
-            else
-                if (CannonLvl > 10 && CannonLvl <= 15)
-                {
-                    cannonCount = 3;
-                    //3
-                }
-                else
-                    if(CannonLvl > 15 && CannonLvl <= 20)
-                    {
-                        cannonCount = 5;
-                        //5
-                    }
+        else
+            if (CannonLvl >= 10 && CannonLvl < 15)
+            {
+                cannonCount = 3;
+            //3
+            }
+        else
+            if (CannonLvl >= 15 && CannonLvl < 20)
+            {
+                cannonCount = 4;
+            //4
+            }
+        else
+            if(CannonLvl == 20)
+            {
+                cannonCount = 5;
+            }
 
-        
 
         //Super Shot
         ssDamage = CalculatStat(basePlayerStat.ssDamage, maxPlayerStat.ssDamage, SuperShotLvl); 

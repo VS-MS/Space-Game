@@ -285,13 +285,13 @@ public class PlayerShip : Unit {
                         LaunchSuperBullet(gunTransform[2]);
                         break;
                     case 3:
-                        for (int i = 0; i < 3; i++)
+                        for (int i = 0; i <= 2; i++)
                         {
                             LaunchSuperBullet(gunTransform[i]);
                         }
                         break;
                     case 4:
-                        for (int i = 1; i < 4; i++)
+                        for (int i = 1; i <= 4; i++)
                         {
                             LaunchSuperBullet(gunTransform[i]);
                         }
@@ -325,13 +325,13 @@ public class PlayerShip : Unit {
                     LaunchBullet(gunTransform[2]);
                     break;
                 case 3:
-                    for (int i = 0; i < 3; i++)
+                    for (int i = 0; i <= 2; i++)
                     {
                         LaunchBullet(gunTransform[i]);
                     }
                     break;
                 case 4:
-                    for (int i = 1; i < 4; i++)
+                    for (int i = 1; i <= 4; i++)
                     {
                         LaunchBullet(gunTransform[i]);
                     }
