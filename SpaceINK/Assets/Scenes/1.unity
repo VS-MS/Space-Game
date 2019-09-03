@@ -2030,16 +2030,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8338244838157503301, guid: dfe86760a25700b4999f66271c58ea93,
-        type: 3}
-      propertyPath: m_Name
-      value: FighterEnemyShip
-      objectReference: {fileID: 0}
-    - target: {fileID: 8338244838157503301, guid: dfe86760a25700b4999f66271c58ea93,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 66735713295600835, guid: dfe86760a25700b4999f66271c58ea93,
         type: 3}
       propertyPath: startPoint.x
@@ -2049,6 +2039,16 @@ PrefabInstance:
         type: 3}
       propertyPath: startPoint.y
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338244838157503301, guid: dfe86760a25700b4999f66271c58ea93,
+        type: 3}
+      propertyPath: m_Name
+      value: FighterEnemyShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338244838157503301, guid: dfe86760a25700b4999f66271c58ea93,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8338244838157503302, guid: dfe86760a25700b4999f66271c58ea93,
         type: 3}
@@ -3924,6 +3924,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7832461898258863022, guid: da9ba49093b9d6545890f26ddf5c29bf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6467280820724249879, guid: da9ba49093b9d6545890f26ddf5c29bf,
         type: 3}
       propertyPath: m_RootOrder
@@ -3948,6 +3953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218691651813611186, guid: da9ba49093b9d6545890f26ddf5c29bf,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da9ba49093b9d6545890f26ddf5c29bf, type: 3}
@@ -3997,6 +4007,10 @@ PrefabInstance:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8525184460054425568, guid: af208d63de76fe44eaba14975f4a9f58,
         type: 3}
@@ -4080,10 +4094,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5645253402855819055, guid: af208d63de76fe44eaba14975f4a9f58,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
