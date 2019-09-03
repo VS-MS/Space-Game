@@ -193,7 +193,6 @@ public class PlayerShip : Unit {
 
     public void Boost()
     {
-        
 
         if (m_Rigidbody2D.velocity.magnitude < maxSpeed)
         {
@@ -221,11 +220,10 @@ public class PlayerShip : Unit {
 
     //Супер ускорение.
     public void SuperBoost()
-    {   
-        
+    {    
         if(boostPoints > 0)
         {
-            boostPoints--;
+            boostPoints -= Time.deltaTime * 60;
             if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * sbSpeedRatio))
             {
                 m_Rigidbody2D.AddForce(transform.up * boostForce * sbAccelerationRatio);
@@ -268,10 +266,10 @@ public class PlayerShip : Unit {
 
     public void SuperShoot()
     {
-        if (superShootPoints > 0)
+        if (superShootPoints >= 5)
         {
             //superShootPoints--;
-            if (myTime > fireDelta / 2 && superShootPoints >= 5)
+            if (myTime > fireDelta / 2)
             {
                 superShootPoints -= 5;
                 //В зависимости от уровня пушки, будем стрелять 1, 2, 3, или 5 пушка за выстрел
