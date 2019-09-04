@@ -201,21 +201,16 @@ public class PlayerShip : Unit {
         }
     }
 
-    public void Boost(float boostAxis, Vector3 boostVector)
+    public void Boost(Vector3 boostVector)
     {
-        /*if (m_Rigidbody2D.velocity.magnitude < maxSpeed)
-        {
-            //Debug.Log("Booooooost");
-            m_Rigidbody2D.AddForce(transform.up * (boostForce * boostAxis));
-        }*/
-
         //умножаем вектор направления джойстика на максимальную скорость,
         //чтобы узнать вектор желаемого ускорения и плюсуем его с вектор ускорения корабля
         //если они полностью совпадут, то их длинна будет равна двумя maxspeed.
         //С помощью этого условия, можно разворачивать корабль даже если максимальная скорость превышена.
         if ( (boostVector * maxSpeed + (Vector3)m_Rigidbody2D.velocity).magnitude <= maxSpeed * 2)
         {
-            m_Rigidbody2D.AddForce(transform.up * (boostForce * boostAxis));
+            m_Rigidbody2D.AddForce(transform.up + (boostForce * boostVector));
+
         }
     }
 
@@ -225,7 +220,7 @@ public class PlayerShip : Unit {
         
         if(boostPoints > 0)
         {
-            boostPoints--;
+            boostPoints-= Time.deltaTime * 65;
             if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * sbSpeedRatio))
             {
                 m_Rigidbody2D.AddForce(transform.up * boostForce * sbAccelerationRatio);
@@ -347,5 +342,6 @@ public class PlayerShip : Unit {
             myTime = 0.0F;
         }
     }
+
 
 }

@@ -58,8 +58,10 @@ public class CameraController : MonoBehaviour {
             }
             else
             {
-                cameraPositionZ = 20 + (target.GetComponent<Rigidbody2D>().velocity.magnitude / 2);
+                //отдаляем или приближаем камеру в зависимосьт от скорости коробля
+                cameraPositionZ = Mathf.Lerp(cameraPositionZ, 20 + (target.GetComponent<Rigidbody2D>().velocity.magnitude / 2), Time.deltaTime * 1);
                 this.GetComponent<Camera>().orthographicSize = cameraPositionZ;
+
                 this.transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
             } 
         }  
