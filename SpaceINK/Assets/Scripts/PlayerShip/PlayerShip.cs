@@ -209,8 +209,7 @@ public class PlayerShip : Unit {
         //С помощью этого условия, можно разворачивать корабль даже если максимальная скорость превышена.
         if ( (boostVector * maxSpeed + (Vector3)m_Rigidbody2D.velocity).magnitude <= maxSpeed * 2)
         {
-            m_Rigidbody2D.AddForce(transform.up + (boostForce * boostVector));
-
+            m_Rigidbody2D.AddForce(transform.up + (boostForce * boostVector * Time.deltaTime));
         }
     }
 
@@ -223,7 +222,7 @@ public class PlayerShip : Unit {
             boostPoints-= Time.deltaTime * 65;
             if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * sbSpeedRatio))
             {
-                m_Rigidbody2D.AddForce(transform.up * boostForce * sbAccelerationRatio);
+                m_Rigidbody2D.AddForce(transform.up * boostForce * sbAccelerationRatio * Time.deltaTime);
                 boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = true;
                 boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = true;
             }

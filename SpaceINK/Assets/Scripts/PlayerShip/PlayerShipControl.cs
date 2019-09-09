@@ -72,14 +72,14 @@ public class PlayerShipControl : MonoBehaviour {
         // Just use CnInputManager. instead of Input. and you're good to go
         var inputVector = new Vector3(CnInputManager.GetAxis("Horizontal"), CnInputManager.GetAxis("Vertical"));
 
-        //ускорение по джойстику
-        //inputVector - вектор отклонения джойстика
-        m_Ship.Boost(inputVector);
-
-        //поворот по джойстику
         if (inputVector.sqrMagnitude > 0.001f)
         {
+            //поворот по джойстику
             m_Ship.Move(inputVector);
+
+            //ускорение по джойстику
+            //inputVector - вектор отклонения джойстика
+            m_Ship.Boost(inputVector);
         }
     }
 
