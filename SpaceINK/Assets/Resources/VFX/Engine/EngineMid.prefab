@@ -9518,7 +9518,7 @@ GameObject:
   - component: {fileID: 2424985525875424616}
   - component: {fileID: 113503482391180803}
   m_Layer: 0
-  m_Name: Engine2
+  m_Name: EngineMid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10373,7 +10373,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 80
+      scalar: 300
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -14216,7 +14216,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9754ad0cdd452c54ab9488d71eb6ab3c, type: 2}
+  - {fileID: 2100000, guid: a718f2d77920be74e98354408f324737, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
