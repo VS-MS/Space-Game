@@ -22,7 +22,7 @@ public class FighterEnemyShip : EnemyShip
     //private Transform shieldBar;
 
     [SerializeField]
-    private MachineGunEnemy gunMachine;
+    private MachineGunEnemy[] gunMachine;
 
 
 
@@ -54,9 +54,12 @@ public class FighterEnemyShip : EnemyShip
 
     private void Shoot()
     {
-        gunMachine.bulletSpeed = bulletSpeed;
-        gunMachine.bulletDamage = bulletDamage;
-        gunMachine.ShootTurret();
+        for(int i =0; i< gunMachine.Length; i++)
+        {
+            gunMachine[i].bulletSpeed = bulletSpeed;
+            gunMachine[i].bulletDamage = bulletDamage;
+            gunMachine[i].ShootTurret();
+        }
         /*
         if (myTime > fireDelta)
         {

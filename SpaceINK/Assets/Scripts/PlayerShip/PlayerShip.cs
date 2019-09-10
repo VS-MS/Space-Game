@@ -209,7 +209,7 @@ public class PlayerShip : Unit {
         //С помощью этого условия, можно разворачивать корабль даже если максимальная скорость превышена.
         if ( (boostVector * maxSpeed + (Vector3)m_Rigidbody2D.velocity).magnitude <= maxSpeed * 2)
         {
-            m_Rigidbody2D.AddForce(transform.up + (boostForce * boostVector * Time.deltaTime));
+            m_Rigidbody2D.AddForce((transform.up + boostVector) * (boostForce * Time.deltaTime));
         }
     }
 

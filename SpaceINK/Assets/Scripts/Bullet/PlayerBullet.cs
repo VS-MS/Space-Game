@@ -54,15 +54,9 @@ public class PlayerBullet : MonoBehaviour
     void Update()
     {
         float step = speed * Time.deltaTime;
-        //transform.position = Vector3.MoveTowards(transform.position, pos, step);
+        transform.position = Vector3.Lerp(transform.position, transform.position + direction, step);
 
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, step);
         //trail.startWidth = trailWidth;
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

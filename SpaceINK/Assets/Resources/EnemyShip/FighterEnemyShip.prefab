@@ -801,7 +801,8 @@ MonoBehaviour:
     type: 3}
   parentPosition: {fileID: 0}
   fireDelta: 0.8
-  gunMachine: {fileID: 3841993863001042977}
+  gunMachine:
+  - {fileID: 3841993863001042977}
 --- !u!1 &8338244839459720246
 GameObject:
   m_ObjectHideFlags: 0
