@@ -121,9 +121,11 @@ public class SpaceEnemyCruiser : EnemyShip
 
     private void Shoot()
     {
-         for(int i = 0; i < rocketArrayLeft.Length; i++)
-        {
-            rocketArrayLeft[i].ShootTurret();
-        }
+        //for(int i = 0; i < rocketArrayLeft.Length; i++)
+        //{
+        //rocketArrayLeft[i].ShootTurret();
+        //}
+        rocketArrayLeft[Random.Range(0, rocketArrayLeft.Length)].ShootTurret();
+        rocketArrayRight[Random.Range(0, rocketArrayRight.Length)].ShootTurret();
     }
 }

@@ -78,7 +78,7 @@ public class Unit : MonoBehaviour
             
             if(this.tag == "EnemyShip")
             {
-                Destroy(gameObject, 1.01f);
+                Destroy(gameObject, 3.01f);
                 if (moneyCount > 0)
                 {
                     //ищем на сцене объект, в котором храним прогресс игрока и добовляем денег за уничтоженный корабль.
@@ -87,12 +87,6 @@ public class Unit : MonoBehaviour
                 }
             }
         }
-    }
-
-    //Уничтожаем объект с задержкой
-    public virtual void Die(float delay)
-    {
-        Destroy(gameObject, delay);
     }
 
     //Проигрыватель для звуков
