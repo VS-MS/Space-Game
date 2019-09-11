@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     private float cameraPositionZ;
 
+    public float defaultPositionZ; 
     private GameObject controlPanel;
     private GameObject menuPanel; 
 
@@ -50,7 +51,6 @@ public class CameraController : MonoBehaviour {
                 }
                 else
                 {
-                    
                     menuPanel.SetActive(true);
                     Time.timeScale = 0;
                 }
@@ -59,7 +59,7 @@ public class CameraController : MonoBehaviour {
             else
             {
                 //отдаляем или приближаем камеру в зависимосьт от скорости коробля
-                cameraPositionZ = Mathf.Lerp(cameraPositionZ, 20 + (target.GetComponent<Rigidbody2D>().velocity.magnitude / 2), Time.deltaTime * 1);
+                cameraPositionZ = Mathf.Lerp(cameraPositionZ, defaultPositionZ + (target.GetComponent<Rigidbody2D>().velocity.magnitude * 1.5f), Time.deltaTime);
                 this.GetComponent<Camera>().orthographicSize = cameraPositionZ;
 
                 this.transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);
