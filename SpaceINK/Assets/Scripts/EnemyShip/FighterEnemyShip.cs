@@ -60,18 +60,7 @@ public class FighterEnemyShip : EnemyShip
             gunMachine[i].bulletDamage = bulletDamage;
             gunMachine[i].ShootTurret();
         }
-        /*
-        if (myTime > fireDelta)
-        {
-            SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform.position, simpleBullet.transform.rotation) as SimpleBullet;
-            newBullet.Speed = bulletSpeed;
-            newBullet.Parent = gameObject;
-            newBullet.Direction = m_Rigidbody2D.transform.up;
-            //newBullet.color = buletcolor;
-            newBullet.Damage = bulletDamage;
-            myTime = 0.0F;
-        }
-        */
+
     }
     private void FixedUpdate()
     {
@@ -168,7 +157,8 @@ public class FighterEnemyShip : EnemyShip
     //Корабль поварачиваем в сторону предпологаемого выстрела на опережение
     private void Chase()
     {
-        
+        Debug.DrawLine(transform.position, CalculateAim(), Color.yellow);
+
         var headingAim = CalculateAim() - gameObject.transform.position;
         //distance - растояние от данного объекта до корабль игрока
         var distance = headingAim.magnitude;
