@@ -65,7 +65,6 @@ public class EnemyShip : Unit
             float dist = (transform.position - targetingPosition).magnitude;
             //Debug.Log("dist = " + dist);
             float timeToTarget = dist / (bulletSpeed);
-            Debug.Log(timeToTarget);
             targetingPosition = playerShip.transform.position + targetSpeed * timeToTarget;
         }
 

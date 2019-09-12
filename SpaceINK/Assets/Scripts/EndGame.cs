@@ -22,7 +22,6 @@ public class EndGame : MonoBehaviour
     {
         if(collider.tag == "Player")
         {
-            Debug.Log("LevelComplite!!!!");
             controlPanel.SetActive(false);
             Time.timeScale = 0;
             endLavelPanel.SetActive(true);
