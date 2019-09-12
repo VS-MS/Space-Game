@@ -9,7 +9,7 @@ public class RocketLauncherEnemy : UnitGunEnemy
     
     private void Awake()
     {
-        gunTransform = this.transform.Find("Gun_1");
+        //gunTransform = this.transform.Find("Gun_1");
     }
 
     private void FixedUpdate()
@@ -24,11 +24,13 @@ public class RocketLauncherEnemy : UnitGunEnemy
     {
         if (myTime > fireDelta)
         {
-
-            EnemyRocket newRocket = Instantiate(simpleRocket, gunTransform.position, this.transform.rotation) as EnemyRocket;
-            newRocket.rocketSpeed = bulletSpeed;
-            //newRocket.Parent = gameObject;
-            newRocket.rocketDamage = 3.0f;
+            for(int i = 0; i < gunTransform.Length; i++)
+            {
+                EnemyRocket newRocket = Instantiate(simpleRocket, gunTransform[i].position, this.transform.rotation) as EnemyRocket;
+                newRocket.rocketSpeed = bulletSpeed;
+                newRocket.rocketDamage = 3.0f;
+            }
+            
             myTime = 0.0F;
         }
     }

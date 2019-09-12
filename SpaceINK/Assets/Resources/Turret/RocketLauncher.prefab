@@ -47,6 +47,8 @@ MonoBehaviour:
   bulletSpeed: 0.1
   bulletDamage: 3
   fireDelta: 5
+  gunTransform:
+  - {fileID: 5615997930600045179}
   simpleRocket: {fileID: 7596530989341511876, guid: d0566fe4302835140802cef435d70a5c,
     type: 3}
 --- !u!1 &4326866357177137453

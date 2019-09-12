@@ -78,6 +78,8 @@ MonoBehaviour:
   bulletSpeed: 0.1
   bulletDamage: 3
   fireDelta: 0.7
+  gunTransform:
+  - {fileID: 6187850275761447297}
   simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
     type: 3}
 --- !u!1 &7638389123485630404
@@ -167,6 +169,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

@@ -10,7 +10,8 @@ public class UnitGunEnemy : MonoBehaviour
     //private float nextFire = 0.5F;
     protected float myTime = 0.5F;//время прошло от последнего выстрела
 
-    protected Transform gunTransform;
+    public Transform[] gunTransform;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,4 +24,5 @@ public class UnitGunEnemy : MonoBehaviour
     {
         
     }
+
 }

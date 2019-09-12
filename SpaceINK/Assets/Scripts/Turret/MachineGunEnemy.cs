@@ -17,7 +17,7 @@ public class MachineGunEnemy : UnitGunEnemy
 
     private void Awake()
     {
-        gunTransform = this.transform.Find("Gun_1");
+        //gunTransform = this.transform.Find("Gun_1");
     }
     private void FixedUpdate()
     {
@@ -32,12 +32,15 @@ public class MachineGunEnemy : UnitGunEnemy
     {
         if (myTime > fireDelta)
         {
-
-            SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform.position, simpleBullet.transform.rotation) as SimpleBullet;
-            newBullet.Speed = bulletSpeed;
-            newBullet.Parent = gameObject;
-            newBullet.Direction = this.transform.up;
-            newBullet.Damage = bulletDamage;
+            for(int i = 0; i < gunTransform.Length; i++)
+            {
+                SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform[i].position, simpleBullet.transform.rotation) as SimpleBullet;
+                newBullet.Speed = bulletSpeed;
+                newBullet.Parent = gameObject;
+                newBullet.Direction = this.transform.up;
+                newBullet.Damage = bulletDamage;
+            }
+            
             myTime = 0.0F;
         }
     }

@@ -15,7 +15,7 @@ public class TurretEnemy : UnitGunEnemy
 
     private void Awake()
     {
-        gunTransform = this.transform.Find("Gun_1");
+        //gunTransform = this.transform.Find("Gun_1");
     }
 
 
@@ -27,16 +27,19 @@ public class TurretEnemy : UnitGunEnemy
         }
     }
 
-    public void ShootTurret() 
+    public void ShootTurret()
     {
         if (myTime > fireDelta)
         {
+            for (int i = 0; i < gunTransform.Length; i++)
+            {
+                SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform[i].position, simpleBullet.transform.rotation) as SimpleBullet;
+                newBullet.Speed = bulletSpeed;
+                newBullet.Parent = gameObject;
+                newBullet.Direction = this.transform.up;
+                newBullet.Damage = bulletDamage;
+            }
 
-            SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform.position, simpleBullet.transform.rotation) as SimpleBullet;
-            newBullet.Speed = bulletSpeed;
-            newBullet.Parent = gameObject;
-            newBullet.Direction = this.transform.up;
-            newBullet.Damage = bulletDamage;
             myTime = 0.0F;
         }
     }
