@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceEnemyCruiser : EnemyShip
+public class DreadnoughtShip : EnemyShip
 {
     //вектор выходящий из данного объекта в корабль игрока
-    private Vector3 heading;
+    protected Vector3 heading;
 
+    //Массив, где храним объекты турелей
+    public GameObject[] turretArray;
+    [SerializeField]
+    protected float turretRotationSpeed;
     //Массив, где храним объекты ракетниц
-    public RocketLauncherEnemy[] rocketArrayLeft;
-    public RocketLauncherEnemy[] rocketArrayRight;
+    [SerializeField]
+    protected RocketLauncherEnemy[] rocketArrayLeft;
+    [SerializeField]
+    protected RocketLauncherEnemy[] rocketArrayRight;
 
     public float fireDelta = 0.70F;//скорость стрельбы
     //private float nextFire = 0.5F;
-    private float myTime = 0.5F;//время прошло от последнего выстрела
+    protected float myTime = 0.5F;//время прошло от последнего выстрела
 
-    private void Awake()
+    protected void Awake()
     {
         StatusSliderInt(6.0f, 2.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -27,7 +33,7 @@ public class SpaceEnemyCruiser : EnemyShip
         moneyCount = SetMoneyCount();
     }
 
-    private void FixedUpdate()
+    protected private void FixedUpdate()
     {
         if (shipState == State.Die)
         {
@@ -88,7 +94,20 @@ public class SpaceEnemyCruiser : EnemyShip
 
     }
 
-    private void Chase()
+    protected void Shoot()
+    {
+        //стреляем из турели
+        int i = Random.Range(0, turretArray.Length);
+        turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
+        turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
+        //стреляем из ракетниц
+        rocketArrayLeft[Random.Range(0, rocketArrayLeft.Length)].ShootTurret();
+        rocketArrayRight[Random.Range(0, rocketArrayRight.Length)].ShootTurret();
+    }
+
+
+
+    protected void Chase()
     {
 
         var headingAim = CalculateAim() - gameObject.transform.position;
@@ -103,7 +122,12 @@ public class SpaceEnemyCruiser : EnemyShip
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
-        
+        //Поворачиваем башни в сторону цели
+        for (int i = 0; i < turretArray.Length; i++)
+        {
+            turretArray[i].transform.rotation = Quaternion.Slerp(turretArray[i].transform.rotation, q, Time.deltaTime * turretRotationSpeed);
+        }
+
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
         if (/*distance >=2 &&*/ m_Rigidbody2D.velocity.magnitude <= maxSpeed)
@@ -111,11 +135,5 @@ public class SpaceEnemyCruiser : EnemyShip
             //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }
-    }
-
-    private void Shoot()
-    {
-        rocketArrayLeft[Random.Range(0, rocketArrayLeft.Length)].ShootTurret();
-        rocketArrayRight[Random.Range(0, rocketArrayRight.Length)].ShootTurret();
     }
 }
