@@ -39,8 +39,7 @@ public class CameraController : MonoBehaviour {
     {
         if(target)
         {
-            Vector3 position = target.transform.position + target.transform.up * 10 + new Vector3(0, cameraPositionY, -15);
-
+            Vector3 position = target.transform.position + target.transform.up * target.GetComponent<Rigidbody2D>().velocity.magnitude * 0.8f + new Vector3(0, cameraPositionY, -15);
             if (target.GetComponent<PlayerShip>().shipState == Unit.State.Die)
             {
                 controlPanel.SetActive(false);
@@ -59,7 +58,7 @@ public class CameraController : MonoBehaviour {
             else
             {
                 //отдаляем или приближаем камеру в зависимосьт от скорости коробля
-                cameraPositionZ = Mathf.Lerp(cameraPositionZ, defaultPositionZ + (target.GetComponent<Rigidbody2D>().velocity.magnitude * 1.5f), Time.deltaTime);
+                cameraPositionZ = Mathf.Lerp(cameraPositionZ, defaultPositionZ + (target.GetComponent<Rigidbody2D>().velocity.magnitude * 0.5f), Time.deltaTime);
                 this.GetComponent<Camera>().orthographicSize = cameraPositionZ;
 
                 this.transform.position = Vector3.Lerp(transform.position, position, speed * Time.deltaTime);

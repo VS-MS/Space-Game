@@ -201,6 +201,6 @@ MonoBehaviour:
   speed: 1
   cameraPositionY: 0
   cameraPositionZ: 20
-  defaultPositionZ: 15
+  defaultPositionZ: 20
   dieTime: 3
   time: 0

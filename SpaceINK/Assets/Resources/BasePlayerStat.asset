@@ -24,7 +24,7 @@ MonoBehaviour:
   shipShieldDelta: 0.5
   shipMaxSpeed: 8
   shipAcceleration: 1000
-  shipRotation: 0.7
+  shipRotation: 0.5
   sbMaxSpeed: 1.2
   sbAcceleration: 1.2
   sbMaxTime: 100
