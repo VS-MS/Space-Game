@@ -22,7 +22,7 @@ public class EnemyRocket : Unit
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
-        rotationSpeed *= Random.Range(rocketRotation * 0.5f, rocketRotation * 1.5f);
+        rotationSpeed *= Random.Range(rocketRotation * 0.1f, rocketRotation);
         maxSpeed *= Random.Range(rocketSpeed * 0.5f, rocketSpeed * 1.5f);
     }
 

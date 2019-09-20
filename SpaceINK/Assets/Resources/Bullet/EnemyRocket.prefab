@@ -179,9 +179,18 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.23249435
+        value: 0.10145569
         inSlope: 0
         outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.03780236
+        value: 0.23552021
+        inSlope: 0.25105673
+        outSlope: 0.25105673
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
@@ -209,18 +218,18 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.41960785, g: 0.03280413, b: 0, a: 1}
-      key1: {r: 0.18867922, g: 0, b: 0.05259891, a: 0.54901963}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0, g: 0.68348634, b: 0.8301887, a: 1}
+      key1: {r: 1, g: 0.9600028, b: 0, a: 0.54901963}
+      key2: {r: 1, g: 0, b: 0.009791374, a: 0}
+      key3: {r: 0.18867922, g: 0, b: 0.05259891, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
+      ctime1: 4241
+      ctime2: 10987
+      ctime3: 65535
       ctime4: 0
       ctime5: 0
       ctime6: 0
@@ -234,7 +243,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 4
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -386,7 +395,6 @@ MonoBehaviour:
   armorPoints: 1
   shieldPoints: 0
   shieldDelta: 8
-  shielVFX: {fileID: 0}
   maxSpeed: 18
   boostForce: 80
   rotationSpeed: 2
