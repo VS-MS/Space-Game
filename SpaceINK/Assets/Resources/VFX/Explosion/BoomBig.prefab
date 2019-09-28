@@ -9625,6 +9625,7 @@ GameObject:
   - component: {fileID: 8512999102692580880}
   - component: {fileID: 2570360550017001802}
   - component: {fileID: 2269716697924841454}
+  - component: {fileID: 7122140636563205986}
   m_Layer: 0
   m_Name: BoomSmall (2)
   m_TagString: Untagged
@@ -14438,6 +14439,20 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7122140636563205986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271830701424504046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Explosion3
+  delayTime: 1.3
 --- !u!1 &1296838355966856312
 GameObject:
   m_ObjectHideFlags: 0
@@ -43409,6 +43424,7 @@ GameObject:
   - component: {fileID: 7067170646804438058}
   - component: {fileID: 2070627563515269282}
   - component: {fileID: 2200975424957679947}
+  - component: {fileID: 4517495089661157904}
   m_Layer: 0
   m_Name: BoomSmall (1)
   m_TagString: Untagged
@@ -48222,6 +48238,20 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &4517495089661157904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2924716255095689158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Explosion3
+  delayTime: 1
 --- !u!1 &3420913513720442818
 GameObject:
   m_ObjectHideFlags: 0
@@ -116110,6 +116140,7 @@ GameObject:
   - component: {fileID: 4271424165985054118}
   - component: {fileID: 2403161540288334691}
   - component: {fileID: 1797032523810119477}
+  - component: {fileID: 2807334755155957830}
   m_Layer: 0
   m_Name: BoomSmall
   m_TagString: Untagged
@@ -120923,6 +120954,20 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2807334755155957830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039226275720075271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Explosion3
+  delayTime: 0.6
 --- !u!1 &7154738411913405926
 GameObject:
   m_ObjectHideFlags: 0
@@ -120935,6 +120980,7 @@ GameObject:
   - component: {fileID: 2567994194657326722}
   - component: {fileID: 1876505855509291732}
   - component: {fileID: 3925902610326341255}
+  - component: {fileID: 5577263813407951138}
   m_Layer: 0
   m_Name: BoomBig
   m_TagString: Untagged
@@ -125767,6 +125813,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2
+--- !u!114 &5577263813407951138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7154738411913405926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Explosion2
+  delayTime: 0
 --- !u!1 &8152997750561410059
 GameObject:
   m_ObjectHideFlags: 0

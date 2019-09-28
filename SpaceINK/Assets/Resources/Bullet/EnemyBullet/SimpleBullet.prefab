@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 4435935173694858481}
   - component: {fileID: 386336669447372574}
   - component: {fileID: -6532439880846922488}
+  - component: {fileID: -6502300183800922469}
   m_Layer: 0
   m_Name: SimpleBullet
   m_TagString: EnemyBullet
@@ -516,6 +517,20 @@ MonoBehaviour:
   laserParticle: {fileID: 8371824318658752745, guid: 01db4ef35853fcb4fa00734997da5935,
     type: 3}
   damage: 1
+--- !u!114 &-6502300183800922469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504303980036385109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Laser_Shoot2
+  delayTime: 0
 --- !u!1 &8595400653362839591
 GameObject:
   m_ObjectHideFlags: 0

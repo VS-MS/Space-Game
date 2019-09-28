@@ -72,6 +72,7 @@ public class Unit : MonoBehaviour
             if(particleBoom.Length > 0)
             {
                 Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
+                //FindObjectOfType<AudioManager>().Play("Explosion3");
             }
             
 
