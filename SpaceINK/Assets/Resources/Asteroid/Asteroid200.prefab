@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7029890162513019858}
   - component: {fileID: 6959556146999288721}
   - component: {fileID: 8017192611825256004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Asteroid200
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
@@ -67,6 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de04cc3e488c7ec43873e4545662ad8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fragmentCount: 3
+  fragmentAsteroid: {fileID: 640152774855127506, guid: 1188c8c67802c714fb4d564ea4a8b3e7,
+    type: 3}
   torque: 1000
   hp: 4000
 --- !u!212 &6959556146999288721
@@ -106,7 +109,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 18a26f17ce103f841b470b68dce319fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

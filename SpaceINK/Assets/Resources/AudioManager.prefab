@@ -47,36 +47,42 @@ MonoBehaviour:
   - name: Explosion1
     clip: {fileID: 8300000, guid: 1fa8b8f1d6ab3be4ab2e0ad501fc143e, type: 3}
     volume: 1
-    pitch: 1.36
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Explosion2
     clip: {fileID: 8300000, guid: e405617de3d877740a8ae68f687c41a8, type: 3}
     volume: 1
-    pitch: 1.55
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Explosion3
     clip: {fileID: 8300000, guid: 736e13aea347309448c065b9cb8b30dd, type: 3}
     volume: 1
-    pitch: 1.55
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Laser_Shoot1
     clip: {fileID: 8300000, guid: b2fbb6f694f76a94d9be1cb59fa66f94, type: 3}
     volume: 1
-    pitch: 1.58
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Laser_Shoot2
     clip: {fileID: 8300000, guid: 7ed925a7a91839c418bf6290d8313c0e, type: 3}
     volume: 1
-    pitch: 1.77
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Explosion4
     clip: {fileID: 8300000, guid: 6d7a0bf1af01807408f38f0577c532a0, type: 3}
     volume: 1
-    pitch: 1.77
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Explosion5
+    clip: {fileID: 8300000, guid: 260ea862d8ba67f4fa2488bb829f26e2, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
