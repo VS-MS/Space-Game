@@ -80,8 +80,20 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: RocketLaunch
+    clip: {fileID: 8300000, guid: 33b38d9812dba9a46b0d1fbe2320451f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: Explosion5
     clip: {fileID: 8300000, guid: 260ea862d8ba67f4fa2488bb829f26e2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HurtLaser
+    clip: {fileID: 8300000, guid: ab0f13f90fcf21d4e8de34e481cfa0bf, type: 3}
     volume: 1
     pitch: 1
     loop: 0

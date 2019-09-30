@@ -22,10 +22,14 @@ public class EndGame : MonoBehaviour
     {
         if(collider.tag == "Player")
         {
-            controlPanel.SetActive(false);
-            Time.timeScale = 0;
-            endLavelPanel.SetActive(true);
+            Invoke("LoadEndGame", 1f);
         }
     }
-            
+          
+    private void LoadEndGame()
+    {
+        controlPanel.SetActive(false);
+        Time.timeScale = 0;
+        endLavelPanel.SetActive(true);
+    }
 }
