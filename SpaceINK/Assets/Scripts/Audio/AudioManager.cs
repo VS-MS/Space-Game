@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -25,7 +26,9 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        foreach(Sound s in sounds)
+        //
+
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -33,6 +36,8 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
+        Play("MenuTheme");
+
     }
 
     public void Play(string name)
@@ -46,6 +51,7 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    /*
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -56,4 +62,5 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Stop();
     }
+    */
 }

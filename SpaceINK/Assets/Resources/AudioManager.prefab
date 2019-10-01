@@ -64,13 +64,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Laser_Shoot1
     clip: {fileID: 8300000, guid: b2fbb6f694f76a94d9be1cb59fa66f94, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Laser_Shoot2
     clip: {fileID: 8300000, guid: 7ed925a7a91839c418bf6290d8313c0e, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -94,6 +94,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HurtLaser
     clip: {fileID: 8300000, guid: ab0f13f90fcf21d4e8de34e481cfa0bf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuTheme
+    clip: {fileID: 8300000, guid: 078e655b16cc519459093576d53103ae, type: 3}
     volume: 1
     pitch: 1
     loop: 0

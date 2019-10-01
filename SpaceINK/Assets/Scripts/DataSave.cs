@@ -65,6 +65,7 @@ public class DataSave : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
+            //return;
         }
 
         LoadGame();//Так делать не стоит, но пока нет законченного меню, придется оставить.
