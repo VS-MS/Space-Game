@@ -172,12 +172,20 @@ public class FighterEnemyShip : EnemyShip
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
-        //Ускоряемсяв сторону коробля игрока
-        //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
+        //Ускоряемся в сторону коробля игрока
+        //Сила ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
         if (m_Rigidbody2D.velocity.magnitude <= maxSpeed)
         {
             //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce / 2));
+            if(distance <= 25)
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (2.0f * distance - boostForce));
+            }
+            else
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce));
+            }
+            
         }
         
     }

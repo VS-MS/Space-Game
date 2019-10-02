@@ -274,7 +274,7 @@ MonoBehaviour:
   shieldPoints: 15
   shieldDelta: 1
   maxSpeed: 12
-  boostForce: 50
+  boostForce: 25
   rotationSpeed: 4
   radarRadius: 80
   attackRadius: 40
