@@ -8,6 +8,7 @@ public class TargetPosition : MonoBehaviour
     public GameObject arrow; // экземпляр стрелки
     private GameObject targetArrow; //ссылка для хранения объекта стрелки
     private Color colorArrow;
+    public float distanceAlpha;
 
     private void Awake()
     {
@@ -119,16 +120,16 @@ public class TargetPosition : MonoBehaviour
         var heading = targetArrow.transform.position - target.transform.position;
         var distance = heading.magnitude;
         
-        if (distance < 2)
+        if (distance < distanceAlpha)
         {
-            if(distance < 0.1)
+            if(distance < 0.2)
             {
                 colorArrow.a = 0f;
                 targetArrow.GetComponent<SpriteRenderer>().color = colorArrow;
             }
             else
             {
-                colorArrow.a = distance / 2;
+                colorArrow.a = distance / distanceAlpha;
                 targetArrow.GetComponent<SpriteRenderer>().color = colorArrow;
             }
             
