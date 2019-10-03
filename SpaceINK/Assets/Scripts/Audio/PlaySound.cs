@@ -16,6 +16,7 @@ public class PlaySound : MonoBehaviour
 
     private void StartSound()
     {
+        Debug.Log("piu");
         FindObjectOfType<AudioManager>().Play(soundName);
     }
 }

@@ -70,7 +70,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Laser_Shoot2
     clip: {fileID: 8300000, guid: 7ed925a7a91839c418bf6290d8313c0e, type: 3}
-    volume: 0
+    volume: 0.377
     pitch: 1
     loop: 0
     source: {fileID: 0}

@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 1927954200469288320}
   - component: {fileID: 1021769304001216956}
   - component: {fileID: 60024734858188695}
-  - component: {fileID: 6932805686234848174}
   m_Layer: 8
   m_Name: SpaceEnemyCarrier
   m_TagString: EnemyShip
@@ -213,20 +212,6 @@ MonoBehaviour:
     type: 3}
   shipCount: 5
   fireDelta: 5
---- !u!114 &6932805686234848174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5127757393166713379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a7c700d126e9ad4fb6bde14b2e4f577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 5127757393166713379}
-  arrow: {fileID: 3871166355657964697, guid: e1faf46c6ff527e46b740936fff4017d, type: 3}
 --- !u!1 &7438664130796174366
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +449,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4266385159127544201}
     m_Modifications:
+    - target: {fileID: 8505330486540481483, guid: d65448b73633cd144bb831668b29411a,
+        type: 3}
+      propertyPath: m_Name
+      value: Engine2 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 5495333039252196485, guid: d65448b73633cd144bb831668b29411a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -519,11 +509,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8505330486540481483, guid: d65448b73633cd144bb831668b29411a,
-        type: 3}
-      propertyPath: m_Name
-      value: Engine2 (1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65448b73633cd144bb831668b29411a, type: 3}
 --- !u!4 &3421937988860664018 stripped
@@ -539,6 +524,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4266385159127544201}
     m_Modifications:
+    - target: {fileID: 8505330486540481483, guid: d65448b73633cd144bb831668b29411a,
+        type: 3}
+      propertyPath: m_Name
+      value: Engine2 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 5495333039252196485, guid: d65448b73633cd144bb831668b29411a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -594,11 +584,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8505330486540481483, guid: d65448b73633cd144bb831668b29411a,
-        type: 3}
-      propertyPath: m_Name
-      value: Engine2 (2)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65448b73633cd144bb831668b29411a, type: 3}
 --- !u!4 &3111091029887588116 stripped
@@ -614,6 +599,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4266385159127544201}
     m_Modifications:
+    - target: {fileID: 8505330486540481483, guid: d65448b73633cd144bb831668b29411a,
+        type: 3}
+      propertyPath: m_Name
+      value: Engine2
+      objectReference: {fileID: 0}
     - target: {fileID: 5495333039252196485, guid: d65448b73633cd144bb831668b29411a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -668,11 +658,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8505330486540481483, guid: d65448b73633cd144bb831668b29411a,
-        type: 3}
-      propertyPath: m_Name
-      value: Engine2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65448b73633cd144bb831668b29411a, type: 3}

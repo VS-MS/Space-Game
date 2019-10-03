@@ -49,6 +49,19 @@ public class EnemyShip : Unit
         //Debug.Log(maxArmorPoints);
     }
 
+
+    protected virtual float CalculateAngle(Vector3 targetFrom)
+    {
+        var headingAim = CalculateAim() - targetFrom;
+        //distance - растояние от данного объекта до корабль игрока
+        var distance = headingAim.magnitude;
+        //direction - направление от данного объекта до игрока
+        var direction = headingAim / distance;
+
+        //Вычисляем угол между данным объектом и кораблем игрока в градах
+        return Mathf.Atan2(headingAim.y, headingAim.x) * Mathf.Rad2Deg - 90;
+    }
+
     protected virtual Vector3 CalculateAim()
     {
         //По умолчанию турель стреляет прямо по цели, но, если цель движется, то нужно высчитать точку,

@@ -119,7 +119,7 @@ public class TargetPosition : MonoBehaviour
     {
         var heading = targetArrow.transform.position - target.transform.position;
         var distance = heading.magnitude;
-        
+        Debug.Log(targetArrow.GetComponent<SpriteRenderer>().color.a);
         if (distance < distanceAlpha)
         {
             if(distance < 0.2)

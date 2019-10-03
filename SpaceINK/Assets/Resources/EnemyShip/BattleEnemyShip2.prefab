@@ -180,7 +180,6 @@ GameObject:
   - component: {fileID: 5717379230646757748}
   - component: {fileID: 5717379230646757751}
   - component: {fileID: 127561438892514306}
-  - component: {fileID: 7221088735171869396}
   m_Layer: 8
   m_Name: BattleEnemyShip2
   m_TagString: EnemyShip
@@ -300,20 +299,6 @@ MonoBehaviour:
   - {fileID: 5906824297376822555}
   turretRotationSpeed: 5
   fireDelta: 0.7
---- !u!114 &7221088735171869396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5717379230646757705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a7c700d126e9ad4fb6bde14b2e4f577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 5717379230646757705}
-  arrow: {fileID: 3871166355657964697, guid: e1faf46c6ff527e46b740936fff4017d, type: 3}
 --- !u!1001 &3657128939464667783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,15 +605,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2206b2ded50dbe54f81f1fc529aad6b9, type: 3}
---- !u!4 &4827085793613873146 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 767602610088852830, guid: 2206b2ded50dbe54f81f1fc529aad6b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 5213570183443137188}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6970910377163923820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2947593279455290312, guid: 2206b2ded50dbe54f81f1fc529aad6b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5213570183443137188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4827085793613873146 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 767602610088852830, guid: 2206b2ded50dbe54f81f1fc529aad6b9,
     type: 3}
   m_PrefabInstance: {fileID: 5213570183443137188}
   m_PrefabAsset: {fileID: 0}

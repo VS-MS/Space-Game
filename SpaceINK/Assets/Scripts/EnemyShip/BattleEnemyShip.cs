@@ -101,15 +101,10 @@ public class BattleEnemyShip : EnemyShip
 
     protected void Chase()
     {
-        
-        var headingAim = CalculateAim() - gameObject.transform.position;
-        //distance - растояние от данного объекта до корабль игрока
-        var distance = headingAim.magnitude;
-        //direction - направление от данного объекта до игрока
-        var direction = headingAim / distance;
 
         //Вычисляем угол между данным объектом и кораблем игрока в градах
-        float angle = Mathf.Atan2(headingAim.y, headingAim.x) * Mathf.Rad2Deg - 90;
+        float angle = CalculateAngle(gameObject.transform.position);
+
         //Ищем квантарион этого угла
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         //плавно прварачиваем объект
@@ -117,6 +112,9 @@ public class BattleEnemyShip : EnemyShip
         //Поворачиваем башни в сторону цели
         for(int i = 0; i < turretArray.Length; i++)
         {
+            //Вычисляем угол между данным объектом(турель) и кораблем игрока в градах
+            angle = CalculateAngle(turretArray[i].transform.position);
+            q = Quaternion.AngleAxis(angle, Vector3.forward);
             turretArray[i].transform.rotation = Quaternion.Slerp(turretArray[i].transform.rotation, q, Time.deltaTime * turretRotationSpeed);
         }
         
