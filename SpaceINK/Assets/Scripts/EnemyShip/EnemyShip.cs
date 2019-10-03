@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyShip : Unit
 {
@@ -26,6 +28,10 @@ public class EnemyShip : Unit
     protected State state = State.Idle;
 
     protected Rigidbody2D m_Rigidbody2D;
+
+    protected float fireDelta = 0.70F;//скорость стрельбы
+    //private float nextFire = 0.5F;
+    protected float myTime = 0.5F;//время прошло от последнего выстрела
 
     protected int SetMoneyCount()
     {
@@ -119,4 +125,10 @@ public class EnemyShip : Unit
         Gizmos.DrawWireSphere(transform.position, radarRadius);
     }
 
+    protected void InitStat()
+    {
+        string s = SceneManager.GetActiveScene().name;
+        int i = Convert.ToInt32(s);
+        Debug.Log(i);
+    }
 }

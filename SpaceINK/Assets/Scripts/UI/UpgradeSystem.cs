@@ -190,25 +190,25 @@ public class UpgradeSystem : MonoBehaviour
         if (DataSave.instance.SuperShotLvl == 20)
             superShootLvlUpCost.text = "Max";
         else
-            superShootLvlUpCost.text = CoastUpgrade(DataSave.instance.SuperShotLvl).ToString();
+            superShootLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.SuperShotLvl));
 
         //Armor Shield
         if (DataSave.instance.ArmorShieldLvl == 20)
             armorShieldLvlUpCost.text = "Max";
         else
-            armorShieldLvlUpCost.text = CoastUpgrade(DataSave.instance.ArmorShieldLvl).ToString();
+            armorShieldLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.ArmorShieldLvl));
 
         //Engine
         if (DataSave.instance.EngineLvl == 20)
             engineLvlUpCost.text = "Max";
         else
-            engineLvlUpCost.text = CoastUpgrade(DataSave.instance.EngineLvl).ToString();
+            engineLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.EngineLvl));
 
         //SuperBoost
         if (DataSave.instance.SuperBoostLvl == 20)
             superBoostLvlUpCost.text = "Max";
         else
-            superBoostLvlUpCost.text = CoastUpgrade(DataSave.instance.SuperBoostLvl).ToString();
+            superBoostLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.SuperBoostLvl));
 
         //статы коробля
         //Главня пушка

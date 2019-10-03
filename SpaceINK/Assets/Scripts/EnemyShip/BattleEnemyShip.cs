@@ -13,12 +13,11 @@ public class BattleEnemyShip : EnemyShip
     protected float turretRotationSpeed;
     
 
-    public float fireDelta = 0.70F;//скорость стрельбы
-    //private float nextFire = 0.5F;
-    protected float myTime = 0.5F;//время прошло от последнего выстрела
+    
 
     protected void Awake()
     {
+        InitStat();
         StatusSliderInt(6.0f, 2.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");

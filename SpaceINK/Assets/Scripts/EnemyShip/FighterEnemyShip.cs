@@ -13,14 +13,6 @@ public class FighterEnemyShip : EnemyShip
 
     public Transform parentPosition;
 
-    public float fireDelta = 0.70F;//скорость стрельбы
-    //private float nextFire = 0.5F;
-    private float myTime = 0.5F;//время прошло от последнего выстрела
-
-    private Transform gunTransform;
-    //private Transform armorBar;
-    //private Transform shieldBar;
-
     [SerializeField]
     private MachineGunEnemy[] gunMachine;
 
@@ -47,7 +39,6 @@ public class FighterEnemyShip : EnemyShip
         {
             startPoint = gameObject.transform.position;
         }
-        gunTransform = this.transform.Find("Gun_1");
         moneyCount = SetMoneyCount();
     }
     

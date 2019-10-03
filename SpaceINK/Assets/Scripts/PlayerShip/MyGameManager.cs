@@ -73,7 +73,7 @@ public class MyGameManager : MonoBehaviour
     public void CreateEndGate()
     {
         
-        GameObject endGate_ =  Instantiate(endGate, startPositionPlayer, new Quaternion(0, 0, 0, 0));
+        GameObject endGate_ =  Instantiate(endGate, startPositionPlayer + new Vector3(0,-30,0), new Quaternion(0, 0, 0, 0));
         GameObject target_ = Instantiate(target);
         target_.GetComponent<TargetPosition>().target = endGate_;
         

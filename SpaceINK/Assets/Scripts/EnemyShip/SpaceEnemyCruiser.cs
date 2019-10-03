@@ -11,10 +11,6 @@ public class SpaceEnemyCruiser : EnemyShip
     public RocketLauncherEnemy[] rocketArrayLeft;
     public RocketLauncherEnemy[] rocketArrayRight;
 
-    public float fireDelta = 0.70F;//скорость стрельбы
-    //private float nextFire = 0.5F;
-    private float myTime = 0.5F;//время прошло от последнего выстрела
-
     private void Awake()
     {
         StatusSliderInt(6.0f, 2.0f);

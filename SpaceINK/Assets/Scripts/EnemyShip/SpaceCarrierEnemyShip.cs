@@ -18,11 +18,6 @@ public class SpaceCarrierEnemyShip : EnemyShip
 
     //массив, в котором будем хранить ссылки на экземпляры выпущенных кораблей
     private FighterEnemyShip[] droneFighter;
-    
-
-    public float fireDelta = 0.70F;//скорость стрельбы
-    //private float nextFire = 0.5F;
-    private float myTime = 0.5F;//время прошло от последнего выстрела
 
     private void Awake()
     {

@@ -10,16 +10,12 @@ public class EndGame : MonoBehaviour
 
     private void Start()
     {
-        mainCanvas = FindObjectOfType<Canvas>().gameObject;
-        if(mainCanvas)
-        {
-            controlPanel = mainCanvas.transform.Find("PanelControl").gameObject;
-            endLavelPanel = mainCanvas.transform.Find("LevelComplite").gameObject;
-        }
+
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        Debug.Log(collider.tag);
         if(collider.tag == "Player")
         {
             Invoke("LoadEndGame", 1f);
@@ -28,6 +24,13 @@ public class EndGame : MonoBehaviour
           
     private void LoadEndGame()
     {
+        mainCanvas = FindObjectOfType<Canvas>().gameObject;
+        if (mainCanvas)
+        {
+            controlPanel = mainCanvas.transform.Find("PanelControl").gameObject;
+            endLavelPanel = mainCanvas.transform.Find("LevelComplite").gameObject;
+        }
+
         controlPanel.SetActive(false);
         Time.timeScale = 0;
         endLavelPanel.SetActive(true);
