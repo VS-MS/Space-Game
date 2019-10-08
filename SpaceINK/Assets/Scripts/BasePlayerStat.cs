@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Player stat", fileName = "BasePlayerStat")]
+[CreateAssetMenu(menuName = "Stat/BasePlayerStat", fileName = "BasePlayerStat")]
 public class BasePlayerStat : ScriptableObject
 {
     [Header("Cannon")]

@@ -128,7 +128,10 @@ public class EnemyShip : Unit
     protected void InitStat()
     {
         string s = SceneManager.GetActiveScene().name;
-        int i = Convert.ToInt32(s);
-        Debug.Log(i);
+        int lvlNumber = Convert.ToInt32(s);
+        armorPoints *= lvlNumber;
+        shieldPoints *= lvlNumber;
+        shieldDelta = shieldDelta - lvlNumber / shieldDelta;
+
     }
 }
