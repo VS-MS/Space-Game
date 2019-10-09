@@ -99,7 +99,6 @@ GameObject:
   - component: {fileID: 1744330595965327147}
   - component: {fileID: 1744330595965327144}
   - component: {fileID: 6244272781056762461}
-  - component: {fileID: 3700648839431111819}
   m_Layer: 8
   m_Name: BattleEnemyShip
   m_TagString: EnemyShip
@@ -199,7 +198,7 @@ MonoBehaviour:
   - {fileID: 7154738411913405926, guid: 223997cf07e1c624d86094717242c81c, type: 3}
   armorPoints: 200
   shieldPoints: 100
-  shieldDelta: 0.9
+  shieldDelta: 2
   maxSpeed: 4
   boostForce: 100
   rotationSpeed: 0.2
@@ -216,21 +215,6 @@ MonoBehaviour:
   - {fileID: 71358735190482516}
   - {fileID: 4021867835563056947}
   turretRotationSpeed: 5
-  fireDelta: 0.7
---- !u!114 &3700648839431111819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744330595965327126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a7c700d126e9ad4fb6bde14b2e4f577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1744330595965327126}
-  arrow: {fileID: 3871166355657964697, guid: e1faf46c6ff527e46b740936fff4017d, type: 3}
 --- !u!1 &8077597584485278656
 GameObject:
   m_ObjectHideFlags: 0

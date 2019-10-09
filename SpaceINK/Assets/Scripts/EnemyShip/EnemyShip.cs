@@ -29,7 +29,7 @@ public class EnemyShip : Unit
 
     protected Rigidbody2D m_Rigidbody2D;
 
-    protected float fireDelta = 0.70F;//скорость стрельбы
+    public float fireDelta = 0.70F;//скорость стрельбы
     //private float nextFire = 0.5F;
     protected float myTime = 0.5F;//время прошло от последнего выстрела
 

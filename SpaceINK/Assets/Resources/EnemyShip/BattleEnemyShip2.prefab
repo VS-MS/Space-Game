@@ -279,7 +279,7 @@ MonoBehaviour:
   - {fileID: 7154738411913405926, guid: 223997cf07e1c624d86094717242c81c, type: 3}
   armorPoints: 200
   shieldPoints: 100
-  shieldDelta: 0.9
+  shieldDelta: 2
   maxSpeed: 4
   boostForce: 100
   rotationSpeed: 0.2
@@ -291,6 +291,7 @@ MonoBehaviour:
     type: 3}
   statusSlider: {fileID: 0}
   startPoint: {x: 0, y: 0, z: 0}
+  fireDelta: 1.2
   turretArray:
   - {fileID: 1332953881343968927}
   - {fileID: 6309728985892315147}
@@ -298,7 +299,6 @@ MonoBehaviour:
   - {fileID: 2260961262007196971}
   - {fileID: 5906824297376822555}
   turretRotationSpeed: 5
-  fireDelta: 0.7
 --- !u!1001 &3657128939464667783
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -27,6 +27,23 @@ public class DreadnoughtShip : EnemyShip
             startPoint = gameObject.transform.position;
         }
         moneyCount = SetMoneyCount();
+
+        for (int i = 0; i < turretArray.Length; i++)
+        {
+            turretArray[i].GetComponent<TurretEnemy>().fireDelta = fireDelta;
+            turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
+        }
+
+        for(int i =0; i < rocketArrayLeft.Length; i++)
+        {
+            rocketArrayLeft[i].bulletDamage = bulletDamage;
+        }
+
+        for (int i = 0; i < rocketArrayRight.Length; i++)
+        {
+            rocketArrayRight[i].bulletDamage = bulletDamage;
+        }
+
     }
 
     protected private void FixedUpdate()
@@ -94,7 +111,7 @@ public class DreadnoughtShip : EnemyShip
     {
         //стреляем из турели
         int i = Random.Range(0, turretArray.Length);
-        turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
+        
         turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
         //стреляем из ракетниц
         rocketArrayLeft[Random.Range(0, rocketArrayLeft.Length)].ShootTurret();
@@ -121,7 +138,6 @@ public class DreadnoughtShip : EnemyShip
             //Вычисляем угол между данным объектом(турель) и кораблем игрока в градах
             angle = CalculateAngle(turretArray[i].transform.position);
             q = Quaternion.AngleAxis(angle, Vector3.forward);
-
             turretArray[i].transform.rotation = Quaternion.Slerp(turretArray[i].transform.rotation, q, Time.deltaTime * turretRotationSpeed);
         }
 

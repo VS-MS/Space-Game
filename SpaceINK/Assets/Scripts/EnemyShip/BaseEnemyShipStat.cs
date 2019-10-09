@@ -22,10 +22,6 @@ public class BaseEnemyShipStat : ScriptableObject
     public float rotationSpeed = 1f;				 //Скорость вращения корабля 
 
     [Header("Atack settings")]
-    //Радиус обнаружения противника
-    public float radarRadius = 30;
-    //Радиус начала стрельбы
-    public float attackRadius;
     public float bulletDamage = 3;
     public float bulletSpeed = 1;
     public float fireDelta = 0.70F;//скорость стрельбы

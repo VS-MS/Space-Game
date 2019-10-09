@@ -26,6 +26,11 @@ public class BattleEnemyShip : EnemyShip
             startPoint = gameObject.transform.position;
         }
         moneyCount = SetMoneyCount();
+        for (int i = 0; i < turretArray.Length; i++)
+        {
+            turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
+            turretArray[i].GetComponent<TurretEnemy>().fireDelta = fireDelta;
+        }
     }
 
     protected private void FixedUpdate()
@@ -92,7 +97,7 @@ public class BattleEnemyShip : EnemyShip
     protected void Shoot()
     {
         int i = Random.Range(0, turretArray.Length);
-        turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
+        
         turretArray[i].GetComponent<TurretEnemy>().ShootTurret();
     }
 
