@@ -21,6 +21,18 @@ public class SpaceEnemyCruiser : EnemyShip
             startPoint = gameObject.transform.position;
         }
         moneyCount = SetMoneyCount();
+
+        for (int i = 0; i < rocketArrayLeft.Length; i++)
+        {
+            rocketArrayLeft[i].bulletDamage = bulletDamage;
+            rocketArrayLeft[i].bulletSpeed = bulletSpeed;
+        }
+
+        for (int i = 0; i < rocketArrayRight.Length; i++)
+        {
+            rocketArrayRight[i].bulletDamage = bulletDamage;
+            rocketArrayRight[i].bulletSpeed = bulletSpeed;
+        }
     }
 
     private void FixedUpdate()

@@ -116,11 +116,12 @@ MonoBehaviour:
   radarRadius: 150
   attackRadius: 0
   bulletDamage: 3
-  bulletSpeed: 1
+  bulletSpeed: 9
   enemyStatusSlider: {fileID: 5205629985578053904, guid: 6b930efe3a31d584a842160f7bccc528,
     type: 3}
   statusSlider: {fileID: 0}
   startPoint: {x: 0, y: 0, z: 0}
+  fireDelta: 0.7
   rocketArrayLeft:
   - {fileID: 2952282024059434641}
   - {fileID: 2952282024302835275}
@@ -135,7 +136,6 @@ MonoBehaviour:
   - {fileID: 588661860927237379}
   - {fileID: 5361174594426493401}
   - {fileID: 1416848834509658750}
-  fireDelta: 0.7
 --- !u!60 &2060956686300582848
 PolygonCollider2D:
   m_ObjectHideFlags: 0

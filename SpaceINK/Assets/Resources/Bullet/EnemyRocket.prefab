@@ -396,7 +396,7 @@ MonoBehaviour:
   armorPoints: 1
   shieldPoints: 0
   shieldDelta: 8
-  maxSpeed: 18
+  maxSpeed: 9
   boostForce: 80
   rotationSpeed: 4
   rocketSpeed: 1

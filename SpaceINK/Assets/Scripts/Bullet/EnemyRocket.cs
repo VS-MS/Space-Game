@@ -73,14 +73,32 @@ public class EnemyRocket : Unit
 
         //Ищем квантарион этого угла
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        //плавно прварачиваем объект
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
+        
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
         if (m_Rigidbody2D.velocity.magnitude <= maxSpeed)
         {
             //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce / 2));
+            /*if (distance <= 15)
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (3.0f - distance/7.5f)));
+            }
+            else
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce));
+            }
+            */
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce));
+            if(distance <= 15)
+            {
+                //плавно прварачиваем объект
+                transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed * (3.0f - distance / 7.5f));
+            }
+            else
+            {
+                //плавно прварачиваем объект
+                transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
+            }
         }
 
     }
