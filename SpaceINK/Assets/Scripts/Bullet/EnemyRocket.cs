@@ -78,16 +78,7 @@ public class EnemyRocket : Unit
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
         if (m_Rigidbody2D.velocity.magnitude <= maxSpeed)
         {
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (heading.magnitude / radarRadius)));
-            /*if (distance <= 15)
-            {
-                gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce * (3.0f - distance/7.5f)));
-            }
-            else
-            {
-                gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce));
-            }
-            */
+
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (boostForce));
             if(distance <= 15)
             {

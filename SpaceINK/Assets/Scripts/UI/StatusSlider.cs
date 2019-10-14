@@ -16,10 +16,11 @@ public class StatusSlider : MonoBehaviour
     
     private PlayerShip playerShip;
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         playerShip = FindObjectOfType<PlayerShip>();
-        RefreshStat();
+        //RefreshStat();
     }
 
     public void RefreshStat()
@@ -36,11 +37,7 @@ public class StatusSlider : MonoBehaviour
         backBoostRing.fillAmount = playerShip.boostPoints / playerShip.boostMaxPoints / 2.5f;
         backSuperShootRing.fillAmount = playerShip.superShootPoints / playerShip.superShootMaxPoints / 2.5f;
     }
-    private void Awake()
-    {
-        
 
-    }
     // Update is called once per frame
     void Update()
     {

@@ -13,6 +13,8 @@ public class SpaceEnemyCruiser : EnemyShip
 
     private void Awake()
     {
+        InitStat();
+
         StatusSliderInt(6.0f, 2.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
@@ -24,13 +26,17 @@ public class SpaceEnemyCruiser : EnemyShip
 
         for (int i = 0; i < rocketArrayLeft.Length; i++)
         {
-            rocketArrayLeft[i].bulletDamage = bulletDamage;
+            rocketArrayLeft[i].fireDelta = fireDelta * 8;
+            rocketArrayLeft[i].armorPoints = armorPoints / 60;
+            rocketArrayLeft[i].bulletDamage = bulletDamage * 2;
             rocketArrayLeft[i].bulletSpeed = bulletSpeed;
         }
 
         for (int i = 0; i < rocketArrayRight.Length; i++)
         {
-            rocketArrayRight[i].bulletDamage = bulletDamage;
+            rocketArrayRight[i].fireDelta = fireDelta * 8;
+            rocketArrayRight[i].armorPoints = armorPoints / 60;
+            rocketArrayRight[i].bulletDamage = bulletDamage * 2;
             rocketArrayRight[i].bulletSpeed = bulletSpeed;
         }
     }

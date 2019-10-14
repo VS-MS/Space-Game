@@ -798,6 +798,8 @@ MonoBehaviour:
   statusSlider: {fileID: 0}
   startPoint: {x: 0, y: 0, z: 0}
   fireDelta: 0.2
+  baseEnemyStat: {fileID: 11400000, guid: e1193ba45d46f614783a3ee9d581cb80, type: 2}
+  maxEnemyStat: {fileID: 11400000, guid: dada9dd1828b7ce4c8246031af60ba8a, type: 2}
   simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
     type: 3}
   parentPosition: {fileID: 0}

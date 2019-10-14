@@ -36,6 +36,11 @@ public class EnemyShip : Unit
     //private float nextFire = 0.5F;
     protected float myTime = 0.5F;//время прошло от последнего выстрела
 
+    [SerializeField]
+    private BaseEnemyShipStat baseEnemyStat;
+    [SerializeField]
+    private BaseEnemyShipStat maxEnemyStat;
+
     protected int SetMoneyCount()
     {
         int money_;
@@ -129,18 +134,21 @@ public class EnemyShip : Unit
     }
 
 
-    public float CalculatStat(float firstStat, float lastStat, int lvl)
+    public float CalculatStat(float firstStat, float lastStat)
     {
+        string s = SceneManager.GetActiveScene().name;
+        int lvlNumber = Convert.ToInt32(s);
+
         float step;
         float lvlStat;
         step = Mathf.Abs(Mathf.Sqrt(firstStat) - Mathf.Sqrt(lastStat)) / (maxLvl - 1.0f);
         if (firstStat < lastStat)
         {
-            lvlStat = Mathf.Pow(Mathf.Sqrt(firstStat) + (step * (lvl - 1)), 2);
+            lvlStat = Mathf.Pow(Mathf.Sqrt(firstStat) + (step * (lvlNumber - 1)), 2);
         }
         else
         {
-            lvlStat = Mathf.Pow(Mathf.Sqrt(firstStat) - (step * (lvl - 1)), 2);
+            lvlStat = Mathf.Pow(Mathf.Sqrt(firstStat) - (step * (lvlNumber - 1)), 2);
         }
         return lvlStat;
     }
@@ -148,11 +156,25 @@ public class EnemyShip : Unit
 
     protected void InitStat()
     {
-        string s = SceneManager.GetActiveScene().name;
-        int lvlNumber = Convert.ToInt32(s);
-        armorPoints *= lvlNumber;
-        shieldPoints *= lvlNumber;
+        
+        //armorPoints *= lvlNumber;
+        //shieldPoints *= lvlNumber;
         //shieldDelta = shieldDelta - lvlNumber / shieldDelta;
+        armorPoints = CalculatStat(baseEnemyStat.armorPoints, maxEnemyStat.armorPoints);
+        maxArmorPoints = CalculatStat(baseEnemyStat.maxArmorPoints, maxEnemyStat.maxArmorPoints);
+
+        shieldPoints = CalculatStat(baseEnemyStat.shieldPoints, maxEnemyStat.shieldPoints);
+        maxShieldPoints = CalculatStat(baseEnemyStat.maxShieldPoints, maxEnemyStat.maxShieldPoints);
+
+        shieldDelta = CalculatStat(baseEnemyStat.shieldDelta, maxEnemyStat.shieldDelta);
+
+        maxSpeed = CalculatStat(baseEnemyStat.maxSpeed, maxEnemyStat.maxSpeed);
+        boostForce = CalculatStat(baseEnemyStat.boostForce, maxEnemyStat.boostForce);
+        rotationSpeed = CalculatStat(baseEnemyStat.rotationSpeed, maxEnemyStat.rotationSpeed);
+
+        bulletDamage = CalculatStat(baseEnemyStat.bulletDamage, maxEnemyStat.bulletDamage);
+        bulletSpeed = CalculatStat(baseEnemyStat.bulletSpeed, maxEnemyStat.bulletSpeed);
+        fireDelta = CalculatStat(baseEnemyStat.fireDelta, maxEnemyStat.fireDelta);
 
     }
 }

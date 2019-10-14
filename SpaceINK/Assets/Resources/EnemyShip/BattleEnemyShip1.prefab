@@ -211,6 +211,8 @@ MonoBehaviour:
   statusSlider: {fileID: 0}
   startPoint: {x: 0, y: 0, z: 0}
   fireDelta: 0.5
+  baseEnemyStat: {fileID: 11400000, guid: 6819d7d018aaf104b982d7d16b61aec2, type: 2}
+  maxEnemyStat: {fileID: 11400000, guid: 674456c9314f65845b932507d34deb15, type: 2}
   turretArray:
   - {fileID: 4977241813397207232}
   - {fileID: 71358735190482516}

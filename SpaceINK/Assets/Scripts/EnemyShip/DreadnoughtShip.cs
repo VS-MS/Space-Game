@@ -19,6 +19,8 @@ public class DreadnoughtShip : EnemyShip
 
     protected void Awake()
     {
+        InitStat();
+
         StatusSliderInt(6.0f, 2.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
