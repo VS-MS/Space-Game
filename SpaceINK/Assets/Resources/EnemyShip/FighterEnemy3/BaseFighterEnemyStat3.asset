@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2379dc8d1113a94a8f4d79126a21c0a, type: 3}
-  m_Name: BaseBattleShipStat1
+  m_Name: BaseFighterEnemyStat3
   m_EditorClassIdentifier: 
-  armorPoints: 200
-  maxArmorPoints: 200
-  shieldPoints: 100
-  maxShieldPoints: 100
-  shieldDelta: 2
-  maxSpeed: 4
-  boostForce: 20
-  rotationSpeed: 0.2
-  bulletDamage: 1
-  bulletSpeed: 45
-  fireDelta: 0.7
+  armorPoints: 90
+  maxArmorPoints: 90
+  shieldPoints: 65
+  maxShieldPoints: 65
+  shieldDelta: 0.6
+  maxSpeed: 6
+  boostForce: 13
+  rotationSpeed: 1.6
+  bulletDamage: 5
+  bulletSpeed: 55
+  fireDelta: 0.6

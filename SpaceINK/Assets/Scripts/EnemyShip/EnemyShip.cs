@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class EnemyShip : Unit
 {
+    //peremennaya v kotoroi hranim max znachenie yrovnei
+    private float maxLvl = 24;
+
     //Радиус обнаружения противника
     public float radarRadius = 30;
     //Радиус начала стрельбы
@@ -125,13 +128,31 @@ public class EnemyShip : Unit
         Gizmos.DrawWireSphere(transform.position, radarRadius);
     }
 
+
+    public float CalculatStat(float firstStat, float lastStat, int lvl)
+    {
+        float step;
+        float lvlStat;
+        step = Mathf.Abs(Mathf.Sqrt(firstStat) - Mathf.Sqrt(lastStat)) / (maxLvl - 1.0f);
+        if (firstStat < lastStat)
+        {
+            lvlStat = Mathf.Pow(Mathf.Sqrt(firstStat) + (step * (lvl - 1)), 2);
+        }
+        else
+        {
+            lvlStat = Mathf.Pow(Mathf.Sqrt(firstStat) - (step * (lvl - 1)), 2);
+        }
+        return lvlStat;
+    }
+
+
     protected void InitStat()
     {
         string s = SceneManager.GetActiveScene().name;
         int lvlNumber = Convert.ToInt32(s);
         armorPoints *= lvlNumber;
         shieldPoints *= lvlNumber;
-        shieldDelta = shieldDelta - lvlNumber / shieldDelta;
+        //shieldDelta = shieldDelta - lvlNumber / shieldDelta;
 
     }
 }

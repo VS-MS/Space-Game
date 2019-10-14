@@ -48,9 +48,21 @@ public class PlayerShip : Unit {
     [HideInInspector]
     public GameObject boostWing;
 
+    private StatusSlider playerBar;
+
     void Start ()
     {
         RefreshPlayerStat();
+        playerBar = FindObjectOfType<StatusSlider>();
+        if(playerBar)
+        {
+            playerBar.RefreshStat();
+        }
+        else
+        {
+            Debug.LogError("StatusSlider not found");
+            Debug.LogWarning("Add StatusSlider obj to the scene!");
+        }
     }
     private void Awake()
     {

@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 1744330595965327144}
   - component: {fileID: 6244272781056762461}
   m_Layer: 8
-  m_Name: BattleEnemyShip
+  m_Name: BattleEnemyShip1
   m_TagString: EnemyShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,20 +196,21 @@ MonoBehaviour:
   shipState: 0
   particleBoom:
   - {fileID: 7154738411913405926, guid: 223997cf07e1c624d86094717242c81c, type: 3}
-  armorPoints: 200
-  shieldPoints: 100
-  shieldDelta: 2
-  maxSpeed: 4
-  boostForce: 100
-  rotationSpeed: 0.2
+  armorPoints: 1200
+  shieldPoints: 800
+  shieldDelta: 0.1
+  maxSpeed: 10
+  boostForce: 25
+  rotationSpeed: 0.3
   radarRadius: 100
   attackRadius: 0
-  bulletDamage: 3
-  bulletSpeed: 45
+  bulletDamage: 7
+  bulletSpeed: 58
   enemyStatusSlider: {fileID: 5205629985578053904, guid: 6b930efe3a31d584a842160f7bccc528,
     type: 3}
   statusSlider: {fileID: 0}
   startPoint: {x: 0, y: 0, z: 0}
+  fireDelta: 0.5
   turretArray:
   - {fileID: 4977241813397207232}
   - {fileID: 71358735190482516}

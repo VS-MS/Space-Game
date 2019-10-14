@@ -6,6 +6,7 @@ public class RocketLauncherEnemy : UnitGunEnemy
 {
 
     public EnemyRocket simpleRocket;
+    public float armorPoints = 1;
     
     private void Awake()
     {
@@ -22,12 +23,16 @@ public class RocketLauncherEnemy : UnitGunEnemy
 
     public void ShootTurret()
     {
+
+
         if (myTime > fireDelta)
         {
-            for(int i = 0; i < gunTransform.Length; i++)
+            
+            for (int i = 0; i < gunTransform.Length; i++)
             {
                 EnemyRocket newRocket = Instantiate(simpleRocket, gunTransform[i].position, this.transform.rotation) as EnemyRocket;
                 newRocket.rocketSpeed = bulletSpeed;
+                newRocket.armorPoints = armorPoints;
                 newRocket.rocketDamage = 3.0f;
             }
             

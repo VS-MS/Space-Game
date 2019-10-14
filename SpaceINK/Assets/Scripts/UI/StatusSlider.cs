@@ -19,11 +19,11 @@ public class StatusSlider : MonoBehaviour
     void Start()
     {
         playerShip = FindObjectOfType<PlayerShip>();
+        RefreshStat();
     }
 
-    private void Awake()
+    public void RefreshStat()
     {
-        playerShip = FindObjectOfType<PlayerShip>();
         //Устанавливаем максимально возможное значение для слайдера показателя уровня щита. 
         //И сразу устанавливаем его значение на 100%
         sliderShield.maxValue = playerShip.shieldPoints;
@@ -35,6 +35,10 @@ public class StatusSlider : MonoBehaviour
 
         backBoostRing.fillAmount = playerShip.boostPoints / playerShip.boostMaxPoints / 2.5f;
         backSuperShootRing.fillAmount = playerShip.superShootPoints / playerShip.superShootMaxPoints / 2.5f;
+    }
+    private void Awake()
+    {
+        
 
     }
     // Update is called once per frame

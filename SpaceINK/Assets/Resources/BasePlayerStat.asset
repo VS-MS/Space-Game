@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7648f75a581d9449b64faf477a0ec5c, type: 3}
   m_Name: BasePlayerStat
   m_EditorClassIdentifier: 
-  cannonDamage: 10
+  cannonDamage: 5
   cannonFireRate: 0.5
   cannonBulletSpeed: 50
   cannonCount: 1

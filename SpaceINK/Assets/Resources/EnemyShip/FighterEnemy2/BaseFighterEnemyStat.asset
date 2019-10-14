@@ -17,8 +17,8 @@ MonoBehaviour:
   shieldPoints: 50
   maxShieldPoints: 50
   shieldDelta: 0.8
-  maxSpeed: 10
-  boostForce: 40
+  maxSpeed: 7
+  boostForce: 15
   rotationSpeed: 2
   bulletDamage: 4
   bulletSpeed: 50

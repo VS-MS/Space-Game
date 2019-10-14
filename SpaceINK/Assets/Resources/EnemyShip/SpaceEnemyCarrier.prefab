@@ -28,12 +28,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7067701903541814567}
+  - {fileID: 1414477032691056126}
   - {fileID: 2386066672948033850}
   - {fileID: 3421937988860664018}
   - {fileID: 3111091029887588116}
   - {fileID: 3858486995270732348}
-  - {fileID: 3529192601811323833}
+  - {fileID: 4705852367335027552}
   m_Father: {fileID: 2929884887073027795}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -194,24 +194,24 @@ MonoBehaviour:
   shipState: 0
   particleBoom:
   - {fileID: 7154738411913405926, guid: 223997cf07e1c624d86094717242c81c, type: 3}
-  armorPoints: 1000
-  shieldPoints: 500
+  armorPoints: 500
+  shieldPoints: 250
   shieldDelta: 1
   maxSpeed: 2
   boostForce: 80
   rotationSpeed: 0.1
   radarRadius: 100
   attackRadius: 0
-  bulletDamage: 3
+  bulletDamage: 2
   bulletSpeed: 1
   enemyStatusSlider: {fileID: 5205629985578053904, guid: 6b930efe3a31d584a842160f7bccc528,
     type: 3}
   statusSlider: {fileID: 0}
   startPoint: {x: 0, y: 0, z: 0}
+  fireDelta: 7
   simpleDroneFighter: {fileID: 66735713295600835, guid: dfe86760a25700b4999f66271c58ea93,
     type: 3}
   shipCount: 5
-  fireDelta: 5
 --- !u!1 &7438664130796174366
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e4b6858e1b4ef54586209838293043d, type: 3}
---- !u!4 &7067701903541814567 stripped
+--- !u!4 &1414477032691056126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8193382746979694815, guid: 1e4b6858e1b4ef54586209838293043d,
     type: 3}
@@ -436,7 +436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e4b6858e1b4ef54586209838293043d, type: 3}
---- !u!4 &3529192601811323833 stripped
+--- !u!4 &4705852367335027552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8193382746979694815, guid: 1e4b6858e1b4ef54586209838293043d,
     type: 3}

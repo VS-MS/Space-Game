@@ -36,13 +36,17 @@ public class DreadnoughtShip : EnemyShip
 
         for (int i = 0; i < rocketArrayLeft.Length; i++)
         {
-            rocketArrayLeft[i].bulletDamage = bulletDamage;
+            rocketArrayLeft[i].fireDelta = fireDelta * 8;
+            rocketArrayLeft[i].armorPoints = armorPoints / 40;
+            rocketArrayLeft[i].bulletDamage = bulletDamage * 2;
             rocketArrayLeft[i].bulletSpeed = bulletSpeed;
         }
 
         for (int i = 0; i < rocketArrayRight.Length; i++)
         {
-            rocketArrayRight[i].bulletDamage = bulletDamage;
+            rocketArrayRight[i].fireDelta = fireDelta * 8;
+            rocketArrayRight[i].armorPoints = armorPoints / 40;
+            rocketArrayRight[i].bulletDamage = bulletDamage * 2;
             rocketArrayRight[i].bulletSpeed = bulletSpeed;
         }
 

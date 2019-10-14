@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2379dc8d1113a94a8f4d79126a21c0a, type: 3}
   m_Name: BaseSpaceCarrierEnemyStat
   m_EditorClassIdentifier: 
-  armorPoints: 100
-  maxArmorPoints: 100
-  shieldPoints: 100
-  maxShieldPoints: 100
-  shieldDelta: 8
-  maxSpeed: 10
-  boostForce: 400
-  rotationSpeed: 1
-  bulletDamage: 3
+  armorPoints: 500
+  maxArmorPoints: 500
+  shieldPoints: 250
+  maxShieldPoints: 250
+  shieldDelta: 1
+  maxSpeed: 2
+  boostForce: 80
+  rotationSpeed: 0.1
+  bulletDamage: 2
   bulletSpeed: 1
-  fireDelta: 0.7
+  fireDelta: 5

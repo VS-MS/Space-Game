@@ -126,13 +126,13 @@ public class SpaceCarrierEnemyShip : EnemyShip
                 if (droneFighter[i] == null)
                 {
                     FighterEnemyShip newDroneFighter = Instantiate(simpleDroneFighter, this.transform.position, simpleDroneFighter.transform.rotation) as FighterEnemyShip;
-                    newDroneFighter.armorPoints = (int)maxArmorPoints/15;
-                    newDroneFighter.shieldPoints = (int)maxShieldPoints/15;
+                    //newDroneFighter.armorPoints = (int)maxArmorPoints/15;
+                    //newDroneFighter.shieldPoints = (int)maxShieldPoints/15;
                     newDroneFighter.bulletDamage = bulletDamage;
                     newDroneFighter.startPoint = gameObject.transform.position;
                     newDroneFighter.parentPosition = gameObject.transform;
-                    newDroneFighter.statusSlider.maxArmor = (int)maxArmorPoints / 15;
-                    newDroneFighter.statusSlider.maxShield = (int)maxShieldPoints / 15;
+                    //newDroneFighter.statusSlider.maxArmor = (int)maxArmorPoints / 15;
+                    //newDroneFighter.statusSlider.maxShield = (int)maxShieldPoints / 15;
                     newDroneFighter.GetComponent<Rigidbody2D>().velocity = this.transform.up * 10;
                     newDroneFighter.moneySet = 0;
                     //newDroneFighter.tag = "EnemyDrone";

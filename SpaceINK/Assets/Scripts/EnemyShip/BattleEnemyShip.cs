@@ -30,6 +30,7 @@ public class BattleEnemyShip : EnemyShip
         {
             turretArray[i].GetComponent<TurretEnemy>().bulletSpeed = bulletSpeed;
             turretArray[i].GetComponent<TurretEnemy>().fireDelta = fireDelta;
+            turretArray[i].GetComponent<TurretEnemy>().bulletDamage = bulletDamage;
         }
     }
 

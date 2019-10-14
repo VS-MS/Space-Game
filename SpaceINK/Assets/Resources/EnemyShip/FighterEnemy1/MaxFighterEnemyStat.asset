@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2379dc8d1113a94a8f4d79126a21c0a, type: 3}
-  m_Name: BaseFighterEnemyStat
+  m_Name: MaxFighterEnemyStat
   m_EditorClassIdentifier: 
-  armorPoints: 90
-  maxArmorPoints: 90
-  shieldPoints: 65
-  maxShieldPoints: 65
-  shieldDelta: 0.6
-  maxSpeed: 8
-  boostForce: 400
-  rotationSpeed: 1.2
-  bulletDamage: 5
-  bulletSpeed: 55
-  fireDelta: 0.6
+  armorPoints: 250
+  maxArmorPoints: 250
+  shieldPoints: 180
+  maxShieldPoints: 180
+  shieldDelta: 0.1
+  maxSpeed: 13
+  boostForce: 90
+  rotationSpeed: 4
+  bulletDamage: 10
+  bulletSpeed: 65
+  fireDelta: 0.2

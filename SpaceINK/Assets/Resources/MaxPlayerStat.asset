@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7648f75a581d9449b64faf477a0ec5c, type: 3}
   m_Name: MaxPlayerStat
   m_EditorClassIdentifier: 
-  cannonDamage: 100
-  cannonFireRate: 0.1
+  cannonDamage: 10
+  cannonFireRate: 0.2
   cannonBulletSpeed: 100
   cannonCount: 5
   ssDamage: 3
   ssMaxTime: 300
   ssTimeReload: 0.1
-  shipArmor: 300
-  shipShield: 300
+  shipArmor: 500
+  shipShield: 400
   shipShieldDelta: 0.1
   shipMaxSpeed: 15
   shipAcceleration: 2000

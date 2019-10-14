@@ -40,6 +40,13 @@ public class FighterEnemyShip : EnemyShip
             startPoint = gameObject.transform.position;
         }
         moneyCount = SetMoneyCount();
+
+        for (int i = 0; i < gunMachine.Length; i++)
+        {
+            gunMachine[i].bulletSpeed = bulletSpeed;
+            gunMachine[i].bulletDamage = bulletDamage;
+            gunMachine[i].fireDelta = fireDelta;
+        }
     }
     
 
@@ -47,8 +54,7 @@ public class FighterEnemyShip : EnemyShip
     {
         for(int i =0; i< gunMachine.Length; i++)
         {
-            gunMachine[i].bulletSpeed = bulletSpeed;
-            gunMachine[i].bulletDamage = bulletDamage;
+
             gunMachine[i].ShootTurret();
         }
 
@@ -125,11 +131,6 @@ public class FighterEnemyShip : EnemyShip
         }
         else
         {
-            if (myTime <= fireDelta) //считаемвремя до след выстрела
-            {
-                myTime = myTime + Time.deltaTime;
-            }
-
             if (shieldTime <= shieldDelta) //считаем до восстановления щита
             {
                 shieldTime += Time.deltaTime;

@@ -270,21 +270,21 @@ MonoBehaviour:
   shipState: 0
   particleBoom:
   - {fileID: 3368054497563443446, guid: d2b5033dc385f8e499690ef2f456b94b, type: 3}
-  armorPoints: 90
-  shieldPoints: 65
-  shieldDelta: 0.6
-  maxSpeed: 8
-  boostForce: 25
-  rotationSpeed: 1.2
+  armorPoints: 350
+  shieldPoints: 245
+  shieldDelta: 0.1
+  maxSpeed: 9
+  boostForce: 40
+  rotationSpeed: 2.6
   radarRadius: 100
   attackRadius: 40
-  bulletDamage: 5
-  bulletSpeed: 55
+  bulletDamage: 15
+  bulletSpeed: 60
   enemyStatusSlider: {fileID: 5205629985578053904, guid: 6b930efe3a31d584a842160f7bccc528,
     type: 3}
   statusSlider: {fileID: 0}
   startPoint: {x: 28, y: 25, z: 0}
-  fireDelta: 0.6
+  fireDelta: 0.3
   simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
     type: 3}
   parentPosition: {fileID: 0}
