@@ -19,7 +19,7 @@ MonoBehaviour:
   shieldDelta: 1
   maxSpeed: 1.5
   boostForce: 50
-  rotationSpeed: 0.2
-  bulletDamage: 3
+  rotationSpeed: 0.05
+  bulletDamage: 2
   bulletSpeed: 8
   fireDelta: 1.2
