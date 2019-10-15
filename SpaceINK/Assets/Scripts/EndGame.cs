@@ -15,9 +15,10 @@ public class EndGame : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(collider.tag);
+        //Debug.Log(collider.tag);
         if(collider.tag == "Player")
         {
+            DataSave.instance.SaveGame();
             Invoke("LoadEndGame", 1f);
         }
     }

@@ -137,7 +137,16 @@ public class EnemyShip : Unit
     public float CalculatStat(float firstStat, float lastStat)
     {
         string s = SceneManager.GetActiveScene().name;
-        int lvlNumber = Convert.ToInt32(s);
+        int lvlNumber;
+        try
+        {
+            lvlNumber = Convert.ToInt32(s);
+        }
+        catch (System.FormatException)
+        {
+            lvlNumber = 1;
+            Debug.LogError("Не верное название сцены, сцена должна называться только целочисленным числом. Установленно значение по умолчанию равное = " + lvlNumber);
+        }
 
         float step;
         float lvlStat;
@@ -156,10 +165,7 @@ public class EnemyShip : Unit
 
     protected void InitStat()
     {
-        
-        //armorPoints *= lvlNumber;
-        //shieldPoints *= lvlNumber;
-        //shieldDelta = shieldDelta - lvlNumber / shieldDelta;
+       
         armorPoints = CalculatStat(baseEnemyStat.armorPoints, maxEnemyStat.armorPoints);
         maxArmorPoints = CalculatStat(baseEnemyStat.maxArmorPoints, maxEnemyStat.maxArmorPoints);
 

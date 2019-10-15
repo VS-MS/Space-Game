@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -20,6 +21,27 @@ public class SceneLoading : MonoBehaviour
     public void LoadeSceneName(string sceneName_) 
     {
         sceneName = sceneName_;
+        Debug.Log("Загружаем сцену №" + sceneName);
+        StartCoroutine(AsyncLoad());
+    }
+
+    public void LoadeNextScene()
+    {
+        string s = SceneManager.GetActiveScene().name;
+        int lvlNumber;
+        try
+        {
+            lvlNumber = Convert.ToInt32(s);
+        }
+        catch (System.FormatException)
+        {
+            lvlNumber = 1;
+            Debug.LogError("Не верное название сцены, сцена должна называться только целочисленным числом. Установленно значение по умолчанию равное = " + lvlNumber);
+        }
+
+        sceneName = (lvlNumber + 1).ToString();
+
+        Debug.Log("Загружаем сцену №" + sceneName);
         StartCoroutine(AsyncLoad());
     }
     IEnumerator AsyncLoad() 

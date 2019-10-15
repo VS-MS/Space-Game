@@ -21,6 +21,11 @@ public class MyGameManager : MonoBehaviour
     private bool allEnemyDesroy;
     private List<GameObject> enemyArray;
 
+
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
     private void Start()
     {
         allEnemyDesroy = false;
