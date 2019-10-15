@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
@@ -19,6 +21,19 @@ public class EndGame : MonoBehaviour
         if(collider.tag == "Player")
         {
             DataSave.instance.SaveGame();
+
+            string s = SceneManager.GetActiveScene().name;
+            int lvlNumber;
+            try
+            {
+                lvlNumber = Convert.ToInt32(s);
+                DataSave.instance.levelComplite = lvlNumber;
+            }
+            catch (System.FormatException)
+            {
+                Debug.LogError("Уровень не может быть засчитан. Не верное название сцены, сцена должна называться только целочисленным числом.");
+            }
+
             Invoke("LoadEndGame", 1f);
         }
     }

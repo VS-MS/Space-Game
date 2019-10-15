@@ -600,6 +600,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8255739205519216521, guid: ed13720d51e2fa64d8a78b488f450981,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8255739205992063694, guid: ed13720d51e2fa64d8a78b488f450981,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -6008,6 +6013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843731710097341387, guid: ed13720d51e2fa64d8a78b488f450981,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.3999023
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed13720d51e2fa64d8a78b488f450981, type: 3}
