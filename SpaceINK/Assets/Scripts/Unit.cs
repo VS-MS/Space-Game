@@ -7,14 +7,22 @@ public class Unit : MonoBehaviour
 
     //количество очков, которые получит игрок за уничтожение коробля
     [SerializeField]
-    protected int moneyCount;
-    public int moneySet
+    protected long moneyCount;
+    public long moneySet
     {
         set
         {
             if (value < 0)
                 moneyCount = 0;
             else moneyCount = value;
+        }
+    }
+
+    public long moneyGet
+    {
+        get
+        {
+            return moneyCount;
         }
     }
 

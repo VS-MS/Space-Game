@@ -63,6 +63,8 @@ public class PlayerShip : Unit {
             Debug.LogError("StatusSlider not found");
             Debug.LogWarning("Add StatusSlider obj to the scene!");
         }
+
+        moneyCount = DataSave.instance.money;
     }
     private void Awake()
     {

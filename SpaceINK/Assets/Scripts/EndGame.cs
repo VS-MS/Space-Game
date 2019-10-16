@@ -49,6 +49,7 @@ public class EndGame : MonoBehaviour
 
         controlPanel.SetActive(false);
         Time.timeScale = 0;
+        endLavelPanel.GetComponent<MoneyEndGame>().UpdateMoneyEnd();
         endLavelPanel.SetActive(true);
     }
 }

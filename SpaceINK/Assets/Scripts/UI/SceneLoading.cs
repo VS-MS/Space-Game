@@ -21,7 +21,6 @@ public class SceneLoading : MonoBehaviour
     public void LoadeSceneName(string sceneName_) 
     {
         sceneName = sceneName_;
-        Debug.Log("Загружаем сцену №" + sceneName);
         StartCoroutine(AsyncLoad());
     }
 
