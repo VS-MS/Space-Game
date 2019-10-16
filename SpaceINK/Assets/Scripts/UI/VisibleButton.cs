@@ -10,21 +10,24 @@ public class VisibleButton : MonoBehaviour
     void Start() 
     {
         buttonLvl = this.GetComponent<Button>();
+
+        Debug.Log(buttonLvl + "  " + (DataSave.instance.levelComplite + 1));
         //Условие на текущий доступный уровень
-        if(DataSave.instance.levelComplite + 1 == lvlNomber)
+        if(lvlNomber == DataSave.instance.levelComplite + 1)
         {
-            buttonLvl.interactable = false;
+            Debug.Log("True");
+            buttonLvl.interactable = true;
             //тут надо будет сделать анимацию или еще что
         }
         //условие на все пройденные уровни
-        if(DataSave.instance.levelComplite + 1 < lvlNomber)
-        {
-            buttonLvl.interactable = false;
-        }
-        //Условие на все не пройденные уровни
-        if (DataSave.instance.levelComplite + 1 > lvlNomber)
+        if(lvlNomber <= DataSave.instance.levelComplite)
         {
             buttonLvl.interactable = true;
+        }
+        //Условие на все не пройденные уровни
+        if (lvlNomber > DataSave.instance.levelComplite + 1)
+        {
+            buttonLvl.interactable = false;
         }
     }
 
