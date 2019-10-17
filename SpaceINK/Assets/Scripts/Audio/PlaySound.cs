@@ -18,4 +18,9 @@ public class PlaySound : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play(soundName);
     }
+
+    public void StartSound(string sound)
+    {
+        FindObjectOfType<AudioManager>().Play(sound);
+    }
 }

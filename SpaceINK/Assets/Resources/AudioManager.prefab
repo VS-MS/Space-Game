@@ -104,3 +104,21 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ButtonPressed1
+    clip: {fileID: 8300000, guid: 0e7e63353ee072e44a0855ae2aac75f3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonCancel1
+    clip: {fileID: 8300000, guid: 5d0e4d5456e12f440ae1fe1918e1d528, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Powerup1
+    clip: {fileID: 8300000, guid: 6626cd736f016d64fa15199e0889e6c2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

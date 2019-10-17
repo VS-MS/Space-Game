@@ -61,9 +61,11 @@ public class UpgradeSystem : MonoBehaviour
                 DataSave.instance.CannonLvl++;
                 DataSave.instance.SaveGame();
                 RefreshStat();
+                FindObjectOfType<AudioManager>().Play("Powerup1");
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("ButtonCancel1");
                 Debug.Log("Dude, you are need more money for this");
             }
         }
@@ -84,9 +86,11 @@ public class UpgradeSystem : MonoBehaviour
                 DataSave.instance.SuperShotLvl++;
                 DataSave.instance.SaveGame();
                 RefreshStat();
+                FindObjectOfType<AudioManager>().Play("Powerup1");
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("ButtonCancel1");
                 Debug.Log("Dude, you are need more money for this");
             }
         }
@@ -107,9 +111,11 @@ public class UpgradeSystem : MonoBehaviour
                 DataSave.instance.ArmorShieldLvl++;
                 DataSave.instance.SaveGame();
                 RefreshStat();
+                FindObjectOfType<AudioManager>().Play("Powerup1");
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("ButtonCancel1");
                 Debug.Log("Dude, you are need more money for this");
             }
         }
@@ -130,9 +136,11 @@ public class UpgradeSystem : MonoBehaviour
                 DataSave.instance.EngineLvl++;
                 DataSave.instance.SaveGame();
                 RefreshStat();
+                FindObjectOfType<AudioManager>().Play("Powerup1");
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("ButtonCancel1");
                 Debug.Log("Dude, you are need more money for this");
             }
         }
@@ -153,9 +161,11 @@ public class UpgradeSystem : MonoBehaviour
                 DataSave.instance.SuperBoostLvl++;
                 DataSave.instance.SaveGame();
                 RefreshStat();
+                FindObjectOfType<AudioManager>().Play("Powerup1");
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("ButtonCancel1");
                 Debug.Log("Dude, you are need more money for this");
             }
         }
