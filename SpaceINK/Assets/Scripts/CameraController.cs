@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour {
 
     public float defaultPositionZ; 
     private GameObject controlPanel;
-    private GameObject menuPanel; 
+    private GameObject gameOverPanel; 
 
     public float dieTime = 8;
     private float myTime = 0;
@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour {
     {
         //if (!target) target = FindObjectOfType<Character>().transform;
         controlPanel = GameObject.Find("Canvas").gameObject.transform.Find("PanelControl").gameObject;
-        menuPanel = GameObject.Find("Canvas").gameObject.transform.Find("PanelMenu").gameObject;
+        gameOverPanel = GameObject.Find("Canvas").gameObject.transform.Find("GameOverPanel").gameObject;
         target = GameObject.FindGameObjectWithTag("Player");
         //
     }
@@ -50,7 +50,8 @@ public class CameraController : MonoBehaviour {
                 }
                 else
                 {
-                    menuPanel.SetActive(true);
+                    gameOverPanel.GetComponent<MoneyEndGame>().UpdateMoneyEnd();
+                    gameOverPanel.SetActive(true);
                     Time.timeScale = 0;
                 }
                 this.transform.position = Vector3.Lerp(transform.position, target.transform.position + new Vector3(0, cameraPositionY, -15), speed * Time.deltaTime * 2);

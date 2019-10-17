@@ -24,6 +24,26 @@ public class SceneLoading : MonoBehaviour
         StartCoroutine(AsyncLoad());
     }
 
+    public void RestartThisScene()
+    {
+        string s = SceneManager.GetActiveScene().name;
+        int lvlNumber;
+        try
+        {
+            lvlNumber = Convert.ToInt32(s);
+        }
+        catch (System.FormatException)
+        {
+            lvlNumber = 1;
+            Debug.LogError("Не верное название сцены, сцена должна называться только целочисленным числом. Установленно значение по умолчанию равное = " + lvlNumber);
+        }
+
+        sceneName = (lvlNumber).ToString();
+
+        Debug.Log("Загружаем сцену №" + sceneName);
+        StartCoroutine(AsyncLoad());
+    }
+
     public void LoadeNextScene()
     {
         string s = SceneManager.GetActiveScene().name;
