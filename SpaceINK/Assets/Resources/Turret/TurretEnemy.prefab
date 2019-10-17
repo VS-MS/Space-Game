@@ -50,7 +50,7 @@ MonoBehaviour:
   fireDelta: 0.7
   gunTransform:
   - {fileID: 6950701583223447341}
-  simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
+  simpleBullet: {fileID: 3272520498460715882, guid: 87ba6eba64272114da7eacb4ef898a8a,
     type: 3}
 --- !u!1 &4287859871933788679
 GameObject:

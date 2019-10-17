@@ -11,11 +11,9 @@ public class VisibleButton : MonoBehaviour
     {
         buttonLvl = this.GetComponent<Button>();
 
-        Debug.Log(buttonLvl + "  " + (DataSave.instance.levelComplite + 1));
         //Условие на текущий доступный уровень
         if(lvlNomber == DataSave.instance.levelComplite + 1)
         {
-            Debug.Log("True");
             buttonLvl.interactable = true;
             //тут надо будет сделать анимацию или еще что
         }

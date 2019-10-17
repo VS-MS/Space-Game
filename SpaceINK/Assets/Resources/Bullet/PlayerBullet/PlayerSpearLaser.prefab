@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 6077536014209370114}
   - component: {fileID: 1534698259522750513}
   - component: {fileID: 751079117283627251}
+  - component: {fileID: -7903000589155263496}
   m_Layer: 0
   m_Name: PlayerSpearLaser
   m_TagString: PlayerBullet
@@ -357,6 +358,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0044018775, y: 0}
   m_Size: {x: 0.27990666, y: 0.9295702}
   m_Direction: 0
+--- !u!114 &-7903000589155263496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077536014209370115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Laser_Shoot3
+  delayTime: 0
 --- !u!1 &6077536015483596318
 GameObject:
   m_ObjectHideFlags: 0

@@ -112,7 +112,7 @@ MonoBehaviour:
   gunTransform:
   - {fileID: 8493990530024830310}
   - {fileID: 242367836521702433}
-  simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
+  simpleBullet: {fileID: 60028887982529064, guid: 2a2018857cbb28d40bf3ce491346ebaf,
     type: 3}
 --- !u!1 &5027205565207059160
 GameObject:

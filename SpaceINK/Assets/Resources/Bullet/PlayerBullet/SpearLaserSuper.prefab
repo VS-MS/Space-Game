@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 8656249254844907215}
   - component: {fileID: 4123826061422198524}
   - component: {fileID: 2745731643732223550}
+  - component: {fileID: -5074124616728466825}
   m_Layer: 0
   m_Name: SpearLaserSuper
   m_TagString: PlayerBullet
@@ -437,6 +438,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0044018775, y: 0}
   m_Size: {x: 0.27990666, y: 0.9295702}
   m_Direction: 0
+--- !u!114 &-5074124616728466825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8656249254844907214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Laser_Shoot3
+  delayTime: 0
 --- !u!1 &8656249255795335637
 GameObject:
   m_ObjectHideFlags: 0

@@ -1739,9 +1739,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3958345885612229762}
-        m_MethodName: set_interactable
-        m_Mode: 6
+      - m_Target: {fileID: 1546552977112526343}
+        m_MethodName: MoneyX2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2785,9 +2785,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6960646885069352086}
-        m_MethodName: set_interactable
-        m_Mode: 6
+      - m_Target: {fileID: 1886393373257160381}
+        m_MethodName: MoneyX2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

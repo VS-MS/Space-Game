@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,11 @@ public class PlaySound : MonoBehaviour
     private float delayTime;
     private void Awake()
     {
-        Invoke("StartSound", delayTime);
+        if(!String.IsNullOrEmpty(soundName))
+        {
+            Invoke("StartSound", delayTime);
+        }
+        
     }
 
     private void StartSound()

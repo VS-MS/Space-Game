@@ -122,3 +122,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Laser_Shoot3
+    clip: {fileID: 8300000, guid: f85814a7a727efd449bbe4c96f63dee9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Laser_Shoot4
+    clip: {fileID: 8300000, guid: eb2ed427882efc9409c7b8fe7024ab94, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

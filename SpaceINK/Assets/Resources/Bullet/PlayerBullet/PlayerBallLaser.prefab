@@ -228,7 +228,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 18
   m_Sprite: {fileID: 21300000, guid: 1023ddef65bb0b0438708020bf3e1e78, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 7597302538985969088}
   - component: {fileID: 2915204764704364019}
   - component: {fileID: 3987069802423176497}
+  - component: {fileID: 7971713962809052433}
   m_Layer: 0
   m_Name: PlayerBallLaser
   m_TagString: PlayerBullet
@@ -310,6 +311,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0044018775, y: 0}
   m_Size: {x: 0.27990666, y: 0.9295702}
   m_Direction: 0
+--- !u!114 &7971713962809052433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7597302538985969089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Laser_Shoot4
+  delayTime: 0
 --- !u!1 &7597302539662396122
 GameObject:
   m_ObjectHideFlags: 0

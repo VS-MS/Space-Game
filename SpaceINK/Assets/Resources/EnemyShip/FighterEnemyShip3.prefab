@@ -287,7 +287,7 @@ MonoBehaviour:
   fireDelta: 0.3
   baseEnemyStat: {fileID: 11400000, guid: 6ba2eb97aec168749a3d66e496e8be0a, type: 2}
   maxEnemyStat: {fileID: 11400000, guid: 651a5cf8328eb824ab4f156c7e794a5d, type: 2}
-  simpleBullet: {fileID: -6532439880846922488, guid: 03430da010f47ee4e94f9c94d0d396b7,
+  simpleBullet: {fileID: 60028887982529064, guid: 2a2018857cbb28d40bf3ce491346ebaf,
     type: 3}
   parentPosition: {fileID: 0}
   gunMachine:

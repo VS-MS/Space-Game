@@ -48,6 +48,7 @@ public class FighterEnemyShip : EnemyShip
             gunMachine[i].bulletSpeed = bulletSpeed;
             gunMachine[i].bulletDamage = bulletDamage;
             gunMachine[i].fireDelta = fireDelta;
+            gunMachine[i].simpleBullet = simpleBullet;
         }
     }
     
