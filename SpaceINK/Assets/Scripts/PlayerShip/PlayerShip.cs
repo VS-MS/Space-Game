@@ -274,6 +274,15 @@ public class PlayerShip : Unit {
     }
 
 
+
+    /*
+     * 
+     * Изменить мтод ниже, полная фигня и костыль >_<
+     * 
+     * 
+     */ 
+
+
     public void SuperShoot()
     {
         if (superShootPoints > 0)

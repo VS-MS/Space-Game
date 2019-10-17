@@ -211,36 +211,6 @@ public class DataSave : MonoBehaviour
             ArmorShieldLvl = save.ArmorShieldLvl;
             EngineLvl = save.EngineLvl;
             SuperBoostLvl = save.SuperBoostLvl;
-
-            /*
-            canonDamage = save.canonDamage;
-            canonFireRate = save.canonFireRate;
-            canonSpeed = save.canonSpeed;
-            canonCount = save.canonCount;
-
-
-            ssDamage = save.ssDamage;
-            ssFireRate = save.ssFireRate;
-            ssMaxTime = save.ssMaxTime;
-            ssTimeReload = save.ssTimeReload;
-
-
-            shipArmor = save.shipArmor;
-
-            shipShield = save.shipShield;
-            shipShieldDelta = save.shipShieldDelta;
-
-
-            shipMaxSpeed = save.shipMaxSpeed;
-            shipAcceleration = save.shipAcceleration;
-            shipRotation = save.shipRotation;
-
-
-            sbMaxSpeed = save.sbMaxSpeed;
-            sbAcceleration = save.sbAcceleration;
-            sbMaxTime = save.sbMaxTime;
-            sbTimeReload = save.sbTimeReload;
-            */
             RefreshStat();
 
             //Debug.Log("Game Loaded");

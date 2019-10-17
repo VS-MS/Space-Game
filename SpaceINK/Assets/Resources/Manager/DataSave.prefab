@@ -46,7 +46,7 @@ MonoBehaviour:
   basePlayerStat: {fileID: 11400000, guid: 128f693a60d4af641a63a9da30b98bac, type: 2}
   maxPlayerStat: {fileID: 11400000, guid: 742f43a3caac1c842bab90e37e6bec98, type: 2}
   money: 0
-  levelComplite: 1
+  levelComplite: 0
   CannonLvl: 1
   SuperShotLvl: 1
   ArmorShieldLvl: 1

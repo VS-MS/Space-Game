@@ -10,7 +10,7 @@ public class VisibleButton : MonoBehaviour
     void Start() 
     {
         buttonLvl = this.GetComponent<Button>();
-
+        Debug.Log(lvlNomber + " - " + DataSave.instance.levelComplite);
         //Условие на текущий доступный уровень
         if(lvlNomber == DataSave.instance.levelComplite + 1)
         {
