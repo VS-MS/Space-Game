@@ -7,10 +7,10 @@ public class PlayerShip : Unit {
     [Header("Main Weapon Settings")]
     [SerializeField]
     //Экземпляр обычной пули игрока
-    private PlayerBullet playerBulletSimple;
+    private PlayerBullet[] playerBulletSimple;
     [SerializeField]
     //Экземпляр супер пули игрока
-    private PlayerBullet playerBulletSuper; 
+    private PlayerBullet[] playerBulletSuper; 
 
     [SerializeField]
     private float bulletDamage;
@@ -249,9 +249,9 @@ public class PlayerShip : Unit {
         }
     }
 
-    private void LaunchBullet(Transform bulletPosition)
+    private void LaunchBullet(Transform bulletPosition, int i)
     {
-        PlayerBullet newBullet = Instantiate(playerBulletSimple, bulletPosition.position, playerBulletSimple.transform.rotation) as PlayerBullet;
+        PlayerBullet newBullet = Instantiate(playerBulletSimple[i], bulletPosition.position, bulletPosition.transform.rotation) as PlayerBullet;
         newBullet.Speed = bulletSpeed;
         newBullet.Parent = gameObject;
         newBullet.Direction = m_Rigidbody2D.transform.up;
@@ -261,9 +261,9 @@ public class PlayerShip : Unit {
         newBullet.Damage = bulletDamage;
     }
 
-    private void LaunchSuperBullet(Transform bulletPosition)
+    private void LaunchSuperBullet(Transform bulletPosition, int i)
     {
-        PlayerBullet newBullet = Instantiate(playerBulletSuper, bulletPosition.position, playerBulletSuper.transform.rotation) as PlayerBullet;
+        PlayerBullet newBullet = Instantiate(playerBulletSuper[i], bulletPosition.position, bulletPosition.transform.rotation) as PlayerBullet;
         newBullet.Speed = bulletSpeed;
         newBullet.Parent = gameObject;
         newBullet.Direction = m_Rigidbody2D.transform.up;
@@ -286,28 +286,38 @@ public class PlayerShip : Unit {
                 switch (cannonCount)
                 {
                     case 1:
-                        LaunchSuperBullet(gunTransform[0]);
+                        LaunchSuperBullet(gunTransform[0], 0);
                         break;
                     case 2:
-                        LaunchSuperBullet(gunTransform[1]);
-                        LaunchSuperBullet(gunTransform[2]);
+                        LaunchSuperBullet(gunTransform[1], 1);
+                        LaunchSuperBullet(gunTransform[2], 1);
                         break;
                     case 3:
-                        for (int i = 0; i <= 2; i++)
+                        for (int i = 1; i <= 2; i++)
                         {
-                            LaunchSuperBullet(gunTransform[i]);
+                            LaunchSuperBullet(gunTransform[i], 1);
                         }
+                        LaunchSuperBullet(gunTransform[0], 0);
                         break;
                     case 4:
-                        for (int i = 1; i <= 4; i++)
+                        for (int i = 1; i <= 2; i++)
                         {
-                            LaunchSuperBullet(gunTransform[i]);
+                            LaunchSuperBullet(gunTransform[i], 1);
+                        }
+                        for (int i = 3; i <= 4; i++)
+                        {
+                            LaunchSuperBullet(gunTransform[i], 2);
                         }
                         break;
                     case 5:
-                        for (int i = 0; i < gunTransform.Length; i++)
+                        LaunchSuperBullet(gunTransform[0], 0);
+                        for (int i = 1; i <= 2; i++)
                         {
-                            LaunchSuperBullet(gunTransform[i]);
+                            LaunchSuperBullet(gunTransform[i], 1);
+                        }
+                        for (int i = 3; i <= 4; i++)
+                        {
+                            LaunchSuperBullet(gunTransform[i], 2);
                         }
                         break;
                 }
@@ -326,28 +336,38 @@ public class PlayerShip : Unit {
             switch (cannonCount)
             {
                 case 1:
-                    LaunchBullet(gunTransform[0]);
+                    LaunchBullet(gunTransform[0], 0);
                     break;
                 case 2:
-                    LaunchBullet(gunTransform[1]);
-                    LaunchBullet(gunTransform[2]);
+                    LaunchBullet(gunTransform[1], 1);
+                    LaunchBullet(gunTransform[2], 1);
                     break;
                 case 3:
-                    for (int i = 0; i <= 2; i++)
+                    for (int i = 1; i <= 2; i++)
                     {
-                        LaunchBullet(gunTransform[i]);
+                        LaunchBullet(gunTransform[i], 1);
                     }
+                    LaunchBullet(gunTransform[0], 0);
                     break;
                 case 4:
-                    for (int i = 1; i <= 4; i++)
+                    for (int i = 1; i <= 2; i++)
                     {
-                        LaunchBullet(gunTransform[i]);
+                        LaunchBullet(gunTransform[i], 1);
+                    }
+                    for (int i = 3; i <= 4; i++)
+                    {
+                        LaunchBullet(gunTransform[i], 2);
                     }
                     break;
                 case 5:
-                    for (int i = 0; i < gunTransform.Length; i++)
+                    LaunchBullet(gunTransform[0], 0);
+                    for (int i = 1; i <= 2; i++)
                     {
-                        LaunchBullet(gunTransform[i]);
+                        LaunchBullet(gunTransform[i], 1);
+                    }
+                    for (int i = 3; i <= 4; i++)
+                    {
+                        LaunchBullet(gunTransform[i], 2);
                     }
                     break;
             }

@@ -244,10 +244,14 @@ MonoBehaviour:
   maxSpeed: 15
   boostForce: 80
   rotationSpeed: 1
-  playerBulletSimple: {fileID: 7035233454327686688, guid: 0fde5d9d2d9811748a820dd40f5b925e,
-    type: 3}
-  playerBulletSuper: {fileID: 8111447291839657650, guid: 838dbef0d45ee1d42bf7e5d22dbd18a3,
-    type: 3}
+  playerBulletSimple:
+  - {fileID: 7035233454327686688, guid: 0fde5d9d2d9811748a820dd40f5b925e, type: 3}
+  - {fileID: 4123826061422198524, guid: dbadd2af862a3e54e8f5f80eccece01e, type: 3}
+  - {fileID: 2915204764704364019, guid: f610038e9fb803949b125c86c8c78899, type: 3}
+  playerBulletSuper:
+  - {fileID: 8111447291839657650, guid: 838dbef0d45ee1d42bf7e5d22dbd18a3, type: 3}
+  - {fileID: 4123826061422198524, guid: dbadd2af862a3e54e8f5f80eccece01e, type: 3}
+  - {fileID: 7478413894328991174, guid: 3fdf07f33d1287745bb49765f5c84570, type: 3}
   bulletDamage: 20
   bulletSpeed: 0.5
   fireDelta: 0.3
