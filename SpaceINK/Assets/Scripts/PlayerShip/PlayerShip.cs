@@ -227,13 +227,35 @@ public class PlayerShip : Unit {
         }
     }
 
+
+    //Супер ускорение.
+    public void SuperBoost(Vector3 boostVector)
+    {
+        if (boostPoints > 0)
+        {
+            boostPoints -= Time.deltaTime * 65;
+            //if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * sbSpeedRatio))
+            if((boostVector * maxSpeed + (Vector3)m_Rigidbody2D.velocity).magnitude <= maxSpeed * 2 * sbSpeedRatio)
+            {
+                m_Rigidbody2D.AddForce(transform.up * boostForce * sbAccelerationRatio * Time.deltaTime);
+                boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = true;
+                boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = true;
+            }
+        }
+        else
+        {
+
+            boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = false;
+            boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = false;
+        }
+    }
+
     //Супер ускорение.
     public void SuperBoost()
-    {   
-        
+    {      
         if(boostPoints > 0)
         {
-            boostPoints-= Time.deltaTime * 65;
+            boostPoints -= Time.deltaTime * 65;
             if (m_Rigidbody2D.velocity.magnitude < (maxSpeed * sbSpeedRatio))
             {
                 m_Rigidbody2D.AddForce(transform.up * boostForce * sbAccelerationRatio * Time.deltaTime);
@@ -277,7 +299,7 @@ public class PlayerShip : Unit {
 
     /*
      * 
-     * Изменить мтод ниже, полная фигня и костыль >_<
+     * Изменить метод ниже, полная фигня и костыль >_<
      * 
      * 
      */ 

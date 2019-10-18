@@ -31,18 +31,7 @@ public class PlayerShipControl : MonoBehaviour {
             m_Ship.shipState = Unit.State.Idle;
         }
 
-        if (CnInputManager.GetButton("Boost") && m_Ship.shipState == Unit.State.Idle || m_Ship.shipState == Unit.State.SuperBoost)
-        {
-            m_Ship.SuperBoost();
-            m_Ship.shipState = Unit.State.SuperBoost;
-        }
-
-        if (CnInputManager.GetButtonUp("Boost"))
-        {
-            m_Ship.boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = false;
-            m_Ship.boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = false;
-            m_Ship.shipState = Unit.State.Idle;
-        }
+        
 
         if (CnInputManager.GetButton("Fire") && m_Ship.shipState == Unit.State.Idle)
         {
@@ -81,6 +70,21 @@ public class PlayerShipControl : MonoBehaviour {
             //inputVector - вектор отклонения джойстика
             m_Ship.Boost(inputVector);
         }
+
+        if (CnInputManager.GetButton("Boost") && m_Ship.shipState == Unit.State.Idle || m_Ship.shipState == Unit.State.SuperBoost)
+        {
+            //m_Ship.SuperBoost();
+            m_Ship.SuperBoost(inputVector);
+            m_Ship.shipState = Unit.State.SuperBoost;
+        }
+
+        if (CnInputManager.GetButtonUp("Boost"))
+        {
+            m_Ship.boostWing.transform.Find("Trail_6").gameObject.GetComponent<TrailRenderer>().emitting = false;
+            m_Ship.boostWing.transform.Find("Trail_7").gameObject.GetComponent<TrailRenderer>().emitting = false;
+            m_Ship.shipState = Unit.State.Idle;
+        }
+
     }
 
     private void FixedUpdate()

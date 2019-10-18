@@ -27,6 +27,7 @@ public class MoneyText : MonoBehaviour
     {
 
         string money_ = numberToString.ShortNumber(DataSave.instance.money); //dataSave.money.ToString();
+        long mon_tmp = DataSave.instance.money;
         textMoney.text = money_;
 
         //Debug.Log(dataSave.money);

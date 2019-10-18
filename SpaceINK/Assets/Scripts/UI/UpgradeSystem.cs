@@ -222,8 +222,8 @@ public class UpgradeSystem : MonoBehaviour
 
         //статы коробля
         //Главня пушка
-        cannonDamageText.text = DataSave.instance.cannonDamage.ToString("0,00");
-        cannonRateText.text = DataSave.instance.cannonFireRate.ToString("0,00");
+        cannonDamageText.text = DataSave.instance.cannonDamage.ToString("0.00");
+        cannonRateText.text = DataSave.instance.cannonFireRate.ToString("0.00");
         cannonSpeedText.text = DataSave.instance.cannonBulletSpeed.ToString("0.00");
         cannonCountText.text = DataSave.instance.cannonCount.ToString();
         //SuperShoot

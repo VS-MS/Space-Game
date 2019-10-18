@@ -71,7 +71,7 @@ MonoBehaviour:
   fragmentAsteroid: {fileID: 7029890162513019858, guid: 4644352daaa77e448b56e120a45b00fb,
     type: 3}
   torque: 5000
-  hp: 80000
+  hp: 8000
 --- !u!212 &5743249174703156999
 SpriteRenderer:
   m_ObjectHideFlags: 0
