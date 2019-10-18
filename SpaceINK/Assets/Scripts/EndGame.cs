@@ -32,6 +32,7 @@ public class EndGame : MonoBehaviour
             catch (System.FormatException)
             {
                 Debug.LogError("Уровень не может быть засчитан. Не верное название сцены, сцена должна называться только целочисленным числом.");
+                lvlNumber = 1;
             }
 
             Invoke("LoadEndGame", 1f);

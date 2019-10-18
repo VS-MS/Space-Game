@@ -44,8 +44,22 @@ public class EnemyShip : Unit
     protected int SetMoneyCount()
     {
         int money_;
-        money_ = (int)((maxShieldPoints + maxShieldPoints) * bulletDamage);
-        return money_;
+        money_ = (int)((maxArmorPoints + maxShieldPoints) * bulletDamage);
+
+        string s = SceneManager.GetActiveScene().name;
+        int lvlNumber;
+        try
+        {
+            lvlNumber = Convert.ToInt32(s);
+            DataSave.instance.levelComplite = lvlNumber;
+        }
+        catch (System.FormatException)
+        {
+            Debug.LogError("Уровень не может быть засчитан. Не верное название сцены, сцена должна называться только целочисленным числом.");
+            lvlNumber = 1;
+        }
+
+        return money_ + money_* (lvlNumber/10);
     }
     public void StatusSliderInt(float _upDis, float _scaleX) 
     {
