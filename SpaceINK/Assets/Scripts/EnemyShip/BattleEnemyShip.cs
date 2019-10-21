@@ -18,6 +18,7 @@ public class BattleEnemyShip : EnemyShip
     protected void Awake()
     {
         InitStat();
+        turretRotationSpeed = rotationSpeed * 2;
         StatusSliderInt(6.0f, 2.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");

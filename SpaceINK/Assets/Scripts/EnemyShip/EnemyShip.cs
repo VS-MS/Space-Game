@@ -51,7 +51,7 @@ public class EnemyShip : Unit
         try
         {
             lvlNumber = Convert.ToInt32(s);
-            DataSave.instance.levelComplite = lvlNumber;
+            //DataSave.instance.levelComplite = lvlNumber;
         }
         catch (System.FormatException)
         {

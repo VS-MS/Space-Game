@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BasePlayerStat
   m_EditorClassIdentifier: 
   cannonDamage: 5
-  cannonFireRate: 0.5
-  cannonBulletSpeed: 50
+  cannonFireRate: 0.4
+  cannonBulletSpeed: 60
   cannonCount: 1
   ssDamage: 1.2
   ssMaxTime: 100

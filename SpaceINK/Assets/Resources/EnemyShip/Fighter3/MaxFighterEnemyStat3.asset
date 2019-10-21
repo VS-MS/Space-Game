@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2379dc8d1113a94a8f4d79126a21c0a, type: 3}
   m_Name: MaxFighterEnemyStat3
   m_EditorClassIdentifier: 
-  armorPoints: 350
-  maxArmorPoints: 350
-  shieldPoints: 245
-  maxShieldPoints: 245
+  armorPoints: 310
+  maxArmorPoints: 310
+  shieldPoints: 200
+  maxShieldPoints: 200
   shieldDelta: 0.1
   maxSpeed: 9
   boostForce: 40
   rotationSpeed: 1
-  bulletDamage: 3
+  bulletDamage: 8
   bulletSpeed: 2.6
   fireDelta: 0.3

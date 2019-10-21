@@ -12,7 +12,8 @@ public class PlaySound : MonoBehaviour
     private float delayTime;
     private void Awake()
     {
-        if(!String.IsNullOrEmpty(soundName))
+        
+        if (!String.IsNullOrEmpty(soundName))
         {
             Invoke("StartSound", delayTime);
         }
@@ -22,10 +23,16 @@ public class PlaySound : MonoBehaviour
     private void StartSound()
     {
         FindObjectOfType<AudioManager>().Play(soundName);
+        
     }
 
     public void StartSound(string sound)
     {
         FindObjectOfType<AudioManager>().Play(sound);
+    }
+
+    public void StopSound(string sound)
+    {
+        FindObjectOfType<AudioManager>().Stop(sound);
     }
 }

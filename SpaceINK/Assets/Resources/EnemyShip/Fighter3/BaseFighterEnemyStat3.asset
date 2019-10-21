@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2379dc8d1113a94a8f4d79126a21c0a, type: 3}
   m_Name: BaseFighterEnemyStat3
   m_EditorClassIdentifier: 
-  armorPoints: 90
-  maxArmorPoints: 90
-  shieldPoints: 65
-  maxShieldPoints: 65
+  armorPoints: 75
+  maxArmorPoints: 75
+  shieldPoints: 55
+  maxShieldPoints: 55
   shieldDelta: 0.6
   maxSpeed: 6
   boostForce: 13

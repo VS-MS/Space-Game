@@ -10,11 +10,12 @@ public class AudioManager : MonoBehaviour
      * FindObjectOfType<AudioManager>().Play("NazvanieSound");
      */
 
+    public bool audioVFX;
+    public bool audioMusic;
     public Sound[] sounds;
     public static AudioManager instance;
     void Awake()
-    {
-        
+    { 
         if(instance == null)
         {
             instance = this;
@@ -36,31 +37,35 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
-        Play("MenuTheme");
+
+        
 
     }
 
     public void Play(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        if(audioVFX)
         {
-            Debug.Log("sound not found " + name);
-            return;
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            if (s == null)
+            {
+                Debug.Log("sound not found " + name);
+                return;
+            }
+            s.source.Play();
         }
-        s.source.Play();
+        
     }
-
-    /*
     public void Stop(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.Log("sound not found");
+            Debug.Log("sound not found " + name);
             return;
         }
         s.source.Stop();
     }
-    */
+
 }
+
