@@ -15,6 +15,11 @@ public class SettingsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Invoke("SetDefaultToogle", 0.1f);
+    }
+
+    public void SetDefaultToogle()
+    {
         if (!PlayerPrefs.HasKey("soundVFX"))
         {
             PlayerPrefs.SetInt("soundVFX", 1);
@@ -41,7 +46,7 @@ public class SettingsMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt("musicVFX", 1);
             toggleMusic.isOn = true;
-            FindObjectOfType<AudioManager>().Play("MenuTheme");
+            FindObjectOfType<AudioManager>().PlayMusic("MenuTheme");
             PlayerPrefs.Save();
         }
         // 2
@@ -49,18 +54,17 @@ public class SettingsMenu : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("musicVFX") == 0)
             {
+                Debug.Log("Stop");
                 toggleMusic.isOn = false;
                 FindObjectOfType<AudioManager>().Stop("MenuTheme");
             }
             else
             {
                 toggleMusic.isOn = true;
-                FindObjectOfType<AudioManager>().Play("MenuTheme");
+                FindObjectOfType<AudioManager>().PlayMusic("MenuTheme");
             }
         }
-
     }
-
     public void ToggleVFX()
     {
         if (toggleVFX.isOn)
@@ -74,6 +78,7 @@ public class SettingsMenu : MonoBehaviour
             FindObjectOfType<AudioManager>().audioVFX = false;
         }
         PlayerPrefs.Save();
+        Debug.Log(PlayerPrefs.GetInt("soundVFX"));
     }
 
 
@@ -82,7 +87,7 @@ public class SettingsMenu : MonoBehaviour
         if (toggleMusic.isOn)
         {
             PlayerPrefs.SetInt("musicVFX", 1);
-            FindObjectOfType<AudioManager>().Play("MenuTheme");
+            FindObjectOfType<AudioManager>().PlayMusic("MenuTheme");
         }
         else
         {
@@ -91,5 +96,4 @@ public class SettingsMenu : MonoBehaviour
         }
         PlayerPrefs.Save();
     }
-
 }
