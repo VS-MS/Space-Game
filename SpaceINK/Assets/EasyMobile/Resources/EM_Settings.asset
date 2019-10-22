@@ -23,7 +23,7 @@ MonoBehaviour:
     mAndroidDefaultAdNetworks:
       bannerAdNetwork: 0
       interstitialAdNetwork: 0
-      rewardedAdNetwork: 0
+      rewardedAdNetwork: 2
     mAdColony:
       mAppId:
         mIosId: 
@@ -49,10 +49,10 @@ MonoBehaviour:
         mExtraOptions:
           keys: []
           values: []
-      mEnableTestMode: 0
+      mEnableTestMode: 1
       mAppId:
         mIosId: 
-        mAndroidId: 
+        mAndroidId: ca-app-pub-0653848455506151~9049199752
       mDefaultBannerAdId:
         mIosId: 
         mAndroidId: 
@@ -61,7 +61,7 @@ MonoBehaviour:
         mAndroidId: 
       mDefaultRewardedAdId:
         mIosId: 
-        mAndroidId: 
+        mAndroidId: ca-app-pub-0653848455506151/9787566354
       mCustomBannerAdIds:
         keys: []
         values: []
@@ -291,10 +291,37 @@ MonoBehaviour:
       mValue: '[Your usage description]'
     - mKey: NSPhotoLibraryAddUsageDescription
       mValue: '[Your usage description]'
-  mIsAdModuleEnable: 0
+  mNativeApisSettings:
+    mIsMediaEnabled: 0
+    mMediaSettings:
+      mAndroidPermissions:
+      - mElementName: uses-permission
+        mValue: android.permission.WRITE_EXTERNAL_STORAGE
+      - mElementName: uses-feature
+        mValue: android.hardware.camera
+      mIOSInfoPlistKeys:
+      - mKey: NSPhotoLibraryUsageDescription
+        mValue: '[Your usage description]'
+      - mKey: NSPhotoLibraryAddUsageDescription
+        mValue: '[Your usage description]'
+      - mKey: NSCameraUsageDescription
+        mValue: '[Your usage description]'
+      - mKey: NSMicrophoneUsageDescription
+        mValue: '[Your usage description]'
+    mIsContactsEnabled: 0
+    mContactsSettings:
+      mAndroidPermissions:
+      - mElementName: uses-permission
+        mValue: android.permission.WRITE_CONTACTS
+      - mElementName: uses-permission
+        mValue: android.permission.READ_CONTACTS
+      mIOSInfoPlistKeys:
+      - mKey: NSContactsUsageDescription
+        mValue: '[Your usage description]'
+  mIsAdModuleEnable: 1
   mIsIAPModuleEnable: 0
   mIsGameServiceModuleEnable: 0
   mIsNotificationModuleEnable: 0
   mIsSharingModuleEnable: 0
   mActiveModuleIndex: 0
-  mIsSelectingModule: 1
+  mIsSelectingModule: 0
