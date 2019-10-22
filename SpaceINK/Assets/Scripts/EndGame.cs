@@ -27,7 +27,11 @@ public class EndGame : MonoBehaviour
             try
             {
                 lvlNumber = Convert.ToInt32(s);
-                DataSave.instance.levelComplite = lvlNumber;
+                if(lvlNumber > DataSave.instance.levelComplite)
+                {
+                    DataSave.instance.levelComplite = lvlNumber;
+                }
+                
             }
             catch (System.FormatException)
             {

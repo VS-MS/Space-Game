@@ -13,22 +13,27 @@ public class MoneyEndGame : MonoBehaviour
 
     private PlayerShip playerShip;
 
-    private bool isReady;
-
     private void Awake()
     {
-        if (!RuntimeManager.IsInitialized())
-            RuntimeManager.Init();
 
         playerShip = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShip>();
     }
 
-    private void Update()
+    public void Update() 
     {
-        // Check if rewarded ad is ready
-        isReady = Advertising.IsRewardedAdReady();
-        Debug.Log(isReady);
+        if (Advertising.IsRewardedAdReady())
+        {
+            buttonX2.interactable = true;
+            Debug.Log("true");
+        }
+        else
+        {
+            buttonX2.interactable = false;
+            Debug.Log("false");
+        }
     }
+
+
     public void UpdateMoneyEnd()
     {     
         //исправить!!! добавить нормальную переменную, в которой будем хранить набранные деньги за пройденный уровень.
@@ -43,7 +48,6 @@ public class MoneyEndGame : MonoBehaviour
 
     public void MoneyX2()
     {
-        //тут будет логи вознаграждения за просмотр видео
         /*
         playerShip = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShip>();
         textMoney.text = numberToString.ShortNumber((DataSave.instance.money - playerShip.moneyGet) * 2);
@@ -51,9 +55,10 @@ public class MoneyEndGame : MonoBehaviour
         DataSave.instance.money = DataSave.instance.money + (DataSave.instance.money - playerShip.moneyGet);
         */
 
-        
-        
-        
+
+
+        // Check if rewarded ad is ready
+        bool isReady = Advertising.IsRewardedAdReady();
         // Show it if it's ready
         if (isReady)
         {
@@ -80,6 +85,11 @@ public class MoneyEndGame : MonoBehaviour
     void RewardedAdCompletedHandler(RewardedAdNetwork network, AdPlacement location)
     {
         Debug.Log("Rewarded ad has completed. The user should be rewarded now.");
+
+        playerShip = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShip>();
+        textMoney.text = numberToString.ShortNumber((DataSave.instance.money - playerShip.moneyGet) * 2);
+
+        DataSave.instance.money = DataSave.instance.money + (DataSave.instance.money - playerShip.moneyGet);
     }
 
     // Event handler called when a rewarded ad has been skipped
