@@ -38,7 +38,7 @@ public class EndGame : MonoBehaviour
                 Debug.LogError("Уровень не может быть засчитан. Не верное название сцены, сцена должна называться только целочисленным числом.");
                 lvlNumber = 1;
             }
-
+            AdManager.instance.adCounter++;
             Invoke("LoadEndGame", 1f);
         }
     }

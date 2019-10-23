@@ -6,6 +6,7 @@ using EasyMobile;
 public class AdManager : MonoBehaviour
 {
     public static AdManager instance;
+    public int adCounter;
 
     void Awake()
     {
@@ -13,6 +14,7 @@ public class AdManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
+            adCounter = 0;
         }
         else
         {

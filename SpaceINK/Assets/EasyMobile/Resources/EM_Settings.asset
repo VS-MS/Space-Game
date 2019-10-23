@@ -22,7 +22,7 @@ MonoBehaviour:
       rewardedAdNetwork: 0
     mAndroidDefaultAdNetworks:
       bannerAdNetwork: 0
-      interstitialAdNetwork: 0
+      interstitialAdNetwork: 2
       rewardedAdNetwork: 2
     mAdColony:
       mAppId:
@@ -58,7 +58,7 @@ MonoBehaviour:
         mAndroidId: 
       mDefaultInterstitialAdId:
         mIosId: 
-        mAndroidId: 
+        mAndroidId: ca-app-pub-0653848455506151/2793609135
       mDefaultRewardedAdId:
         mIosId: 
         mAndroidId: ca-app-pub-0653848455506151/9787566354

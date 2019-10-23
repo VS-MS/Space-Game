@@ -29,7 +29,6 @@ public class MoneyEndGame : MonoBehaviour
         else
         {
             buttonX2.interactable = false;
-            Debug.Log("false");
         }
     }
 
@@ -55,8 +54,8 @@ public class MoneyEndGame : MonoBehaviour
         DataSave.instance.money = DataSave.instance.money + (DataSave.instance.money - playerShip.moneyGet);
         */
 
-
-
+        AdManager.instance.adCounter = 0;
+        
         // Check if rewarded ad is ready
         bool isReady = Advertising.IsRewardedAdReady();
         // Show it if it's ready
