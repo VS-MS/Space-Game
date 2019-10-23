@@ -6,9 +6,11 @@ using EasyMobile;
 
 public class LoadScene : MonoBehaviour
 {
+    public string sceneNameLoad;
     public void LoadByName(string sceneName)
     {
-        if(AdManager.instance.adCounter > 1)
+        sceneNameLoad = sceneName;
+        if (AdManager.instance.adCounter > 1)
         {
             //запускаем межстрочное объявление
             AdManager.instance.adCounter = 0;
@@ -23,11 +25,15 @@ public class LoadScene : MonoBehaviour
             }
             else
             {
-
+                SceneManager.LoadScene(sceneName);
             }
  
         }
-        SceneManager.LoadScene(sceneName);
+        else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        
     }
 
     // Subscribe to the event
@@ -40,6 +46,7 @@ public class LoadScene : MonoBehaviour
     void InterstitialAdCompletedHandler(InterstitialAdNetwork network, AdLocation location)
     {
         Debug.Log("Interstitial ad has been closed.");
+        SceneManager.LoadScene(sceneNameLoad);
     }
 
     // Unsubscribe

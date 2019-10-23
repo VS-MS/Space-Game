@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using EasyMobile;
 
 public class SceneLoading : MonoBehaviour
 {
@@ -21,7 +22,30 @@ public class SceneLoading : MonoBehaviour
     public void LoadeSceneName(string sceneName_) 
     {
         sceneName = sceneName_;
-        StartCoroutine(AsyncLoad());
+        //StartCoroutine(AsyncLoad());
+        if (AdManager.instance.adCounter > 1)
+        {
+            //запускаем межстрочное объявление
+            AdManager.instance.adCounter = 0;
+
+            // Check if interstitial ad is ready
+            bool isReady = Advertising.IsInterstitialAdReady();
+
+            // Show it if it's ready
+            if (isReady)
+            {
+                Advertising.ShowInterstitialAd();
+            }
+            else
+            {
+                StartCoroutine(AsyncLoad());
+            }
+
+        }
+        else
+        {
+            StartCoroutine(AsyncLoad());
+        }
     }
 
     public void RestartThisScene()
@@ -75,4 +99,24 @@ public class SceneLoading : MonoBehaviour
         }
         
     }
+
+    // Subscribe to the event
+    void OnEnable()
+    {
+        Advertising.InterstitialAdCompleted += InterstitialAdCompletedHandler;
+    }
+
+    // The event handler
+    void InterstitialAdCompletedHandler(InterstitialAdNetwork network, AdLocation location)
+    {
+        Debug.Log("Interstitial ad has been closed.");
+        StartCoroutine(AsyncLoad());
+    }
+
+    // Unsubscribe
+    void OnDisable()
+    {
+        Advertising.InterstitialAdCompleted -= InterstitialAdCompletedHandler;
+    }
+
 }

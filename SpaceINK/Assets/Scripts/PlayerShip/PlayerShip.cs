@@ -65,6 +65,7 @@ public class PlayerShip : Unit {
         }
 
         moneyCount = DataSave.instance.money;
+        Time.timeScale = 1;
     }
     private void Awake()
     {

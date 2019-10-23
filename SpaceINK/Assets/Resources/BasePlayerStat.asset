@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonDamage: 5
   cannonFireRate: 0.4
-  cannonBulletSpeed: 60
+  cannonBulletSpeed: 70
   cannonCount: 1
   ssDamage: 1.2
   ssMaxTime: 100

@@ -24,7 +24,6 @@ public class MoneyEndGame : MonoBehaviour
         if (Advertising.IsRewardedAdReady())
         {
             buttonX2.interactable = true;
-            Debug.Log("true");
         }
         else
         {

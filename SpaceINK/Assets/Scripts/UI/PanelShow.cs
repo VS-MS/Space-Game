@@ -8,6 +8,10 @@ public class PanelShow : MonoBehaviour
     public GameObject selectAnim;
     public GameObject settingsAnim;
 
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
     //включить анимацию выезда для панели Upgrade, а для осталных анимацию заезда за экран
     public void ShowUpgrade()
     {

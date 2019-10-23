@@ -467,8 +467,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290363008
-  m_fontColor: {r: 0.5019608, g: 0.74509805, b: 0.7254902, a: 1}
+    rgba: 4287823871
+  m_fontColor: {r: 1, g: 1, b: 0.57254905, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -1547,7 +1547,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -1594,6 +1594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &3425757267840692042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2152,8 +2153,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290363008
-  m_fontColor: {r: 0.5019608, g: 0.74509805, b: 0.7254902, a: 1}
+    rgba: 4287823871
+  m_fontColor: {r: 1, g: 1, b: 0.57254905, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3223,7 +3224,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -3234,7 +3235,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -3281,6 +3282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &1439412440728417119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4020,7 +4022,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -4031,7 +4033,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -4078,6 +4080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &8968836902322407259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4178,8 +4181,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290363008
-  m_fontColor: {r: 0.5019608, g: 0.74509805, b: 0.7254902, a: 1}
+    rgba: 4287823871
+  m_fontColor: {r: 1, g: 1, b: 0.57254905, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4681,7 +4684,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -4692,7 +4695,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -4739,6 +4742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &1481104067456783442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4839,8 +4843,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290363008
-  m_fontColor: {r: 0.5019608, g: 0.74509805, b: 0.7254902, a: 1}
+    rgba: 4287823871
+  m_fontColor: {r: 1, g: 1, b: 0.57254905, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5497,7 +5501,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -5508,7 +5512,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -5555,6 +5559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &5376240274838289675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6094,7 +6099,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -6105,7 +6110,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -6152,6 +6157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &4315251100852604217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7032,7 +7038,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -7043,7 +7049,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -7090,6 +7096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &984877337919707409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8921,7 +8928,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -8932,7 +8939,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -8979,6 +8986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &7902042114043001807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9287,7 +9295,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -9298,7 +9306,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -9345,6 +9353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &748317959954265565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10027,7 +10036,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -10038,7 +10047,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -10085,6 +10094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &5113067353547979055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10503,8 +10513,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290363008
-  m_fontColor: {r: 0.5019608, g: 0.74509805, b: 0.7254902, a: 1}
+    rgba: 4287823871
+  m_fontColor: {r: 1, g: 1, b: 0.57254905, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11096,7 +11106,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -11107,7 +11117,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -11154,6 +11164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &7533940106007658017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11377,7 +11388,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -11388,7 +11399,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -11435,6 +11446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &6129986146715481844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12514,7 +12526,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -12525,7 +12537,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -12572,6 +12584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &7360910915985797094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13125,8 +13138,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290363008
-  m_fontColor: {r: 0.5019608, g: 0.74509805, b: 0.7254902, a: 1}
+    rgba: 4287758335
+  m_fontColor: {r: 1, g: 1, b: 0.5707547, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13723,7 +13736,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -13734,7 +13747,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -13781,6 +13794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &3107647844514674975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14087,7 +14101,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -14098,7 +14112,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -14145,6 +14159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &2310788772654473812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14401,7 +14416,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -14412,7 +14427,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -14459,6 +14474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &6333329335860306270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14607,7 +14623,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -14618,7 +14634,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -14665,6 +14681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &8457896390293048719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15291,7 +15308,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -15302,7 +15319,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -15349,6 +15366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &2645229306770639948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17341,7 +17359,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -17363,7 +17381,7 @@ MonoBehaviour:
           m_StringArgument: 1
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -17399,6 +17417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &6016622821838658440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17929,7 +17948,6 @@ GameObject:
   - component: {fileID: 8255739206461866043}
   - component: {fileID: 8255739206461866042}
   - component: {fileID: 8255739206461866045}
-  - component: {fileID: 8524683016258117201}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -17953,7 +17971,7 @@ RectTransform:
   - {fileID: 8255739206718953434}
   - {fileID: 8255739207402181596}
   - {fileID: 2848773398900726357}
-  - {fileID: 1079921650253038824}
+  - {fileID: 6610571569422085484}
   - {fileID: 1406983185016304657}
   - {fileID: 9026891773507214192}
   m_Father: {fileID: 0}
@@ -18024,21 +18042,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8524683016258117201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8255739206461866044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb621e1cd9670244d9623ff354ad4802, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeAnim: {fileID: 0}
-  selectAnim: {fileID: 0}
-  settingsAnim: {fileID: 0}
 --- !u!1 &8255739206562192414
 GameObject:
   m_ObjectHideFlags: 0
@@ -19640,7 +19643,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -19651,7 +19654,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -19698,6 +19701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &4894886161976680734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20387,7 +20391,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -20398,7 +20402,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -20445,6 +20449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &7377403840025962454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20751,7 +20756,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -20762,7 +20767,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -20809,6 +20814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &2981540667276700928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21155,7 +21161,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -21166,7 +21172,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -21213,6 +21219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &7691807288289993973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21361,7 +21368,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8809656343513496628}
+      - m_Target: {fileID: 6610571569422085476}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -21372,7 +21379,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3612426867409253839}
+      - m_Target: {fileID: 6610571569422085493}
         m_MethodName: LoadeSceneName
         m_Mode: 5
         m_Arguments:
@@ -21419,6 +21426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e8fcf3dd165f44dabac664df81aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNameLoad: 
 --- !u!114 &3730607661549122699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21766,19 +21774,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f119ee59c3c6fc14dbc26f39d5168703, type: 3}
---- !u!1 &8809656343513496628 stripped
+--- !u!1 &6610571569422085476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2449773572647833937, guid: f119ee59c3c6fc14dbc26f39d5168703,
     type: 3}
   m_PrefabInstance: {fileID: 6610571569422085477}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1079921650253038824 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6143420982123374989, guid: f119ee59c3c6fc14dbc26f39d5168703,
-    type: 3}
-  m_PrefabInstance: {fileID: 6610571569422085477}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3612426867409253839 stripped
+--- !u!114 &6610571569422085493 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7610129861154330794, guid: f119ee59c3c6fc14dbc26f39d5168703,
     type: 3}
@@ -21790,3 +21792,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b943e9817b081aa47ae8aabc52c248c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &6610571569422085484 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6143420982123374989, guid: f119ee59c3c6fc14dbc26f39d5168703,
+    type: 3}
+  m_PrefabInstance: {fileID: 6610571569422085477}
+  m_PrefabAsset: {fileID: 0}

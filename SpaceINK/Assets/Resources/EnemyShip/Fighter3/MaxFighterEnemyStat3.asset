@@ -21,5 +21,5 @@ MonoBehaviour:
   boostForce: 40
   rotationSpeed: 1
   bulletDamage: 8
-  bulletSpeed: 2.6
+  bulletSpeed: 66
   fireDelta: 0.3

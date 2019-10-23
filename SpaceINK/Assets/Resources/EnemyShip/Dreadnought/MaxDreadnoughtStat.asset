@@ -22,4 +22,4 @@ MonoBehaviour:
   rotationSpeed: 0.15
   bulletDamage: 16
   bulletSpeed: 58
-  fireDelta: 0.3
+  fireDelta: 0.5
