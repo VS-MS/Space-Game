@@ -47,13 +47,13 @@ public class MoneyEndGame : MonoBehaviour
 
     public void MoneyX2()
     {
-        /*
+        
         playerShip = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShip>();
         textMoney.text = numberToString.ShortNumber((DataSave.instance.money - playerShip.moneyGet) * 2);
 
         DataSave.instance.money = DataSave.instance.money + (DataSave.instance.money - playerShip.moneyGet);
-        */
-
+        
+        /*
         AdManager.instance.adCounter = 0;
         
         // Check if rewarded ad is ready
@@ -63,6 +63,7 @@ public class MoneyEndGame : MonoBehaviour
         {
             Advertising.ShowRewardedAd();
         }
+        */
 
     }
 
