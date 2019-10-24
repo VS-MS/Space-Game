@@ -300,7 +300,7 @@ MonoBehaviour:
   - {fileID: 6970910377163923820}
   - {fileID: 2260961262007196971}
   - {fileID: 5906824297376822555}
-  turretRotationSpeed: 2
+  turretRotationSpeed: 4
 --- !u!1001 &3657128939464667783
 PrefabInstance:
   m_ObjectHideFlags: 0

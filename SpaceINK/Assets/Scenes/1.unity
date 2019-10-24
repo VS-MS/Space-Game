@@ -972,7 +972,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &851733267 stripped
 Camera:
@@ -1154,7 +1154,7 @@ PrefabInstance:
     - target: {fileID: 3518086529211459153, guid: edf70d82dab0a9e4cab3928ae930e388,
         type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3518086529211459153, guid: edf70d82dab0a9e4cab3928ae930e388,
         type: 3}
@@ -1224,7 +1224,7 @@ Transform:
   - {fileID: 413991929}
   - {fileID: 1978140624}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1101808661 stripped
 Transform:
@@ -3096,7 +3096,7 @@ PrefabInstance:
     - target: {fileID: 1387987707171321403, guid: dde79c9b8bd429341b4c74bca4ba54e5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -61.00244
+      value: -61.001953
       objectReference: {fileID: 0}
     - target: {fileID: 1387987707171321403, guid: dde79c9b8bd429341b4c74bca4ba54e5,
         type: 3}
