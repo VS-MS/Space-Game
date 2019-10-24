@@ -53,11 +53,18 @@ public class PlayerBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.Lerp(transform.position, transform.position + direction, step);
+        //float step = speed * Time.deltaTime;
+        //transform.position = Vector3.Lerp(transform.position, transform.position + direction, step);
 
         //trail.startWidth = trailWidth;
     }
+
+    void FixedUpdate()
+    {
+        float step = speed * Time.fixedDeltaTime;
+        transform.position = Vector3.Lerp(transform.position, transform.position + direction, step);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

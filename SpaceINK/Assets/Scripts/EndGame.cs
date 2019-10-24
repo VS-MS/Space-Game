@@ -30,6 +30,7 @@ public class EndGame : MonoBehaviour
                 if(lvlNumber > DataSave.instance.levelComplite)
                 {
                     DataSave.instance.levelComplite = lvlNumber;
+                    DataSave.instance.SaveGame();
                 }
                 
             }
