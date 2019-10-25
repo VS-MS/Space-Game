@@ -19,13 +19,13 @@ public class AutoBack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        vectorOffsetStep = new Vector2 (Random.Range(-0.1f, 0.001f), Random.Range(-0.1f, 0.1f));
+        vectorOffsetStep = new Vector2 (Random.Range(3f, 3f), Random.Range(3f, 3f));
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate() 
     {
-        vectorOffset = vectorOffset + vectorOffsetStep;
+        vectorOffset = vectorOffset + vectorOffsetStep * Time.fixedDeltaTime;
         space.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", vectorOffset / scrollSpeed);
         stars1.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", vectorOffset / (scrollSpeed /1.2f));
         stars2.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", vectorOffset / (scrollSpeed / 1.6f));
