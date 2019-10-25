@@ -14,6 +14,13 @@ public class UpgradeSystem : MonoBehaviour
     public TextMeshProUGUI engineLvlUpCost;
     public TextMeshProUGUI superBoostLvlUpCost;
 
+    [Header("Lvl Text")]
+    public TextMeshProUGUI cannonLvltext;
+    public TextMeshProUGUI superShootLvltext;
+    public TextMeshProUGUI armorShieldLvltext;
+    public TextMeshProUGUI engineLvltext;
+    public TextMeshProUGUI superBoostLvltext;
+
     [Header("Cannon Stat Text")]
     public TextMeshProUGUI cannonDamageText;
     public TextMeshProUGUI cannonRateText;
@@ -192,33 +199,67 @@ public class UpgradeSystem : MonoBehaviour
         //Цена апгрейда на кнопках
         //Cannon
         if (DataSave.instance.CannonLvl == 20)
+        {
             cannonLvlUpCost.text = "Max";
+            cannonLvltext.text = "Max lvl";
+        }
         else
-            cannonLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.CannonLvl));  //CoastUpgrade(dataSave.CannonLvl).ToString();
+        {
+            cannonLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.CannonLvl));
+            cannonLvltext.text = "Lvl: " + DataSave.instance.CannonLvl + "/20";
+        }
 
         //Super Shoot
         if (DataSave.instance.SuperShotLvl == 20)
+        {
             superShootLvlUpCost.text = "Max";
+            superShootLvltext.text = "Max Lvl";
+        } 
         else
+        {
             superShootLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.SuperShotLvl));
+            superShootLvltext.text = "Lvl: " + DataSave.instance.SuperShotLvl + "/20";
+        }
+
 
         //Armor Shield
         if (DataSave.instance.ArmorShieldLvl == 20)
+        {
             armorShieldLvlUpCost.text = "Max";
+            armorShieldLvltext.text = "Max lvl";
+        }   
         else
+        {
             armorShieldLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.ArmorShieldLvl));
+            armorShieldLvltext.text = "Lvl: " + DataSave.instance.ArmorShieldLvl + "/20";
+        }
+            
 
         //Engine
         if (DataSave.instance.EngineLvl == 20)
+        {
             engineLvlUpCost.text = "Max";
+            engineLvltext.text = "Max Lvl";
+        }
         else
+        {
             engineLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.EngineLvl));
+            engineLvltext.text = "Lvl: " + DataSave.instance.EngineLvl + "/20";
+        }
+            
 
         //SuperBoost
         if (DataSave.instance.SuperBoostLvl == 20)
+        {
             superBoostLvlUpCost.text = "Max";
+            superBoostLvltext.text = "Max Lvl";
+        }
         else
+        {
             superBoostLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.SuperBoostLvl));
+            superBoostLvltext.text = "Lvl: " + DataSave.instance.SuperBoostLvl + "/20";
+        }
+           
 
         //статы коробля
         //Главня пушка

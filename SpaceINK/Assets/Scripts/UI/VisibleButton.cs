@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class VisibleButton : MonoBehaviour
 {
-    public int lvlNomber; 
+    public int lvlNomber;
+    public GameObject imageButton;
     private Button buttonLvl;
     void Start() 
     {
@@ -14,17 +15,20 @@ public class VisibleButton : MonoBehaviour
         if(lvlNomber == DataSave.instance.levelComplite + 1)
         {
             buttonLvl.interactable = true;
+            imageButton.SetActive(true);
             //тут надо будет сделать анимацию или еще что
         }
         //условие на все пройденные уровни
         if(lvlNomber <= DataSave.instance.levelComplite)
         {
             buttonLvl.interactable = true;
+            imageButton.SetActive(false);
         }
         //Условие на все не пройденные уровни
         if (lvlNomber > DataSave.instance.levelComplite + 1)
         {
             buttonLvl.interactable = false;
+            imageButton.SetActive(false);
         }
     }
 

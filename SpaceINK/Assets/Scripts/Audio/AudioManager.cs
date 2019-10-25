@@ -66,7 +66,11 @@ public class AudioManager : MonoBehaviour
         }
         if (String.Equals(s.name, "MenuTheme"))
         {
-            s.source.Play();
+            if(!s.source.isPlaying)
+            {
+                s.source.Play();
+            }
+
         }
     }
     public void Stop(string name)
@@ -89,6 +93,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Pause();
+
     }
 
 }

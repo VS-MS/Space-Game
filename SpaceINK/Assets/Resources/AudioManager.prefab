@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dfacb8fc47cb446bcffe851281ade5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioVFX: 0
+  audioMusic: 0
   sounds:
   - name: Explosion1
     clip: {fileID: 8300000, guid: 1fa8b8f1d6ab3be4ab2e0ad501fc143e, type: 3}
@@ -99,7 +101,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: MenuTheme
-    clip: {fileID: 8300000, guid: 078e655b16cc519459093576d53103ae, type: 3}
+    clip: {fileID: 8300000, guid: 4b7db54e8c72e2e469e131d6360cf4d2, type: 3}
     volume: 1
     pitch: 1
     loop: 1
@@ -124,13 +126,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Laser_Shoot3
     clip: {fileID: 8300000, guid: f85814a7a727efd449bbe4c96f63dee9, type: 3}
-    volume: 1
+    volume: 0.482
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Laser_Shoot4
     clip: {fileID: 8300000, guid: eb2ed427882efc9409c7b8fe7024ab94, type: 3}
-    volume: 1
+    volume: 0.507
     pitch: 1
     loop: 0
     source: {fileID: 0}

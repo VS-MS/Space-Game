@@ -56,6 +56,7 @@ public class SettingsMenu : MonoBehaviour
             {
                 toggleMusic.isOn = false;
                 FindObjectOfType<AudioManager>().Stop("MenuTheme");
+                Debug.Log("Stop Music 1");
             }
             else
             {
@@ -91,6 +92,7 @@ public class SettingsMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt("musicVFX", 0);
             FindObjectOfType<AudioManager>().Stop("MenuTheme");
+            Debug.Log("Stop Music 2");
         }
         PlayerPrefs.Save();
     }
