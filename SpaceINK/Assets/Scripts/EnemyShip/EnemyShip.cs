@@ -59,7 +59,7 @@ public class EnemyShip : Unit
             lvlNumber = 1;
         }
 
-        return money_ + money_* (lvlNumber/10);
+        return money_ + money_* (lvlNumber/4);
     }
     public void StatusSliderInt(float _upDis, float _scaleX) 
     {

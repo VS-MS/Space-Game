@@ -6,7 +6,8 @@ public class TargetPosition : MonoBehaviour
 {
     public GameObject target; // объект за которым надо следить
     public GameObject arrow; // экземпляр стрелки
-    private GameObject targetArrow; //ссылка для хранения объекта стрелки
+    [HideInInspector]
+    public GameObject targetArrow; //ссылка для хранения объекта стрелки
     private Color colorArrow;
     public float distanceAlpha;
 

@@ -56,8 +56,10 @@ public class DataSave : MonoBehaviour
 
     void Awake()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         //Проверяем, есть ли экземпляр объекта на сцене, если есть, удаляем этот экземпляр
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);

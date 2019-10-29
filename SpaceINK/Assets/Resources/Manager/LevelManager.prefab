@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4291510942378340240, guid: 074a67f5e15110c4eb394cc86cf3ebf5, type: 3}
+  arrow: {fileID: 3871166355657964697, guid: e1faf46c6ff527e46b740936fff4017d, type: 3}
   startParticle: {fileID: 7576109696508266654, guid: 38a65e9e5e2cff74baf98c7598b5a558,
     type: 3}
   endGate: {fileID: 1077578782288064713, guid: 18305bc037b73a540839439932730d7f, type: 3}

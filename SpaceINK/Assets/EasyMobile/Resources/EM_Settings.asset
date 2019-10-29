@@ -49,7 +49,7 @@ MonoBehaviour:
         mExtraOptions:
           keys: []
           values: []
-      mEnableTestMode: 0
+      mEnableTestMode: 1
       mAppId:
         mIosId: 
         mAndroidId: ca-app-pub-0653848455506151~9049199752

@@ -13,9 +13,16 @@ public class MoneyEndGame : MonoBehaviour
 
     private PlayerShip playerShip;
 
+    private long moneyEarning;
+    private long moneyTmp;
+    private bool levelIsEnd = false;
+
+    // starting value for the Lerp
+    static float t = 0.0f;
+
     private void Awake()
     {
-
+        moneyTmp = 0;
         playerShip = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShip>();
     }
 
@@ -29,15 +36,33 @@ public class MoneyEndGame : MonoBehaviour
         {
             buttonX2.interactable = false;
         }
+
+        if (levelIsEnd)
+        {
+            if (t < 1.0f)
+            {
+                t += 0.01f;
+                moneyTmp = (long)Mathf.SmoothStep(moneyTmp, moneyEarning, t);
+            }
+            textMoney.text = numberToString.ShortNumber(moneyTmp);
+        }
+
+        
     }
 
+    public void FixedUpdate()
+    {
+
+    }
 
     public void UpdateMoneyEnd()
     {     
         //исправить!!! добавить нормальную переменную, в которой будем хранить набранные деньги за пройденный уровень.
         playerShip = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShip>();
-        textMoney.text = numberToString.ShortNumber(DataSave.instance.money - playerShip.moneyGet);
-
+        //textMoney.text = numberToString.ShortNumber(DataSave.instance.money - playerShip.moneyGet);
+        moneyEarning = DataSave.instance.money - playerShip.moneyGet;
+        t = 0;
+        levelIsEnd = true;
         if (DataSave.instance.money - playerShip.moneyGet <= 0)
         {
             buttonX2.interactable = false;
@@ -86,7 +111,9 @@ public class MoneyEndGame : MonoBehaviour
         Debug.Log("Rewarded ad has completed. The user should be rewarded now.");
 
         playerShip = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShip>();
-        textMoney.text = numberToString.ShortNumber((DataSave.instance.money - playerShip.moneyGet) * 2);
+        //textMoney.text = numberToString.ShortNumber((DataSave.instance.money - playerShip.moneyGet) * 2);
+        moneyEarning *= 2;
+        t = 0;
         DataSave.instance.money = DataSave.instance.money + (DataSave.instance.money - playerShip.moneyGet);
     }
 

@@ -28,7 +28,7 @@ public class MoneyText : MonoBehaviour
         string money_;
         try
         {
-             money_ = numberToString.ShortNumber(DataSave.instance.money); //dataSave.money.ToString();
+            money_ = numberToString.ShortNumber(DataSave.instance.money); //dataSave.money.ToString();
         }
         catch (System.NullReferenceException)
         {
@@ -36,7 +36,7 @@ public class MoneyText : MonoBehaviour
             Debug.LogError("Error money");
         }
         //string money_ = numberToString.ShortNumber(DataSave.instance.money); //dataSave.money.ToString();
-        long mon_tmp = DataSave.instance.money;
+        //long mon_tmp = DataSave.instance.money;
         textMoney.text = money_;
 
         //Debug.Log(dataSave.money);
