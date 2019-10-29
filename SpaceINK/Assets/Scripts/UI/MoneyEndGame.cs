@@ -18,7 +18,7 @@ public class MoneyEndGame : MonoBehaviour
     private bool levelIsEnd = false;
 
     // starting value for the Lerp
-    static float t = 0.0f;
+    private float t = 0.0f;
 
     private void Awake()
     {
