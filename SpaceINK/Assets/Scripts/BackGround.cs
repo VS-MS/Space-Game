@@ -16,14 +16,10 @@ public class BackGround : MonoBehaviour
     [SerializeField]
     private int orderInLayer = 0;
 
-    void Start()
-    {
-        
-    }
-
     private void Awake()
     {
         playerShip = GameObject.FindGameObjectWithTag("Player");
+        orderZ = this.transform.position.z;
         gameObject.GetComponent<MeshRenderer>().sortingOrder = orderInLayer;
     }
     // Update is called once per frame

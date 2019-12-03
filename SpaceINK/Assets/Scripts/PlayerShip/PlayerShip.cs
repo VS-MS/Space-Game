@@ -45,6 +45,7 @@ public class PlayerShip : Unit {
 
     [SerializeField]
     private Transform[] gunTransform;
+    private ParticleSystem[] gunExplosion;
     [HideInInspector]
     public GameObject boostWing;
 
@@ -71,6 +72,13 @@ public class PlayerShip : Unit {
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         boostWing = this.transform.Find("BoostWing").gameObject;
+
+        //создаем массив, в котором будем хранить ссылки на партиклы пушек
+        gunExplosion = new ParticleSystem[gunTransform.Length];
+        for(int i = 0; i < gunTransform.Length; i++)
+        {
+            gunExplosion[i] = gunTransform[i].GetComponentInChildren<ParticleSystem>();
+        }
     }
 
     private void RefreshPlayerStat()
@@ -319,37 +327,47 @@ public class PlayerShip : Unit {
                 {
                     case 1:
                         LaunchSuperBullet(gunTransform[0], 0);
+                        gunExplosion[0].Play();
                         break;
                     case 2:
                         LaunchSuperBullet(gunTransform[1], 1);
+                        gunExplosion[1].Play();
                         LaunchSuperBullet(gunTransform[2], 1);
+                        gunExplosion[2].Play();
                         break;
                     case 3:
                         for (int i = 1; i <= 2; i++)
                         {
                             LaunchSuperBullet(gunTransform[i], 1);
+                            gunExplosion[i].Play();
                         }
                         LaunchSuperBullet(gunTransform[0], 0);
+                        gunExplosion[0].Play();
                         break;
                     case 4:
                         for (int i = 1; i <= 2; i++)
                         {
                             LaunchSuperBullet(gunTransform[i], 1);
+                            gunExplosion[i].Play();
                         }
                         for (int i = 3; i <= 4; i++)
                         {
                             LaunchSuperBullet(gunTransform[i], 2);
+                            gunExplosion[i].Play();
                         }
                         break;
                     case 5:
                         LaunchSuperBullet(gunTransform[0], 0);
+                        gunExplosion[0].Play();
                         for (int i = 1; i <= 2; i++)
                         {
                             LaunchSuperBullet(gunTransform[i], 1);
+                            gunExplosion[i].Play();
                         }
                         for (int i = 3; i <= 4; i++)
                         {
                             LaunchSuperBullet(gunTransform[i], 2);
+                            gunExplosion[i].Play();
                         }
                         break;
                 }
@@ -369,37 +387,47 @@ public class PlayerShip : Unit {
             {
                 case 1:
                     LaunchBullet(gunTransform[0], 0);
+                    gunExplosion[0].Play();
                     break;
                 case 2:
                     LaunchBullet(gunTransform[1], 1);
+                    gunExplosion[1].Play();
                     LaunchBullet(gunTransform[2], 1);
+                    gunExplosion[2].Play();
                     break;
                 case 3:
                     for (int i = 1; i <= 2; i++)
                     {
                         LaunchBullet(gunTransform[i], 1);
+                        gunExplosion[i].Play();
                     }
                     LaunchBullet(gunTransform[0], 0);
+                    gunExplosion[0].Play();
                     break;
                 case 4:
                     for (int i = 1; i <= 2; i++)
                     {
                         LaunchBullet(gunTransform[i], 1);
+                        gunExplosion[i].Play();
                     }
                     for (int i = 3; i <= 4; i++)
                     {
                         LaunchBullet(gunTransform[i], 2);
+                        gunExplosion[i].Play();
                     }
                     break;
                 case 5:
                     LaunchBullet(gunTransform[0], 0);
+                    gunExplosion[0].Play();
                     for (int i = 1; i <= 2; i++)
                     {
                         LaunchBullet(gunTransform[i], 1);
+                        gunExplosion[i].Play();
                     }
                     for (int i = 3; i <= 4; i++)
                     {
                         LaunchBullet(gunTransform[i], 2);
+                        gunExplosion[i].Play();
                     }
                     break;
             }
