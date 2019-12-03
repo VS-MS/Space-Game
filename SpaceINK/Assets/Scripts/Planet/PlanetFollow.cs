@@ -10,11 +10,13 @@ public class PlanetFollow : MonoBehaviour
     private float scrollSpeed;
     //переменная для определения глубины слоя планеты
     private float orderZ;
+    private Vector3 startState;
 
     void Awake()
     {
         playerShip = GameObject.FindGameObjectWithTag("Player");
         orderZ = this.transform.position.z;
+        startState = this.transform.position;
     }
 
     void Update()
@@ -25,7 +27,7 @@ public class PlanetFollow : MonoBehaviour
             playerPosition.x /= scrollSpeed;
             playerPosition.y /= scrollSpeed;
             playerPosition.z = orderZ;
-            this.transform.position = playerPosition;
+            this.transform.position = startState + playerPosition;
         }
     }
 }
