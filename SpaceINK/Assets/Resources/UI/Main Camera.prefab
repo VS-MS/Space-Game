@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   cameraPositionY: 0
-  cameraPositionZ: 20
+  cameraPositionZ: 50
   defaultPositionZ: 20
   dieTime: 3
   time: 0

@@ -8,14 +8,11 @@ public class PlanetFollow : MonoBehaviour
     [SerializeField]
     //скорость, с которой будет двигаться планета. Чем больше число, тем медленнее будет он двигаться.
     private float scrollSpeed;
-    //переменная для определения глубины слоя планеты
-    private float orderZ;
     private Vector3 startState;
 
     void Awake()
     {
         playerShip = GameObject.FindGameObjectWithTag("Player");
-        orderZ = this.transform.position.z;
         startState = this.transform.position;
     }
 
@@ -26,7 +23,6 @@ public class PlanetFollow : MonoBehaviour
             Vector3 playerPosition = playerShip.transform.position;
             playerPosition.x /= scrollSpeed;
             playerPosition.y /= scrollSpeed;
-            playerPosition.z = orderZ;
             this.transform.position = startState + playerPosition;
         }
     }

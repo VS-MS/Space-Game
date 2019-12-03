@@ -106,6 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb9d9ac6c7669b499c5a8701befbe22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderZ: 10
+  orderZ: 200
   scrollSpeed: 900
   orderInLayer: -2

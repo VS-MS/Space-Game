@@ -107,5 +107,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderZ: 10
-  scrollSpeed: 60
+  scrollSpeed: 150
   orderInLayer: 100
