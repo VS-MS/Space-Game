@@ -116,8 +116,8 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 0.54
+      minMaxState: 0
+      scalar: 0.1
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2
@@ -286,8 +286,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 1
+      scalar: 4
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1041,31 +1041,31 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.010152283
+          time: 0
           value: 0
-          inSlope: 39.045044
-          outSlope: 39.045044
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.39843476
+          outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.050910983
-          value: 0.6824438
-          inSlope: 3.4284232
-          outSlope: 3.4284232
+          time: 0.7946658
+          value: 0.329944
+          inSlope: 1.2213316
+          outSlope: 1.2213316
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.09344005
+          outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
-          inSlope: -0.40335763
-          outSlope: -0.40335763
+          value: 1
+          inSlope: 2
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.16923085
+          inWeight: 0.33333334
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -4777,7 +4777,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9754ad0cdd452c54ab9488d71eb6ab3c, type: 2}
+  - {fileID: 2100000, guid: 6cb048776c27393448ffeb5f7b91a5a7, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4849,7 +4849,7 @@ GameObject:
   - component: {fileID: 3313494450898347924}
   - component: {fileID: 4751056097739083502}
   m_Layer: 0
-  m_Name: LaserExplosion2
+  m_Name: LaserExplosionFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4951,7 +4951,7 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 0.54
       minScalar: 0.2
       maxCurve:
@@ -5121,8 +5121,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 1
+      scalar: 0.1
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5876,31 +5876,31 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.010152283
+          time: 0
           value: 0
-          inSlope: 39.045044
-          outSlope: 39.045044
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.39843476
+          outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.050910983
-          value: 0.6824438
-          inSlope: 3.4284232
-          outSlope: 3.4284232
+          time: 0.77821124
+          value: 0.24855632
+          inSlope: 1.1084225
+          outSlope: 1.1084225
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.09344005
+          outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 0
-          inSlope: -0.40335763
-          outSlope: -0.40335763
+          value: 1
+          inSlope: 2
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.16923085
+          inWeight: 0.33333334
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -9612,7 +9612,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6cb048776c27393448ffeb5f7b91a5a7, type: 2}
+  - {fileID: 2100000, guid: 9754ad0cdd452c54ab9488d71eb6ab3c, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
