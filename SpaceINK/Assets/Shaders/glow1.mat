@@ -58,7 +58,7 @@ Material:
     m_Floats:
     - _AlphaIntensity_Fade_1: 0.96
     - _AlphaIntensity_Fade_2: 0.6
-    - _Ambient: 6
+    - _Ambient: 4.03
     - _BumpScale: 1
     - _ColorMask: 15
     - _Cutoff: 0.5
@@ -67,14 +67,14 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Light: 10
+    - _Light: 8.27
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OperationBlend_Fade_1: 0.065
     - _Parallax: 0.02
-    - _Rim: 6.88
-    - _Size: 3.03
+    - _Rim: 8
+    - _Size: 1.72
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SpriteFade: 0.226
