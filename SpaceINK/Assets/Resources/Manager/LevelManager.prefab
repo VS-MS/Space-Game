@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7434046118629921380}
   - component: {fileID: 7434046118629921387}
+  - component: {fileID: 8956234602744401441}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -48,3 +49,19 @@ MonoBehaviour:
   startParticle: {fileID: 7576109696508266654, guid: 38a65e9e5e2cff74baf98c7598b5a558,
     type: 3}
   endGate: {fileID: 1077578782288064713, guid: 18305bc037b73a540839439932730d7f, type: 3}
+--- !u!114 &8956234602744401441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7434046118629921386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc41cd3d24664f4394a3c3c4fcc03ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 2358129928155768338, guid: 0fde5d9d2d9811748a820dd40f5b925e,
+    type: 3}
+  amountToPool: 20

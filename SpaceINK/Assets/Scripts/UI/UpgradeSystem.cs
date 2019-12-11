@@ -207,6 +207,17 @@ public class UpgradeSystem : MonoBehaviour
         {
             cannonLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.CannonLvl));
             cannonLvltext.text = "Lvl: " + DataSave.instance.CannonLvl + "/20";
+
+            if (CoastUpgrade(DataSave.instance.CannonLvl) <= DataSave.instance.money)
+            {
+                cannonLvlUpCost.color = new Color32(255, 255, 146, 255);
+                Debug.Log("Yellow");
+            }
+            else
+            {
+                cannonLvlUpCost.color = new Color32(255, 111, 98, 255);
+                Debug.Log("Red");
+            }
         }
 
         //Super Shoot
@@ -219,6 +230,17 @@ public class UpgradeSystem : MonoBehaviour
         {
             superShootLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.SuperShotLvl));
             superShootLvltext.text = "Lvl: " + DataSave.instance.SuperShotLvl + "/20";
+
+            if (CoastUpgrade(DataSave.instance.SuperShotLvl) <= DataSave.instance.money)
+            {
+                superShootLvlUpCost.color = new Color32(255, 255, 146, 255);
+                Debug.Log("Yellow");
+            }
+            else
+            {
+                superShootLvlUpCost.color = new Color32(255, 111, 98, 255);
+                Debug.Log("Red");
+            }
         }
 
 
@@ -232,6 +254,17 @@ public class UpgradeSystem : MonoBehaviour
         {
             armorShieldLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.ArmorShieldLvl));
             armorShieldLvltext.text = "Lvl: " + DataSave.instance.ArmorShieldLvl + "/20";
+
+            if (CoastUpgrade(DataSave.instance.ArmorShieldLvl) <= DataSave.instance.money)
+            {
+                armorShieldLvlUpCost.color = new Color32(255, 255, 146, 255);
+                Debug.Log("Yellow");
+            }
+            else
+            {
+                armorShieldLvlUpCost.color = new Color32(255, 111, 98, 255);
+                Debug.Log("Red");
+            }
         }
             
 
@@ -245,6 +278,16 @@ public class UpgradeSystem : MonoBehaviour
         {
             engineLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.EngineLvl));
             engineLvltext.text = "Lvl: " + DataSave.instance.EngineLvl + "/20";
+            if (CoastUpgrade(DataSave.instance.EngineLvl) <= DataSave.instance.money)
+            {
+                engineLvlUpCost.color = new Color32(255, 255, 146, 255);
+                Debug.Log("Yellow");
+            }
+            else
+            {
+                engineLvlUpCost.color = new Color32(255, 111, 98, 255);
+                Debug.Log("Red");
+            }
         }
             
 
@@ -258,13 +301,24 @@ public class UpgradeSystem : MonoBehaviour
         {
             superBoostLvlUpCost.text = numberToString.ShortNumber(CoastUpgrade(DataSave.instance.SuperBoostLvl));
             superBoostLvltext.text = "Lvl: " + DataSave.instance.SuperBoostLvl + "/20";
+
+            if (CoastUpgrade(DataSave.instance.SuperBoostLvl) <= DataSave.instance.money)
+            {
+                superBoostLvlUpCost.color = new Color32(255, 255, 146, 255);
+                Debug.Log("Yellow");
+            }
+            else
+            {
+                superBoostLvlUpCost.color = new Color32(255, 111, 98, 255);
+                Debug.Log("Red");
+            }
         }
            
 
         //статы коробля
         //Главня пушка
-        cannonDamageText.text = DataSave.instance.cannonDamage.ToString("0.00");
-        cannonRateText.text = DataSave.instance.cannonFireRate.ToString("0.00");
+        cannonDamageText.text = (DataSave.instance.cannonDamage * 10).ToString("0.00");
+        cannonRateText.text = (DataSave.instance.cannonFireRate * 10).ToString("0.00");
         cannonSpeedText.text = DataSave.instance.cannonBulletSpeed.ToString("0.00");
         cannonCountText.text = DataSave.instance.cannonCount.ToString();
         //SuperShoot
@@ -274,16 +328,16 @@ public class UpgradeSystem : MonoBehaviour
         //Armor Shield
         armorText.text = DataSave.instance.shipArmor.ToString("0");
         shieldText.text = DataSave.instance.shipShield.ToString("0");
-        shieldDeltaText.text = DataSave.instance.shipShieldDelta.ToString("0.00");
+        shieldDeltaText.text = (DataSave.instance.shipShieldDelta * 10).ToString("0.00");
         //Engine
-        engineMaxSpeedText.text = DataSave.instance.shipMaxSpeed.ToString("0.00");
+        engineMaxSpeedText.text = (DataSave.instance.shipMaxSpeed * 10).ToString("0.00");
         engineAccelerationText.text = DataSave.instance.shipAcceleration.ToString("0.00");
-        engineRotationText.text = DataSave.instance.shipRotation.ToString("0.00");
+        engineRotationText.text = (DataSave.instance.shipRotation * 10).ToString("0.00");
         //Super Boost
         sbMaxSpeedText.text = DataSave.instance.sbMaxSpeed.ToString("0%");
         sbAccelerationText.text = DataSave.instance.sbAcceleration.ToString("0%");
         sbMaxTime.text = DataSave.instance.sbMaxTime.ToString("0");
-        sbReloadText.text = DataSave.instance.sbTimeReload.ToString("0.00");
+        sbReloadText.text = (DataSave.instance.sbTimeReload * 10).ToString("0.00");
 
 
     }

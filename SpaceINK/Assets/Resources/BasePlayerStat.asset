@@ -28,4 +28,4 @@ MonoBehaviour:
   sbMaxSpeed: 1.2
   sbAcceleration: 1.2
   sbMaxTime: 100
-  sbTimeReload: 0.05
+  sbTimeReload: 0.3

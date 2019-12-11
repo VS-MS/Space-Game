@@ -287,7 +287,6 @@ public class PlayerShip : Unit {
         newBullet.Parent = gameObject;
         newBullet.Direction = m_Rigidbody2D.transform.up;
         //newBullet.trailWidth = 0.5f;
-
         //newBullet.color = buletcolor;
         newBullet.Damage = bulletDamage;
     }
