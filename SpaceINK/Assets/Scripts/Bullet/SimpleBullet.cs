@@ -35,8 +35,24 @@ public class SimpleBullet: MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 5.5f);
-        transform.rotation = parent.transform.rotation;
+        //Destroy(gameObject, 5.5f);
+        //transform.rotation = parent.transform.rotation;
+    }
+
+    private void OnEnable()
+    {
+        //transform.rotation = parent.transform.rotation;
+        StartCoroutine("TimeToDie");
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine("TimeToDie");
+    }
+    IEnumerator TimeToDie()
+    {
+        yield return new WaitForSeconds(4.1f);
+        this.gameObject.SetActive(false);
     }
 
     private void Update() 
@@ -57,7 +73,8 @@ public class SimpleBullet: MonoBehaviour
                 splash.transform.parent = collision.transform;
                 Destroy(splash, 2.0f);
 
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             
         }
@@ -67,8 +84,9 @@ public class SimpleBullet: MonoBehaviour
             GameObject splash = Instantiate(laserParticle, transform.position, transform.rotation);
             Destroy(splash, 2.0f);
 
-            Destroy(gameObject);
-            
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
+
         }
     }
 

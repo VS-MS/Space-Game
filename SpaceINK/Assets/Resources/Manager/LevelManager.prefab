@@ -62,6 +62,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledObjects: []
-  objectToPool: {fileID: 2358129928155768338, guid: 0fde5d9d2d9811748a820dd40f5b925e,
-    type: 3}
-  amountToPool: 20
+  itemsToPool:
+  - amountToPool: 50
+    objectToPool: {fileID: 2358129928155768338, guid: 0fde5d9d2d9811748a820dd40f5b925e,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 50
+    objectToPool: {fileID: 7597302538985969089, guid: f610038e9fb803949b125c86c8c78899,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 50
+    objectToPool: {fileID: 6077536014209370115, guid: 8508e88cf2b5bd840a4dd4962c331fd3,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 50
+    objectToPool: {fileID: 3569753016372065920, guid: 838dbef0d45ee1d42bf7e5d22dbd18a3,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 50
+    objectToPool: {fileID: 2797651197728095732, guid: 3fdf07f33d1287745bb49765f5c84570,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 50
+    objectToPool: {fileID: 8656249254844907214, guid: dbadd2af862a3e54e8f5f80eccece01e,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 50
+    objectToPool: {fileID: 5940712477369249591, guid: 87ba6eba64272114da7eacb4ef898a8a,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 50
+    objectToPool: {fileID: 6504303980036385109, guid: 03430da010f47ee4e94f9c94d0d396b7,
+      type: 3}
+    shouldExpand: 1
+  - amountToPool: 50
+    objectToPool: {fileID: 9209493449064685173, guid: 2a2018857cbb28d40bf3ce491346ebaf,
+      type: 3}
+    shouldExpand: 1

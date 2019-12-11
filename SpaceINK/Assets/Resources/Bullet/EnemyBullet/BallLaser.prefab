@@ -623,7 +623,7 @@ GameObject:
   - component: {fileID: 3310560143602612473}
   m_Layer: 0
   m_Name: BallLaser
-  m_TagString: EnemyBullet
+  m_TagString: EnemyBullet1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

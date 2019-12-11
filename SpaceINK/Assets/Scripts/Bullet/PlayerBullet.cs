@@ -40,14 +40,29 @@ public class PlayerBullet : MonoBehaviour
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
         trail = GetComponentInChildren<TrailRenderer>();
-        
+
     }
 
+    private void OnEnable()
+    {
+        //transform.rotation = parent.transform.rotation;
+        StartCoroutine("TimeToDie");
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine("TimeToDie");
+    }
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 5.5f);
-        transform.rotation = parent.transform.rotation;
+        
+    }
+
+    IEnumerator TimeToDie()
+    {  
+        yield return new WaitForSeconds(4.1f);
+        this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -78,7 +93,8 @@ public class PlayerBullet : MonoBehaviour
                 splash.transform.parent = collision.transform;
                 Destroy(splash, 2.0f);
 
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                gameObject.SetActive(false);
             }
             
         }
@@ -89,7 +105,8 @@ public class PlayerBullet : MonoBehaviour
             GameObject splash = Instantiate(laserParticle, transform.position, transform.rotation);
             Destroy(splash, 2.0f);
 
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

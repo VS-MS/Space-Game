@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3712945304389610376}
   m_Layer: 0
   m_Name: PlayerBallLaserSuper
-  m_TagString: PlayerBullet
+  m_TagString: PlayerSuperBullet2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

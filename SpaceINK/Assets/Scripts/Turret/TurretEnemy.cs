@@ -33,11 +33,20 @@ public class TurretEnemy : UnitGunEnemy
         {
             for (int i = 0; i < gunTransform.Length; i++)
             {
-                SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform[i].position, simpleBullet.transform.rotation) as SimpleBullet;
-                newBullet.Speed = bulletSpeed;
-                newBullet.Parent = gameObject;
-                newBullet.Direction = this.transform.up;
-                newBullet.Damage = bulletDamage;
+                //SimpleBullet newBullet = Instantiate(simpleBullet, gunTransform[i].position, simpleBullet.transform.rotation) as SimpleBullet;
+
+                GameObject enemyBullet = ObjectPooler.SharedInstance.GetPooledObject(simpleBullet.tag);
+                if (enemyBullet != null)
+                {
+                    enemyBullet.transform.position = gunTransform[i].position;
+                    enemyBullet.transform.rotation = gunTransform[i].rotation;
+                    enemyBullet.SetActive(true);
+
+                    enemyBullet.GetComponent<SimpleBullet>().Speed = bulletSpeed;
+                    enemyBullet.GetComponent<SimpleBullet>().Parent = gameObject;
+                    enemyBullet.GetComponent<SimpleBullet>().Direction = this.transform.up;
+                    enemyBullet.GetComponent<SimpleBullet>().Damage = bulletDamage;
+                }
             }
 
             myTime = 0.0F;

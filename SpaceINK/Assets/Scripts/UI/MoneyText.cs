@@ -18,7 +18,6 @@ public class MoneyText : MonoBehaviour
         moneyTmp = 0;
         textMoney = gameObject.GetComponent<TextMeshProUGUI>();
     }
-    //корутина для пропуска одного кадра, иначе найдем ссылку на объект, который будет уничтожен в следующем кадре.
 
     private void Start()
     {

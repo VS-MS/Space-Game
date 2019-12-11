@@ -82,8 +82,7 @@ public class PlayerShip : Unit {
     }
 
     private void RefreshPlayerStat()
-    {
-        
+    {  
         /*
          * Cannon
          */
@@ -119,9 +118,6 @@ public class PlayerShip : Unit {
         sbAccelerationRatio = DataSave.instance.sbAcceleration;
         boostPoints = DataSave.instance.sbMaxTime; /*---*/ boostMaxPoints = DataSave.instance.sbMaxTime;
         boostDelta = DataSave.instance.sbTimeReload;
-
-        
-
     }
     // Update is called once per frame
     void Update ()
@@ -282,25 +278,44 @@ public class PlayerShip : Unit {
 
     private void LaunchBullet(Transform bulletPosition, int i)
     {
-        PlayerBullet newBullet = Instantiate(playerBulletSimple[i], bulletPosition.position, bulletPosition.transform.rotation) as PlayerBullet;
-        newBullet.Speed = bulletSpeed;
-        newBullet.Parent = gameObject;
-        newBullet.Direction = m_Rigidbody2D.transform.up;
-        //newBullet.trailWidth = 0.5f;
-        //newBullet.color = buletcolor;
-        newBullet.Damage = bulletDamage;
+        //PlayerBullet newBullet = Instantiate(playerBulletSimple[i], bulletPosition.position, bulletPosition.transform.rotation) as PlayerBullet;
+        GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(playerBulletSimple[i].tag);
+        if (bullet != null)
+        {
+            bullet.transform.position = bulletPosition.transform.position;
+            bullet.transform.rotation = bulletPosition.transform.rotation;
+            bullet.SetActive(true);
+
+            bullet.GetComponent<PlayerBullet>().Speed = bulletSpeed;
+            bullet.GetComponent<PlayerBullet>().Parent = gameObject;
+            bullet.GetComponent<PlayerBullet>().Direction = m_Rigidbody2D.transform.up;// А он вообще нужен?
+            //newBullet.trailWidth = 0.5f;
+            //newBullet.color = buletcolor;
+            bullet.GetComponent<PlayerBullet>().Damage = bulletDamage;
+
+        }
+ 
     }
 
     private void LaunchSuperBullet(Transform bulletPosition, int i)
     {
-        PlayerBullet newBullet = Instantiate(playerBulletSuper[i], bulletPosition.position, bulletPosition.transform.rotation) as PlayerBullet;
-        newBullet.Speed = bulletSpeed;
-        newBullet.Parent = gameObject;
-        newBullet.Direction = m_Rigidbody2D.transform.up;
-        //newBullet.trailWidth = 0.3f;
+        //PlayerBullet newBullet = Instantiate(playerBulletSuper[i], bulletPosition.position, bulletPosition.transform.rotation) as PlayerBullet;
+        GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(playerBulletSuper[i].tag);
+        if (bullet != null)
+        {
+            bullet.transform.position = bulletPosition.transform.position;
+            bullet.transform.rotation = bulletPosition.transform.rotation;
+            bullet.SetActive(true);
 
-        //newBullet.color = buletcolor;
-        newBullet.Damage = bulletDamage * ssDamageRatio;
+            bullet.GetComponent<PlayerBullet>().Speed = bulletSpeed;
+            bullet.GetComponent<PlayerBullet>().Parent = gameObject;
+            bullet.GetComponent<PlayerBullet>().Direction = m_Rigidbody2D.transform.up;
+            //newBullet.trailWidth = 0.3f;
+
+            //newBullet.color = buletcolor;
+            bullet.GetComponent<PlayerBullet>().Damage = bulletDamage * ssDamageRatio;
+        }
+            
     }
 
 

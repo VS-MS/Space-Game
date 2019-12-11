@@ -5,10 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - EnemyShip
-  - EnemyBullet
-  - PlayerBullet
   - Asteroid
   - EnemyDrone
+  - PlayerBullet1
+  - PlayerBullet2
+  - PlayerBullet3
+  - Undefined
+  - PlayerSuperBullet1
+  - PlayerSuperBullet2
+  - PlayerSuperBullet3
+  - EnemyBullet1
+  - EnemyBullet2
+  - EnemyBullet3
   layers:
   - Default
   - TransparentFX

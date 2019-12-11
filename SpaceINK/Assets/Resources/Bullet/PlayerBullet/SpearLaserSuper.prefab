@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: -5074124616728466825}
   m_Layer: 0
   m_Name: SpearLaserSuper
-  m_TagString: PlayerBullet
+  m_TagString: PlayerSuperBullet3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
