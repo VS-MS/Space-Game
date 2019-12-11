@@ -2,57 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleBullet: MonoBehaviour
+public class SimpleBullet: Bullet
 {
-    public GameObject laserParticle;
-    private GameObject parent;
-    public GameObject Parent { set { parent = value; } }
-
-    private float speed = 150.0f;
-    public float Speed { set { if (value > 0) speed = value; else speed = 1; } } 
-    private Vector3 direction;
-    public Vector3 Direction { set { direction = value; } }
-
-    [SerializeField]
-    private float damage = 1.0f;
-    public float Damage { set { damage = value; } }
-    private SpriteRenderer sprite;
-
-    private int maxKillCount = 1;
-    public int MaxKillCount { set { maxKillCount = value; } }
-
-    private int killCount = 0;
-
-    public Color color
-    {
-        set { sprite.color = value; }
-    }
-
     private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
-    }
-
-    private void Start()
-    {
-        //Destroy(gameObject, 5.5f);
-        //transform.rotation = parent.transform.rotation;
-    }
-
-    private void OnEnable()
-    {
-        //transform.rotation = parent.transform.rotation;
-        StartCoroutine("TimeToDie");
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine("TimeToDie");
-    }
-    IEnumerator TimeToDie()
-    {
-        yield return new WaitForSeconds(4.1f);
-        this.gameObject.SetActive(false);
     }
 
     private void Update() 

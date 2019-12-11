@@ -6,12 +6,18 @@ public class EnemyRocket : Unit
 {
     //вектор выходящий из данного объекта в корабль игрока
     private Vector3 heading;
+    //Скорость
     public float rocketSpeed = 100;
+    //Вращение
     public float rocketRotation = 1; 
+    //Урон по умолчанию
     public float rocketDamage = 3;
 
+    //Тут будем хранить координаты цели
     private Vector3 targetingPosition;
+    //Ссылка на корабль игрока
     private GameObject playerShip;
+    //Вектор скорости цели
     private Vector3 targetSpeed;
     
     private Rigidbody2D m_Rigidbody2D;
@@ -22,37 +28,35 @@ public class EnemyRocket : Unit
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
+        //Устанавливаем рандомное значение для скорости и вращения, что бы ракеты двигались не синхронно
         rotationSpeed *= Random.Range(rocketRotation * 0.1f, rocketRotation);
         maxSpeed *= Random.Range(rocketSpeed * 0.5f, rocketSpeed * 1.5f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
+        //Убрать условие и добавитьт ракеты в пул объектов
         if (shipState == State.Die && !flagDie)
         {
+            //Ищем все коллайдеры на объекте и делаем их не активными
             foreach (Collider2D collider in this.GetComponents<Collider2D>())
             {
                 collider.enabled = false;
             }
-            //отключаем спрайты
+            //тоже самое со спрайтами
             foreach (SpriteRenderer sprite in this.GetComponents<SpriteRenderer>())
             {
                 sprite.enabled = false;
             }
 
+            //Флаг, что бы не выполнять дорогостоящий поиск каждый кадр, после того, как объект был "уничтожен"
             flagDie = true;
         }
         if (shipState != State.Die)
         {
             if (playerShip)
             {
-                //FollowingPoint(playerShip.transform.position);
+                //Гонимся за кораблем игрока
                 Chase();
                 //DebugLine();
             }
@@ -155,6 +159,8 @@ public class EnemyRocket : Unit
                 shipState = State.Die;
                 Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
                 //отключаем все коллайдеры на объекте
+
+                //ПЕРЕДЕЛАТЬ!!!! Не уничтожать объект, а добавить его в пул
                 Destroy(gameObject, 10.01f);
             }
             
@@ -164,6 +170,8 @@ public class EnemyRocket : Unit
             shipState = State.Die;
             Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
             //отключаем все коллайдеры на объекте
+
+            //ПЕРЕДЕЛАТЬ!!!! Не уничтожать объект, а добавить его в пул
             Destroy(gameObject, 10.01f);
         }
 

@@ -44,6 +44,8 @@ public class EnemyShip : Unit
     protected int SetMoneyCount()
     {
         int money_;
+        //Высчитываем количество денег за уничтожение коробля
+        //Чем больше ХП и Урон, тем больше денег
         money_ = (int)((maxArmorPoints + maxShieldPoints) * bulletDamage);
 
         string s = SceneManager.GetActiveScene().name;
@@ -59,13 +61,18 @@ public class EnemyShip : Unit
             lvlNumber = 1;
         }
 
+        //Возвращаем деньги, чем выше лвл уровня, тем больше множитель
         return money_ + money_* (lvlNumber/4);
     }
+    //Устанавливаем значение для слайдера над кораблем ХП и Щит
     public void StatusSliderInt(float _upDis, float _scaleX) 
     {
+        //На старте у корабля максимальное значение ХП и Щита,
+        //Сохраняем их в переменную, чтобы потом высчитывать соотношение
+        //для полоски ХП и Щита
         maxArmorPoints = armorPoints;
         maxShieldPoints = shieldPoints;
-        //EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position) as EnemyStatusSlider;
+        //Создаем слайдер над кораблем и устанавливаем начальные значения
         EnemyStatusSlider newStatusSlider = Instantiate(enemyStatusSlider, this.transform.position, this.transform.rotation) as EnemyStatusSlider;
         newStatusSlider.maxArmor = armorPoints;
         newStatusSlider.maxShield = shieldPoints;
@@ -73,8 +80,6 @@ public class EnemyShip : Unit
         newStatusSlider.upDis = _upDis;
         newStatusSlider.SetScaleX(_scaleX);
         statusSlider = newStatusSlider;
-        //Debug.Log(armorPoints);
-        //Debug.Log(maxArmorPoints);
     }
 
 
@@ -148,6 +153,8 @@ public class EnemyShip : Unit
     }
 
 
+    //Устанавливаем статы корабля в зависимости от загруженного уровня
+    //Чем выше уровень сцены, тем выше статы корабля
     public float CalculatStat(float firstStat, float lastStat)
     {
         string s = SceneManager.GetActiveScene().name;

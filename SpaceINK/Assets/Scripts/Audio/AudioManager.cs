@@ -46,6 +46,7 @@ public class AudioManager : MonoBehaviour
     {
         if (audioVFX)
         {
+            //Перебераем массив и ищем нужный элемент по названию
             Sound s = Array.Find(sounds, sound => sound.name == name);
             if (s == null)
             {
@@ -58,12 +59,14 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusic(string name)
     {
+        //Перебераем массив и ищем нужный элемент по названию
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
             Debug.Log("sound not found " + name);
             return;
         }
+        //Если нашли нужный, и он совпадает с название главной темы, запускаем этот клип
         if (String.Equals(s.name, "MenuTheme"))
         {
             if(!s.source.isPlaying)

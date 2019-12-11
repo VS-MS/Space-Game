@@ -43,7 +43,7 @@ public class TurretEnemy : UnitGunEnemy
                     enemyBullet.SetActive(true);
 
                     enemyBullet.GetComponent<SimpleBullet>().Speed = bulletSpeed;
-                    enemyBullet.GetComponent<SimpleBullet>().Parent = gameObject;
+                    //enemyBullet.GetComponent<SimpleBullet>().Parent = gameObject;
                     enemyBullet.GetComponent<SimpleBullet>().Direction = this.transform.up;
                     enemyBullet.GetComponent<SimpleBullet>().Damage = bulletDamage;
                 }

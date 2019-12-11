@@ -287,7 +287,6 @@ public class PlayerShip : Unit {
             bullet.SetActive(true);
 
             bullet.GetComponent<PlayerBullet>().Speed = bulletSpeed;
-            bullet.GetComponent<PlayerBullet>().Parent = gameObject;
             bullet.GetComponent<PlayerBullet>().Direction = m_Rigidbody2D.transform.up;// А он вообще нужен?
             //newBullet.trailWidth = 0.5f;
             //newBullet.color = buletcolor;
@@ -308,7 +307,6 @@ public class PlayerShip : Unit {
             bullet.SetActive(true);
 
             bullet.GetComponent<PlayerBullet>().Speed = bulletSpeed;
-            bullet.GetComponent<PlayerBullet>().Parent = gameObject;
             bullet.GetComponent<PlayerBullet>().Direction = m_Rigidbody2D.transform.up;
             //newBullet.trailWidth = 0.3f;
 
