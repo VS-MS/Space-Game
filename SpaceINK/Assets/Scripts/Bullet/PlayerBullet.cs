@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class PlayerBullet : Bullet
 {
-    
-
-    //private TrailRenderer trail;
-
-    //public float trailWidth = 0.25f;
+    public TrailRenderer trail;
     private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -21,6 +17,13 @@ public class PlayerBullet : Bullet
         transform.position = Vector3.Lerp(transform.position, transform.position + direction, step);
     }
 
+    private void OnEnable()
+    {
+        if(trail)
+        {
+            trail.Clear();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
