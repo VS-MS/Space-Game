@@ -65,8 +65,6 @@ public class DreadnoughtShip : EnemyShip
             }
             //отключаем спрайты
             this.transform.Find("SpriteRender").gameObject.SetActive(false);
-
-
         }
         else
         {
@@ -130,7 +128,6 @@ public class DreadnoughtShip : EnemyShip
 
     protected void Chase()
     {
-
         //Вычисляем угол между данным объектом и кораблем игрока в градах
         float angle = CalculateAngle(gameObject.transform.position);
 

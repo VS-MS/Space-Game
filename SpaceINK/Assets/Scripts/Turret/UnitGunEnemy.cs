@@ -12,17 +12,17 @@ public class UnitGunEnemy : MonoBehaviour
 
     public Transform[] gunTransform;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void FixedUpdate()
     {
-        
+        if (myTime <= fireDelta) //считаемвремя до след выстрела
+        {
+            myTime = myTime + Time.deltaTime;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void ShootTurret()
     {
-        
+
     }
 
 }

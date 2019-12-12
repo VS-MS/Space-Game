@@ -7,27 +7,7 @@ public class TurretEnemy : UnitGunEnemy
     
     public SimpleBullet simpleBullet;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    private void Awake()
-    {
-        //gunTransform = this.transform.Find("Gun_1");
-    }
-
-
-    private void FixedUpdate()
-    {
-        if (myTime <= fireDelta) //считаемвремя до след выстрела
-        {
-            myTime = myTime + Time.deltaTime;
-        }
-    }
-
-    public void ShootTurret()
+    public override void ShootTurret()
     {
         if (myTime > fireDelta)
         {

@@ -16,25 +16,11 @@ public class FighterEnemyShip : EnemyShip
     [SerializeField]
     private MachineGunEnemy[] gunMachine;
 
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //maxArmorPoints = armorPoints;
-        //maxShieldPoints = shieldPoints;
-        //Debug.Log("ArmorpointsFE = " + armorPoints);
-        //Debug.Log("MaxArmorFE = " + maxArmorPoints);
-    }
-
     private void Awake()
     {
         InitStat();
 
         StatusSliderInt(2.0f, 1.0f);
-        //armorBar = transform.Find("Canvas").Find("ArmorSlider").Find("ArmorBar");
-        //shieldBar = transform.Find("Canvas").Find("ShieldSlider").Find("ShieldBar");
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
         if (startPoint == new Vector3(0,0,0))
@@ -57,7 +43,6 @@ public class FighterEnemyShip : EnemyShip
     {
         for(int i =0; i< gunMachine.Length; i++)
         {
-
             gunMachine[i].ShootTurret();
         }
 

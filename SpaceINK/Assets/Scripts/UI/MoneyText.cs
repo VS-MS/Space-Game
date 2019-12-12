@@ -9,8 +9,6 @@ public class MoneyText : MonoBehaviour
     private Desc_ numberToString = new Desc_();
 
     private long moneyTmp;
-    //private bool moneyIsChange = false;
-    // starting value for the Lerp
     private float t = 0.0f;
 
     private void Awake()
@@ -19,16 +17,6 @@ public class MoneyText : MonoBehaviour
         textMoney = gameObject.GetComponent<TextMeshProUGUI>();
     }
 
-    private void Start()
-    {
-        //dataSave = FindObjectOfType<DataSave>();
-        //Debug.Log(dataSave.GetInstanceID());
-        //Один раз обновляем текст до загрузки, 
-        //иначе сначало будет видна надпись "Score", 
-        //прежде чем сработает апдейт и она обновиться.
-        //string money_ = dataSave.money.ToString();
-        //textMoney.text = money_;
-    }
     public void Update()
     {
         if(moneyTmp != DataSave.instance.money && t >= 1)
@@ -50,19 +38,6 @@ public class MoneyText : MonoBehaviour
             
         }
         textMoney.text = numberToString.ShortNumber(moneyTmp);
-        /*
-        string money_;
-        try
-        {
-            money_ = numberToString.ShortNumber(DataSave.instance.money);
-        }
-        catch (System.NullReferenceException)
-        {
-             money_ = "ERROR MONEY";
-            Debug.LogError("Error money");
-        }
-        textMoney.text = money_;
-        */
     }
 
     public void LateUpdate()

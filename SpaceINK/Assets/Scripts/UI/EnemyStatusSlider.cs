@@ -16,11 +16,6 @@ public class EnemyStatusSlider : MonoBehaviour
     public float maxArmor = 100;
     public float maxShield = 100;
 
-
-    private void Awake()
-    {
-
-    }
     public void SetScaleX(float _x)
     {
         this.transform.localScale = new Vector3(_x, 1, 1);
@@ -33,8 +28,6 @@ public class EnemyStatusSlider : MonoBehaviour
         }
         else
         {
-            //Debug.Log("Armorpoints = " + enemyShip.armorPoints);
-            //Debug.Log("MaxArmor = " + maxArmor);
             sliderArmor.transform.localScale = new Vector3(enemyShip.armorPoints / maxArmor, 1, 1);
             sliderShield.transform.localScale = new Vector3(enemyShip.shieldPoints / maxShield, 1, 1);
             transform.position = enemyShip.transform.position + transform.up * upDis;

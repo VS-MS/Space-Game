@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using EasyMobile;
 
+//Устаревший класс, оставил на всякий случай
 public class LoadScene : MonoBehaviour
 {
     public string sceneNameLoad;
+    /*
     public void LoadByName(string sceneName)
     {
         sceneNameLoad = sceneName;
@@ -35,8 +37,9 @@ public class LoadScene : MonoBehaviour
         }
         
     }
-
+    */
     // Subscribe to the event
+    /*
     void OnEnable()
     {
         Advertising.InterstitialAdCompleted += InterstitialAdCompletedHandler;
@@ -54,5 +57,5 @@ public class LoadScene : MonoBehaviour
     {
         Advertising.InterstitialAdCompleted -= InterstitialAdCompletedHandler;
     }
-
+    */
 }

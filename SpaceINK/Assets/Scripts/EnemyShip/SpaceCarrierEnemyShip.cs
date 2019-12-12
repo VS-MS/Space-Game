@@ -21,8 +21,9 @@ public class SpaceCarrierEnemyShip : EnemyShip
 
     private void Awake()
     {
+        //Инициализируем статы корабля
         InitStat();
-
+        //Устанавливаем статус слайдер
         StatusSliderInt(5.0f, 3.0f);
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         playerShip = GameObject.FindGameObjectWithTag("Player");
@@ -35,25 +36,11 @@ public class SpaceCarrierEnemyShip : EnemyShip
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        maxArmorPoints = armorPoints;
-        maxShieldPoints = shieldPoints;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void FixedUpdate()
     {
         if (shipState == State.Die && !flagDie)
         {
-            //создаем систему частиц для взрыва
-            //Instantiate(particleBoom[Random.Range(0, particleBoom.Length)], transform.position, transform.rotation);
-
             //отключаем все коллайдеры на объекте
             foreach (Collider2D collider in this.GetComponents<Collider2D>())
             {
@@ -163,7 +150,7 @@ public class SpaceCarrierEnemyShip : EnemyShip
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
         //Ускоряемсяв сторону коробля игрока
         //СИла ускорения зависит от растояния до игрока, чем ближе, тем она меньше(пока не работает, слишком вялые противники с такой опцией)
-        if (/*distance >=2 &&*/ m_Rigidbody2D.velocity.magnitude <= maxSpeed)
+        if ( m_Rigidbody2D.velocity.magnitude <= maxSpeed)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * boostForce);
         }

@@ -7,21 +7,8 @@ public class RocketLauncherEnemy : UnitGunEnemy
 
     public EnemyRocket simpleRocket;
     public float armorPoints = 1;
-    
-    private void Awake()
-    {
-        //gunTransform = this.transform.Find("Gun_1");
-    }
 
-    private void FixedUpdate()
-    {
-        if (myTime <= fireDelta) //считаемвремя до след выстрела
-        {
-            myTime = myTime + Time.deltaTime;
-        }
-    }
-
-    public void ShootTurret()
+    public override void ShootTurret()
     {
 
 
