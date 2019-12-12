@@ -26,7 +26,7 @@ public class LastLvl : MonoBehaviour
         Debug.Log(maxLvl);
 
         nextLvl = GetComponent<Button>();
-        if(maxLvl >= lvlNumber)
+        if(lvlNumber >= maxLvl)
         {
             nextLvl.interactable = false;
         }

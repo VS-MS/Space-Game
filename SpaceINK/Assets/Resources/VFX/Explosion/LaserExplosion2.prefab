@@ -4834,6 +4834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objPool: 0
   soundName: HurtLaser
   delayTime: 0
 --- !u!1 &3380149849206681362
@@ -4847,7 +4848,6 @@ GameObject:
   - component: {fileID: 5089085192164775974}
   - component: {fileID: 976844814536272114}
   - component: {fileID: 3313494450898347924}
-  - component: {fileID: 4751056097739083502}
   m_Layer: 0
   m_Name: LaserExplosionFlash
   m_TagString: Untagged
@@ -9657,17 +9657,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &4751056097739083502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3380149849206681362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: HurtLaser
-  delayTime: 0

@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bebf60af69c51844b674a0efbea60d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objPool: 1
   soundName: Laser_Shoot3
   delayTime: 0
 --- !u!1 &8656249255795335637
