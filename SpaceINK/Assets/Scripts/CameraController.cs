@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour {
     }
     private void Update()
     {
-        /*
+        
         fpsTimeLeft -= Time.deltaTime;
         fpsAccum += Time.timeScale / Time.deltaTime;
         fpsFrames++;
@@ -81,13 +81,13 @@ public class CameraController : MonoBehaviour {
             fpsFrames = 0;
         }
         time += Time.deltaTime;
-        */
+        
     }
 
 
     void OnGUI()
     {
-        /*
+        
         GUILayout.BeginArea(new Rect(5, 5, 500, 500));
         GUILayout.Label("FPS: " + fps.ToString("f1"));
         GUILayout.EndArea();
@@ -95,7 +95,7 @@ public class CameraController : MonoBehaviour {
         GUILayout.BeginArea(new Rect(5, 20, 500, 500));
         GUILayout.Label("Time: " + time.ToString("f1"));
         GUILayout.EndArea();
-        */
+        
     }
 }
 

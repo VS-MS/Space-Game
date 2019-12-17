@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     protected float damage = 1.0f;
     public float Damage { set { damage = value; } }
     protected SpriteRenderer sprite;
-
+    public TrailRenderer trail;
     public Color color
     {
         set { sprite.color = value; }
@@ -30,6 +30,12 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine("TimeToDie");
+        //Debug.Log("StarCoroutine");
+
+        if (trail)
+        {
+            trail.Clear();
+        }
     }
 
     private void OnDisable()

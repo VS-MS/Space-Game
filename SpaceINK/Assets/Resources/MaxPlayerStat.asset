@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonDamage: 15
   cannonFireRate: 0.2
-  cannonBulletSpeed: 120
+  cannonBulletSpeed: 200
   cannonCount: 5
   ssDamage: 3
   ssMaxTime: 300
@@ -25,7 +25,7 @@ MonoBehaviour:
   shipMaxSpeed: 15
   shipAcceleration: 2000
   shipRotation: 1
-  sbMaxSpeed: 3
+  sbMaxSpeed: 2
   sbAcceleration: 3
   sbMaxTime: 300
   sbTimeReload: 0.05

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerBullet : Bullet
 {
-    public TrailRenderer trail;
+
     private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -15,14 +15,6 @@ public class PlayerBullet : Bullet
         //Двигаем пулю по космосу без физики
         float step = speed * Time.fixedDeltaTime;
         transform.position = Vector3.Lerp(transform.position, transform.position + direction, step);
-    }
-
-    private void OnEnable()
-    {
-        if(trail)
-        {
-            trail.Clear();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
