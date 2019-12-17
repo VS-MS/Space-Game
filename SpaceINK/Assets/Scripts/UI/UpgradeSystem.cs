@@ -211,12 +211,10 @@ public class UpgradeSystem : MonoBehaviour
             if (CoastUpgrade(DataSave.instance.CannonLvl) <= DataSave.instance.money)
             {
                 cannonLvlUpCost.color = new Color32(255, 255, 146, 255);
-                Debug.Log("Yellow");
             }
             else
             {
                 cannonLvlUpCost.color = new Color32(255, 111, 98, 255);
-                Debug.Log("Red");
             }
         }
 
@@ -234,12 +232,10 @@ public class UpgradeSystem : MonoBehaviour
             if (CoastUpgrade(DataSave.instance.SuperShotLvl) <= DataSave.instance.money)
             {
                 superShootLvlUpCost.color = new Color32(255, 255, 146, 255);
-                Debug.Log("Yellow");
             }
             else
             {
                 superShootLvlUpCost.color = new Color32(255, 111, 98, 255);
-                Debug.Log("Red");
             }
         }
 
