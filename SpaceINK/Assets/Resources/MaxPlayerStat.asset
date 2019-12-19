@@ -19,9 +19,9 @@ MonoBehaviour:
   ssDamage: 3
   ssMaxTime: 300
   ssTimeReload: 0.1
-  shipArmor: 1000
-  shipShield: 800
-  shipShieldDelta: 0.05
+  shipArmor: 1500
+  shipShield: 1200
+  shipShieldDelta: 0.03
   shipMaxSpeed: 15
   shipAcceleration: 2000
   shipRotation: 1

@@ -37,7 +37,7 @@ public class TargetPosition : MonoBehaviour
         float angle = GetAngleFromVectorFloat(dir);
         targetArrow.transform.localEulerAngles = new Vector3(0, 0, angle);
 
-        float borderSize = 40f;
+        float borderSize = Screen.width / 40f;
 
         Vector3 targetPositionScreenPoint = Camera.main.WorldToScreenPoint(target.transform.position);
         bool isOffscreen = targetPositionScreenPoint.x <= borderSize || targetPositionScreenPoint.x >= Screen.width - borderSize || targetPositionScreenPoint.y <= borderSize || targetPositionScreenPoint.y >= Screen.height - borderSize;
